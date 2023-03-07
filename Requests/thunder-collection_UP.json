@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "UP",
+    "dateExported": "2023-03-05T20:29:46.239Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d9ac2343-9962-438a-8ee7-a5a341bc75f6",
+            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "containerId": "",
+            "name": "Health Check",
+            "url": "http://localhost:5555/health_check",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-02-01T01:23:58.566Z",
+            "modified": "2023-02-01T01:23:58.566Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "947e7a69-61e9-469c-a741-b93b4dc316c1",
+            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "containerId": "",
+            "name": "Get Subjects UP Site",
+            "url": "http://localhost:5555/FetchGroupDataUPSite/0250009",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-02-01T01:26:45.707Z",
+            "modified": "2023-03-05T03:37:30.629Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"password\":\"Lu57529564#\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e6349c65-6251-4fb2-8d1a-3251459c38e6",
+            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "containerId": "",
+            "name": "Login",
+            "url": "http://localhost:5555/login/0250009",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-02-01T01:28:01.886Z",
+            "modified": "2023-03-01T07:42:55.078Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\": \"Lu57529564#\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "71bbe38a-8bb4-4ca1-b7ca-d42c8678b89d",
+            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "containerId": "",
+            "name": "Get Groups",
+            "url": "http://localhost:5555/getGroup",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-03-05T03:38:14.998Z",
+            "modified": "2023-03-05T03:39:04.521Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
