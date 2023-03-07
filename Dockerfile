@@ -1,5 +1,5 @@
 FROM python:3.10.7-buster
-WORKDIR /school_manager
+WORKDIR /UPSmart
 COPY . .
 ENV LANG es_MX.UTF-8 
 ENV LC_ALL es_MX.UTF-8

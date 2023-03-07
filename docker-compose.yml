@@ -5,7 +5,7 @@ networks:
 services:
   db:
     image: mysql:5.7
-    container_name: school_db
+    container_name: UP_DB
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: school
@@ -21,14 +21,14 @@ services:
       - app-tier
   adminer:
     image: adminer
-    container_name: school_adminer
+    container_name: UP_Adminer
     restart: always
     ports:
       - 8080:8080
     networks:
       - app-tier
   api:
-    container_name: school_api
+    container_name: UP_API
     stdin_open: true
     tty: true
     restart: always
@@ -36,7 +36,7 @@ services:
     ports:
       - 5555:5555
     volumes:
-      - ./App:/school_manager/App
+      - ./App:/SmartUP/App
     networks:
       - app-tier
 
