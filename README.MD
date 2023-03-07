@@ -58,7 +58,7 @@ UP_DB       | Version: '5.7.41'  socket: '/var/run/mysqld/mysqld.sock'  port: 33
 }
 ```
 
-4. To Stop the container, use **CTRL-C** in the twerminal where **docker compose up** is running, to delete all the data in the container volumes enter:
+4. To Stop the container, use **CTRL-C** in the terminal where **docker compose up** is running, to delete all the data in the container volumes enter:
 
    > **Note:** This may vary depending on the OS you're using
    >
