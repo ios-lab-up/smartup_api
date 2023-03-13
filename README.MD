@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-Before you begin, you have shold have the following installed on your system:
+Before you begin, you have shold have the following installed in your system:
 
 - Docker Desktop
 
