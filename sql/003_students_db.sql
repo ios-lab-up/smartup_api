@@ -16,3 +16,4 @@ CREATE TABLE
         `Options` int(11) NOT NULL,
         PRIMARY KEY (`ID`)
     ) ENGINE = InnoDB DEFAULT CHARSET = latin1;
+
