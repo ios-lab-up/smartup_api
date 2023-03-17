@@ -141,6 +141,11 @@ class Student(db.Model):
 
 
 @dataclass
+class User(db.Model):
+    '''Model to represent user for '''
+
+
+@dataclass
 class Classroom(db.Model):
     '''Model to represent a classroom '''
     __tablename__ = 'Classroom'
