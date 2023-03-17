@@ -142,10 +142,70 @@ class Student(db.Model):
 
 @dataclass
 class User(db.Model):
-    '''Model to represent user for '''
+    '''Model to represent user for storing and manipulating data'''
+    __tablename__ = 'User'
+    id: int = db.Column(db.Integer, primary_key=True,
+                        autoincrement=True, nullable=False)
+    userID: str = db.Column(db.String(280), nullable=False)
+    password: str = db.Column(db.String(280), nullable=False)
+    name: str = db.Column(db.String(280), nullable=False)
+    lastName: str = db.Column(db.String(280), nullable=False)
+    email: str = db.Column(db.String(280), nullable=False)
+    status: bool = db.Column(db.Boolean, nullable=False, default=True)
+    creationDate: datetime = db.Column(
+        db.Date, nullable=False, default=datetime.now)
+    lastupDate: str = db.Column(
+        db.TIMESTAMP, nullable=False, default=datetime.now, onupdate=datetime.now)
+    options: int = db.Column(db.Integer, nullable=False, default=0)
+
+    # Relationships
+    profileID: int = db.Column(
+        db.Integer, db.ForeignKey('Profile.id'), nullable=False)
+
+    def __repr__(self) -> str:
+        '''Convert the student to a string'''
+        return f'User:{" ".join([f"{column.name}={getattr(self, column.name)}" for column in self.__table__.columns])}'
+
+    def toDict(self) -> dict:
+        return {
+            column.name: getattr(self, column.name).strftime(
+                '%Y-%m-%d %H:%M:%S')
+            if isinstance(getattr(self, column.name), datetime)
+            else getattr(self, column.name)
+            for column in self.__table__.columns
+        }
 
 
 @dataclass
+class Profile(db.Model):
+    '''Model to represent a profile for storing profiles in the database'''
+
+    __tablename__ = 'Profile'
+
+    id: int = db.Column(db.Integer, primary_key=True,
+                        autoincrement=True, nullable=False)
+    name: str = db.Column(db.String(280), nullable=False)
+    status: bool = db.Column(db.Boolean, nullable=False, default=True)
+    creationDate: datetime = db.Column(
+        db.Date, nullable=False, default=datetime.now)
+    lastupDate: str = db.Column(
+        db.TIMESTAMP, nullable=False, default=datetime.now, onupdate=datetime.now)
+    options: int = db.Column(db.Integer, nullable=False, default=0)
+
+    # Relationships
+
+    # Secondary table
+
+    def __repr__(self) -> str:
+        '''Convert the profile to a string'''
+        return f'Profile:{" ".join([f"{column.name}={getattr(self, column.name)}" for column in self.__table__.columns])}'
+
+    def to_dict(self) -> dict:
+        '''Convert the profile to a dictionary'''
+        return {column.name: getattr(self, column.name) for column in self.__table__.columns}
+
+
+@ dataclass
 class Classroom(db.Model):
     '''Model to represent a classroom '''
     __tablename__ = 'Classroom'
