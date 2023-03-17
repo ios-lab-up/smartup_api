@@ -9,11 +9,13 @@ from flask_session import Session
 import logging
 import json
 from datetime import datetime
+from flask_wtf.csrf import CSRFProtect
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.login_view = 'main.login'
 login_manager.login_message_category = 'info'
+# csfr = CSRFProtect()
 
 
 class CustomJSONEncoder(json.JSONEncoder):
@@ -45,6 +47,7 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
     Session(app)
     CORS(app)
+    # csrf.init_app(app)
 
     # CORS(app, resources={r"/*": {"origins": "*"}})
     db.init_app(app)
@@ -57,11 +60,13 @@ def create_app(config_class=Config):
     from school.tools.routes import tools
     from school.student.routes import student
     from school.groups.routes import groups
+    from school.login.routes import login
 
     app.config.from_object(Config)
     app.register_blueprint(scrapper)
     app.register_blueprint(tools)
     app.register_blueprint(student)
     app.register_blueprint(groups)
+    app.register_blueprint(login)
 
     return app
