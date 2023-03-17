@@ -23,8 +23,8 @@ Before you begin, you have shold have the following installed in your system:
    > Make sure you already authorized your **Personal Acess Token** or your **SSH Key**, on order to be able to write.
    >
 
-   `$ git clone git@github.com:iOS-Lab-UP/SmartUP-Web.git`
-2. Once you've already cloned the repo, run the following command in order to start the container:
+   `$ git@github.com:iOS-Lab-UP/SmartUP-API.git`
+2. Once you've already cloned the repo, run the following command inside the root folder of the project in order to start the container:
 
    > **Note:** This may vary depending on the OS you're using
    >
