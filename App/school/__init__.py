@@ -54,6 +54,7 @@ def create_app(config_class=Config):
     from school.student.routes import student
     from school.groups.routes import groups
     from school.login.routes import login
+    from school.schedule.routes import schedule
 
     app.config.from_object(Config)
     app.register_blueprint(scrapper)
@@ -61,5 +62,6 @@ def create_app(config_class=Config):
     app.register_blueprint(student)
     app.register_blueprint(groups)
     app.register_blueprint(login)
+    app.register_blueprint(schedule)
 
     return app
