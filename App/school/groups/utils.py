@@ -94,7 +94,9 @@ def filterGroups(filterParams: str) -> list[dict]:
         if 'all' in filterParams:
             groups = Group.query.all()
         else:
+            print(filterParams)
             for key, value in filterParams.items():
+                print(key, value)
                 if key == 'dateRange':
                     startDate, endDate = value.split(',')
                     query = Group.query.filter(
