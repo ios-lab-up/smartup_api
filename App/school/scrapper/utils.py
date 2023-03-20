@@ -13,7 +13,7 @@ import traceback
 import logging
 
 
-def extractUP4UContent(studentId: str, password: str) -> list[Subject]:
+def extractUP4UContent(studentId: str, password: str) -> User:
     '''Extracts the schedule of a user from the UP4U platform'''
     scheduleContent: list[Subject] = []
 
@@ -33,7 +33,6 @@ def extractUP4UContent(studentId: str, password: str) -> list[Subject]:
                 login(browser, studentId, password)
                 user = createUser(
                     **session['user'], name=enterDashboard(browser))
-                session['user']['jwt_token'] = encodeJwtToken(user)
 
                 # fetchScheduleContent(browser)
                 scheduleContent = getUser(user.id, 2)

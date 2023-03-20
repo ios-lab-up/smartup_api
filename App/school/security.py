@@ -21,9 +21,9 @@ def tokenRequired(func) -> Callable:
         if not token:
             return jsonify({'message': 'Token is missing!'}), 401
         try:
-            print(jwt.decode(token,
-                             Config.SECRET_KEY,
-                             algorithms=['HS256']))
+            jwt.decode(token,
+                       Config.SECRET_KEY,
+                       algorithms=['HS256'])
         except:
             return jsonify({'message': 'Token is invalid!'}), 401
         return func(*args, **kwargs)
@@ -31,18 +31,18 @@ def tokenRequired(func) -> Callable:
     return decorator
 
 
-def encodeJwtToken(user: User) -> dict[str, str]:
+def encodeJwtToken(user: dict[str, str]) -> dict[str, str]:
     '''Encodes a user object into a JWT token'''
     try:
         if user:
             token = jwt.encode({
-                'public_id': user.id,
+                'public_id': user['id'],
                 'user': {
-                    'id': user.id,
-                    'name': user.name,
-                    'lastName': user.lastName,
-                    'email': user.email,
-                    'profileID': user.profileID,
+                    'id': user['id'],
+                    'name': user['name'],
+                    'lastName': user['lastName'],
+                    'email': user['email'],
+                    'profileID': user['profileID'],
                     'exp': str(datetime.utcnow() + timedelta(days=50))
                 }
             },

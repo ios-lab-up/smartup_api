@@ -84,7 +84,6 @@ def getUser(userID: User, type: int) -> User:
                 userData = user
             case 2:
                 userData = user.toDict()
-                userData['jwt_token'] = session['user']['jwt_token']
 
     except Exception as e:
         logging.error(

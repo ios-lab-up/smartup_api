@@ -25,7 +25,7 @@ def login() -> dict[str, str]:
         else:
             data = extractUP4UContent(
                 json_data['userID'], json_data['password'])
-
+            data['jwt_token'] = encodeJwtToken(data)
             message, code = f'Data extracted', 1
     else:
         error, code = 'Invalid method', 4
