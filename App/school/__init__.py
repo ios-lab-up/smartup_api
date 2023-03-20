@@ -8,6 +8,7 @@ from flask_session import Session
 import logging
 import json
 from datetime import datetime
+from flask_wtf.csrf import CSRFProtect
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 
@@ -40,6 +41,7 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
     Session(app)
     CORS(app)
+    # csrf.init_app(app)
 
     # CORS(app, resources={r"/*": {"origins": "*"}})
     db.init_app(app)
@@ -49,13 +51,15 @@ def create_app(config_class=Config):
 
     from school.scrapper.routes import scrapper
     from school.tools.routes import tools
-    from school.student.routes import student
+    from school.user.routes import user
     from school.groups.routes import groups
+    from school.login.routes import login
 
     app.config.from_object(Config)
     app.register_blueprint(scrapper)
     app.register_blueprint(tools)
-    app.register_blueprint(student)
+    app.register_blueprint(user)
     app.register_blueprint(groups)
+    app.register_blueprint(login)
 
     return app

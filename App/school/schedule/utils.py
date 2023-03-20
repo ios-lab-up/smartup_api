@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from school import db
 from school.tools.utils import color
-from school.models import Group, Student, Schedule, Classroom, Days, Hours
+from school.models import Group, User, Schedule, Classroom, Days, Hours
 from school.classrooms.utils import createClassroom, createClassroomSubjectRelationship
 from school.days.utils import *
 from school.hours.utils import *
@@ -73,29 +73,29 @@ def createScheduleGroupRelation(group: Group, schedule: Schedule) -> None:
         logging.critical(
             f'{color(5,"Schedule relation creation failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
 
-# def getStudentSubjects(student: Student) -> dict:
-#     '''Returns the student subjects as a dictionary with his subjects'''
+# def getUserSubjects(user: User) -> dict:
+#     '''Returns the user subjects as a dictionary with his subjects'''
 # #     try:
 
 # #         subjects = (
 # #             db.session.query(Subject)
 # #             .filter(Subject.id.in_((
-# #                 db.session.query(RelationStudentSubjectTable.c.subjectId)
-# #                 .filter(RelationStudentSubjectTable.c.studentId == student.id)
+# #                 db.session.query(RelationUserSubjectTable.c.subjectId)
+# #                 .filter(RelationUserSubjectTable.c.studentId == user.id)
 # #                 .subquery()
 # #             )
 # #             ))
 # #             .all()
 # #         )
-# #         student = {'Student': getStudent(student)}
-# #         student['Student']['Subjects'] = list(map(
+# #         user = {'User': getUser(user)}
+# #         user['User']['Subjects'] = list(map(
 # #             lambda subject: getSubject(subject), subjects))
-# #         logging.info(f"{color(2,'Get Student Subjects Complete')} ✅")
+# #         logging.info(f"{color(2,'Get User Subjects Complete')} ✅")
 # #     except Exception as e:
 # #         logging.error(
-# #             f"{color(1,'Get Student Subjects Failed')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
-# #         student = None
-# #     return student
+# #             f"{color(1,'Get User Subjects Failed')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
+# #         user = None
+# #     return user
 
 
 def getSchedule(Schedule: int) -> Schedule:
@@ -191,8 +191,8 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
 #     classroom = createClassroom(classroom)
 #     # create relations
 
-#     # createStudentSubjectRelationship(Student.query.filter_by(
-#     #     studentID=session['student']['studentID']).first(), subject)
+#     # createUserSubjectRelationship(User.query.filter_by(
+#     #     userID=session['user']['userID']).first(), subject)
 
 
 # def fetchScheduleContent(browser: ChromeBrowser) -> None:
@@ -206,7 +206,7 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
 
 
 # def createCompatibleSchedule(subjects: Subject) -> list[Subject]:
-#     '''Creates a compatible schedule for the student based on the subjects in database'''
+#     '''Creates a compatible schedule for the user based on the subjects in database'''
 #     try:
 #         days = {"Lunes": 0, "Martes": 1, "Miércoles": 2,
 #                 "Jueves": 3, "Viernes": 4, "Sábado": 5, "Domingo": 6}

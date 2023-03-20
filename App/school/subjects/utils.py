@@ -145,7 +145,7 @@ def fetchGroupData(browser: ChromeBrowser) -> list[str]:
         dayshours = fetchDateTime(subjectElement)
 
         group = createGroup(subject=subject.id, classNumber=subjectElement[1], group=subjectElement[2].split(
-            '-')[0], teacher=teacher.id, language=subjectElement[-1], students=getStudentRoom(subjectElement),
+            '-')[0], teacher=teacher.id, language=subjectElement[-1], students=getUserRoom(subjectElement),
             modality=fetchModality(subjectElement), description=fetchDescription(subjectElement))
 
         createSchedule(dayshours, classrooms, group)
@@ -155,15 +155,15 @@ def fetchGroupData(browser: ChromeBrowser) -> list[str]:
     return groups
 
 
-def getStudentRoom(data: list[list[str]]) -> str:
-    '''Gets the student room'''
+def getUserRoom(data: list[list[str]]) -> str:
+    '''Gets the user room'''
     try:
         for studentRoom in data:
             if re.search(r'\d{2}/\d{2}|\d{1}/\d{1}|\d{1}/\d{2}', studentRoom):
                 return studentRoom
     except Exception as e:
         logging.error(
-            f"{color(1,'Student room not found')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
+            f"{color(1,'User room not found')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
         return ''
 
 

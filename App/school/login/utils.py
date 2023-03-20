@@ -68,7 +68,7 @@ def login(browser: ChromeBrowser, studentId: str, password: str) -> str:
             logging.info(f"{color(2,'Login successful')} ✅")
             logging.info(f'{color(6,"Im going to sleep now 😴 ZzZzZ...")}')
             session['logged_in'] = True
-            session['student'] = {'studentID': Id, 'password': generate_password_hash(
+            session['user'] = {'userID': Id, 'password': generate_password_hash(
                 psw).decode('utf-8')}
             time.sleep(3)
             logging.info(f'{color(6,"Im awake now 🤓")}')
@@ -139,7 +139,7 @@ def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> str:
             logging.info(f"{color(2,'UPSite Login successful')} ✅")
             logging.info(f'{color(6,"Im going to sleep now 😴 ZzZzZ...")}')
             session['logged_in'] = True
-            session['student'] = {'studentID': Id, 'password': generate_password_hash(
+            session['user'] = {'userID': Id, 'password': generate_password_hash(
                 pwd).decode('utf-8')}
             time.sleep(3)
             logging.info(f'{color(6,"Im awake now 🤓")}')

@@ -1,4 +1,4 @@
-from school.student.utils import createStudent
+from school.user.utils import createUser
 from school.models import ChromeBrowser
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from school.tools.utils import color
 from flask import session
-import time
+from school.security import *
 import logging
 import traceback
 
@@ -17,10 +17,10 @@ def enterDashboard(browser: ChromeBrowser) -> str:
         try:
             userName = browser.find_element(
                 By.XPATH, "//div[@class='user-title pull-left hidden-xs']").find_element(By.XPATH, "//strong").text
-            createStudent(**session['student'], name=userName)
+
         except NoSuchElementException:
             logging.error(
-                f'{color(1,"Couldnt create student")} ❌ {traceback.format_exc().splitlines()[-3]}')
+                f'{color(1,"Couldnt create user")} ❌ {traceback.format_exc().splitlines()[-3]}')
 
         # browser.find_element(By.LINK_TEXT, "Horarios").click()
         # time.sleep(3)
@@ -28,7 +28,7 @@ def enterDashboard(browser: ChromeBrowser) -> str:
     except NoSuchElementException:
         logging.error(f'{color(1,"Schedule link not found")} ❌')
 
-    return f'Current URL after main menu: \033[94m{browser.current_url}\033[0m'
+    return userName
 
 
 def enterDashboardUPSite(browser: ChromeBrowser) -> str:
