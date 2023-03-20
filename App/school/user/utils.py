@@ -1,9 +1,10 @@
 from school.models import User, Subject
 from school import db
 from school.tools.utils import color
-from flask import session
+from school.config import Config
 import logging
 import traceback
+import qrcode
 
 
 def createUser(userID: str, password: str, name: str) -> User:
@@ -35,6 +36,52 @@ def createUser(userID: str, password: str, name: str) -> User:
         user = None
 
     return user
+
+
+def createGuest(email: str, name: str, lastName: str, visitDate: str) -> User:
+    '''Creates a user object of guest type'''
+    # Check if user already exists in database
+    try:
+        if not User.query.filter_by(email=email).first():
+            # Create user object if it doesn't exist in database
+            guest = User(
+                email=email,
+                name=name,
+                lastName=lastName,
+                profileID=4,
+            )
+            # Add user to database
+            db.session.add(guest)
+            db.session.commit()
+
+            # save guest infor in a string
+            guestInfo = f'{name} {lastName} {email} {visitDate}'
+            logging.info(f'{color(2,"Guest created")} ✅')
+        else:
+            # Raise an error if user already exists in database
+            raise ValueError(
+                f'{color(3,"Guest already exists in database")}')
+
+        # Create QR code
+        qr = qrcode.QRCode(
+            version=1,
+            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            box_size=10,
+            border=2,
+        )
+        qr.add_data(guestInfo)
+        qr.make(fit=True)
+        img = qr.make_image(fill_color="black", back_color="white")
+
+        # Save QR code
+        img.save(f'{Config.QR_PATH}/{email}.png')
+
+    except Exception as e:
+        logging.error(
+            f'{color(1,"Couldnt create guest")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+        user = None
+
+    return guest
 
 
 def createUserSubjectRelationship(user: User, subject: Subject) -> None:

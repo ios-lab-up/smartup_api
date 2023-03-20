@@ -25,9 +25,17 @@ class Config:
     # URL for uploading pdfs
     UPLOAD_FOLDER = os.environ.get(
         "UPLOAD_FOLDER", 'App/school/static/uploads')
+
+    QR_PATH = os.environ.get(
+        "QR_PATH", 'App/school/static/guests_qr_codes'
+    )
+
     # check if the folder exists
     if not os.path.exists(UPLOAD_FOLDER):
         os.makedirs(UPLOAD_FOLDER)
+
+    if not os.path.exists(QR_PATH):
+        os.makedirs(QR_PATH)
 
     # # Flask-Mail SMTP server settings
     # MAIL_SERVER = os.environ.get("MAIL_SERVER", 'smtp.@gmail.com')

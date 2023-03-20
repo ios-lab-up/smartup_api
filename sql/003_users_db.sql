@@ -17,8 +17,8 @@ DROP TABLE IF EXISTS `User`;
 CREATE TABLE
     `User` (
         `ID` int(11) NOT NULL AUTO_INCREMENT,
-        `UserID` text NOT NULL,
-        `Password` text NOT NULL,
+        `UserID` text,
+        `Password` text,
         `Name` text NOT NULL,
         `LastName` text NOT NULL,
         `Email` text NOT NULL,
