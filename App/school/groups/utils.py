@@ -2,7 +2,7 @@ from school import db
 from school.models import Group, Schedule, Subject, Teacher
 from school.relations import RelationGroupSchedule
 from school.schedule.utils import getSchedule
-import datetime
+from flask import jsonify
 import logging
 import traceback
 from school.tools.utils import color
@@ -84,6 +84,7 @@ def getGroup(groupID: int, type: int) -> Group:
 def filterGroups(filterParams: str) -> list[dict]:
     '''Returns a list with the group data by passing an ID'''
     try:
+
         filterMap = {
             'id': Group.id,
             'subject': Group.subject,

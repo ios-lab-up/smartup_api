@@ -8,11 +8,12 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `Zones`;
 
-CREATE TABLE `Zones` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Name` text,
-  `Status` tinyint(4) NOT NULL,
-  `CreationDate` date DEFAULT NULL,
-  `LastUpdate` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE
+    `Zones` (
+        `ID` int(11) NOT NULL AUTO_INCREMENT,
+        `Name` text,
+        `Status` tinyint(4) NOT NULL,
+        `CreationDate` date DEFAULT NULL,
+        `LastUpdate` timestamp NULL DEFAULT NULL,
+        PRIMARY KEY (`ID`)
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8;

@@ -17,3 +17,25 @@ set character_set_database = 'utf8';
 set character_set_results = 'utf8';
 
 set character_set_server = 'utf8';
+
+DROP TABLE IF EXISTS `App`;
+
+CREATE TABLE
+    `App` (
+        `ID` int(11) NOT NULL AUTO_INCREMENT,
+        `Name` varchar(255) NOT NULL,
+        `Key` varchar(255) NOT NULL,
+        `Admin` int(11) DEFAULT NULL,
+        PRIMARY KEY (`ID`),
+        KEY `Admin` (`Admin`),
+        CONSTRAINT `App_ibfk_1` FOREIGN KEY (`Admin`) REFERENCES `User` (`ID`)
+    ) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+INSERT INTO
+    `App` (`ID`, `Name`, `Key`, `Admin`)
+VALUES (
+        1,
+        'SmartUP',
+        'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOjEsImV4cCI6NTUxNjAyMzUzNn0.uIrYEN-JJZ2KsGMTtRhJvwb2z8W2WJMIMbWg9Ve--yM',
+        1
+    );

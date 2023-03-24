@@ -29,6 +29,20 @@ class ChromeBrowser:
 
 
 @dataclass
+class App(db.Model):
+    '''App main table'''
+
+    __tablename__ = 'App'
+
+    id: int = db.Column(db.Integer, primary_key=True,
+                        autoincrement=True, nullable=False)
+    name: str = db.Column(db.String(280), nullable=False)
+    key: str = db.Column(db.String(280), nullable=False)
+    admin: int = db.Column(
+        db.Integer, db.ForeignKey('User.id'), nullable=False)
+
+
+@dataclass
 class Group(db.Model):
     '''Model to represent a group for storing groups in the database'''
 
@@ -104,45 +118,9 @@ class Subject(db.Model):
 
 
 @dataclass
-class Student(db.Model):
-    '''Model to represent a student for storing students in the database'''
-
-    __tablename__ = 'Student'
-    id: int = db.Column(db.Integer, primary_key=True,
-                        autoincrement=True, nullable=False)
-    studentID: str = db.Column(db.String(280), nullable=False)
-    password: str = db.Column(db.String(280), nullable=False)
-    name: str = db.Column(db.String(280), nullable=False)
-    lastName: str = db.Column(db.String(280), nullable=False)
-    email: str = db.Column(db.String(280), nullable=False)
-    status: bool = db.Column(db.Boolean, nullable=False, default=True)
-    creationDate: datetime = db.Column(
-        db.Date, nullable=False, default=datetime.now)
-    lastupDate: str = db.Column(
-        db.TIMESTAMP, nullable=False, default=datetime.now, onupdate=datetime.now)
-    options: int = db.Column(db.Integer, nullable=False, default=0)
-
-    # Relationships
-
-    # Secondary table
-
-    def __repr__(self) -> str:
-        '''Convert the student to a string'''
-        return f'Student:{" ".join([f"{column.name}={getattr(self, column.name)}" for column in self.__table__.columns])}'
-
-    def toDict(self) -> dict:
-        return {
-            column.name: getattr(self, column.name).strftime(
-                '%Y-%m-%d %H:%M:%S')
-            if isinstance(getattr(self, column.name), datetime)
-            else getattr(self, column.name)
-            for column in self.__table__.columns
-        }
-
-
-@dataclass
 class User(db.Model):
-    '''Model to represent user for storing and manipulating data'''
+    '''Model to represent a User for storing Users in the database'''
+
     __tablename__ = 'User'
     id: int = db.Column(db.Integer, primary_key=True,
                         autoincrement=True, nullable=False)
@@ -159,11 +137,14 @@ class User(db.Model):
     options: int = db.Column(db.Integer, nullable=False, default=0)
 
     # Relationships
-    profileID: int = db.Column(
-        db.Integer, db.ForeignKey('Profile.id'), nullable=False)
+
+    profileID: int = db.Column(db.Integer, db.ForeignKey(
+        'Profile.id'), nullable=False)
+
+    # Secondary table
 
     def __repr__(self) -> str:
-        '''Convert the student to a string'''
+        '''Convert the user to a string'''
         return f'User:{" ".join([f"{column.name}={getattr(self, column.name)}" for column in self.__table__.columns])}'
 
     def toDict(self) -> dict:

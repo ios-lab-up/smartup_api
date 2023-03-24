@@ -1,36 +1,37 @@
-from school.models import Student
-# from school.schedule.utils import getSubject, getStudentSubjects
+from school.models import User
+# from school.schedule.utils import getSubject, getUserSubjects
 from flask import Blueprint, request, jsonify, render_template, session
 from school.scrapper.utils import *
 
 scrapper = Blueprint('scrapper', __name__)
 
 
-@scrapper.route('/createCompatibleSchedule/<string:studentID>', methods=['GET', 'POST'])
-def createStudentCompatibleSchedule(studentID: str) -> dict[str, str]:
-    '''This endpoint returns a compatible schedule for a student'''
-    if request.method == 'POST':
-        data: list[dict[str, str]] = []
-        response: dict[str, str] = {}
-        error, code = None, None
+# @scrapper.route('/createCompatibleSchedule/<string:studentID>', methods=['GET', 'POST'])
+# def createStudentCompatibleSchedule(studentID: str) -> dict[str, str]:
+#     '''This endpoint returns a compatible schedule for a student'''
+#     if request.method == 'POST':
+#         data: list[dict[str, str]] = []
+#         response: dict[str, str] = {}
+#         error, code = None, None
 
-        if Student.query.filter_by(studentID=studentID).first():
-            data = createCompatibleSchedule(Subject.query.all())
-            message, code = f'Compatible schedule created for {session["student"]["studentID"]}', 1
-        else:
-            error, code = 'Student not found', 2
-    else:
-        error, code = 'Invalid method', 3
+#         if User.query.filter_by(userID=userID).first():
+#             data = createCompatibleSchedule(Subject.query.all())
+#             message, code = f'Compatible schedule created for {session["user"]["userID"]}', 1
+#         else:
+#             error, code = 'User not found', 2
+#     else:
+#         error, code = 'Invalid method', 3
 
-    response.update({'sucess': True, 'message': message, 'Compatible Schedule': data, 'status_code': 200, 'error': None, 'code': code} if data and data != [] and data != [None] else {
-        'sucess': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
-    return jsonify(response)
+#     response.update({'sucess': True, 'message': message, 'Compatible Schedule': data, 'status_code': 200, 'error': None, 'code': code} if data and data != [] and data != [None] else {
+#         'sucess': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
+#     return jsonify(response)
 
 
-@scrapper.route('/FetchGroupDataUPSite/<string:studentID>', methods=['GET', 'POST'])
-def fetchUPSite(studentID: str) -> dict[str, str]:
+@scrapper.route('/FetchGroupDataUPSite/<string:userID>', methods=['GET', 'POST'])
+@tokenRequired
+def fetchUPSite(userID: str) -> dict[str, str]:
     '''
-    This endpoint returns the schedule of a student in a json format
+    This endpoint returns the schedule of a user in a json format
     '''
     if request.method == 'POST':
         json_data = request.get_json()
@@ -42,10 +43,10 @@ def fetchUPSite(studentID: str) -> dict[str, str]:
         elif 'password' not in json_data:
             error, code = 'Missing fields', 2
         else:
-            student = Student.query.filter_by(studentID=studentID).first()
-            if student:
-                data = extractUPSiteSchedule(studentID, json_data['password'])
-            message, code = f'Data extracted for {session["student"]["studentID"]}', 1
+            user = User.query.filter_by(userID=userID).first()
+            if user:
+                data = extractUPSiteSchedule(userID, json_data['password'])
+            message, code = f'Data extracted ', 1
     else:
         error, code = 'Invalid method', 4
 

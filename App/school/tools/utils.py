@@ -49,9 +49,9 @@ def color(color: int, text: str) -> str:
             raise ValueError("Invalid color")
 
 
-def deleteStudentSession() -> None:
-    '''Deletes the student session'''
-    session.pop('student', None)
+def deleteUserSession() -> None:
+    '''Deletes the user session'''
+    session.pop('user', None)
     session.pop('logged_in', None)
 
 
@@ -63,11 +63,11 @@ def writeHTMLFile(rows: list) -> None:
         f.write("\n</body>\n</html>")
 
 
-class StudentNotFoundError(Exception):
-    """Error raised when student not found in DB"""
+class UserNotFoundError(Exception):
+    """Error raised when user not found in DB"""
 
     def __init__(self, message=None) -> str:
-        self.message: str = f'{color(3,"Student not found in DB, creating profile...")} 🔍' if message is None else message
+        self.message: str = f'{color(3,"User not found in DB, creating profile...")} 🔍' if message is None else message
 
 
 class ScheduleExtractionError(Exception):

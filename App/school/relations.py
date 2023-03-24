@@ -10,7 +10,7 @@ RelationGroupSchedule = db.Table('RelationGroupSchedule',
                                  )
 
 
-RelationStudentSubjectTable = db.Table('RelationStudentSubjectTable',
-                                       db.Column('studentId', db.Integer,
-                                                 db.ForeignKey('Student.id'), ),
-                                       db.Column('subjectId', db.Integer, db.ForeignKey('Subject.id')),)
+RelationUserSubjectTable = db.Table('RelationUserSubjectTable',
+                                    db.Column('studentId', db.Integer,
+                                              db.ForeignKey('User.id'), ),
+                                    db.Column('subjectId', db.Integer, db.ForeignKey('Subject.id')),)

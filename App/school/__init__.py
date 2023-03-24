@@ -51,7 +51,7 @@ def create_app(config_class=Config):
 
     from school.scrapper.routes import scrapper
     from school.tools.routes import tools
-    from school.student.routes import student
+    from school.user.routes import user
     from school.groups.routes import groups
     from school.login.routes import login
     from school.schedule.routes import schedule
@@ -59,7 +59,7 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
     app.register_blueprint(scrapper)
     app.register_blueprint(tools)
-    app.register_blueprint(student)
+    app.register_blueprint(user)
     app.register_blueprint(groups)
     app.register_blueprint(login)
     app.register_blueprint(schedule)
