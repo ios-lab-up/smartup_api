@@ -77,7 +77,7 @@ def getGroup(groupID: int, type: int) -> Group:
         logging.error(
             f'{color(1,"Couldnt get group")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         groupData = None
-
+    
     return groupData
 
 
@@ -90,11 +90,9 @@ def filterGroups(filterParams: str) -> list[dict]:
             'language': Group.language,
             'dateRange': Group.creationDate
         }
-
         if 'all' in filterParams:
             groups = Group.query.all()
         else:
-            print(filterParams)
             for key, value in filterParams.items():
                 print(key, value)
                 if key == 'dateRange':
@@ -102,7 +100,22 @@ def filterGroups(filterParams: str) -> list[dict]:
                     query = Group.query.filter(
                         filterMap[key].between(startDate, endDate)
                     )
-
+                elif key == 'subject':
+                    multipleSubjects = []
+                    for subject in value:
+                        groups = Group.query.all()
+                        groups = list(filter(
+                            lambda group: getattr(Subject.query.filter_by(id=group.subject).first(), 'name') == subject, groups))
+                        groups = list(map(lambda group: group.id, groups))
+                        multipleSubjects.append(groups)
+                    query = Group.query.filter(Group.id.in_(multipleSubjects[0]))
+                        
+                    for i in range(1, len(multipleSubjects)):
+                        query = query.union(Group.query.filter(
+                            Group.id.in_(multipleSubjects[i])))
+                    query = query.distinct()
+                    query = query.order_by(Group.subject)
+                    
                 else:
                     query = Group.query.filter(filterMap[key] == value)
 

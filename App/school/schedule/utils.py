@@ -223,3 +223,76 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
 #             f"{color(1,'Compatible Schedule Not Created')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
 #         schedule = None
 #     return schedule
+
+def combinations_of_courses(BDlist: list) -> list:
+
+    def decimal_to_base(number, maximum, list_length):
+        b = ''
+        while True:
+            a = number % maximum
+            b = str(a) + b
+            number = number // maximum
+            if number == 0:
+                break
+
+        if len(b) < list_length:
+            b = '0' * (list_length - len(b)) + b
+        # else:
+        #     b = b[-list_length:]
+        return b
+
+    max_element = max([len(element) for element in BDlist])
+    combinations = max_element ** len(BDlist)
+    base_combinations = []
+
+    for n in range(combinations):
+        base_combinations.append(decimal_to_base(n, max_element, len(BDlist)))
+    courses_combinations = []
+
+    for combination in base_combinations:
+        courses_combinations.append([])
+        for i, element in enumerate(combination):
+            try:
+                courses_combinations[-1].append(BDlist[i][int(element)])
+            except IndexError:
+                courses_combinations[-1].append('~')
+
+    courses_combinations = [x for x in courses_combinations if '~' not in x]
+
+    return courses_combinations
+
+
+def cleanData(list_of_courses: list) -> list:
+    '''Cleans the data from the database'''
+        
+    # for course in list_of_courses:
+    #     try:
+    #         del course['description']
+    #         del course['students']
+    #         del course['modality']
+    #         del course['startDate']
+    #         del course['endDate']
+    #         del course['creationDate']
+    #         del course['lastupDate']
+    #         del course['options']
+    #         del course['status']
+    #         for schedule in course['Schedules']:
+    #             del schedule['creationDate']
+    #             del schedule['lastupDate']
+    #             del schedule['status']
+    #     except:
+    #         pass
+    
+    distinct_courses = list(set([course['subject'] for course in list_of_courses]))
+    distinct_courses.sort()
+    BD_list_of_courses = []       
+    
+    for course in distinct_courses:
+        BD_list_of_courses.append([])
+        for course_ in list_of_courses:
+            if course == course_['subject']:
+                BD_list_of_courses[-1].append(course_)
+    
+    list_of_courses = BD_list_of_courses
+        
+    return list_of_courses

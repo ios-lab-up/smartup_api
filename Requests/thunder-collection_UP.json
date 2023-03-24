@@ -1,34 +1,34 @@
 {
     "client": "Thunder Client",
     "collectionName": "UP",
-    "dateExported": "2023-03-05T20:29:46.239Z",
+    "dateExported": "2023-03-22T04:13:40.269Z",
     "version": "1.1",
     "folders": [],
     "requests": [
         {
-            "_id": "d9ac2343-9962-438a-8ee7-a5a341bc75f6",
-            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "_id": "7ad6b59b-0d8c-4f5b-b2c2-05124680b4bf",
+            "colId": "f3159a60-bd43-4557-84b2-a9b2f2ecec00",
             "containerId": "",
             "name": "Health Check",
             "url": "http://localhost:5555/health_check",
             "method": "GET",
             "sortNum": 10000,
-            "created": "2023-02-01T01:23:58.566Z",
-            "modified": "2023-02-01T01:23:58.566Z",
+            "created": "2023-03-08T01:29:41.131Z",
+            "modified": "2023-03-22T04:12:59.573Z",
             "headers": [],
             "params": [],
             "tests": []
         },
         {
-            "_id": "947e7a69-61e9-469c-a741-b93b4dc316c1",
-            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "_id": "77bf059e-2b96-4273-b9d6-b0b0b2c16417",
+            "colId": "f3159a60-bd43-4557-84b2-a9b2f2ecec00",
             "containerId": "",
             "name": "Get Subjects UP Site",
             "url": "http://localhost:5555/FetchGroupDataUPSite/0250009",
             "method": "POST",
             "sortNum": 20000,
-            "created": "2023-02-01T01:26:45.707Z",
-            "modified": "2023-03-05T03:37:30.629Z",
+            "created": "2023-03-08T01:29:41.132Z",
+            "modified": "2023-03-08T01:29:41.132Z",
             "headers": [],
             "params": [],
             "body": {
@@ -39,36 +39,60 @@
             "tests": []
         },
         {
-            "_id": "e6349c65-6251-4fb2-8d1a-3251459c38e6",
-            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "_id": "b2e62507-9ae4-4a7c-bab0-f539b6193b3c",
+            "colId": "f3159a60-bd43-4557-84b2-a9b2f2ecec00",
             "containerId": "",
             "name": "Login",
             "url": "http://localhost:5555/login/0250009",
             "method": "GET",
             "sortNum": 30000,
-            "created": "2023-02-01T01:28:01.886Z",
-            "modified": "2023-03-01T07:42:55.078Z",
+            "created": "2023-03-08T01:29:41.133Z",
+            "modified": "2023-03-14T04:00:30.764Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"password\": \"Lu57529564#\"\n}",
+                "raw": "{\n    \"password\":\"Lu57529564#\"\n}",
                 "form": []
             },
             "tests": []
         },
         {
-            "_id": "71bbe38a-8bb4-4ca1-b7ca-d42c8678b89d",
-            "colId": "5fccd287-3b7d-4a65-bcdc-83381bde0cf1",
+            "_id": "7e76148c-2e09-4041-a057-90bf7006bcfa",
+            "colId": "f3159a60-bd43-4557-84b2-a9b2f2ecec00",
             "containerId": "",
             "name": "Get Groups",
             "url": "http://localhost:5555/getGroup",
             "method": "GET",
             "sortNum": 40000,
-            "created": "2023-03-05T03:38:14.998Z",
-            "modified": "2023-03-05T03:39:04.521Z",
+            "created": "2023-03-08T01:29:41.134Z",
+            "modified": "2023-03-14T17:07:00.288Z",
             "headers": [],
             "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"filter\": \"all\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "7047f78b-1835-4b2f-b09b-2abef89cc74d",
+            "colId": "f3159a60-bd43-4557-84b2-a9b2f2ecec00",
+            "containerId": "",
+            "name": "createSchedules",
+            "url": "http://localhost:5555/createSchedules",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-03-22T04:11:25.134Z",
+            "modified": "2023-03-22T04:12:02.295Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"ids\": [\n    [\n      \"fisica1\",\n      \"fisica2\",\n      \"fisica3\"\n    ],\n    [\n      \"matematicas1\",\n      \"matematicas2\",\n      \"matematicas3\"\n    ],\n    [\n      \"quimica1\",\n      \"quimica2\",\n      \"quimica3\",\n      \"quimica4\",\n      \"quimica5\",\n      \"quimica6\",\n      \"quimica7\",\n      \"quimica8\",\n      \"quimica9\"\n    ],\n    [\n      \"ingles1\",\n      \"ingles2\"\n    ]\n  ]\n}",
+                "form": []
+            },
             "tests": []
         }
     ]
