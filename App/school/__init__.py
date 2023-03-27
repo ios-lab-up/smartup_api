@@ -35,6 +35,13 @@ handler.setFormatter(formatter)
 
 
 def create_app(config_class=Config):
+    '''
+    This function creates the app and returns it to the user,
+    also it registers the blueprints to the app by calling the
+    register_blueprint function
+    '''
+    
+    # Define the WSGI application object and initialize the app
     app = Flask(__name__)
     app.config["SESSION_PERMANENT"] = False
     app.config["SESSION_TYPE"] = "filesystem"
@@ -44,11 +51,14 @@ def create_app(config_class=Config):
     # csrf.init_app(app)
 
     # CORS(app, resources={r"/*": {"origins": "*"}})
+    
+    # Define the database object which is imported
     db.init_app(app)
     bcrypt.init_app(app)
 
     app.app_context().push()
 
+    # Import a module / component using its blueprint handler variable (mod_auth)
     from school.scrapper.routes import scrapper
     from school.tools.routes import tools
     from school.user.routes import user
@@ -56,6 +66,7 @@ def create_app(config_class=Config):
     from school.login.routes import login
     from school.schedule.routes import schedule
 
+    # Here is where you register your blueprints to the app
     app.config.from_object(Config)
     app.register_blueprint(scrapper)
     app.register_blueprint(tools)

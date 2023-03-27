@@ -19,12 +19,17 @@ def createSchedules() -> None:
             error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
         else:
             if 'subject' in jsonData:
+                # We store the request data in a variable, the data will be the courses that will be used to create the schedules
                 data = filterGroups(jsonData)
+                # We filter the groups that do not have either capacity or schedules
                 data = [group for group in data if group['Schedules'] != []]
                 data = [group for group in data if group['students'].split('/')[0] != group['students'].split('/')[1]]
                 data = [group for group in data if group['status'] != False]
+                # To create the schedules we need to have the courses in a list of lists, so we call the function that does that, and we pass the data as a parameter
                 data = cleanData(data)
+                # We call the function that creates all the possible combinations of courses
                 data = combinations_of_courses(data)
+                # We call the function that validates if the schedules are valid (do not have conflicts)
                 data = validateSchedule(data)
                 
             elif 'ids' in jsonData:
