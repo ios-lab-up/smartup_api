@@ -9,6 +9,7 @@ from school.hours.utils import *
 from datetime import datetime
 import traceback
 import logging
+import re
 
 
 def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Group) -> Schedule:
@@ -264,24 +265,6 @@ def combinations_of_courses(BDlist: list) -> list:
 
 def cleanData(list_of_courses: list) -> list:
     '''Cleans the data from the database'''
-        
-    # for course in list_of_courses:
-    #     try:
-    #         del course['description']
-    #         del course['students']
-    #         del course['modality']
-    #         del course['startDate']
-    #         del course['endDate']
-    #         del course['creationDate']
-    #         del course['lastupDate']
-    #         del course['options']
-    #         del course['status']
-    #         for schedule in course['Schedules']:
-    #             del schedule['creationDate']
-    #             del schedule['lastupDate']
-    #             del schedule['status']
-    #     except:
-    #         pass
     
     distinct_courses = list(set([course['subject'] for course in list_of_courses]))
     distinct_courses.sort()
@@ -296,3 +279,43 @@ def cleanData(list_of_courses: list) -> list:
     list_of_courses = BD_list_of_courses
         
     return list_of_courses
+
+def validateSchedule(schedules: list) -> list:
+    '''Validates the schedules that don't have any conflicts'''
+    valid_schedules = []
+    for schedule in schedules:
+        days = {}
+        for indx, subject in enumerate(schedule):
+            for course in subject['Schedules']:
+                if sum(1 for c in course['day'] if c.isupper()) > 1:
+                    separated_days = re.findall('[A-Z][^A-Z]*', course['day'])
+                    for day in separated_days:
+                        if day not in days:
+                            days[day] = []
+                else:
+                    if course['day'] not in days:
+                        days[course['day']] = []
+                        
+                if sum(1 for c in course['day'] if c.isupper()) > 1:
+                    separated_days = re.findall('[A-Z][^A-Z]*', course['day'])
+                    for day in separated_days:
+                        days[day].append(course)
+                else:
+                    days[course['day']].append(course)
+                    
+        for day in days:
+            for indx, course in enumerate(days[day]):
+                for indx_, course_ in enumerate(days[day]):
+                    if indx != indx_:
+                        if course['startTime'] < course_['startTime'] < course['endTime'] or course['startTime'] < course_['endTime'] < course['endTime']:
+                            break
+                else:
+                    continue
+                break
+            else:
+                continue
+            break
+        else:
+            valid_schedules.append(schedule)
+                        
+    return valid_schedules

@@ -25,6 +25,7 @@ def createSchedules() -> None:
                 data = [group for group in data if group['status'] != False]
                 data = cleanData(data)
                 data = combinations_of_courses(data)
+                data = validateSchedule(data)
                 
             elif 'ids' in jsonData:
                 data = jsonData['ids']
@@ -37,33 +38,3 @@ def createSchedules() -> None:
     response.update({'sucess': True, 'message': message, 'Combinations': data, 'status_code': 200, 'error': error, 'code': code, 'combinations': len(data)} if data and data != [] and data != [None] else {
         'sucess': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
     return jsonify(response)
-
-# {
-#   "ids": [
-#     [
-#       "fisica1",
-#       "fisica2",
-#       "fisica3"
-#     ],
-#     [
-#       "matematicas1",
-#       "matematicas2",
-#       "matematicas3"
-#     ],
-#     [
-#       "quimica1",
-#       "quimica2",
-#       "quimica3",
-#       "quimica4",
-#       "quimica5",
-#       "quimica6",
-#       "quimica7",
-#       "quimica8",
-#       "quimica9"
-#     ],
-#     [
-#       "ingles1",
-#       "ingles2"
-#     ]
-#   ]
-# }
