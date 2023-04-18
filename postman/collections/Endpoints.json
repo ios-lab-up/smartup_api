@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "0bf75684-4dba-4ee0-93df-9e198afd2a3f",
+		"name": "Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "19885566-0bf75684-4dba-4ee0-93df-9e198afd2a3f"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Login",
+					"id": "b2e1ad38-0a94-4c44-9c5f-d7ccd0977313",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userID\": \"0250009\",\r\n  \"password\": \"Lu57529564#\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Guest",
+					"id": "2579d499-9e11-4216-b208-def33301e046",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Luis\",\r\n  \"lastName\": \"Cedillo\",\r\n  \"email\": \"luisced02031@gmail.com\",\r\n  \"visitDate\": \"04/19/2023\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/user/registerGuest",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"user",
+								"registerGuest"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "d7e241d6-73ef-4441-b76e-21c16bd73c8b"
+		},
+		{
+			"name": "UPSite",
+			"item": [
+				{
+					"name": "Subjects",
+					"item": [
+						{
+							"name": "Fetch Subjects",
+							"id": "4ffe4c92-3744-4e65-9b5d-3b8771c21f46",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\":\"Lu57529564#\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5555/FetchGroupDataUPSite/0250009",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5555",
+									"path": [
+										"FetchGroupDataUPSite",
+										"0250009"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "8f73028d-598a-4fb0-ac2d-3f24f402c676"
+				}
+			],
+			"id": "b362dff6-fde0-4619-8835-e397fc640ae4"
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "Get Groups",
+					"id": "c1717bc2-d783-4d3b-b562-9bc35f030ae5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsInVzZXIiOnsiaWQiOjEsIm5hbWUiOiJMdWlzIiwibGFzdE5hbWUiOiJDZWRpbGxvIE1hbGRvbmFkbyIsImVtYWlsIjoiMDI1MDAwOUB1cC5lZHUubXgiLCJwcm9maWxlSUQiOjMsImV4cCI6IjIwMjMtMDYtMDcgMDI6MDU6MDQuNTU3NTE1In19._SFDkN3XxnCStjK99dcjLDDydpJ7HuIIQswQqKPvJaQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"filter\":\"all\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5555/getGroup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5555",
+							"path": [
+								"getGroup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "624dc34e-20e1-48dc-bead-54c3a8d31d88"
+		}
+	]
+}
