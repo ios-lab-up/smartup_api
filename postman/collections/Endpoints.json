@@ -166,6 +166,24 @@
 				}
 			],
 			"id": "624dc34e-20e1-48dc-bead-54c3a8d31d88"
+		},
+		{
+			"name": "Tools",
+			"item": [
+				{
+					"name": "Health Check",
+					"id": "590c43ac-4a11-4c5c-868e-81d2503fa5c7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
+			"id": "5f82237f-3b56-480b-adc3-825e2caf1e78"
 		}
 	]
 }
