@@ -11,6 +11,32 @@
 			"item": [
 				{
 					"name": "User Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "93e8c1f3-c86b-4b4f-8651-b39a7eb90e91",
+								"exec": [
+									"// Set JWT token",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"pm.test(\"Env variable set succesfully \", function () {",
+									"    pm.environment.set(\"token\", jsonData.User.jwt_token);",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Succesful login\", function () {",
+									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "b2e1ad38-0a94-4c44-9c5f-d7ccd0977313",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -178,7 +204,10 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				}
