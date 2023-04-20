@@ -1,9 +1,6 @@
 FROM python:3.10.7-buster
 WORKDIR /SmartUP
 COPY . .
-ENV LANG es_MX.UTF-8 
-ENV LC_ALL es_MX.UTF-8
-ENV TZ=America/Mexico_City
 ENV FLASK_ENV development
 ENV DEBUG true
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
