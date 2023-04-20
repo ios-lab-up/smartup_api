@@ -45,6 +45,8 @@ def createGuest(email: str, name: str, lastName: str, visitDate: str) -> User:
         if not User.query.filter_by(email=email).first():
             # Create user object if it doesn't exist in database
             guest = User(
+                userID=None,
+                password=None,
                 email=email,
                 name=name,
                 lastName=lastName,

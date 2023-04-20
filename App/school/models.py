@@ -124,7 +124,7 @@ class User(db.Model):
     __tablename__ = 'User'
     id: int = db.Column(db.Integer, primary_key=True,
                         autoincrement=True, nullable=False)
-    userID: str = db.Column(db.String(280), nullable=False)
+    userID: str = db.Column(db.String(280))
     password: str = db.Column(db.String(280), nullable=False)
     name: str = db.Column(db.String(280), nullable=False)
     lastName: str = db.Column(db.String(280), nullable=False)
