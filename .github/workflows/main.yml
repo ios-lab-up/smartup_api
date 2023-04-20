@@ -4,6 +4,20 @@ on:
     branches:
       - main
 jobs:
+  automated-api-tests:
+    name: Automated API Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "19885566-97205937-669b-46a9-8070-60f0ea6e7ef1"
   build-and-push:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
@@ -21,7 +35,7 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
-        
+
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         env:
