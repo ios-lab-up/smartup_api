@@ -1,4 +1,4 @@
-name: Build and Push Flask Image to AWS ECR
+name: Test, Build and Push Docker Image to AWS
 on:
   push:
     branches:
