@@ -13,12 +13,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Run the Docker container
         run: docker-compose up -d
-      - name: Wait for the API to be ready
-        run: |
-          while ! curl --output /dev/null --silent --head --fail http://localhost:5555; do
-              printf '.'
-              sleep 5
-          done
 
       - uses: actions/checkout@v3
       - name: Install Postman CLI
