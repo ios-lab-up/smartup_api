@@ -52,4 +52,4 @@ def fetchUPSite(userID: str) -> dict[str, str]:
 
     response.update({'sucess': True, 'message': message, 'Schedule': data, 'status_code': 200, 'error': None, 'code': code} if data and data != [] and data != [None] else {
         'sucess': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
-    return jsonify(response), response['status_code']
+    return jsonify(response)
