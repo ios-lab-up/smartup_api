@@ -31,18 +31,6 @@ def enterDashboard(browser: ChromeBrowser) -> str:
     return userName
 
 
-def enterDashboardUPSite(browser: ChromeBrowser) -> str:
-    '''Extracts the schedule link from the main page'''
-    try:
-        upsite_subjecs = enterUPSiteSubjects(browser)
-    except NoSuchElementException:
-        logging.error(
-            f'{color(1,"Something went wrong while being in dasboard")} ❌ {traceback.format_exc().splitlines()[-3]}')
-        upsite_subjecs = None
-
-    return upsite_subjecs
-
-
 def enterUPSiteSubjects(browser) -> str:
     '''Fetches the subjects from the UPSite page'''
     try:

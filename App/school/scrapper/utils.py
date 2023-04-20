@@ -1,5 +1,5 @@
 from school.models import ChromeBrowser
-from school.dashboard.utils import enterDashboard, enterDashboardUPSite
+from school.dashboard.utils import enterDashboard, enterUPSiteSubjects
 from school.schedule.utils import *
 from school.login.utils import *
 from school.subjects.utils import fetchGroupData
@@ -53,7 +53,7 @@ def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
             # Login
             loginUPSite(browser, studentId, password)
             # Enter the dashboard
-            enterDashboardUPSite(browser)
+            enterUPSiteSubjects(browser)
             # Get the schedule content
             groupData = fetchGroupData(browser)
 

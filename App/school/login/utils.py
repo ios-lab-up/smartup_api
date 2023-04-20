@@ -1,5 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from flask_bcrypt import generate_password_hash
 from school.models import *
 from school.tools.utils import color
@@ -141,7 +143,12 @@ def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> str:
             session['logged_in'] = True
             session['user'] = {'userID': Id, 'password': generate_password_hash(
                 pwd).decode('utf-8')}
-            time.sleep(3)
+
+            WebDriverWait(browser, 10).until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="pthdr2logofluid"]'))
+            )
+
             logging.info(f'{color(6,"Im awake now 🤓")}')
     except Exception as e:
         logging.critical(f"{color(5,'UPSite Login failed')} ❌\n{e}")
