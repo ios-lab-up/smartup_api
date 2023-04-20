@@ -25,10 +25,12 @@
 									"    pm.environment.set(\"token\", jsonData.User.jwt_token);",
 									"});",
 									"",
+									"// The status code is valid",
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
+									"//The requests was succesful",
 									"pm.test(\"Succesful login\", function () {",
 									"    pm.expect(jsonData.sucess).to.eql(true);",
 									"});"
@@ -54,12 +56,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5555/user/login",
-							"protocol": "http",
+							"raw": "{{base_url}}/user/login",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5555",
 							"path": [
 								"user",
 								"login"
@@ -112,13 +112,42 @@
 					"item": [
 						{
 							"name": "Fetch Subjects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1a28ccaa-3aac-47b3-98d7-0005bddcc352",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"// The status code is valid",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"//The requests was succesfuls",
+											"pm.test(\"Succesful request\", function () {",
+											"    pm.expect(jsonData.sucess).to.eql(true);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "4ffe4c92-3744-4e65-9b5d-3b8771c21f46",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
 							"request": {
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "x-access-token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "raw",
 									"raw": "{\r\n    \"password\":\"Lu57529564#\"\r\n}",
@@ -129,12 +158,10 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:5555/FetchGroupDataUPSite/0250009",
-									"protocol": "http",
+									"raw": "{{base_url}}/FetchGroupDataUPSite/0250009",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "5555",
 									"path": [
 										"FetchGroupDataUPSite",
 										"0250009"
@@ -154,6 +181,29 @@
 			"item": [
 				{
 					"name": "Get Groups",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4c086b19-e455-4c15-bdd9-b829fd6be912",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"// The status code is valid",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//The requests was succesful",
+									"pm.test(\"Succesful request\", function () {",
+									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "c1717bc2-d783-4d3b-b562-9bc35f030ae5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -163,7 +213,7 @@
 						"header": [
 							{
 								"key": "x-access-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwdWJsaWNfaWQiOjEsInVzZXIiOnsiaWQiOjEsIm5hbWUiOiJMdWlzIiwibGFzdE5hbWUiOiJDZWRpbGxvIE1hbGRvbmFkbyIsImVtYWlsIjoiMDI1MDAwOUB1cC5lZHUubXgiLCJwcm9maWxlSUQiOjMsImV4cCI6IjIwMjMtMDYtMDcgMDI6MDU6MDQuNTU3NTE1In19._SFDkN3XxnCStjK99dcjLDDydpJ7HuIIQswQqKPvJaQ",
+								"value": "{{token}}",
 								"type": "text"
 							}
 						],
@@ -177,12 +227,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5555/getGroup",
-							"protocol": "http",
+							"raw": "{{base_url}}/getGroup",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "5555",
 							"path": [
 								"getGroup"
 							]
@@ -198,6 +246,25 @@
 			"item": [
 				{
 					"name": "Health Check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4c5618fe-3a7d-45e0-a259-fd604adea870",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"// The status code is valid",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "590c43ac-4a11-4c5c-868e-81d2503fa5c7",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -205,8 +272,23 @@
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "{{base_url}}/health_check",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"health_check"
+							]
 						}
 					},
 					"response": []
