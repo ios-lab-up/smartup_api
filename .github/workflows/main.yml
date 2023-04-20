@@ -11,10 +11,10 @@ jobs:
       # build the docker container(docker compose)
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Run the Docker container
         run: docker-compose up -d
 
-      - uses: actions/checkout@v2
       - name: Install Postman CLI
         run: |
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
