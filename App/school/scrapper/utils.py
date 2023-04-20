@@ -42,7 +42,7 @@ def extractUP4UContent(studentId: str, password: str) -> User:
     return scheduleContent
 
 
-def extractUPSiteSchedule(studentId: str, password: str, maxtries: int = 3) -> list[Group]:
+def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
     '''Extracts the schedule of a user from the UP site if it fails, try again (up to 3 times)'''
     try:
         # Start the browser
@@ -64,13 +64,5 @@ def extractUPSiteSchedule(studentId: str, password: str, maxtries: int = 3) -> l
     except Exception as e:
         logging.critical(
             f'{color(5,"Schedule extraction failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
-
-        if maxtries > 0:
-            logging.warning(
-                f'{color(5,"Trying again...")} 🔄 {color(5,maxtries)} attempts left')
-            return extractUPSiteSchedule(studentId, password, maxtries-1)
-        else:
-            logging.critical(f'{color(5,"Schedule extraction failed")} ❌')
-            data = []
 
     return data
