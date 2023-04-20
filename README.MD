@@ -43,7 +43,6 @@ UP_DB       | 2023-03-07T06:46:13.752969Z 0 [Note] mysqld: ready for connections
 UP_DB       | Version: '5.7.41'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
 ```
 
-
 3. Acces the application in a web browser. In this example, you can acces the application by navigating to [http://localhost:5555/health_check](http://localhost:5555/health_check), where you should be able to watch a similar response:
 
 ```
@@ -67,4 +66,4 @@ UP_DB       | Version: '5.7.41'  socket: '/var/run/mysqld/mysqld.sock'  port: 33
 
    ## Conclusion
 
-   Congratulations! You have succesfully built the SmartUP-API container. For any questions or troubleshooting, please contact the mantainers.
+   Congratulations! You have succesfully built the SmartUP-API container. For any questions or troubleshooting, please contact the mantainers @luisced.
