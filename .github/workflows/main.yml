@@ -32,6 +32,8 @@ jobs:
   automated-api-tests:
     name: Automated API Tests
     runs-on: ubuntu-latest
+    needs: build # wait for the previous job to complete
+    if: success() # only run this job if the previous one succeeded
     steps:
       - uses: actions/checkout@v3
       - name: Create dir
