@@ -57,15 +57,10 @@ def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
             enterUPSiteSubjects(browser)
             # Get the schedule content
             groupData = fetchGroupData(browser)
-            print(groupData)
 
-            # get all group info
-            for group in groupData:
-                if group.id != '':
-                    data.append(getGroup(group.id, 2))
-                else:
-                    logging.warning(
-                        f'{color(3,"Group id not found")} ❌: {group}')
+            data = [getGroup(group.id, 2) if group.id != '' else (
+                logging.warning(f'{color(3,"Group id not found")} ❌: {group}'), None)
+                for group in groupData]
 
     except Exception as e:
         logging.critical(
