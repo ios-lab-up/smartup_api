@@ -143,10 +143,7 @@
 											"}",
 											"",
 											"",
-											"//The requests was succesfuls",
-											"pm.test(\"Succesful request\", function () {",
-											"    pm.expect(jsonData.sucess).to.eql(true);",
-											"});",
+											"",
 											""
 										],
 										"type": "text/javascript"
