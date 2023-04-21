@@ -39,7 +39,6 @@ jobs:
       #   run: |
       #     postman collection run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "19885566-97205937-669b-46a9-8070-60f0ea6e7ef1"
 
-      - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
           apiKey: ${{ secrets.POSTMAN_API_KEY }}
