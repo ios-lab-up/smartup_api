@@ -4,10 +4,14 @@ on:
     branches:
       - main
 jobs:
-  build:
+ 
+      # build the docker container(docker compose)
+
+
+  automated-api-tests:
+    name: Automated API Tests
     runs-on: ubuntu-latest
     steps:
-      # build the docker container(docker compose)
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -27,18 +31,9 @@ jobs:
               exit 1
             fi
           done
-
-
-  automated-api-tests:
-    name: Automated API Tests
-    runs-on: ubuntu-latest
-    needs: build # wait for the previous job to complete
-    if: success() # only run this job if the previous one succeeded
-    steps:
-      - uses: actions/checkout@v3
       - name: Create dir
         run: |
-          mkdir TestArtifact
+          mkdir testArtifact
 
       # Install Node
       - name: Install Node
@@ -56,6 +51,14 @@ jobs:
       # Run the tests
       - name: Run Tests
         run: newman run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "${{ github.workspace }}/postman/environments/env.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
+      
+      # Upload the test results
+      - name: Output the results
+        uses: actions/upload-artifact@v3
+        with:
+          name: Reports
+          path: testArtifact
+
 
 
 
