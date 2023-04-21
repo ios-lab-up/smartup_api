@@ -150,7 +150,8 @@ def fetchGroupData(browser: ChromeBrowser) -> list[str]:
 
         createSchedule(dayshours, classrooms, group)
 
-        groups.append(group)
+        groups.append(group) if group else (logging.error(
+            f"{color(1,'Group not created')} ❌: {group}"))
 
     return groups
 

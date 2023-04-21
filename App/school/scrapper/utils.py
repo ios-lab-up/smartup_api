@@ -44,6 +44,7 @@ def extractUP4UContent(studentId: str, password: str) -> User:
 
 def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
     '''Extracts the schedule of a user from the UP site if it fails, try again (up to 3 times)'''
+    data = []
     try:
         # Start the browser
         with ChromeBrowser().buildBrowser() as browser:
@@ -56,13 +57,19 @@ def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
             enterUPSiteSubjects(browser)
             # Get the schedule content
             groupData = fetchGroupData(browser)
+            print(groupData)
 
             # get all group info
-
-            data = [getGroup(group.id, 2) for group in groupData]
+            for group in groupData:
+                if group.id != '':
+                    data.append(getGroup(group.id, 2))
+                else:
+                    logging.warning(
+                        f'{color(3,"Group id not found")} ❌: {group}')
 
     except Exception as e:
         logging.critical(
             f'{color(5,"Schedule extraction failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
+        data = []
 
     return data

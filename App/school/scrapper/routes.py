@@ -33,11 +33,11 @@ def fetchUPSite(userID: str) -> dict[str, str]:
     '''
     This endpoint returns the schedule of a user in a json format
     '''
+    json_data = request.get_json()
+    data: list[dict[str, str]] = []
+    response: dict[str, str] = {}
+    error, code = None, None
     if request.method == 'POST':
-        json_data = request.get_json()
-        data: list[dict[str, str]] = []
-        response: dict[str, str] = {}
-        error, code = None, None
         if not json_data or not all(json_data.values()):
             error, code = 'No data received', 3
         elif 'password' not in json_data:
