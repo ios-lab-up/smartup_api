@@ -4,13 +4,12 @@ on:
     branches:
       - main
 jobs:
-  automated-api-tests:
-    name: Automated API Tests
+  build:
     runs-on: ubuntu-latest
     steps:
       # build the docker container(docker compose)
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Run the Docker container
         run: docker-compose up -d
@@ -29,15 +28,64 @@ jobs:
             fi
           done
 
-      - name: Install Postman CLI
-        run: |
-          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 
-      - name: Login to Postman CLI
-        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-      - name: Run API tests
+  automated-api-tests:
+    name: Automated API Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Create dir
         run: |
-          postman collection run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "19885566-97205937-669b-46a9-8070-60f0ea6e7ef1"
+          mkdir TestArtifact
+
+      # Install Node
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      #  Install newman globally
+      - name: Install newman
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-slackreporter
+          npm install -g newman-reporter-htmlextra
+
+      # Run the tests
+      - name: Run Tests
+        run: newman run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "${{ github.workspace }}/postman/environments/env.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
+
+
+
+      # - name: Checkout
+      #   uses: actions/checkout@v2
+
+      # - name: Run the Docker container
+      #   run: docker-compose up -d
+
+      # - name: Wait for the API to be ready
+      #   run: |
+      #     timeout=30
+      #     start_time=$(date +%s)
+      #     while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:5555/health_check)" != "200" ]]; do
+      #       sleep 5
+      #       current_time=$(date +%s)
+      #       elapsed_time=$((current_time - start_time))
+      #       if [[ $elapsed_time -gt $timeout ]]; then
+      #         echo "Timeout: API did not become ready within $timeout seconds."
+      #         exit 1
+      #       fi
+      #     done
+
+      # - name: Install Postman CLI
+      #   run: |
+      #     curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+
+      # - name: Login to Postman CLI
+      #   run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      # - name: Run API tests
+      #   run: |
+      #     postman collection run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "19885566-97205937-669b-46a9-8070-60f0ea6e7ef1"
   build-and-push:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
