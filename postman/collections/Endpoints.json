@@ -121,7 +121,7 @@
 											"var jsonData = JSON.parse(responseBody);",
 											"var expectedHttpStatus = 200;",
 											"var maxNumberOfTries = 3;",
-											"var sleepBetweenTries = 5000;",
+											"var sleepBetweenTries = 10000;",
 											"",
 											"if (!pm.environment.get(\"collection_tries\")) {",
 											"    pm.environment.set(\"collection_tries\", 1);",
@@ -143,7 +143,10 @@
 											"}",
 											"",
 											"",
-											"",
+											"//The requests was succesfuls",
+											"pm.test(\"Succesful request\", function () {",
+											"    pm.expect(jsonData.sucess).to.eql(true);",
+											"});",
 											""
 										],
 										"type": "text/javascript"
