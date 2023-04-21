@@ -29,21 +29,15 @@ jobs:
             fi
           done
 
-      # - name: Install Postman CLI
-      #   run: |
-      #     curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
 
-      # - name: Login to Postman CLI
-      #   run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-      # - name: Run API tests
-      #   run: |
-      #     postman collection run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "19885566-97205937-669b-46a9-8070-60f0ea6e7ef1"
-
-      - uses: matt-ball/newman-action@master
-        with:
-          apiKey: ${{ secrets.POSTMAN_API_KEY }}
-          collection: "${{ github.workspace }}/postman/collections/Endpoints.json"
-          environment: 19885566-97205937-669b-46a9-8070-60f0ea6e7ef1
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "19885566-97205937-669b-46a9-8070-60f0ea6e7ef1"
   build-and-push:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
