@@ -5,6 +5,8 @@ from school.login.utils import *
 from school.subjects.utils import fetchGroupData
 from school.user.utils import getUser
 from school.tools.utils import color, UserNotFoundError, ScheduleExtractionError
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from school.groups.utils import *
 from school.user.utils import createUser
 from school.security import *
@@ -43,24 +45,34 @@ def extractUP4UContent(studentId: str, password: str) -> User:
 
 
 def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
-    '''Extracts the schedule of a user from the UP site if it fails, try again (up to 3 times)'''
+    '''Extracts the schedule of a user from the UP site'''
     data = []
     try:
         # Start the browser
         with ChromeBrowser().buildBrowser() as browser:
             # Go to the main page
+            print("accesing to url")
             browser.get(
                 "https://upsite.up.edu.mx/psp/CAMPUS/?cmd=login&languageCd=ESP&")
-            # Login
-            loginUPSite(browser, studentId, password)
-            # Enter the dashboard
-            enterUPSiteSubjects(browser)
-            # Get the schedule content
-            groupData = fetchGroupData(browser)
+            
+            WebDriverWait(browser, 10).until(EC.presence_of_element_located(
+                ( By.XPATH, "//input[@name='userid' and @id='userid']"))
+        )
 
-            data = [getGroup(group.id, 2) if group.id != '' else (
-                logging.warning(f'{color(3,"Group id not found")} ❌: {group}'), None)
-                for group in groupData]
+            
+            
+            # Login
+            if loginUPSite(browser, studentId, password):
+            # Enter the dashboard
+                enterUPSiteSubjects(browser)
+                data = [getGroup(group.id, 2) if group.id != '' else (
+                    logging.warning(f'{color(3,"Group id not found")} ❌: {group}'), None)
+                    for group in fetchGroupData(browser)]
+            else:
+                logging.error(f'{color(1,"Login failed")} ❌')
+                data = []
+            # Get the schedule content
+
 
     except Exception as e:
         logging.critical(

@@ -1,6 +1,5 @@
-from school.models import User
-# from school.schedule.utils import getSubject, getUserSubjects
-from flask import Blueprint, request, jsonify, render_template, session
+from flask import Blueprint, request, jsonify
+from school.config import Config
 from school.scrapper.utils import *
 
 scrapper = Blueprint('scrapper', __name__)
@@ -27,26 +26,17 @@ scrapper = Blueprint('scrapper', __name__)
 #     return jsonify(response)
 
 
-@scrapper.route('/FetchGroupDataUPSite/<string:userID>', methods=['GET', 'POST'])
-@tokenRequired
-def fetchUPSite(userID: str) -> dict[str, str]:
+@scrapper.route('/FetchGroupDataUPSite', methods=['GET'])
+def fetchUPSite() -> dict[str, str]:
     '''
     This endpoint returns the schedule of a user in a json format
     '''
-    json_data = request.get_json()
     data: list[dict[str, str]] = []
     response: dict[str, str] = {}
     error, code = None, None
-    if request.method == 'POST':
-        if not json_data or not all(json_data.values()):
-            error, code = 'No data received', 3
-        elif 'password' not in json_data:
-            error, code = 'Missing fields', 2
-        else:
-            user = User.query.filter_by(userID=userID).first()
-            if user:
-                data = extractUPSiteSchedule(userID, json_data['password'])
-            message, code = f'Data extracted ', 1
+    if request.method == 'GET':
+        data = extractUPSiteSchedule(Config.ADMIN_USERNAME, Config.ADMIN_PASSWORD)
+        message, code = f'Data extracted ', 1
     else:
         error, code = 'Invalid method', 4
 

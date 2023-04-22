@@ -126,31 +126,29 @@ def clickLoginButtonUPSite(browser: ChromeBrowser) -> None:
         logging.error(f'{color(1,"Login button not found")} ❌')
 
 
-def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> str:
+def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> bool:
     '''Logs in to the UPSite page'''
-    try:
-        Id = fillUsernameInputUPSite(
-            findUsernameInputUPSite(browser), studentId)
-        pwd = fillPassswordInputUPSite(
-            findPasswordInputUPSite(browser), password)
-        clickLoginButtonUPSite(browser)
-        # if current url is not the same as the login url, login was successful
-        if browser.current_url == "https://upsite.up.edu.mx/psp/CAMPUS/?&cmd=login&errorCode=105&languageCd=ESP":
-            logging.error(f"{color(1,'Error message found, login failed')} ❌")
-        else:
-            logging.info(f"{color(2,'UPSite Login successful')} ✅")
-            logging.info(f'{color(6,"Im going to sleep now 😴 ZzZzZ...")}')
-            session['logged_in'] = True
-            session['user'] = {'userID': Id, 'password': generate_password_hash(
-                pwd).decode('utf-8')}
+    Id = fillUsernameInputUPSite(
+        findUsernameInputUPSite(browser), studentId)
+    pwd = fillPassswordInputUPSite(
+        findPasswordInputUPSite(browser), password)
+    clickLoginButtonUPSite(browser)
+    # if current url is not the same as the login url, login was successful
+    if browser.current_url == "https://upsite.up.edu.mx/psp/CAMPUS/?&cmd=login&errorCode=105&languageCd=ESP":
+        logging.error(f"{color(1,'Wrong Credentials for login')} ❌")
+        return False
+    else:
+        logging.info(f"{color(2,'UPSite Login successful')} ✅")
+        logging.info(f'{color(6,"Im going to sleep now 😴 ZzZzZ...")}')
+        session['logged_in'] = True
+        session['user'] = {'userID': Id, 'password': generate_password_hash(
+            pwd).decode('utf-8')}
 
-            WebDriverWait(browser, 10).until(
-                EC.presence_of_element_located(
-                    (By.XPATH, '//*[@id="pthdr2logofluid"]'))
-            )
+        WebDriverWait(browser, 10).until(
+            EC.presence_of_element_located(
+                (By.XPATH, '//*[@id="pthdr2logofluid"]'))
+        )
 
-            logging.info(f'{color(6,"Im awake now 🤓")}')
-    except Exception as e:
-        logging.critical(f"{color(5,'UPSite Login failed')} ❌\n{e}")
-    # color the url blue in the terminal
-    return f'Current URL after login: \033[94m{browser.current_url}\033[0m'
+        logging.info(f'{color(6,"Im awake now 🤓")}')
+        return True
+

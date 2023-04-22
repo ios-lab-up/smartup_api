@@ -5,10 +5,10 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from school.tools.utils import color
-from flask import session
 from school.security import *
 import logging
 import traceback
+import time
 
 
 def enterDashboard(browser: ChromeBrowser) -> str:
@@ -34,8 +34,12 @@ def enterDashboard(browser: ChromeBrowser) -> str:
 def enterUPSiteSubjects(browser) -> str:
     '''Fetches the subjects from the UPSite page'''
     try:
+        # sleep 10 seconds and print it
+
         browser.get(
             "https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&")
+        WebDriverWait(browser, 20).until(
+            EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
         browser.find_element(
             By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
@@ -44,7 +48,7 @@ def enterUPSiteSubjects(browser) -> str:
         browser.switch_to.frame(
             browser.find_elements(By.TAG_NAME, 'iframe')[0])
         browser.find_element(By.ID, "#ICSave").click()
-        WebDriverWait(browser, 10).until(
+        WebDriverWait(browser, 30).until(
             EC.presence_of_element_located((By.ID, 'win0div$ICField94')))
 
         logging.info(

@@ -19,7 +19,7 @@ class Config:
 
     # Credentials
     ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", '0250009')
-    ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", 'Lu5571967146#')
+    ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", 'Lu57529564#')
 
     # JWT Secret Key
 
