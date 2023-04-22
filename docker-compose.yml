@@ -39,4 +39,3 @@ services:
       - ./App:/SmartUP/App
     networks:
       - app-tier
-
