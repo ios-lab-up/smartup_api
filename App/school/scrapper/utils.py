@@ -51,7 +51,6 @@ def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
         # Start the browser
         with ChromeBrowser().buildBrowser() as browser:
             # Go to the main page
-            print("accesing to url")
             browser.get(
                 "https://upsite.up.edu.mx/psp/CAMPUS/?cmd=login&languageCd=ESP&")
             
