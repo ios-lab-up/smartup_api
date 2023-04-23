@@ -80,7 +80,7 @@ def writeHTMLFile(rows: list) -> None:
 
 
 def parseTime(dt_str: str) -> datetime:
-    return datetime.strptime
+    return datetime.strptime(dt_str, '%A %I:%M%p - %I:%M%p')
 
 class UserNotFoundError(Exception):
     """Error raised when user not found in DB"""

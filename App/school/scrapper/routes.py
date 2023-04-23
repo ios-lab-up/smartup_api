@@ -36,6 +36,7 @@ def fetchUPSite() -> dict[str, str]:
     error, code = None, None
     if request.method == 'GET':
         data = extractUPSiteSchedule(Config.ADMIN_USERNAME, Config.ADMIN_PASSWORD)
+        
         message, code = f'Data extracted ', 1
     else:
         error, code = 'Invalid method', 4

@@ -139,7 +139,6 @@ def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> bool:
         return False
     else:
         logging.info(f"{color(2,'UPSite Login successful')} ✅")
-        logging.info(f'{color(6,"Im going to sleep now 😴 ZzZzZ...")}')
         session['logged_in'] = True
         session['user'] = {'userID': Id, 'password': generate_password_hash(
             pwd).decode('utf-8')}
@@ -149,6 +148,5 @@ def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> bool:
                 (By.XPATH, '//*[@id="pthdr2logofluid"]'))
         )
 
-        logging.info(f'{color(6,"Im awake now 🤓")}')
         return True
 
