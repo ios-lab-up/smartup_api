@@ -19,6 +19,7 @@ def createClassroom(name: str) -> Classroom:
             logging.info(f'{color(2,"Classroom created")} ✅')
 
         else:
+            classroom = Classroom.query.filter_by(name=name).first()
             # Raise an error if classroom already exists in database
             raise ValueError(
                 f'{color(3,"Classroom already exists in database")}'

@@ -30,12 +30,13 @@ def createGroup(classNumber: int, group: str, subject: int, teacher: int, langua
             db.session.commit()
             logging.info(f"{color(2,'Group created:')} ✅")
         else:
+            group = Group.query.filter_by(classNumber=classNumber).first()
             raise Exception(f'{color(3,"Group already exists in database")}')
 
     except Exception as e:
         logging.error(
             f'{color(1,"Couldnt create group")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
-        group = None
+        group = Group.query.filter_by(classNumber=classNumber).first()
 
     return group
 

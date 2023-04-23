@@ -25,6 +25,7 @@ def createSubject(name: str):
             db.session.commit()
             logging.info(f"{color(2,'Subject created:')} ✅")
         else:
+            subject = Subject.query.filter_by(name=name).first()
             raise ValueError(
                 f"{color(3,'Subject already exists in the database')}")
     except Exception as e:

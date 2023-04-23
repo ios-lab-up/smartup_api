@@ -59,21 +59,6 @@ def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Gro
 
     return schedule
 
-# def createSchedule(days_hours: list[str], classrooms: list[Classroom], group: Group) -> Schedule:
-#     schedules = []
-#     for i, day_hour in enumerate(days_hours):
-#         day, start_time_str, end_time_str = day_hour.split()
-#         start_time, end_time = map(parseTime, [start_time_str, end_time_str])
-#         classroom = classrooms[i]
-#         schedule = Schedule(day=day, startTime=start_time, endTime=end_time, classroomID=classroom)
-#         schedules.append(schedule)
-
-#     with session_scope() as session:
-#         for schedule in schedules:
-#             session.add(schedule)
-#             createScheduleGroupRelation(group, schedule)
-
-#     return schedules
 
 
 def createScheduleGroupRelation(group: Group, schedule: Schedule) -> None:
