@@ -40,6 +40,8 @@ services:
     networks:
       - app-tier
   scrapper:
+    stdin_open: true
+    tty: true
     container_name: UP_Scrapper
     image: ubuntu
     command: bash -c "apt-get update && apt-get install -y wget && wget http://api:5555/FetchGroupDataUPSite"
