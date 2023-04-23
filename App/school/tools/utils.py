@@ -1,5 +1,7 @@
 from flask import session
-from dataclasses import dataclass
+from contextlib import contextmanager
+from datetime import datetime
+from school import db
 import psutil
 
 
@@ -20,6 +22,20 @@ def server_status() -> str:
     else:
         status = "CRITICAL"
     return status
+
+@contextmanager
+def session_scope():
+    """Provide a transactional scope around a series of operations."""
+    session = db.session
+    try:
+        yield session
+        session.commit()
+    except:
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
 
 
 def color(color: int, text: str) -> str:
@@ -62,6 +78,9 @@ def writeHTMLFile(rows: list) -> None:
         f.write('\n'.join(source_codes))
         f.write("\n</body>\n</html>")
 
+
+def parseTime(dt_str: str) -> datetime:
+    return datetime.strptime
 
 class UserNotFoundError(Exception):
     """Error raised when user not found in DB"""

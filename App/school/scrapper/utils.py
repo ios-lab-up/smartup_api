@@ -59,14 +59,13 @@ def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
         )
 
             
-            
+
             # Login
             if loginUPSite(browser, studentId, password):
             # Enter the dashboard
                 enterUPSiteSubjects(browser)
-                data = [getGroup(group.id, 2) if group.id != '' else (
-                    logging.warning(f'{color(3,"Group id not found")} ❌: {group}'), None)
-                    for group in fetchGroupData(browser)]
+
+                data = fetchGroupData(browser)
             else:
                 logging.error(f'{color(1,"Login failed")} ❌')
                 data = []
@@ -79,3 +78,5 @@ def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
         data = []
 
     return data
+
+

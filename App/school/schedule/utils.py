@@ -1,9 +1,7 @@
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
 from school import db
+from school.tools.utils import *
 from school.tools.utils import color
 from school.models import Group, User, Schedule, Classroom, Days, Hours
-from school.classrooms.utils import createClassroom, createClassroomSubjectRelationship
 from school.days.utils import *
 from school.hours.utils import *
 from datetime import datetime
@@ -19,23 +17,30 @@ def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Gro
         if len(daysHours) != 0 and group:
             for i in range(len(daysHours)):
 
+                # schedule = Schedule(
+                #     # Dia: str
+                #     day=daysHours[i][0:str(daysHours[i]).index(' ')],
+                #     startTime=f"{int(daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')]) + 12 if int(daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')]) != 12 else int(daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')])}:" \
+                #     f"{daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index('-') - 1][-6:-4]}:00" \
+                #     if 'p' in daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index('-') - 1] \
+
+                #     else f"{daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')]}:" \
+                #     f"{daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index('-') - 1][-6:-4]}:00",  # Hora de inicio: datetime
+
+                #     endTime=f"{int(daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')]) + 12 if int(daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')]) != 12 else daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')]}:" \
+                #     f"{daysHours[i][daysHours[i].index('-') + 1:][-6:-4]}:00" \
+                #     if 'p' in daysHours[i][daysHours[i].index('-') + 1:] \
+                #     else f"{int(daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')])}:" \
+                #     f"{daysHours[i][daysHours[i].index('-') + 1:][-6:-4]}:00",
+                #     classroomID=classrooms[i]
+                # )
                 schedule = Schedule(
-                    # Dia: str
-                    day=daysHours[i][0:str(daysHours[i]).index(' ')],
-                    startTime=f"{int(daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')]) + 12 if int(daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')]) != 12 else int(daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')])}:" \
-                    f"{daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index('-') - 1][-6:-4]}:00" \
-                    if 'p' in daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index('-') - 1] \
-
-                    else f"{daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index(':')]}:" \
-                    f"{daysHours[i][daysHours[i].index(' ') + 1:daysHours[i].index('-') - 1][-6:-4]}:00",  # Hora de inicio: datetime
-
-                    endTime=f"{int(daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')]) + 12 if int(daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')]) != 12 else daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')]}:" \
-                    f"{daysHours[i][daysHours[i].index('-') + 1:][-6:-4]}:00" \
-                    if 'p' in daysHours[i][daysHours[i].index('-') + 1:] \
-                    else f"{int(daysHours[i][daysHours[i].index('-') + 1:daysHours[i].rindex(':')])}:" \
-                    f"{daysHours[i][daysHours[i].index('-') + 1:][-6:-4]}:00",
+                    day=daysHours[i].split()[0], # extract day from string using split
+                    startTime=datetime.strptime(daysHours[i].split()[1], '%I:%M%p').strftime('%H:%M'), # extract start time from string and convert to 24-hour format
+                    endTime=datetime.strptime(daysHours[i].split()[3], '%I:%M%p').strftime('%H:%M'), # extract end time from string and convert to 24-hour format
                     classroomID=classrooms[i]
                 )
+
 
                 db.session.add(schedule)
                 db.session.commit()
@@ -43,9 +48,8 @@ def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Gro
                 createScheduleGroupRelation(group, schedule)
 
         else:
-            schedule = None
             raise ValueError(
-                f'{color(1,"Schedule creation failed")} ❌'
+                f'{color(1,"Cannot create schedule: Does not contain timedate objs")} ❌'
             )
 
     except Exception as e:
@@ -54,6 +58,22 @@ def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Gro
         schedule = None
 
     return schedule
+
+# def createSchedule(days_hours: list[str], classrooms: list[Classroom], group: Group) -> Schedule:
+#     schedules = []
+#     for i, day_hour in enumerate(days_hours):
+#         day, start_time_str, end_time_str = day_hour.split()
+#         start_time, end_time = map(parseTime, [start_time_str, end_time_str])
+#         classroom = classrooms[i]
+#         schedule = Schedule(day=day, startTime=start_time, endTime=end_time, classroomID=classroom)
+#         schedules.append(schedule)
+
+#     with session_scope() as session:
+#         for schedule in schedules:
+#             session.add(schedule)
+#             createScheduleGroupRelation(group, schedule)
+
+#     return schedules
 
 
 def createScheduleGroupRelation(group: Group, schedule: Schedule) -> None:
@@ -75,29 +95,6 @@ def createScheduleGroupRelation(group: Group, schedule: Schedule) -> None:
         logging.critical(
             f'{color(5,"Schedule relation creation failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
 
-# def getUserSubjects(user: User) -> dict:
-#     '''Returns the user subjects as a dictionary with his subjects'''
-# #     try:
-
-# #         subjects = (
-# #             db.session.query(Subject)
-# #             .filter(Subject.id.in_((
-# #                 db.session.query(RelationUserSubjectTable.c.subjectId)
-# #                 .filter(RelationUserSubjectTable.c.studentId == user.id)
-# #                 .subquery()
-# #             )
-# #             ))
-# #             .all()
-# #         )
-# #         user = {'User': getUser(user)}
-# #         user['User']['Subjects'] = list(map(
-# #             lambda subject: getSubject(subject), subjects))
-# #         logging.info(f"{color(2,'Get User Subjects Complete')} ✅")
-# #     except Exception as e:
-# #         logging.error(
-# #             f"{color(1,'Get User Subjects Failed')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
-# #         user = None
-# #     return user
 
 
 def getSchedule(Schedule: int) -> Schedule:
@@ -128,103 +125,7 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     return schedule
 
 
-# def findScheduleTable(browser):
-#     try:
-#         scheduleContent = browser.find_element(By.ID, "contenido-tabla")
-#         logging.info(f'{color(2,"Schedule content found")} ✅')
-#     except NoSuchElementException:
-#         logging.error(f'{color(1,"Schedule content not found")} ❌')
-#     return scheduleContent
 
-
-# def findScheduleSubjects(scheduleContent: str) -> list[str]:
-#     '''Extracts the schedule subjects from the schedule content'''
-#     try:
-#         rows = scheduleContent.find_elements(By.CSS_SELECTOR, "div.row")
-#         logging.info(f'{color(4,f"Schedule content has {len(rows)} rows")}🔎')
-#     except NoSuchElementException:
-#         logging.warning(f'{color(1,"Schedule content has no rows")} ❌')
-
-#     return [[cell.text for cell in row.find_elements(
-#         By.CSS_SELECTOR, 'div')] for row in rows]
-
-
-# def cleanScheduleData(subjectsList: list[list[Subject]]) -> list[dict[str, str]]:
-#     '''Cleans the schedule data'''
-
-#     return [
-#         {
-#             'day': subjectData[1].strip(),
-#             'start_time': subjectData[2].strip(),
-#             'end_time': subjectData[3].strip(),
-#             'subject': subjectData[4].strip(),
-#             'teacher': subjectData[6].strip(),
-#             'start_date': subjectData[7].strip(),
-#             'end_date': subjectData[8].strip(),
-#             'group': subjectData[9].strip(),
-#             'classroom': re.compile(r'([^/]*)$').search(re.sub(r'\n', '', subjectData[5].strip())).group(1).replace('Ver', '').lstrip()
-#         }
-#         for subjectData in subjectsList
-#     ]
-
-
-# def loadScheduleData(scheduleSubjects: list[dict[str, str]]) -> None:
-#     '''Loads the schedule data into a Subject object'''
-#     current_day = ''
-#     subjects = [subject for subject in scheduleSubjects if subject != []]
-#     try:
-#         subject_data = cleanScheduleData(subjects)
-#         for data in subject_data:
-#             data['day'] = data['day'] if data['day'] else current_day
-#             createSchedule(**data)
-#             current_day = data['day']
-#         logging.info(f'{color(4,"Schedule data loaded into DB")} ✅')
-#     except Exception as e:
-#         logging.error(
-#             f'{color(1,"Schedule data not loaded into DB")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
-
-
-# def createSchedule(day: str, start_time: datetime, end_time: datetime, subject: str, teacher: str, start_date: datetime, end_date: datetime, group: str, classroom: str) -> None:
-#     '''Creates a schedule object'''
-
-#     # create objects
-#     subject = createSubject(day, start_time, end_time, subject, teacher,
-#                             start_date, end_date, group)
-#     classroom = createClassroom(classroom)
-#     # create relations
-
-#     # createUserSubjectRelationship(User.query.filter_by(
-#     #     userID=session['user']['userID']).first(), subject)
-
-
-# def fetchScheduleContent(browser: ChromeBrowser) -> None:
-#     '''Extracts the schedule content from the schedule page and returns a list of dictionaries with the schedule data'''
-#     try:
-#         loadScheduleData(
-#             findScheduleSubjects(findScheduleTable(browser)))
-#     except Exception as e:
-#         logging.error(
-#             f"{color(1,'Schedule content not extracted')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
-
-
-# def createCompatibleSchedule(subjects: Subject) -> list[Subject]:
-#     '''Creates a compatible schedule for the user based on the subjects in database'''
-#     try:
-#         days = {"Lunes": 0, "Martes": 1, "Miércoles": 2,
-#                 "Jueves": 3, "Viernes": 4, "Sábado": 5, "Domingo": 6}
-#         sorted_subjects = sorted(subjects, key=lambda subject: (
-#             days[subject.day], subject.startTime))
-
-#         schedule = [getSubject(sorted_subjects[i])
-#                     for i in range(len(sorted_subjects))]
-
-#         # create a list of days
-
-#     except Exception as e:
-#         logging.error(
-#             f"{color(1,'Compatible Schedule Not Created')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
-#         schedule = None
-#     return schedule
 
 def combinations_of_courses(BDlist: list) -> list:
     """Returns a list of lists with all the possible combinations of courses"""
