@@ -20,5 +20,4 @@ RUN pip install --upgrade pip && pip3 install -r requirements.txt
 CMD ["python", "App/run.py"]
 
 # Makes the file executable
-RUN /bin/sh /SmartUP/run_scrapper.sh
 EXPOSE 5555
