@@ -85,7 +85,8 @@ jobs:
         id: increment-git-tag
         run: |
           pwd
-          bash ./build/git_update.sh -v patch
+          ls
+          bash .git_update.sh -v patch
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
