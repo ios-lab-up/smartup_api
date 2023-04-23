@@ -3,7 +3,7 @@
 URL="http://localhost:5555/FetchGroupDataUPSite"
 max_retries=3
 retries=0
-delay=5
+delay=10
 
 echo "Sending GET request to scrapper endpoint..."
 
