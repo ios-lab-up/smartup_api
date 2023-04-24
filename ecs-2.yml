@@ -1,0 +1,239 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  Subnet1ID:
+    Type: String
+  Subnet2ID:
+    Type: String
+  VPCID:
+    Type: String
+  DomainName:
+    Type: String
+Resources:
+  ACMCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties: 
+      DomainName: !Sub "api.${DomainName}"
+      DomainValidationOptions:
+        - DomainName: !Sub "api.${DomainName}"
+          ValidationDomain: !Sub "api.${DomainName}"
+      ValidationMethod: DNS
+  AutoScalingRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: 'sts:AssumeRole'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole'
+  AutoScalingTarget:
+    Type: AWS::ApplicationAutoScaling::ScalableTarget
+    Properties:
+      MinCapacity: 1
+      MaxCapacity: 2
+      ResourceId: service/aws-ecs-smartup-api/aws-ecs-smartup-svc
+      ScalableDimension: ecs:service:DesiredCount
+      ServiceNamespace: ecs
+      RoleARN: !GetAtt AutoScalingRole.Arn
+  ApiScalingPolicyCPU:
+    Type: AWS::ApplicationAutoScaling::ScalingPolicy
+    Properties:
+      PolicyName: aws-ecs-smartup-api-svc-cpu
+      PolicyType: TargetTrackingScaling
+      ScalingTargetId: !Ref AutoScalingTarget
+      TargetTrackingScalingPolicyConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ECSServiceAverageCPUUtilization
+        ScaleInCooldown: 10
+        ScaleOutCooldown: 10
+        TargetValue: 45.0
+  ApiScalingPolicyMemory:
+    Type: AWS::ApplicationAutoScaling::ScalingPolicy
+    Properties:
+      PolicyName: aws-ecs-smartup-api-svc-memory
+      PolicyType: TargetTrackingScaling
+      ScalingTargetId: !Ref AutoScalingTarget
+      TargetTrackingScalingPolicyConfiguration:
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ECSServiceAverageMemoryUtilization 
+        ScaleInCooldown: 10
+        ScaleOutCooldown: 10
+        TargetValue: 50.0
+  Cluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: aws-ecs-smartup-api
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: aws-ecs-smartup-api-group
+  ExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: aws-ecs-smartup-api-role
+      AssumeRolePolicyDocument:
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+  TaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+          - Action: sts:AssumeRole
+            Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+      Policies:
+        - PolicyDocument:
+            Statement:
+              Action:
+                - ses:SendEmail
+              Effect: Allow
+              Resource: '*'
+          PolicyName: send-mail
+  ContainerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: ContainerSecurityGroup
+      GroupDescription: Security group for container
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 8080
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: aws-ecs-smartup-task
+      Cpu: 256
+      Memory: 512
+      NetworkMode: awsvpc
+      ExecutionRoleArn: !Ref ExecutionRole
+      TaskRoleArn: !Ref TaskRole
+      ContainerDefinitions:
+        - Name: aws-ecs-smartup-container
+          Image: nginx:1.17.7
+          # REPLACE WITH YOUR ACCOUNT NUMBER AND REGION
+          Image: 430032500926.dkr.ecr.us-east-2.amazonaws.com/aws-ecs-smartup-api
+          PortMappings:
+            - ContainerPort: 8080
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-region: !Ref AWS::Region
+              awslogs-group: !Ref LogGroup
+              awslogs-stream-prefix: ecs
+      RequiresCompatibilities:
+        - FARGATE
+  Service:
+    Type: AWS::ECS::Service
+    Properties:
+      # rename after first deploy
+      ServiceName: aws-ecs-smartup-service
+      Cluster: !Ref Cluster
+      TaskDefinition: !Ref TaskDefinition
+      DesiredCount: 1
+      LaunchType: FARGATE
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          Subnets:
+            - !Ref Subnet1ID
+            - !Ref Subnet2ID
+          SecurityGroups:
+            - !GetAtt ContainerSecurityGroup.GroupId
+      LoadBalancers:
+        - TargetGroupArn: !Ref TargetGroup
+          ContainerPort: 8080
+          ContainerName: aws-ecs-smartup-container
+  LoadBalancerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: LoadBalancerSecurityGroup
+      GroupDescription: Security group for load balancer
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+  LoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: aws-ecs-smartup-alb
+      Subnets:
+        - !Ref Subnet1ID
+        - !Ref Subnet2ID
+      SecurityGroups:
+        - !GetAtt LoadBalancerSecurityGroup.GroupId
+
+  HTTPlistener:
+   Type: "AWS::ElasticLoadBalancingV2::Listener"
+   Properties:
+     DefaultActions:
+       - Type: "redirect"
+         RedirectConfig:
+           Protocol: "HTTPS"
+           Port: 443
+           Host: "#{host}"
+           Path: "/#{path}"
+           Query: "#{query}"
+           StatusCode: "HTTP_301"
+     LoadBalancerArn: !Ref LoadBalancer
+     Port: 80
+     Protocol: "HTTP"
+
+  HTTPSLoadBalancerListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    DependsOn: LoadBalancer
+    Properties:
+      LoadBalancerArn: !Ref LoadBalancer
+      Port: 443
+      Protocol: HTTPS
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref TargetGroup
+      SslPolicy: "ELBSecurityPolicy-2016-08"
+      Certificates: 
+      - CertificateArn: !Ref ACMCertificate
+  
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    DependsOn: LoadBalancer
+    Properties:
+      TargetType: ip
+      Name: aws-ecs-smartup-tg
+      Port: 8080
+      Protocol: HTTP
+      VpcId: !Ref VPCID
+  
+  ApiDomain:
+    Type: AWS::Route53::RecordSet
+    DependsOn: LoadBalancer
+    Properties:
+      HostedZoneName: !Sub "${DomainName}."
+      Name: !Sub "api.${DomainName}"
+      Type: CNAME
+      TTL: 60
+      ResourceRecords:
+        - !GetAtt LoadBalancer.DNSName
+
+# aws cloudformation update-stack --stack-name aws-ecs-smartup-api --template-body file://./ecs-2.yml --capabilities CAPABILITY_NAMED_IAM \
+# --parameters ParameterKey=VPCID,ParameterValue=YOUR_VPC_ID \
+# ParameterKey=Subnet1ID,ParameterValue=YOUR_SUBNET_1_ID \
+# ParameterKey=Subnet2ID,ParameterValue=YOUR_SUBNET_2_ID \
+# ParameterKey=DomainName,ParameterValue=YOUR_DOMAIN_NAME.com
