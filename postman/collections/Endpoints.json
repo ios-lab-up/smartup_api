@@ -248,7 +248,7 @@
 						"method": "GET",
 						"header": [
 							{
-								"key": "x-acces-token",
+								"key": "x-access-token",
 								"value": "{{token}}",
 								"type": "text"
 							}
