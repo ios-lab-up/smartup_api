@@ -237,7 +237,44 @@
 		},
 		{
 			"name": "ScheduleMaker",
-			"item": [],
+			"item": [
+				{
+					"name": "Create Schedule",
+					"id": "ca134e65-0f29-48f9-bf21-268bc7284ff3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-acces-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"subject\": [\r\n        \"ADMN_CEE EMP001 - Creatividad Empresarial\",\r\n        \"COMPING COM101 - Análisis y Diseño de Algoritmos\",\r\n        \"COMPING COM104 - Programación y Estructura de Datos\",\r\n        \"COMPING COM113 - Matemáticas de la Computación\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/createSchedules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"createSchedules"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "c3a89fbd-a7e6-4f3c-8e36-fbcbfe321797"
 		}
 	]
