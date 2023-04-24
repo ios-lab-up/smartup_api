@@ -234,6 +234,71 @@
 				}
 			],
 			"id": "5f82237f-3b56-480b-adc3-825e2caf1e78"
+		},
+		{
+			"name": "ScheduleMaker",
+			"item": [
+				{
+					"name": "CeateSchedules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a384fe54-b21f-4b05-8e7f-7ee1e5734a9a",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"// The status code is valid",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//The requests was succesful",
+									"pm.test(\"Succesful request\", function () {",
+									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "4a8f7a9f-3c96-4a11-912d-18e9277d4544",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subject\": [\n        \"ADMN_CEE EMP001 - Creatividad Empresarial\",\n        \"COMPING COM101 - Análisis y Diseño de Algoritmos\",\n        \"COMPING COM104 - Programación y Estructura de Datos\",\n        \"COMPING COM113 - Matemáticas de la Computación\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/createSchedules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"createSchedules"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "c3a89fbd-a7e6-4f3c-8e36-fbcbfe321797"
 		}
 	]
 }
