@@ -23,18 +23,7 @@ def getGroupDB() -> dict[str, str]:
         elif not all(key in jsonData for key in keys):
             error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
         else:
-            if 'subject' in jsonData['filter']:
-                if not isinstance(jsonData['filter']['subject'], list):
-                    error, code = 'Subject must be a list', 400
-                else:
-                    print(jsonData['filter'])
-                    data = filterGroups(jsonData['filter'])
-                    data = [group for group in data if group['Schedules'] != []]
-            else:
-                print(jsonData['filter'])
-                data = filterGroups(jsonData['filter'])
-                data = [group for group in data if group['Schedules'] != []]
-            
+            data = filterGroups(jsonData['filter'])
             message, code = f'Group found', 1
     else:
         error, code = 'Invalid method', 4
