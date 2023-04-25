@@ -88,7 +88,7 @@ def filterGroups(filterParams: str) -> list[dict]:
 
         filterMap = {
             'id': Group.id,
-            'subject': Group.subject,
+            'subjects': Group.subject,
             'language': Group.language,
             'dateRange': Group.creationDate
         }
@@ -102,7 +102,7 @@ def filterGroups(filterParams: str) -> list[dict]:
                     query = Group.query.filter(
                         filterMap[key].between(startDate, endDate)
                     )
-                elif key == 'subject':
+                elif key == 'subjects':
                     multipleSubjects = []
                     for subject in value:
                         groups = Group.query.all()
@@ -111,7 +111,8 @@ def filterGroups(filterParams: str) -> list[dict]:
                         groups = list(map(lambda group: group.id, groups))
                         multipleSubjects.append(groups)
                     query = Group.query.filter(Group.id.in_(multipleSubjects[0]))
-                        
+                    print(multipleSubjects)
+                    print("\n\n\n\n\n\n")
                     for i in range(1, len(multipleSubjects)):
                         query = query.union(Group.query.filter(
                             Group.id.in_(multipleSubjects[i])))
