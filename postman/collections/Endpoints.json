@@ -240,6 +240,29 @@
 			"item": [
 				{
 					"name": "createScheudles",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8912dbb2-840d-41b1-ab19-e3da5b9984db",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"// The status code is valid",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//The requests was succesful",
+									"pm.test(\"Succesful request\", function () {",
+									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "a694c11e-41cc-4380-86b9-17527b07e721",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
