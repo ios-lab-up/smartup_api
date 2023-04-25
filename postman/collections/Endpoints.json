@@ -239,7 +239,7 @@
 			"name": "ScheduleMaker",
 			"item": [
 				{
-					"name": "createScheudles",
+					"name": "Get Schedule Creation",
 					"event": [
 						{
 							"listen": "test",
