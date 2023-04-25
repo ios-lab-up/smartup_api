@@ -10,7 +10,7 @@ def createSchedules() -> None:
     data: list = []
     response: dict[str, str] = {}
     error, code = None, None
-    keys = ['ids', 'subject']
+    keys = ['ids', 'subjects']
     if request.method == 'GET':
 
         if not jsonData:
@@ -18,7 +18,7 @@ def createSchedules() -> None:
         elif not any(key in jsonData for key in keys):
             error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
         else:
-            if 'subject' in jsonData:
+            if 'subjects' in jsonData:
                 # We store the request data in a variable, the data will be the courses that will be used to create the schedules
                 data = filterGroups(jsonData)
                 # We filter the groups that do not have either capacity or schedules
