@@ -140,7 +140,6 @@ def getUser(userID: User, type: int) -> User:
         userData = None
     return userData
 
-
 def formatDateObjsUser(user: dict[str:str]) -> dict[str:str]:
     '''Formats the date objects in the user dictionary'''
     # Format the date objects in the dictionary

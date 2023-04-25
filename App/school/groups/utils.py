@@ -105,19 +105,17 @@ def filterGroups(filterParams: str) -> list[dict]:
                 elif key == 'subjects':
                     multipleSubjects = []
                     for subject in value:
-                        groups = Group.query.all()
-                        groups = list(filter(
-                            lambda group: getattr(Subject.query.filter_by(id=group.subject).first(), 'name') == subject, groups))
-                        groups = list(map(lambda group: group.id, groups))
+                        allGroups = Group.query.all()
+                        groupQuery = list(filter(
+                            lambda group: getattr(Subject.query.filter_by(id=group.subject).first(), 'name') == subject, allGroups))
+                        groups = list(map(lambda group: group.id, groupQuery))
                         multipleSubjects.append(groups)
                     query = Group.query.filter(Group.id.in_(multipleSubjects[0]))
-                    print(multipleSubjects)
-                    print("\n\n\n\n\n\n")
                     for i in range(1, len(multipleSubjects)):
                         query = query.union(Group.query.filter(
                             Group.id.in_(multipleSubjects[i])))
-                    query = query.distinct()
-                    query = query.order_by(Group.subject)
+                    query.distinct()
+                    query.order_by(Group.subject)
                     
                 else:
                     query = Group.query.filter(filterMap[key] == value)
