@@ -239,31 +239,8 @@
 			"name": "ScheduleMaker",
 			"item": [
 				{
-					"name": "Create Schedule",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "bc4981be-b00c-470e-a845-9336ca04f7ed",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"// The status code is valid",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"//The requests was succesful",
-									"pm.test(\"Succesful request\", function () {",
-									"    pm.expect(jsonData.sucess).to.eql(true);",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "ca134e65-0f29-48f9-bf21-268bc7284ff3",
+					"name": "createScheudles",
+					"id": "a694c11e-41cc-4380-86b9-17527b07e721",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -272,13 +249,13 @@
 						"header": [
 							{
 								"key": "x-access-token",
-								"value": "{{token}}",
+								"value": "",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"subjects\": [\r\n        \"ADFIEING AFE104 - Dirección de Empresas\",\r\n        \"ADMN_CEE EMP001 - Creatividad Empresarial\",\r\n        \"COMPING COM101 - Análisis y Diseño de Algoritmos\",\r\n        \"COMPING COM102 - Programación Orientada a Objetos\"\r\n    ]\r\n}",
+							"raw": "{\n        \"subjects\": [\n        \"ADMN_CEE EMP001 - Creatividad Empresarial\",\n        \"COMPING COM101 - Análisis y Diseño de Algoritmos\",\n        \"COMPING COM104 - Programación y Estructura de Datos\",\n        \"COMPING COM113 - Matemáticas de la Computación\"\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
