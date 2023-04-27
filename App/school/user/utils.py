@@ -162,6 +162,7 @@ def getUser(userID: User, type: int) -> User:
        type: 1 = list
              2 = dict
     '''
+
     try:
         user = User.query.filter_by(id=userID).first()
         match type:
@@ -176,6 +177,48 @@ def getUser(userID: User, type: int) -> User:
         userData = None
     return userData
 
+def filterUsers(filterParams: dict) -> list[dict]:
+    '''
+    This function purpose is to filter users by a given parameter and return a list of users that match the filter criteria
+    filterParams is a dictionary with the following structure:
+    filterParams = {
+        'id': 1,
+        'name': 'John',
+        'email': 'john@gmail.com',
+        'status': True,
+        'creationDateRange': '2022-01-01,2022-01-31'
+    }
+    The function will return a list of users that match the filter criteria
+    but if the filterParams is empty or contains the key 'all' it will return all the users in the database
+    '''
+    try:
+        filterMap = {
+            'id': User.id,
+            'name': User.name,
+            'email': User.email,
+            'status': User.status,
+            'creationDateRange': User.creationDate
+        }
+        
+        if 'all' in filterParams:
+            users = User.query.all()
+        else:
+            for key, value in filterParams.items():
+                if key == 'creationDateRange':
+                    startDate, endDate = value.split(',')
+                    query = User.query.filter(
+                        filterMap[key].between(startDate, endDate)
+                    )
+                else:
+                    query = User.query.filter(filterMap[key] == value)
+
+            users = query.all()
+            
+    except Exception as e:
+        logging.error(f'Couldnt get users ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+        users = None
+        
+    return [user.toDict() for user in users] if users else None
 
 def formatDateObjsUser(user: dict[str:str]) -> dict[str:str]:
     '''Formats the date objects in the user dictionary'''

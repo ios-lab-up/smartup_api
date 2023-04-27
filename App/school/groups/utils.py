@@ -83,6 +83,16 @@ def getGroup(groupID: int, type: int) -> Group:
 
 
 def filterGroups(filterParams: str) -> list[dict]:
+    #This function purpose is to filter groups by a given parameter and return a list of groups that match the filter criteria
+    #filterParams is a dictionary with the following structure:
+    #filterParams = {
+    #   'id': 1,
+    #   'subject': 'Math',
+    #   'language': 'English',
+    #   'dateRange': '2021-01-01,2021-01-31'
+    #}
+    #The function will return a list of groups that match the filter criteria
+    #but if the filterParams is empty or contains the key 'all' it will return all the groups in the database
     '''Returns a list with the group data by passing an ID'''
     try:
 
