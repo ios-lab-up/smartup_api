@@ -162,7 +162,6 @@ def getUser(userID: User, type: int) -> User:
        type: 1 = list
              2 = dict
     '''
-
     try:
         user = User.query.filter_by(id=userID).first()
         match type:
@@ -177,48 +176,29 @@ def getUser(userID: User, type: int) -> User:
         userData = None
     return userData
 
-def filterUsers(filterParams: dict) -> list[dict]:
+def getUsers(filterParams: dict[str, str]) -> list[dict[str, str]]:
     '''
-    This function purpose is to filter users by a given parameter and return a list of users that match the filter criteria
-    filterParams is a dictionary with the following structure:
-    filterParams = {
-        'id': 1,
-        'name': 'John',
-        'email': 'john@gmail.com',
-        'status': True,
-        'creationDateRange': '2022-01-01,2022-01-31'
+    This function filters users by a given parameter and returns a list of users that match the filter criteria.
+    The `filterParams` parameter is a dictionary with the following structure:
+    {
+        'userID': <int>,  # Optional. The ID of a specific user to retrieve.
+        'filter': <str>   # Required. The filter criteria. Valid options are: 'all'.
     }
-    The function will return a list of users that match the filter criteria
-    but if the filterParams is empty or contains the key 'all' it will return all the users in the database
+    If `filterParams` is empty or contains the key 'all', the function will return all the users in the database.
     '''
     try:
-        filterMap = {
-            'id': User.id,
-            'name': User.name,
-            'email': User.email,
-            'status': User.status,
-            'creationDateRange': User.creationDate
-        }
-        
-        if 'all' in filterParams:
+        if filterParams.get('filter') == 'all': #this line 
             users = User.query.all()
+        elif 'userID' in filterParams:
+            user = User.query.filter_by(userID=filterParams['userID']).first()
+            users = [user] if user else None
         else:
-            for key, value in filterParams.items():
-                if key == 'creationDateRange':
-                    startDate, endDate = value.split(',')
-                    query = User.query.filter(
-                        filterMap[key].between(startDate, endDate)
-                    )
-                else:
-                    query = User.query.filter(filterMap[key] == value)
-
-            users = query.all()
-            
+            raise ValueError('Invalid filter')
     except Exception as e:
         logging.error(f'Couldnt get users ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         users = None
         
-    return [user.toDict() for user in users] if users else None
+    return [user.toDict() for user in users] if users else []
 
 def formatDateObjsUser(user: dict[str:str]) -> dict[str:str]:
     '''Formats the date objects in the user dictionary'''
