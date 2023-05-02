@@ -176,21 +176,15 @@ def getUser(userID: User, type: int) -> User:
         userData = None
     return userData
 
-def getUsers(filterParams: dict[str, str]) -> list[dict[str, str]]:
-    '''
-    This function filters users by a given parameter and returns a list of users that match the filter criteria.
-    The `filterParams` parameter is a dictionary with the following structure:
-    {
-        'userID': <int>,  # Optional. The ID of a specific user to retrieve.
-        'filter': <str>   # Required. The filter criteria. Valid options are: 'all'.
-    }
-    If `filterParams` is empty or contains the key 'all', the function will return all the users in the database.
-    '''
+
+def filter_User(filterParams: str) -> list[dict]:
     try:
-        if filterParams.get('filter') == 'all': #this line 
-            users = User.query.all()
-        elif 'userID' in filterParams:
-            user = User.query.filter_by(userID=filterParams['userID']).first()
+        #condicional, si filter = all entonces regresa todos los usuarios
+        if 'filter' in filterParams:
+            if filterParams['filter']=="all":
+                users = User.query.all()
+        elif 'id' in filterParams:
+            user = User.query.filter_by(id=filterParams['id']).first()
             users = [user] if user else None
         else:
             raise ValueError('Invalid filter')
