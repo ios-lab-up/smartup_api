@@ -3,12 +3,11 @@ from flask import Blueprint, request, jsonify, render_template, session
 from school.groups.utils import *
 from school.security import *
 
-
 groups = Blueprint('groups', __name__)
-
 
 @groups.route('/getGroup', methods=['GET', 'POST'])
 @tokenRequired
+
 def getGroupDB() -> dict[str, str]:
     '''This endpoint returns a group from the database'''
 

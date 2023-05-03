@@ -3,8 +3,6 @@ from school.models import User
 from flask import Blueprint, request, jsonify, session
 from school.scrapper.utils import *
 from school.user.utils import *
-import traceback
-import logging
 
 user = Blueprint('user', __name__)
 
