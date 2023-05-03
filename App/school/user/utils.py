@@ -6,6 +6,42 @@ import logging
 import traceback
 import qrcode
 
+def SplitNombres( nombre ):
+    tokens = nombre.split(" ")
+    names = []
+    especial_tokens = ['da', 'de', 'di', 'do', 'del', 'la', 'las', 
+    'le', 'los', 'mac', 'mc', 'van', 'von', 'y', 'i', 'san', 'santa']
+    prev = ""
+    for token in tokens:
+        _token = token.lower()
+        if _token in especial_tokens:
+            prev += token + " "
+        else:
+            names.append(prev + token)
+            prev = ""
+    num_nombres = len(names)
+    nombres, apellido1, apellido2 = "", "", ""
+    if num_nombres == 0:
+        nombres = ""
+    elif num_nombres == 1:
+        nombres = names[0]
+    elif num_nombres == 2:
+        nombres = names[0]
+        apellido1 = names[1]
+    elif num_nombres == 3:
+        nombres = names[0]
+        apellido1 = names[1]
+        apellido2 = names[2]
+    else:
+        nombres = names[0] + " " + names[1]
+        apellido1 = names[2]
+        apellido2 = names[3]
+    nombres = nombres.title()
+    apellido1 = apellido1.title()
+    apellido2 = apellido2.title()
+    nombre_apellido=[nombres,(apellido1 +' '+apellido2)]
+    return nombre_apellido
+
 
 def createUser(userID: str, password: str, name: str) -> User:
     '''Creates a user object'''
@@ -17,8 +53,8 @@ def createUser(userID: str, password: str, name: str) -> User:
             user = User(
                 userID=userID,
                 password=password,
-                name=name.split(' ')[0],
-                lastName=' '.join(name.split(' ')[1:]),
+                name=SplitNombres(name)[0],
+                lastName=SplitNombres(name)[1],
                 email=userID+"@up.edu.mx",
                 profileID=3 if userID.isnumeric() else 5
             )
@@ -139,6 +175,23 @@ def getUser(userID: User, type: int) -> User:
             f'{color(1,"Couldnt get user")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         userData = None
     return userData
+
+def filter_User(filterParams: str) -> list[dict]:
+    try:
+        #condicional, si filter = all entonces regresa todos los usuarios
+        if 'filter' in filterParams:
+            if filterParams['filter']=="all":
+                users = User.query.all()
+        elif 'id' in filterParams:
+            user = User.query.filter_by(id=filterParams['id']).first()
+            users = [user] if user else None
+        else:
+            raise ValueError('Invalid filter')
+    except Exception as e:
+        logging.error(f'Couldnt get users ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+        users = None
+        
+    return [user.toDict() for user in users] if users else []
 
 def formatDateObjsUser(user: dict[str:str]) -> dict[str:str]:
     '''Formats the date objects in the user dictionary'''

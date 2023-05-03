@@ -14,7 +14,7 @@
 					"event": [
 						{
 							"listen": "test",
-							"script": {
+							"script": {	
 								"id": "93e8c1f3-c86b-4b4f-8651-b39a7eb90e91",
 								"exec": [
 									"// Set JWT token",
@@ -100,7 +100,64 @@
 						}
 					},
 					"response": []
+				},
+				{
+							
+					"name": "Get Users by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "75a3f6fc-35aa-49a6-b463-6fb2a153a942",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"// The status code is valid",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//The requests was succesful",
+									"pm.test(\"Succesful request\", function () {",
+									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "0f50a1e1-1f07-47eb-9c18-87dbb869be2c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filter\": \"all\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/getUsers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"getUsers"
+							]
+						}
+					},
+					"response": []
+				
 				}
+				
 			],
 			"id": "d7e241d6-73ef-4441-b76e-21c16bd73c8b"
 		},
