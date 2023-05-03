@@ -73,26 +73,52 @@ def extractSubjectsFromTable(browser: ChromeBrowser) -> list[str]:
 
 
 def splitListCourses(rows: list[str]) -> list[list[str]]:
+    '''Given a list of courses, it splits them into a list of lists, each list represents a course'''
+    # The try-except block is used to catch any errors that may occur and log them
     try:
-        subjectData = [row.text.splitlines() for row in rows if rows != []]
-        flattened_data = [item.strip() for sublist in subjectData for item in sublist if item.strip()]
-
+        # The map() function returns a list of the results after applying the given function to each item of a given iterable (list, tuple etc.)
+        # In this case, the given function is the lambda function, which splits the text of each row using the new line character (\n) as a separator
+        # The result of this is a list of lists, each sublist contains the text of each row
+        subjectData = [[line.strip() for line in row.text.splitlines() if line.strip() != '']
+                       for row in rows if rows != []]
         separated_classes = []
         current_group = []
+        # The for loop iterates over each list in the subjectData list and stores the result of each iteration in the sub_list variable
+        for sub_list in subjectData:
+            # The for loop iterates over each element in the sub_list variable and stores the result of each iteration in the item variable
+            for item in sub_list:
+                # The if statement verifies that the item variable is not equal to the string "Clase Sección Días y Horas Aula Instructor Idioma Inscr / Cap Estado      "
+                if item != "Clase Sección Días y Horas Aula Instructor Idioma Inscr / Cap Estado":
+                    # If the condition is true, the item variable is appended to the current_group list
+                    current_group.append(item)
+                else:
+                    # If the condition is false, the if statement verifies that the current_group list is not empty
+                    if current_group:
+                        # If the condition is true, the current_group list is appended to the separated_classes list
+                        separated_classes.append(current_group)
+                    # The current_group list is reset to a list containing the first element of the sub_list variable
+                    current_group = [sub_list[0]]
+            # The if statement verifies that the current_group list is not empty
+            if current_group:
+                # If the condition is true, the current_group list is appended to the separated_classes list
+                separated_classes.append(current_group)
+            # The current_group list is reset to an empty list
+            current_group = []
 
-        for item in flattened_data:
-            if item == "Clase Sección Días y Horas Aula Instructor Idioma Inscr / Cap Estado":
-                separated_classes.append(current_group) if current_group else None
-                current_group = [current_group[0]] if current_group else []
-            else:
-                current_group.append(item)
+        cleanedSubjectData = [
+            classes for classes in separated_classes if len(classes) > 1]
 
-        logging.info(f"{color(2,'Courses split successfully')} ✅")
-        return [classes for classes in separated_classes if len(classes) > 1]
-
+        logging.info(
+            f"{color(2,'Courses split successfully')} ✅")
+    # If an error occurs, the except block is executed
     except Exception as e:
-        logging.error(f"{color(1,'Courses not split')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
-        return []
+        logging.error(
+            f"{color(1,'Courses not split')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
+    # The function returns a list containing only the courses in separated_classes that have more than one element
+    # add language to the end of each list
+
+    return cleanedSubjectData
+
 
 
 

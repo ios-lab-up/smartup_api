@@ -294,7 +294,67 @@
 		},
 		{
 			"name": "ScheduleMaker",
-			"item": [],
+			"item": [
+				{
+					"name": "Get Schedule Creation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8912dbb2-840d-41b1-ab19-e3da5b9984db",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"// The status code is valid",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"//The requests was succesful",
+									"pm.test(\"Succesful request\", function () {",
+									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a694c11e-41cc-4380-86b9-17527b07e721",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"subjects\": [\n        \"ADMN_CEE EMP001 - Creatividad Empresarial\",\n        \"COMPING COM101 - Análisis y Diseño de Algoritmos\",\n        \"COMPING COM104 - Programación y Estructura de Datos\",\n        \"COMPING COM113 - Matemáticas de la Computación\"\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/createSchedules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"createSchedules"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "c3a89fbd-a7e6-4f3c-8e36-fbcbfe321797"
 		}
 	]

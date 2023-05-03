@@ -176,7 +176,6 @@ def getUser(userID: User, type: int) -> User:
         userData = None
     return userData
 
-
 def filter_User(filterParams: str) -> list[dict]:
     try:
         #condicional, si filter = all entonces regresa todos los usuarios
