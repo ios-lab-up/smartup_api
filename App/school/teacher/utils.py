@@ -1,4 +1,6 @@
 from school.models import Teacher
+from school.models import Subject
+from school.models import Group
 from school import db
 from school.tools.utils import color
 import logging
@@ -29,22 +31,26 @@ def createTeacher(name: str) -> Teacher:
 
     return teacher
 
-'''
-Create an Endpoint with the following:
-Create getTeacher function in order to get teacher data (teacher.utils.py)
-1.- Get the relations Group-Teacher
-2.- Get all the teacher data
+def subjectTeacher(subjectid: int) -> list[dict]:
+    '''Returns a list of teachers that teach a specific subject
+    '''
+    try:
+        # search the subject in Subject data base
+        groups=Group.query.filter_by(subject= subjectid).all()
+        teachers=[]
+        for group in groups:
+            teacherfilter={
+            "id":f"{group.teacher}"
+            }
+            teacher=filter_Teacher(teacherfilter)
+            teachers.append(teacher)
+        logging.info(f'{color(2,"Teachers found")} ✅')
+    except Exception as e:
+        logging.error(
+            f'{color(1,"Couldnt find teachers")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+        teachers = None
 
-Accepted filters:
-    By id (id=int)
-    Get all teacher DB registers (filter = all)
-    By Subject (filter = subject)
-    
-Examples
-{"id":1} This filter will return the teacher data with the selected id
-{"filter":"all"} This filter will return all teachers in DB
-{"filter":"Algoritmos"} This filter will return all the teachers that teach that subject
-'''
+    return teachers
 
 def filter_Teacher(filterParams: str) -> list[dict]:
     try:
@@ -52,8 +58,7 @@ def filter_Teacher(filterParams: str) -> list[dict]:
             if filterParams['filter'] == 'all':
                 teachers = Teacher.query.all()
             else:
-                teachers = Teacher.query.filter_by(
-                    subject=filterParams['filter']).all()
+                teachers=subjectTeacher(filterParams['filter'])
         elif 'id' in filterParams:
             teachers = Teacher.query.filter_by(id=filterParams['id']).all()
         else:
