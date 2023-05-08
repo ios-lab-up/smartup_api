@@ -4,7 +4,7 @@ networks:
     driver: bridge
 services:
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     container_name: UP_DB
     restart: always
     environment:
@@ -28,6 +28,7 @@ services:
     networks:
       - app-tier
   api:
+    platform: linux/amd64
     container_name: UP_API
     stdin_open: true
     tty: true
@@ -40,13 +41,14 @@ services:
     networks:
       - app-tier
   scrapper:
+    platform: linux/arm64/v8
     stdin_open: true
     tty: true
     container_name: UP_Scrapper
     image: ubuntu
     command: bash -c "apt-get update && apt-get install -y wget && wget http://api:5555/FetchGroupDataUPSite"
     volumes:
-    - ./App:/SmartUP/App
+      - ./App:/SmartUP/App
     depends_on:
       - db
       - adminer
