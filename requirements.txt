@@ -1,5 +1,5 @@
 bcrypt==3.2.2
-Flask==2.1.2
+Flask==2.2.5
 Flask-Bcrypt==1.0.1
 Flask-Cors==3.0.10
 flask-healthz==0.0.3
