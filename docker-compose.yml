@@ -4,7 +4,7 @@ networks:
     driver: bridge
 services:
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     container_name: UP_DB
     restart: always
     environment:
