@@ -4,9 +4,7 @@ on:
     branches:
       - main
 jobs:
- 
-      # build the docker container(docker compose)
-
+  # build the docker container(docker compose)
 
   automated-api-tests:
     name: Automated API Tests
@@ -40,7 +38,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: "18.x"
 
       #  Install newman globally
       - name: Install newman
@@ -52,14 +50,13 @@ jobs:
       # Run the tests
       - name: Run Tests
         run: newman run "${{ github.workspace }}/postman/collections/Endpoints.json" -e "${{ github.workspace }}/postman/environments/env.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
-      
+
       # Upload the test results
       - name: Output the results
         uses: actions/upload-artifact@v3
         with:
           name: Reports
           path: testArtifact
-
 
   build-and-push:
     name: Build and Push to ECR
@@ -86,7 +83,7 @@ jobs:
         run: |
           pwd
           ls
-          bash ./git_update.sh -v patch
+          bash ./scripts/git_update.sh -v patch
 
       - name: Build, tag, and push image to Amazon ECR
         id: build-image

@@ -18,7 +18,9 @@ class ChromeBrowser:
         self.chromeOptions = Options()
         self.chromeOptions.add_argument("--headless")  # Ensure GUI is off
         self.chromeOptions.add_argument("--no-sandbox")
-        self.chromeOptions.add_argument("--disable-dev-shm-usage")
+        chrome_options = self.chromeOptions.add_argument("--disable-dev-shm-usage") 
+        d = webdriver.Chrome('/home/<user>/chromedriver',chrome_options=chrome_options)
+        d.get('https://www.google.nl/')
 
     def buildBrowser(self) -> webdriver:
         """Method to build a Chrome browser instance"""
