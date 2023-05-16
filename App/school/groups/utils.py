@@ -83,27 +83,32 @@ def getGroup(groupID: int, type: int) -> Group:
 
 
 def filterGroups(filterParams: str) -> list[dict]:
-    #This function purpose is to filter groups by a given parameter and return a list of groups that match the filter criteria
-    #filterParams is a dictionary with the following structure:
-    #filterParams = {
-    #   'id': 1,
-    #   'subject': 'Math',
-    #   'language': 'English',
-    #   'dateRange': '2021-01-01,2021-01-31'
-    #}
-    #The function will return a list of groups that match the filter criteria
-    #but if the filterParams is empty or contains the key 'all' it will return all the groups in the database
-    '''Returns a list with the group data by passing an ID'''
+    '''
+    Returns a list with the group data by passing an ID
+     This function purpose is to filter groups by a given parameter and return a list of groups that match the filter criteria
+    filterParams is a dictionary with the following structure:
+    filterParams = {
+      'id': 1,
+      'subject': 'Math',
+      'language': 'English',
+      'dateRange': '2021-01-01,2021-01-31'
+    }
+    The function will return a list of groups that match the filter criteria
+    but if the filterParams is empty or contains the key 'all' it will return all the groups in the database
+    '''
     try:
 
         filterMap = {
             'id': Group.id,
-            'subjects': Group.subject,
+            'subject': Group.subject,
             'language': Group.language,
             'dateRange': Group.creationDate
         }
+        message: str = ''
+        criteria: str = ''
         if 'all' in filterParams:
             groups = Group.query.all()
+            message = f'{len(groups)} Groups in DB'
         else:
             for key, value in filterParams.items():
                 print(key, value)
@@ -112,29 +117,22 @@ def filterGroups(filterParams: str) -> list[dict]:
                     query = Group.query.filter(
                         filterMap[key].between(startDate, endDate)
                     )
+                    criteria = f"Date range: {startDate} - {endDate}"
                 elif key == 'subjects':
-                    multipleSubjects = []
-                    for subject in value:
-                        allGroups = Group.query.all()
-                        groupQuery = list(filter(
-                            lambda group: getattr(Subject.query.filter_by(id=group.subject).first(), 'name') == subject, allGroups))
-                        groups = list(map(lambda group: group.id, groupQuery))
-                        multipleSubjects.append(groups)
-                    query = Group.query.filter(Group.id.in_(multipleSubjects[0]))
-                    for i in range(1, len(multipleSubjects)):
-                        query = query.union(Group.query.filter(
-                            Group.id.in_(multipleSubjects[i])))
-                    query.distinct()
-                    query.order_by(Group.subject)
-                    
+                    # Return all the groups that contain the id given a list
+                    query = Group.query.filter(Group.subject.in_(value))
+                    criteria = f"Subjects with id's: {value}"
                 else:
+                    # Return the group given a criteria
                     query = Group.query.filter(filterMap[key] == value)
+                    criteria = f"{key} = {value}"
 
             groups = query.all()
+            message = f"{len(groups)} Group/s found, filter: {criteria}"
 
     except Exception as e:
         logging.error(
             f'{color(1,"Couldnt get groups")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         groups = None
 
-    return [getGroup(group.id, 2) for group in groups] if groups else None
+    return [getGroup(group.id, 2) for group in groups] if groups else None, message

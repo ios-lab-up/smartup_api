@@ -22,8 +22,8 @@ def getGroupDB() -> dict[str, str]:
         elif not all(key in jsonData for key in keys):
             error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
         else:
-            data = filterGroups(jsonData['filter'])
-            message, code = f'Group found', 1
+            data, message = filterGroups(jsonData['filter'])
+            code = 1
     else:
         error, code = 'Invalid method', 4
 
