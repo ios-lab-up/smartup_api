@@ -28,6 +28,7 @@ services:
     networks:
       - app-tier
   api:
+    platform: linux/amd64
     container_name: UP_API
     stdin_open: true
     tty: true

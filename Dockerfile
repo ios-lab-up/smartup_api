@@ -1,23 +1,29 @@
-FROM python:3.10.7-buster
-WORKDIR /SmartUP
-COPY . .
-ENV FLASK_ENV development
-ENV DEBUG true
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt-get install -y wget
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-RUN apt-get -y update
-RUN apt-get install -y google-chrome-stable
-RUN apt-get install -yqq unzip
-RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
-# Unzip the Chrome Driver into /usr/local/bin directory
-RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
-# Set display port as an environment variable
-ENV DISPLAY=:99
+FROM python:3.10.7-bullseye
 
-RUN pip install --upgrade pip && pip3 install -r requirements.txt
+# Set the working directory in the container to /SmartUP
+WORKDIR /SmartUP
+
+# Copy all necessary files
+COPY . .
+
+# Download Google Chrome and Chrome Driver concurrently using curl with -OJ option
+RUN curl -OJ https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    curl -OJ http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip && \
+    unzip chromedriver_linux64.zip -d /usr/local/bin/
+
+# Install all dependencies
+RUN apt update && \
+    apt install -y ./google-chrome-stable_current_amd64.deb unzip && \
+    pip install --upgrade pip && \
+    pip install -r requirements.txt
+
+# Set environment variables
+ENV FLASK_ENV=development \
+    DEBUG=true \
+    DISPLAY=:99
+
+# Run the command to start your application
 CMD ["python", "App/run.py"]
 
-# Makes the file executable
+# Expose port 5555
 EXPOSE 5555

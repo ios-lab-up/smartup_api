@@ -28,6 +28,7 @@ class ChromeBrowser:
         return browser
 
 
+
 @dataclass
 class App(db.Model):
     '''App main table'''
