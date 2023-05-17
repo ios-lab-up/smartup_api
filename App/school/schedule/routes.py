@@ -61,7 +61,7 @@ def createSchedules() -> None:
         elif not all(key in jsonData for key in keys):
             error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
         else:
-            print(schedulesOverlap([getGroup(group, 1) for group in cleanGroupQuery(Group.query.all())]))
+            print(createCompatibleSchedules([getGroup(group.id, 1) for group in cleanGroupQuery(Group.query.all())]))
             data, message = filterGroups(jsonData['filter'])
             code = 1
     else:

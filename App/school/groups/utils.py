@@ -97,7 +97,7 @@ def cleanGroupQuery(schedule_list: list[Group]) -> list[Group]:
 def filterGroups(filterParams: str) -> list[dict]:
     '''
     Returns a list with the group data by passing an ID
-     This function purpose is to filter groups by a given parameter and return a list of groups that match the filter criteria
+    This function purpose is to filter groups by a given parameter and return a list of groups that match the filter criteria
     filterParams is a dictionary with the following structure:
     filterParams = {
       'id': 1,

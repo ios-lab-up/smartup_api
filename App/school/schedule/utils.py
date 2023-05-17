@@ -139,3 +139,9 @@ def schedulesOverlap(group_1: Group, group_2) -> bool:
         logging.critical(
             f'{color(5,"Schedule comparison failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
         return False
+    
+
+def createCompatibleSchedules(groups: list[Group]) -> list[list[Group]]:
+    '''
+    Returns a list of groups that are compatible with each other using backtracking
+    '''
