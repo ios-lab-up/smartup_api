@@ -107,14 +107,35 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
 
 
 
-def cleanGroupQuery(schedule_list: list[Group]) -> list[Group]:
-    '''Returns a list without the groups that doesn't have empy schedules lists'''
+
+
+def schedulesOverlap(group_1: Group, group_2) -> bool:
+    '''
+    Returns true in case they overlap in time and day else it returns false
+    it takes into consideration the following criteria:
+    - If the startTime or endTime of both groups somehow overlaps = True
+    - If the startTime or endTime of one group is in between the startTime and endTime of the other group = True
+
+    This criteria is applied for each day of the group, if its not achieved return True, else False
+    '''
     try:
-        for group in schedule_list:
-            if len(group.schedule) == 0:
-                schedule_list.remove(group)
+        if group_1 and group_2:
+            for schedule_1 in group_1.schedule:
+                for schedule_2 in group_2.schedule:
+                    if schedule_1.day == schedule_2.day:
+                        if schedule_1.startTime <= schedule_2.startTime <= schedule_1.endTime or schedule_1.startTime <= schedule_2.endTime <= schedule_1.endTime:
+                            return True
+                        elif schedule_2.startTime <= schedule_1.startTime <= schedule_2.endTime or schedule_2.startTime <= schedule_1.endTime <= schedule_2.endTime:
+                            return True
+                        else:
+                            return False
+        else:
+            raise ValueError(
+                f'{color(1,"Cannot compare schedules: Does not contain timedate objs")} ❌'
+            )        
+                    
+       
     except Exception as e:
         logging.critical(
-            f'{color(5,"Schedule list cleaning failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
-        
-    return schedule_list
+            f'{color(5,"Schedule comparison failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
+        return False

@@ -1,7 +1,7 @@
 from school import db
 from school.models import Group, Schedule, Subject, Teacher
 from school.relations import RelationGroupSchedule
-from school.schedule.utils import cleanGroupQuery, getSchedule
+from school.schedule.utils import  getSchedule
 from flask import jsonify
 import logging
 import traceback
@@ -81,6 +81,19 @@ def getGroup(groupID: int, type: int) -> Group:
     return groupData
 
 
+def cleanGroupQuery(schedule_list: list[Group]) -> list[Group]:
+    '''Returns a list without the groups that doesn't have empy schedules lists'''
+    try:
+        for group in schedule_list:
+            if len(group.schedule) == 0:
+                schedule_list.remove(group)
+    except Exception as e:
+        logging.critical(
+            f'{color(5,"Schedule list cleaning failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
+        
+    return schedule_list
+
+
 def filterGroups(filterParams: str) -> list[dict]:
     '''
     Returns a list with the group data by passing an ID
@@ -110,7 +123,6 @@ def filterGroups(filterParams: str) -> list[dict]:
             message = f'{len(groups)} Groups in DB'
         else:
             for key, value in filterParams.items():
-                print(key, value)
                 if key == 'dateRange':
                     startDate, endDate = value.split(',')
                     query = Group.query.filter(
