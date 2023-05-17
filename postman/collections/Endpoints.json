@@ -211,7 +211,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"filter\":{\r\n      \"subjects\":[1,2,4]\r\n  }\r\n}",
+							"raw": "{\r\n    \"filter\": \"all\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -290,7 +290,38 @@
 		},
 		{
 			"name": "ScheduleMaker",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "8a078c49-7b0c-4c32-8bd6-c2913e3e3b6a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"filter\": \"all\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/createSchedules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"createSchedules"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"id": "c3a89fbd-a7e6-4f3c-8e36-fbcbfe321797"
 		}
 	]
