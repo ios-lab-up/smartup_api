@@ -14,7 +14,7 @@
 					"event": [
 						{
 							"listen": "test",
-							"script": {	
+							"script": {
 								"id": "93e8c1f3-c86b-4b4f-8651-b39a7eb90e91",
 								"exec": [
 									"// Set JWT token",
@@ -102,7 +102,6 @@
 					"response": []
 				},
 				{
-							
 					"name": "Get Users by ID",
 					"event": [
 						{
@@ -133,8 +132,7 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"filter\": \"all\"\n}",
@@ -155,9 +153,7 @@
 						}
 					},
 					"response": []
-				
 				}
-				
 			],
 			"id": "d7e241d6-73ef-4441-b76e-21c16bd73c8b"
 		},
@@ -215,7 +211,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"filter\":\"all\"\r\n}",
+							"raw": "{\r\n  \"filter\":{\r\n      \"subjects\":[1,2,4]\r\n  }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -294,67 +290,7 @@
 		},
 		{
 			"name": "ScheduleMaker",
-			"item": [
-				{
-					"name": "Get Schedule Creation",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8912dbb2-840d-41b1-ab19-e3da5b9984db",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"",
-									"// The status code is valid",
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									"//The requests was succesful",
-									"pm.test(\"Succesful request\", function () {",
-									"    pm.expect(jsonData.sucess).to.eql(true);",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "a694c11e-41cc-4380-86b9-17527b07e721",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-access-token",
-								"value": "",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"subjects\": [\n        \"ADMN_CEE EMP001 - Creatividad Empresarial\",\n        \"COMPING COM101 - Análisis y Diseño de Algoritmos\",\n        \"COMPING COM104 - Programación y Estructura de Datos\",\n        \"COMPING COM113 - Matemáticas de la Computación\"\n    ]\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}/createSchedules",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"createSchedules"
-							]
-						}
-					},
-					"response": []
-				}
-			],
+			"item": [],
 			"id": "c3a89fbd-a7e6-4f3c-8e36-fbcbfe321797"
 		}
 	]
