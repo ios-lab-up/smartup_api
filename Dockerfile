@@ -18,7 +18,7 @@ RUN apt update && \
     pip install -r requirements.txt
 
 # Set environment variables
-ENV FLASK_ENV=development \
+ENV FLASK_DEBUG=development \
     DEBUG=true \
     DISPLAY=:99
 

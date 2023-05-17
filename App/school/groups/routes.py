@@ -1,4 +1,5 @@
 from school.models import Group
+from school.schedule.utils import cleanGroupQuery
 from flask import Blueprint, request, jsonify, render_template, session
 from school.groups.utils import *
 from school.security import *

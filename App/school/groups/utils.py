@@ -1,7 +1,7 @@
 from school import db
 from school.models import Group, Schedule, Subject, Teacher
 from school.relations import RelationGroupSchedule
-from school.schedule.utils import getSchedule
+from school.schedule.utils import cleanGroupQuery, getSchedule
 from flask import jsonify
 import logging
 import traceback
@@ -55,6 +55,7 @@ def getGroup(groupID: int, type: int) -> Group:
                 .join(RelationGroupSchedule)\
                 .filter(RelationGroupSchedule.c.groupId == groupID)\
                 .all()
+            
             match type:
                 case 1:
                     groupData = group
@@ -68,8 +69,6 @@ def getGroup(groupID: int, type: int) -> Group:
                         Teacher.query.filter_by(id=group.teacher).first(), 'name')
                 case _:
                     raise Exception(f'{color(3,"Type not found")}')
-
-            logging.info(f"{color(2,'Group found:')} ✅")
 
         else:
             raise Exception(f'{color(3,"Group not found")}')
@@ -128,6 +127,7 @@ def filterGroups(filterParams: str) -> list[dict]:
                     criteria = f"{key} = {value}"
 
             groups = query.all()
+
             message = f"{len(groups)} Group/s found, filter: {criteria}"
 
     except Exception as e:
@@ -135,4 +135,4 @@ def filterGroups(filterParams: str) -> list[dict]:
             f'{color(1,"Couldnt get groups")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         groups = None
 
-    return [getGroup(group.id, 2) for group in groups] if groups else None, message
+    return [getGroup(group.id, 2) for group in cleanGroupQuery(groups)] if groups else None, message
