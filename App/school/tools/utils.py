@@ -2,7 +2,10 @@ from flask import session
 from contextlib import contextmanager
 from datetime import datetime
 from school import db
+from school.models import Group
 import psutil
+import logging
+import traceback
 
 
 def server_status() -> str:
@@ -94,3 +97,68 @@ class ScheduleExtractionError(Exception):
 
     def __init__(self, message=None) -> str:
         self.message: str = f'{color(5,"Schedule extraction failed")} 🔍' if message is None else message
+
+
+
+def schedulesOverlap(group_1: Group, group_2: Group) -> bool:
+    '''
+    Returns true in case they overlap in time and day else it returns false
+    it takes into consideration the following criteria:
+    - If the startTime or endTime of both groups somehow overlaps = True
+    - If the startTime or endTime of one group is in between the startTime and endTime of the other group = True
+
+    This criteria is applied for each day of the group, if its not achieved return True, else False
+    '''
+    try:
+        # Get the schedules of each group
+        group_1_schedules = group_1.schedule
+        group_2_schedules = group_2.schedule
+
+        # Iterate over each schedule in group 1
+        for schedule_1 in group_1_schedules:
+            # Iterate over each schedule in group 2
+            for schedule_2 in group_2_schedules:
+                # Check if the days are the same
+                if schedule_1.day == schedule_2.day:
+                    # Check if the times overlap
+                    if (schedule_1.startTime <= schedule_2.endTime and schedule_1.endTime >= schedule_2.startTime):
+                        return True
+
+        # If no overlap was found, return False
+        return False
+
+    except Exception as e:
+        logging.critical(
+            f'{color(5,"Schedule comparison failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
+        return False
+
+
+def createCompatibleSchedules(groups: list[Group]) -> list[list[Group]]:
+    '''
+    Returns a list of lists containing groups whose schedules don't overlap given a list groups
+    '''
+    
+    # Get the groups of the subject
+
+
+
+# Then in your main function:
+
+
+    compatible_schedules = []
+
+    # Iterate over each group
+    for i in range(len(groups)):
+        compatible_group = [groups[i]]
+        # Iterate over each other group
+        for j in range(i + 1, len(groups)):
+            # Check if the schedules of the two groups overlap
+            if not schedulesOverlap(groups[i], groups[j]):
+                compatible_group.append(groups[j])
+
+
+        # Add the compatible group to the list of compatible schedules
+        compatible_schedules.append(compatible_group)
+        print(compatible_schedules)
+
+    return compatible_schedules

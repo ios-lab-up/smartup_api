@@ -148,3 +148,5 @@ def filterGroups(filterParams: str) -> list[dict]:
         groups = None
 
     return [getGroup(group.id, 2) for group in cleanGroupQuery(groups)] if groups else None, message
+
+
