@@ -114,7 +114,8 @@ def createCompatibleSchedules(groups: dict[Group]) -> list[list[dict[Group]]]:
                 seen_subjects.add(groups[j].get('subject'))
         
         # Return the list of compatible schedules
-        compatible_schedules.append(compatible_group)
+        if len(compatible_group) > 1:   
+            compatible_schedules.append(compatible_group)
     # Sort the compatible schedules by the startTime of the first class in each schedule
     compatible_schedules_sorted = sorted(compatible_schedules, key=lambda x: x[0]['schedules'][0]['startTime'])
 

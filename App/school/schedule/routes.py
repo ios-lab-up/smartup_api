@@ -1,11 +1,12 @@
 from school.schedule.utils import *
 from school.groups.utils import *
 from flask import Blueprint, request, jsonify
+from school.security import tokenRequired
 
 schedule = Blueprint('schedule', __name__)
 
-
 @schedule.route('/createSchedules', methods=['GET', 'POST'])
+@tokenRequired
 def createSchedules() -> None:
     '''This endpoint returns a group '''
 
