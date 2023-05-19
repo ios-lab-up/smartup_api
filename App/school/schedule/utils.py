@@ -86,11 +86,6 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     schedule['endTime'] = schedule['endTime'].strftime("%H:%M:%S")
     return schedule
 
-
-
-
-
-
  
 def createCompatibleSchedules(groups: dict[Group]) -> list[list[dict[Group]]]:
     '''
