@@ -92,3 +92,62 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
 
 
  
+def createCompatibleSchedules(groups: dict[Group]) -> list[list[dict[Group]]]:
+    '''
+    Returns a list of lists containing groups whose schedules don't overlap given a list of groups
+    '''
+
+    compatible_schedules = []
+        
+    # Iterate over each group
+    for i in range(len(groups)):
+        compatible_group = [groups[i]]
+        seen_subjects = set([groups[i].get('subject')])  # Track subjects encountered
+        # Iterate over each other group
+        for j in range(i + 1, len(groups)):
+            # Check if the schedules of the two groups overlap and the subject is not repeated
+            if (
+                not schedulesOverlap(groups[i], groups[j]) and
+                groups[j].get('subject') not in seen_subjects
+            ):
+                compatible_group.append(groups[j])
+                seen_subjects.add(groups[j].get('subject'))
+        
+        # Return the list of compatible schedules
+        compatible_schedules.append(compatible_group)
+    # Sort the compatible schedules by the startTime of the first class in each schedule
+    compatible_schedules_sorted = sorted(compatible_schedules, key=lambda x: x[0]['schedules'][0]['startTime'])
+
+
+    return compatible_schedules_sorted
+
+
+def schedulesOverlap(group_1: Group, group_2: Group) -> bool:
+    '''
+    Returns True if the schedules of group_1 and group_2 overlap, False otherwise
+    '''
+
+    try:
+        # Get the schedules of each group
+        group_1_schedules = group_1['schedules']
+        group_2_schedules = group_2['schedules']
+
+        # Iterate over each schedule in group 1
+        for schedule_1 in group_1_schedules:
+            # Iterate over each schedule in group 2
+            for schedule_2 in group_2_schedules:
+                # Check if the days are the same
+                if schedule_1['day'] == schedule_2['day']:
+                    # Check if the times overlap
+                    if (
+                        schedule_1['startTime'] <= schedule_2['endTime'] and
+                        schedule_1['endTime'] >= schedule_2['startTime']
+                    ):
+                        return True
+
+        # If no overlap was found, return False
+        return False
+
+    except Exception as e:
+        logging.critical(f'Schedule comparison failed: {e}')
+        return False

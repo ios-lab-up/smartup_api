@@ -1,4 +1,5 @@
-from school.schedule.schedule_creation import *
+from school.schedule.utils import *
+from school.groups.utils import *
 from flask import Blueprint, request, jsonify
 
 schedule = Blueprint('schedule', __name__)
@@ -20,11 +21,11 @@ def createSchedules() -> None:
             error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
         else:
             data  = createCompatibleSchedules([getGroup(group.id, 2) for group in  Group.query.filter(Group.subject.in_(jsonData['subjects'])).filter(Group.schedule.any()).all()])
-            message = 'Group created'
+            message = f'{len(data)} schedules created'
             code = 1
     else:
         error, code = 'Invalid method', 4
 
-    response.update({'sucess': True, 'message': message, 'Group': data, 'status_code': 200, 'amount': len(data), 'error': error, 'code': code} if data and data != [] and data != [None] else {
+    response.update({'sucess': True, 'message': message, 'compatible_schedules': data, 'status_code': 200, 'error': error, 'code': code} if data and data != [] and data != [None] else {
         'sucess': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
     return jsonify(response)

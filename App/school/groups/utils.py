@@ -61,7 +61,7 @@ def getGroup(groupID: int, type: int) -> Group:
                     groupData = group
                 case 2:
                     groupData = group.toDict()
-                    groupData['Schedules'] = list(map(
+                    groupData['schedules'] = list(map(
                         lambda schedule: getSchedule(schedule), group.schedules))
                     groupData['subject'] = getattr(
                         Subject.query.filter_by(id=group.subject).first(), 'name')
