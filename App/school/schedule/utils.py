@@ -87,7 +87,7 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     return schedule
 
  
-def createCompatibleSchedules(groups: dict[Group]) -> list[list[dict[Group]]]:
+def createCompatibleSchedules(groups: dict[str: Group]) -> list[list[dict[str: Group]]]:
     '''
     Returns a list of lists containing groups whose schedules don't overlap given a list of groups
     '''
@@ -147,3 +147,5 @@ def schedulesOverlap(group_1: Group, group_2: Group) -> bool:
     except Exception as e:
         logging.critical(f'Schedule comparison failed: {e}')
         return False
+    
+

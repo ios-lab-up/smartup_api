@@ -12,8 +12,6 @@ def createGroup(classNumber: int, group: str, subject: int, teacher: int, langua
     '''Creates a group in the database'''
     try:
         if not Group.query.filter_by(classNumber=classNumber).first():
-            options = False if students.split(
-                '/')[0] == students.split('/')[1] else True
 
             group = Group(
                 classNumber=classNumber,
@@ -24,7 +22,8 @@ def createGroup(classNumber: int, group: str, subject: int, teacher: int, langua
                 students=students,
                 modality=modality,
                 description=description,
-                options=options
+                options=0,
+                status=False if students.split('/')[0] == students.split('/')[1] else True
             )
             db.session.add(group)
             db.session.commit()
