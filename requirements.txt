@@ -20,3 +20,4 @@ webdriver-manager==3.8.5
 pyjwt==2.6.0
 qrcode
 networkx
+flask-restful
