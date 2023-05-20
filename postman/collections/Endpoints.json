@@ -292,17 +292,46 @@
 			"name": "ScheduleMaker",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "Create Compatible Schedules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c82fe558-376a-4671-ad25-5e2a1b515458",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"// The status code is valid\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//The requests was succesful\r",
+									"pm.test(\"Succesful request\", function () {\r",
+									"    pm.expect(jsonData.sucess).to.eql(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "8a078c49-7b0c-4c32-8bd6-c2913e3e3b6a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": [],
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"filter\": \"all\"\r\n}",
+							"raw": "{\r\n    \"subjects\":[2,3,4]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
