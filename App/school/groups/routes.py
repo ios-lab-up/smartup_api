@@ -5,8 +5,8 @@ from school.security import *
 
 groups = Blueprint('groups', __name__)
 
-@tokenRequired
 @groups.route('/getGroup', methods=['GET', 'POST'])
+@tokenRequired
 def getGroupDB() -> dict[str, str]:
     '''This endpoint returns a group from the database'''
 

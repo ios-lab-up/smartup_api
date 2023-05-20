@@ -87,65 +87,99 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     return schedule
 
  
-def createCompatibleSchedules(groups: dict[str: Group]) -> list[list[dict[str: Group]]]:
+def create_compatible_schedules(groups: list[dict[str:Group]])-> list[list[dict[str:Group]]]:
     '''
     Returns a list of lists containing groups whose schedules don't overlap given a list of groups
     '''
 
     compatible_schedules = []
-        
+    seen_subjects = set()
+
     # Iterate over each group
-    for i in range(len(groups)):
-        compatible_group = [groups[i]]
-        seen_subjects = set([groups[i].get('subject')])  # Track subjects encountered
+    for schedule_1 in range(len(groups)):
+        current_group = groups[schedule_1]
+        current_subject = current_group['subject']
+
+        if current_subject in seen_subjects:
+            continue
+
+        current_compatible_group = [current_group]
+        seen_subjects.add(current_subject)
+
+        # Preprocess the schedules of the current group
+        current_group_schedules = preprocess_schedules(current_group['schedules'])
+
         # Iterate over each other group
-        for j in range(i + 1, len(groups)):
-            # Check if the schedules of the two groups overlap and the subject is not repeated
-            if (
-                not schedulesOverlap(groups[i], groups[j]) and
-                groups[j].get('subject') not in seen_subjects
-            ):
-                compatible_group.append(groups[j])
-                seen_subjects.add(groups[j].get('subject'))
-        
-        # Return the list of compatible schedules
-        if len(compatible_group) > 1:   
-            compatible_schedules.append(compatible_group)
-    # Sort the compatible schedules by the startTime of the first class in each schedule
-    compatible_schedules_sorted = sorted(compatible_schedules, key=lambda x: x[0]['schedules'][0]['startTime'])
+        for schedule_2 in range(schedule_1 + 1, len(groups)):
+            other_group = groups[schedule_2]
+            other_subject = other_group['subject']
+
+            if other_subject in seen_subjects:
+                continue
+
+            # Check if the schedules of the two groups overlap
+            if not schedules_overlap(current_group_schedules, other_group['schedules']):
+                current_compatible_group.append(other_group)
+                seen_subjects.add(other_subject)
+
+        # Add the compatible group to the list
+        if len(current_compatible_group) > 1:
+            compatible_schedules.append(current_compatible_group)
+
+    return compatible_schedules
 
 
-    return compatible_schedules_sorted
+def preprocess_schedules(schedules: dict[str:Group]) -> list[dict[str:Group]]:
+    '''
+    Preprocesses the schedules to optimize schedule comparison,
+    in order to avoid unnecesary iterations
+    '''
+
+    # Create an empty dictionary to store the preprocessed schedule data
+    schedule_data = {}
+
+    # Iterate over each schedule in the input dictionary
+    for schedule in schedules:
+        # Extract the relevant attributes from the schedule
+        day = schedule['day']
+        start_time = schedule['startTime']
+        end_time = schedule['endTime']
+
+        # If the day is not already a key in the schedule_data dictionary, add it
+        if day not in schedule_data:
+            schedule_data[day] = []
+
+        # Append the schedule interval (start_time, end_time) to the corresponding day
+        schedule_data[day].append((start_time, end_time))
+
+    # Sort the schedule intervals for each day based on the start time
+    for day in schedule_data:
+        schedule_data[day].sort(key=lambda x: x[0])
+
+    # Return the preprocessed schedule data
+    return schedule_data
 
 
-def schedulesOverlap(group_1: Group, group_2: Group) -> bool:
+def schedules_overlap(group_1_schedules:dict[str:Group], group_2_schedules:dict[str:Group]) -> bool:
     '''
     Returns True if the schedules of group_1 and group_2 overlap, False otherwise
     '''
 
-    try:
-        # Get the schedules of each group
-        group_1_schedules = group_1['schedules']
-        group_2_schedules = group_2['schedules']
+    #Iterate over each day in group_1_schedules
+    for day in group_1_schedules:
+        # Check if the day is present in group_2_schedules
+        if day in group_2_schedules:
+            # Get the schedule intervals for the current day in both groups
+            group_1_intervals = group_1_schedules[day]
+            group_2_intervals = group_2_schedules[day]
 
-        # Iterate over each schedule in group 1
-        for schedule_1 in group_1_schedules:
-            # Iterate over each schedule in group 2
-            for schedule_2 in group_2_schedules:
-                # Check if the days are the same
-                if schedule_1['day'] == schedule_2['day']:
-                    # Check if the times overlap
-                    if (
-                        schedule_1['startTime'] <= schedule_2['endTime'] and
-                        schedule_1['endTime'] >= schedule_2['startTime']
-                    ):
+            # Iterate over each interval in group_1_intervals
+            for interval_1 in group_1_intervals:
+                # Iterate over each interval in group_2_intervals
+                for interval_2 in group_2_intervals:
+                    # Check if the intervals overlap
+                    if interval_1[0] <= interval_2[1] and interval_1[1] >= interval_2[0]:
                         return True
 
-        # If no overlap was found, return False
-        return False
-
-    except Exception as e:
-        logging.critical(f'Schedule comparison failed: {e}')
-        return False
-    
-
+    # If no overlap was found, return False
+    return False

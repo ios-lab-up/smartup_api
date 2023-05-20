@@ -21,7 +21,7 @@ def createSchedules() -> dict[str:str]:
         elif not all(key in jsonData for key in keys):
             error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
         else:
-            data  = createCompatibleSchedules([getGroup(group.id, 2) for group in  Group.query.filter(Group.subject.in_(jsonData['subjects'])).filter(Group.schedule.any()).filter_by(status=True).all()])
+            data  = create_compatible_schedules([getGroup(group.id, 2) for group in  Group.query.filter(Group.subject.in_(jsonData['subjects'])).filter(Group.schedule.any()).filter_by(status=True).all()])
             message,code = f'{len(data)} schedules created', 1
     else:
         error, code = 'Invalid method', 4
