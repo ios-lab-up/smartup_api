@@ -7,7 +7,8 @@ from school.hours.utils import *
 from datetime import datetime
 import traceback
 import logging
-import re
+import networkx as nx
+
 
 
 def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Group) -> Schedule:
@@ -87,35 +88,33 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     return schedule
 
  
-def createCompatibleSchedules(groups: dict[str: Group]) -> list[list[dict[str: Group]]]:
+def createCompatibleSchedules(groups: list[dict]) -> list[list[dict]]:
     '''
     Returns a list of lists containing groups whose schedules don't overlap given a list of groups
     '''
 
-    compatible_schedules = []
-        
-    # Iterate over each group
+    # Create a graph where each node represents a group
+    graph = nx.Graph()
     for i in range(len(groups)):
-        compatible_group = [groups[i]]
-        seen_subjects = set([groups[i].get('subject')])  # Track subjects encountered
-        # Iterate over each other group
-        for j in range(i + 1, len(groups)):
-            # Check if the schedules of the two groups overlap and the subject is not repeated
-            if (
-                not schedulesOverlap(groups[i], groups[j]) and
-                groups[j].get('subject') not in seen_subjects
-            ):
-                compatible_group.append(groups[j])
-                seen_subjects.add(groups[j].get('subject'))
-        
-        # Return the list of compatible schedules
-        if len(compatible_group) > 1:   
-            compatible_schedules.append(compatible_group)
+        graph.add_node(i, group=groups[i])
+
+    # Add an edge between two nodes if the corresponding groups have non-overlapping schedules and different subjects
+    for i in range(len(groups)):
+        for j in range(i+1, len(groups)):
+            if not schedulesOverlap(groups[i], groups[j]) and groups[i]['subject'] != groups[j]['subject']:
+                graph.add_edge(i, j)
+
+    # Find all cliques in the graph
+    cliques = list(nx.find_cliques(graph))
+
+    # Convert cliques to list of compatible schedules
+    compatible_schedules = [[graph.nodes[i]['group'] for i in clique] for clique in cliques if len(clique) > 1]
+
     # Sort the compatible schedules by the startTime of the first class in each schedule
     compatible_schedules_sorted = sorted(compatible_schedules, key=lambda x: x[0]['schedules'][0]['startTime'])
 
-
     return compatible_schedules_sorted
+
 
 
 def schedulesOverlap(group_1: Group, group_2: Group) -> bool:

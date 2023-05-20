@@ -249,16 +249,17 @@ def fetchLanguages(browser: ChromeBrowser, subjects: int) -> list[str]:
 def fetchDateTime(data: list[list[str]]) -> list[str]:
     '''Gets the date and time from the lists'''
     try:
-        dateTimeStrings = [
-            info for info in data 
-            if ":" in info and " - " in info and len(re.findall(r'[A-Z]', info.split()[0])) <= 1
-        ]
+        dateTimeStrings = set()
+        for info in data:
+            if ":" in info and " - " in info and len(re.findall(r'[A-Z]', info.split()[0])) <= 1:
+                dateTimeStrings.add(info)
+
 
     except Exception as e:
         logging.error(
             f"{color(1,'Date and time not found')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
         return ''
-    return dateTimeStrings
+    return list(dateTimeStrings)
 
 
 
