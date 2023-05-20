@@ -22,10 +22,8 @@ def createSchedules() -> dict[str:str]:
     minimum = args.get("minimum")
 
     try:
-        print(teachers)
         data,message,status_code, error = createCompatibleSchedules(
-            [getGroup(group.id, 2) for group in Group.query.filter(Group.subject.in_(args['subjects'])).filter(
-                Group.schedule.any()).filter_by(status=True).all()], teachers, minimum)
+            [getGroup(group.id, 2) for group in Group.query.filter(Group.subject.in_(args['subjects']),Group.schedule.any(),Group.status == True).all()], teachers, minimum)
         return jsonify({
             'success': True,
             'message': f'{message}',
