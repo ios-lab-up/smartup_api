@@ -14,7 +14,7 @@ def createSchedules() -> dict[str:str]:
     parser = reqparse.RequestParser(bundle_errors=True)
     parser.add_argument("subjects", type=list, location='json', required=True)
     parser.add_argument("teachers", type=list, location='json', required=False, default=[])
-    parser.add_argument("minimum", type=int, location='json', required=False, default=1)
+    parser.add_argument("minimum", type=int, location='json', required=False, default=3)
     args = parser.parse_args(strict=True)
 
     # Default values

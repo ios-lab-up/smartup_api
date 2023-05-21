@@ -21,3 +21,4 @@ pyjwt==2.6.0
 qrcode
 networkx
 flask-restful
+beautifulsoup4
