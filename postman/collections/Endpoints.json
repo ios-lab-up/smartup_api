@@ -331,7 +331,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"subjects\":[2,3,4]\r\n}",
+							"raw": "{\r\n    \"subjects\":[47,48,6,7,9,25,22],\r\n    \"teachers\":[8,21], // Optional\r\n    \"minimum\": 5 //Optional\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
