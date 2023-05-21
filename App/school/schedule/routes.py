@@ -1,31 +1,43 @@
 from school.schedule.utils import *
 from school.groups.utils import *
-from flask import Blueprint, request, jsonify
 from school.security import tokenRequired
+from flask import Blueprint, request, jsonify
+from flask_restful import reqparse, abort
 
 schedule = Blueprint('schedule', __name__)
 
-@schedule.route('/createSchedules', methods=['GET', 'POST'])
+@schedule.route('/createSchedules', methods=['POST'])
 @tokenRequired
 def createSchedules() -> dict[str:str]:
     '''This endpoint returns a group '''
+    # Request parsing
+    parser = reqparse.RequestParser(bundle_errors=True)
+    parser.add_argument("subjects", type=list, location='json', required=True)
+    parser.add_argument("teachers", type=list, location='json', required=False, default=[])
+    parser.add_argument("minimum", type=int, location='json', required=False, default=3)
+    args = parser.parse_args(strict=True)
 
-    jsonData = request.get_json()
-    data: list[dict[str, str]] = []
-    response: dict[str, str] = {}
-    error, code = None, None
-    keys = ['subjects']
-    if request.method == 'POST':
-        if not jsonData:
-            error, code = 'Empty Request', 400
-        elif not all(key in jsonData for key in keys):
-            error, code = f'Missing key: {", ".join(key for key in keys if key not in jsonData)}', 400
-        else:
-            data  = createCompatibleSchedules([getGroup(group.id, 2) for group in  Group.query.filter(Group.subject.in_(jsonData['subjects'])).filter(Group.schedule.any()).filter_by(status=True).all()])
-            message,code = f'{len(data)} schedules created', 1
-    else:
-        error, code = 'Invalid method', 4
+    # Default values
+    teachers = args.get("teachers")
+    minimum = args.get("minimum")
 
-    response.update({'sucess': True, 'message': message, 'compatible_schedules': data, 'status_code': 200, 'error': error, 'code': code} if data and data != [] and data != [None] else {
-        'sucess': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
-    return jsonify(response)
+    try:
+        data,message,status_code, error = createCompatibleSchedules(
+            [getGroup(group.id, 2) for group in Group.query.filter(Group.subject.in_(args['subjects']),Group.schedule.any(),Group.status == True).all()], teachers, minimum)
+        return jsonify({
+            'success': True,
+            'message': f'{message}',
+            'compatible_schedules': data,
+            'status_code': status_code,
+            'error': error,
+            'code':1
+        }), status_code
+
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'message': f'message',
+            'status_code': status_code,
+            'error': str(e),
+            'code': 2
+        }), status_code

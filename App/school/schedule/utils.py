@@ -1,10 +1,11 @@
 from school import db
 from school.tools.utils import *
 from school.tools.utils import color
-from school.models import Group, Schedule, Classroom, Subject, Teacher
+from school.models import Group, Schedule, Classroom, Teacher
 from school.days.utils import *
 from school.hours.utils import *
 from datetime import datetime
+from  typing import Optional
 import traceback
 import logging
 import networkx as nx
@@ -88,32 +89,60 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     return schedule
 
  
-def createCompatibleSchedules(groups: list[dict]) -> list[list[dict]]:
+def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[list[int]]=None, minimum: Optional[int]=3) -> list[list[dict[str,Group]]]:
     '''
-    Returns a list of lists containing groups whose schedules don't overlap given a list of groups
+    Returns a list of lists containing groups whose schedules don't overlap given a list of groups.
+    If `teachers` is specified, only considers groups taught by those teachers.
+    Only returns schedules that contain at least `minimum` groups.
     '''
 
-    # Create a graph where each node represents a group
-    graph = nx.Graph()
-    for i in range(len(groups)):
-        graph.add_node(i, group=groups[i])
+    try:
 
-    # Add an edge between two nodes if the corresponding groups have non-overlapping schedules and different subjects
-    for i in range(len(groups)):
-        for j in range(i+1, len(groups)):
-            if not schedulesOverlap(groups[i], groups[j]) and groups[i]['subject'] != groups[j]['subject']:
-                graph.add_edge(i, j)
+        # Create a graph where each node represents a group
+        graph = nx.Graph()
+        for i in range(len(groups)):
+            graph.add_node(i, group=groups[i])
 
-    # Find all cliques in the graph
-    cliques = list(nx.find_cliques(graph))
+        # Add an edge between two nodes if the corresponding groups have non-overlapping schedules and different subjects
+        for i in range(len(groups)):
+            for j in range(i+1, len(groups)):
+                if not schedulesOverlap(groups[i], groups[j]) and groups[i]['subject'] != groups[j]['subject']:
+                    graph.add_edge(i, j)
 
-    # Convert cliques to list of compatible schedules
-    compatible_schedules = [[graph.nodes[i]['group'] for i in clique] for clique in cliques if len(clique) > 1]
+        # Find all cliques in the graph
+        cliques = list(nx.find_cliques(graph))
 
-    # Sort the compatible schedules by the startTime of the first class in each schedule
-    compatible_schedules_sorted = sorted(compatible_schedules, key=lambda x: x[0]['schedules'][0]['startTime'])
+        # Convert cliques to list of compatible schedules
+        compatible_schedules = [list(map(lambda x: groups[x], clique)) for clique in cliques if len(clique) >= minimum]
+        message = f"{len(compatible_schedules)} compatible schedules were found"      
+        error = None
+        status_code = 201
 
-    return compatible_schedules_sorted
+
+        # Filter schedules by teacher if the fitler is not none
+        if teachers:
+            teacher_names = []
+            for teacher_id in teachers:
+                teacher = Teacher.query.filter_by(id=teacher_id).first()
+                if not teacher:
+                    raise ValueError(color(3,f"Teacher with id: {teacher_id} does not exist"))
+                else:
+                    teacher_names.append(teacher.name)
+
+            # Keep only those schedules that have at least one group taught by one of the teachers
+            compatible_schedules = [schedule for schedule in compatible_schedules if any(group['teacher'] in teacher_names for group in schedule)]
+            message = f"{len(compatible_schedules)} compatible schedules were found (filtered by teachers: {', '.join(teacher_names)})"
+
+
+    except Exception as e:
+        logging.error(color(1,f"Error creating compatible schedules: {e}"))
+        
+        compatible_schedules = []
+        message = "Error creating compatible schedules"
+        status_code = 500
+        error = str(e)
+
+    return compatible_schedules, message, status_code, error
 
 
 
