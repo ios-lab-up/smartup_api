@@ -66,6 +66,7 @@ def create_app(config_class=Config):
     from school.login.routes import login
     from school.schedule.routes import schedule
     from school.teacher.routes import teacher
+    from school.dashboard.routes import dashboard
 
     # Here is where you register your blueprints to the app
     app.config.from_object(Config)
@@ -76,5 +77,6 @@ def create_app(config_class=Config):
     app.register_blueprint(login)
     app.register_blueprint(schedule)
     app.register_blueprint(teacher)
+    app.register_blueprint(dashboard)
 
     return app
