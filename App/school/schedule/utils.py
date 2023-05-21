@@ -89,7 +89,7 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     return schedule
 
  
-def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[list[int]]=None, minimum: Optional[int]=1) -> list[list[dict[str,Group]]]:
+def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[list[int]]=None, minimum: Optional[int]=3) -> list[list[dict[str,Group]]]:
     '''
     Returns a list of lists containing groups whose schedules don't overlap given a list of groups.
     If `teachers` is specified, only considers groups taught by those teachers.
