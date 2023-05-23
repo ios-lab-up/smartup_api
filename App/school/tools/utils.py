@@ -98,5 +98,9 @@ class ScheduleExtractionError(Exception):
     def __init__(self, message=None) -> str:
         self.message: str = f'{color(5,"Schedule extraction failed")} 🔍' if message is None else message
 
+class WrongCredentialsError(Exception):
+    '''Error raised when the user enters wrong credentials'''
 
+    def __init__(self, message=None) -> None:
+        self.message: str = f'{color(5,"Wrong User Credentials")} 🔍' if message is None else message
 

@@ -1,47 +1,87 @@
 from school.models import ChromeBrowser
-from school.dashboard.utils import enterDashboard, enterUPSiteSubjects
+from school.dashboard.utils import  enterUPSiteSubjects
 from school.schedule.utils import *
 from school.login.utils import *
 from school.subjects.utils import fetchGroupData
-from school.user.utils import getUser
-from school.tools.utils import color, UserNotFoundError, ScheduleExtractionError
+from school.tools.utils import color, WrongCredentialsError
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from school.groups.utils import *
-from school.user.utils import createUser
+from school.user.utils import createUser, getUser
 from school.security import *
 from flask import session
+from flask_bcrypt  import check_password_hash
 import traceback
 import logging
 
 
 def extractUP4UContent(studentId: str, password: str) -> User:
     '''Extracts the schedule of a user from the UP4U platform'''
-    scheduleContent: list[Subject] = []
 
-    # Try to get the user from the database
     try:
+        user_data = {
+            'schedule': [],
+            'grades': [],
+        }
+
         user = User.query.filter_by(userID=studentId).first()
-        if user:
-            scheduleContent = getUser(user.id, 2)
-        else:
-            raise UserNotFoundError
-    except UserNotFoundError as e:
-        logging.warning(e.message)
-        # Try to get the schedule from the UP4U platform
-        try:
+        if not user:
             with ChromeBrowser().buildBrowser() as browser:
                 browser.get("https://up4u.up.edu.mx/user/auth/login")
-                login(browser, studentId, password)
-                user = createUser(
-                    **session['user'], name=enterDashboard(browser))
+                loginUP4U(browser, studentId, password)
+                user = createUser(**session['user'])
+                user_data['schedule'] = fetch_schedule_content(browser) #TODO: Create a relation table user-group
+                user_data['grades'] = fetch_grades_content(browser) #TODO: Create a junction table user-group-grade-parcial
 
-                # fetchScheduleContent(browser)
-                scheduleContent = getUser(user.id, 2)
-        except ScheduleExtractionError as e:
-            logging.critical(e.message)
-            scheduleContent = []
-    return scheduleContent
+                # Código de mau:
+
+                message, status_code, error = f'User: {user.userID} was succesfully created', 201, None
+
+        else:
+            if check_password_hash(user.password, password):
+                user = getUser(user.id, 2)
+                user['jwt_token'] = encodeJwtToken(user)
+                message, status_code, error = f'User: {user["userID"]} was succesfully logged in', 200, None
+            else:
+                user, message, status_code, error  = {}, "Wrong Credentials!", 401, "Unauthorized"
+    except WrongCredentialsError as e:
+        logging.warning(e.message)
+        user, message, status_code, error ={}, 'Wrong credentials or user creation failed', 401, e.message
+
+    return user, message, status_code, error
+
+
+        
+    
+
+
+
+
+
+
+    # # Try to get the user from the database
+    # try:
+    #     user = User.query.filter_by(userID=studentId).first()
+    #     if user:
+    #         scheduleContent = getUser(user.id, 2)
+    #     else:
+    #         raise UserNotFoundError
+    # except UserNotFoundError as e:
+    #     logging.warning(e.message)
+    #     # Try to get the schedule from the UP4U platform
+    #     try:
+    #         with ChromeBrowser().buildBrowser() as browser:
+    #             browser.get("https://up4u.up.edu.mx/user/auth/login")
+    #             login(browser, studentId, password)
+    #             user = createUser(
+                    # **session['user'], name=enterDashboard(browser))
+
+    #             # fetchScheduleContent(browser)
+    #             scheduleContent = getUser(user.id, 2)
+    #     except ScheduleExtractionError as e:
+    #         logging.critical(e.message)
+    #         scheduleContent = []
+    # return scheduleContent
 
 
 def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
