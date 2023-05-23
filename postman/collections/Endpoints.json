@@ -32,7 +32,7 @@
 									"",
 									"//The requests was succesful",
 									"pm.test(\"Succesful login\", function () {",
-									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"    pm.expect(jsonData.success).to.eql(true);",
 									"});"
 								],
 								"type": "text/javascript"
@@ -118,7 +118,7 @@
 									"",
 									"//The requests was succesful",
 									"pm.test(\"Succesful request\", function () {",
-									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"    pm.expect(jsonData.success).to.eql(true);",
 									"});",
 									""
 								],
@@ -188,7 +188,7 @@
 									"",
 									"//The requests was succesful",
 									"pm.test(\"Succesful request\", function () {",
-									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"    pm.expect(jsonData.success).to.eql(true);",
 									"});",
 									""
 								],
@@ -308,7 +308,7 @@
 									"\r",
 									"//The requests was succesful\r",
 									"pm.test(\"Succesful request\", function () {\r",
-									"    pm.expect(jsonData.sucess).to.eql(true);\r",
+									"    pm.expect(jsonData.success).to.eql(true);\r",
 									"});\r",
 									""
 								],

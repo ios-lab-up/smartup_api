@@ -24,6 +24,6 @@ def get_Teachers() -> dict:
     else:
         error, code = 'Invalid method', 4
     
-    response.update({'sucess': True, 'message': message, 'Teacher': data, 'status_code': 200, 'amount': len(data), 'error': error, 'code': code} if data and data != [] and data != [None] else {
-        'sucess': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
+    response.update({'success': True, 'message': message, 'Teacher': data, 'status_code': 200, 'amount': len(data), 'error': error, 'code': code} if data and data != [] and data != [None] else {
+        'success': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
     return jsonify(response)
