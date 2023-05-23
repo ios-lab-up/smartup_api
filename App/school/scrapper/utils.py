@@ -18,7 +18,6 @@ from bs4 import BeautifulSoup
 
 def extractUP4UContent(studentId: str, password: str) -> User:
     '''Extracts the schedule of a user from the UP4U platform'''
-
     try:
         user_data = {
             'schedule': [],
@@ -34,32 +33,36 @@ def extractUP4UContent(studentId: str, password: str) -> User:
                 user_data['schedule'] = fetch_schedule_content(browser) #TODO: Create a relation table user-group
                 user_data['grades'] = fetch_grades_content(browser) #TODO: Create a junction table user-group-grade-parcial
 
-                # Scarp the groups from the user grades
+                # Scrap the grades from the user grades
                 soup = BeautifulSoup(user_data['grades'], 'html.parser')
                 rows = soup.select('#contenido-tabla .row')
-
                 grades = []
-
                 for row in rows:
                     # Create a list to store the current info
-                    current_info = []
+                    current_info = {}
 
                     # We search for the columns in the current row by class
                     # There could be an empty row, so we check if the row has columns
-                    cols = row.find_all('div', class_='col-md-12')
-                    subject = cols[0].text.strip() if cols else None
-
                     cols = row.find_all('div', class_='col-md-2')
                     class_num = cols[0].text.strip() if cols else None
 
                     cols = row.find_all('div', class_='col-md-1')
-                    grades = [col.text.strip() for col in cols]
+                    grade = [col.text.strip() for col in cols][0:3]
 
-                    current_info.append(subject)
-                    current_info.append(class_num)
-                    current_info.append(grades)
-
+                    current_info[class_num] = grade
                     grades.append(current_info)
+                
+                #Scrap the schedule from the user schedule
+                soup = BeautifulSoup(user_data['schedule'], 'html.parser')
+                rows = soup.select('#contenido-tabla .row')
+                groups = []
+                for row in rows:
+                    cols = row.find_all('div', class_='col-md-1')
+                    class_num = cols[0].text.strip() if cols else None
+                    groups.append(class_num)
+                groups = list(set(groups))
+
+                # At this point we have the grades and the groups of the user
 
                 message, status_code, error = f'User: {user.userID} was succesfully created', 201, None
 
@@ -73,7 +76,6 @@ def extractUP4UContent(studentId: str, password: str) -> User:
     except WrongCredentialsError as e:
         logging.warning(e.message)
         user, message, status_code, error ={}, 'Wrong credentials or user creation failed', 401, e.message
-
     return user, message, status_code, error
 
 
