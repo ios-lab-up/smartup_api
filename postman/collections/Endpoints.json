@@ -33,7 +33,7 @@
 									"",
 									"//The requests was succesful",
 									"pm.test(\"Succesful login\", function () {",
-									"    pm.expect(jsonData.sucess).to.eql(true);",
+									"    pm.expect(jsonData.success).to.eql(true);",
 									"});"
 								],
 								"type": "text/javascript"
