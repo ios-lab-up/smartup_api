@@ -13,6 +13,7 @@ from flask import session
 from flask_bcrypt  import check_password_hash
 import traceback
 import logging
+from bs4 import BeautifulSoup
 
 
 def extractUP4UContent(studentId: str, password: str) -> User:
@@ -33,7 +34,32 @@ def extractUP4UContent(studentId: str, password: str) -> User:
                 user_data['schedule'] = fetch_schedule_content(browser) #TODO: Create a relation table user-group
                 user_data['grades'] = fetch_grades_content(browser) #TODO: Create a junction table user-group-grade-parcial
 
-                # Código de mau:
+                # Scarp the groups from the user grades
+                soup = BeautifulSoup(user_data['grades'], 'html.parser')
+                rows = soup.select('#contenido-tabla .row')
+
+                grades = []
+
+                for row in rows:
+                    # Create a list to store the current info
+                    current_info = []
+
+                    # We search for the columns in the current row by class
+                    # There could be an empty row, so we check if the row has columns
+                    cols = row.find_all('div', class_='col-md-12')
+                    subject = cols[0].text.strip() if cols else None
+
+                    cols = row.find_all('div', class_='col-md-2')
+                    class_num = cols[0].text.strip() if cols else None
+
+                    cols = row.find_all('div', class_='col-md-1')
+                    grades = [col.text.strip() for col in cols]
+
+                    current_info.append(subject)
+                    current_info.append(class_num)
+                    current_info.append(grades)
+
+                    grades.append(current_info)
 
                 message, status_code, error = f'User: {user.userID} was succesfully created', 201, None
 
