@@ -13,14 +13,25 @@ def fetchUPSite() -> dict[str, str]:
     '''
     data: list[dict[str, str]] = []
     response: dict[str, str] = {}
-    error, code = None, None
     if request.method == 'GET':
-        data = extractUPSiteSchedule(Config.ADMIN_USERNAME, Config.ADMIN_PASSWORD)
-        
-        message, code = f'Data extracted ', 1
+        data = extractUPSiteContent(Config.ADMIN_USERNAME, Config.ADMIN_PASSWORD)
+        if data:
+            response = {
+                'success': True,
+                'message': 'Successfully fetched data',
+                'code': 1
+            }
+        else:
+            response = {
+                'success': False,
+                'message': 'Failed to fetch data',
+                'code': 2
+            }
     else:
-        error, code = 'Invalid method', 4
-
-    response.update({'success': True, 'message': message,  'status_code': 200, 'error': None, 'code': code} if data and data != [] and data != [None] else {
-        'success': False,  'message': 'Could not get content', 'status_code': 400, 'error': f'{error}', 'code': code})
-    return jsonify(response), response['status_code']
+        response = {
+            'success': False,
+            'message': 'Method not allowed',
+            'code': 3
+        }
+    return jsonify(response), 200 if response['success'] else 400
+        

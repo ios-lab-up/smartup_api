@@ -16,6 +16,7 @@ def findUsernameInput(browser: ChromeBrowser) -> str:
     try:
         inputUsername = browser.find_element(
             By.XPATH, "//input[@name='Login[username]' and @id='login_username']")
+        
     except NoSuchElementException:
         logging.error(f'{color(1,"Username field not found")} ❌')
 
@@ -27,6 +28,7 @@ def findPasswordInput(browser: ChromeBrowser) -> str:
     try:
         inputPassword = browser.find_element(
             By.XPATH, "//input[@name='Login[password]'and @id='login_password'] ")
+        
     except NoSuchElementException:
         logging.error(f'{color(1,"Password field not found")} ❌')
     return inputPassword
@@ -57,25 +59,24 @@ def clickLoginButton(browser: ChromeBrowser) -> None:
         logging.error(f'{color(1,"Login button not found")} ❌')
 
 
-def login(browser: ChromeBrowser, studentId: str, password: str) -> str:
-    '''Logs in to the UP4U page'''
-    try:
-        Id = fillUsernameInput(browser, studentId)
-        psw = fillPassswordInput(findPasswordInput(browser), password)
-        clickLoginButton(browser)
-        if browser.find_element(By.CLASS_NAME, "help-block").text:
-            logging.error(f"{color(1,'Error message found, login failed')} ❌")
-        else:
-            logging.info(f"{color(2,'Login successful')} ✅")
-            logging.info(f'{color(6,"Im going to sleep now 😴 ZzZzZ...")}')
-            session['logged_in'] = True
-            session['user'] = {'userID': Id, 'password': generate_password_hash(
-                psw).decode('utf-8')}
-            time.sleep(3)
-            logging.info(f'{color(6,"Im awake now 🤓")}')
-    except Exception as e:
-        logging.critical(f"{color(5,'Login failed')} ❌\n{e}")
-    return f'Current URL after login: \033[94m{browser.current_url}\033[0m'
+# def login(browser: ChromeBrowser, studentId: str, password: str) -> None:
+#     '''Logs in to the UP4U page'''
+#     try:
+#         Id = fillUsernameInput(browser, studentId)
+#         psw = fillPassswordInput(findPasswordInput(browser), password)
+#         clickLoginButton(browser)
+#         if browser.find_element(By.CLASS_NAME, "help-block").text:
+#             logging.error(f"{color(1,'Error message found, login failed')} ❌")
+#         else:
+#             logging.info(f"{color(2,'Login successful')} ✅")
+#             logging.info(f'{color(6,"Im going to sleep now 😴 ZzZzZ...")}')
+#             session['logged_in'] = True
+#             session['user'] = {'userID': Id, 'password': generate_password_hash(
+#                 psw).decode('utf-8')}
+#             time.sleep(3)
+#             logging.info(f'{color(6,"Im awake now 🤓")}')
+#     except Exception as e:
+#         logging.critical(f"{color(5,'Login failed')} ❌\n{e}")
 
 def loginUP4U(browser: ChromeBrowser, user_id: str, password: str) -> None:
     '''Logs is UP4U page given credentials'''
@@ -139,20 +140,15 @@ def findPasswordInputUPSite(browser: ChromeBrowser) -> str:
 # define username and password
 def fillUsernameInputUPSite(browser: ChromeBrowser, studentId: str) -> str:
     '''Fills the username input with the username'''
-    inputUsername =findUsernameInput(browser)
-    print(inputUsername)
-    inputUsername.send_keys(studentId)
-    input_value = inputUsername.get_attribute("value")
-    return input_value
+
+    browser.find_element(By.XPATH, "//*[@id='userid']").send_keys(studentId)
 
 
 # Fill inputs with username and password
-def fillPassswordInputUPSite(inputPassword: str, password: str) -> str:
+def fillPassswordInputUPSite(browser: ChromeBrowser, password: str) -> str:
     '''Fills the password input with the password'''
-    inputPassword.send_keys(password)
-    input_value = inputPassword.get_attribute("value")
-    return input_value
 
+    browser.find_element(By.XPATH, '//*[@id="pwd"]').send_keys(password)
 
 def clickLoginButtonUPSite(browser: ChromeBrowser) -> None:
     '''Clicks on the login button'''
@@ -164,27 +160,18 @@ def clickLoginButtonUPSite(browser: ChromeBrowser) -> None:
         logging.error(f'{color(1,"Login button not found")} ❌')
 
 
-def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> bool:
+def loginUPSite(browser: ChromeBrowser, studentId: str, password: str) -> None:
     '''Logs in to the UPSite page'''
-    Id = fillUsernameInputUPSite(
-        findUsernameInputUPSite(browser), studentId)
-    pwd = fillPassswordInputUPSite(
-        findPasswordInputUPSite(browser), password)
-    clickLoginButtonUPSite(browser)
-    # if current url is not the same as the login url, login was successful
-    if browser.current_url == "https://upsite.up.edu.mx/psp/CAMPUS/?&cmd=login&errorCode=105&languageCd=ESP":
-        logging.error(f"{color(1,'Wrong Credentials for login')} ❌")
-        return False
-    else:
-        logging.info(f"{color(2,'UPSite Login successful')} ✅")
-        session['logged_in'] = True
-        session['user'] = {'userID': Id, 'password': generate_password_hash(
-            pwd).decode('utf-8')}
-
+    try:
+        fillUsernameInputUPSite(browser, studentId)
+        fillPassswordInputUPSite(browser, password)
+        clickLoginButtonUPSite(browser)
         WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located(
-                (By.XPATH, '//*[@id="pthdr2logofluid"]'))
-        )
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="pthdr2logofluid"]'))
+            )
+        logging.info(f"{color(2,'Login successful')} ✅")
 
-        return True
+    except Exception as e:
+        logging.critical(f"{color(5,'Login failed')} ❌\n{e}")
 

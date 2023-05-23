@@ -32,10 +32,12 @@ def extractUP4UContent(studentId: str, password: str) -> User:
                 user = createUser(**session['user'])
                 user_data['schedule'] = fetch_schedule_content(browser) #TODO: Create a relation table user-group
                 user_data['grades'] = fetch_grades_content(browser) #TODO: Create a junction table user-group-grade-parcial
+                user = getUser(user.id, 2)
+                user['jwt_token'] = encodeJwtToken(user)
 
                 # Código de mau:
 
-                message, status_code, error = f'User: {user.userID} was succesfully created', 201, None
+                user, message, status_code, error = user, f'User: {user["userID"]} was succesfully created', 201, None
 
         else:
             if check_password_hash(user.password, password):
@@ -84,39 +86,30 @@ def extractUP4UContent(studentId: str, password: str) -> User:
     # return scheduleContent
 
 
-def extractUPSiteSchedule(studentId: str, password: str) -> list[Group]:
+def extractUPSiteContent(studentId: str, password: str) -> bool:
     '''Extracts the schedule of a user from the UP site'''
-    data = []
     try:
         # Start the browser
         with ChromeBrowser().buildBrowser() as browser:
             # Go to the main page
-            browser.get(
-                "https://upsite.up.edu.mx/psp/CAMPUS/?cmd=login&languageCd=ESP&")
+            browser.get("https://upsite.up.edu.mx/psp/CAMPUS/?cmd=login&languageCd=ESP&")
             
-            WebDriverWait(browser, 10).until(EC.presence_of_element_located(
-                ( By.XPATH, "//input[@name='userid' and @id='userid']"))
-        )
-
-            
-
+            WebDriverWait(browser, 10).until(EC.presence_of_element_located(( By.XPATH, "//input[@name='userid' and @id='userid']")))
+        
             # Login
-            if loginUPSite(browser, studentId, password):
+            loginUPSite(browser, studentId, password)
             # Enter the dashboard
-                enterUPSiteSubjects(browser)
+            enterUPSiteSubjects(browser)
 
-                data = fetchGroupData(browser)
-            else:
-                logging.error(f'{color(1,"Login failed")} ❌')
-                data = []
+            fetchGroupData(browser)
             # Get the schedule content
+            return True
 
 
     except Exception as e:
         logging.critical(
             f'{color(5,"Schedule extraction failed")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
-        data = []
+        return False
 
-    return data
 
 
