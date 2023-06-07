@@ -66,4 +66,4 @@ UP_DB       | Version: '5.7.41'  socket: '/var/run/mysqld/mysqld.sock'  port: 33
 
    ## Conclusion
 
-   Congratulations! You have succesfully built the SmartUP-API container. For any questions or troubleshooting, please contact the mantainers @luisced.
+   Congratulations! You have succesfully built the SmartUP-API container. For any questions or troubleshooting, please contact the mantainers @luisced, @maurch.
