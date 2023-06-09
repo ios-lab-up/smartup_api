@@ -20,11 +20,11 @@
 
 </div>
 
-| 💻 Operating System | 📘 Guide |
-|:-------------------:|:--------:|
-| Windows             | [Install on Windows](https://docs.docker.com/desktop/install/windows-install/) |
-| MacOS               | [Install on MacOS](https://docs.docker.com/desktop/install/mac-install/) |
-| Linux               | [Install on Linux](https://docs.docker.com/desktop/install/linux-install/) |
+| 💻 Operating System |                                  📘 Guide                                  |
+| :-----------------: | :-------------------------------------------------------------------------: |
+|       Windows       | [Install on Windows](https://docs.docker.com/desktop/install/windows-install/) |
+|        MacOS        |    [Install on MacOS](https://docs.docker.com/desktop/install/mac-install/)    |
+|        Linux        |   [Install on Linux](https://docs.docker.com/desktop/install/linux-install/)   |
 
 <div align="center">
 
@@ -33,23 +33,24 @@
 </div>
 
 1. **Clone the Batmobile** 🦇
-   
+
    > Ensure that your **Personal Access Token** or **SSH Key** is authorized to allow you full throttle on the git highway 🛣️.
-   
+   >
+
    ```sh
    $ git clone git@github.com:iOS-Lab-UP/SmartUP-API.git
    ```
-
 2. **Rev the Engine** 🏎️
-   
+
    > Once the repo is cloned, run this spell 🧙‍♂️ inside the project's root folder to summon the Docker container.
    >
    > ❗ **Caution:** May vary based on your operating system.
-   
+   >
+
    ```sh
    $ docker compose up
    ```
-   
+
    🌟 Expect your terminal to light up like this when the spell takes effect 🌟
 
    ```plaintext
@@ -61,11 +62,11 @@
    UP_DB       | 2023-03-07T06:46:13.752969Z 0 [Note] mysqld: ready for connections.
    UP_DB       | Version: '5.7.41'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server (GPL)
    ```
-
 3. **Navigate the Stars** 🌌
-   
+
    > Set sail to [http://localhost:5555/health_check](http://localhost:5555/health_check) on your trusty web-ship and behold the astral response!
-   
+   >
+
    ```json
    {
       "cpu_usage": "5.3%",
@@ -77,13 +78,13 @@
       "uptime": "1.76 days"
    }
    ```
-
 4. **Dock the Spaceship** 🚀
-   
+
    > Use **CTRL-C** in the terminal to bring your spaceship back to the hangar. To erase the echoes of your journey, enter the following incantation:
    >
    > ❗ **Caution:** May vary based on your operating system.
-   
+   >
+
    ```sh
    $ docker compose down -v
    ```
@@ -96,4 +97,4 @@
 
 🏅 Congratulations, Space Explorer! You have successfully navigated the nebula of SmartUP-API container creation. 🌠
 
-For any interstellar anomalies or troubleshooting, please transmit your signals to the galactic guardians 🌌 @luisced, @maurch.
+For any interstellar anomalies or troubleshooting, please transmit your signals to the galactic guardians! 🌌 @luisced, @maurch.
