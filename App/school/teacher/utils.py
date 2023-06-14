@@ -53,6 +53,11 @@ def subjectTeacher(subjectid: int) -> list[dict]:
     return teachers
 
 def filter_Teacher(filterParams: str) -> list[dict]:
+    '''
+    Returns a list of teachers that match the filter parameters
+    Filter can be: all or id of the class
+    Id can be: id of the teacher
+    '''
     try:
         if 'filter' in filterParams:
             if filterParams['filter'] == 'all':
