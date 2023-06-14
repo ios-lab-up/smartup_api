@@ -214,22 +214,85 @@ def cleanSchedulesOutput(schedules):
     return cleanSchedules
 
 def excelOutput(schedules):
-    '''
-    Creates an excel file with inital format, STILL NO INFO
-    '''
-    wb = openpyxl.Workbook()
-    sheet = wb.active
-    sheet.title = 'Horario'
-    sheet['A1'] = "Hora"
-    sheet['B1'] = 'Lunes'
-    sheet['C1'] = 'Martes'
-    sheet['D1'] = 'Miercoles'
-    sheet['E1'] = 'Jueves'
-    sheet['F1'] = 'Viernes'
-    #fill from A2 to A31 with blocks of 30 minutes starting at 7:00 (7:00 - 7:30, 7:30 - 8:00, etc.)
-    for i in range(2,32):
-        sheet['A'+str(i)] = str(6+i//2)+':'+str(30*(i%2)).zfill(2)+' - '+str(6+(i+1)//2)+':'+str(30*((i+1)%2)).zfill(2)
-    #fill the rest of the table with the info from the schedules
-
-    # Save the file
-    wb.save('Horario.xlsx')
+    wb = openpyxl.Workbook() # Create a blank workbook
+    hourrowrelation={
+        '07:00': 2,
+        '07:30': 3,
+        '08:00': 4,
+        '08:30': 5,
+        '09:00': 6,
+        '09:30': 7,
+        '10:00': 8,
+        '10:30': 9,
+        '11:00': 10,
+        '11:30': 11,
+        '12:00': 12,
+        '12:30': 13,
+        '13:00': 14,
+        '13:30': 15,
+        '14:00': 16,
+        '14:30': 17,
+        '15:00': 18,
+        '15:30': 19,
+        '16:00': 20,
+        '16:30': 21,
+        '17:00': 22,
+        '17:30': 23,
+        '18:00': 24,
+        '18:30': 25,
+        '19:00': 26,
+        '19:30': 27,
+        '20:00': 28,
+        '20:30': 29,
+        '21:00': 30,
+        '21:30': 31,
+    }
+    schedulecount = 1
+    for schedule in schedules:
+        sheet=wb.create_sheet(title="Horario " + str(schedulecount))
+        sheet = wb['Horario ' + str(schedulecount)]
+        sheet.column_dimensions['A'].width = 15
+        sheet.column_dimensions['B'].width = 35
+        sheet.column_dimensions['C'].width = 35
+        sheet.column_dimensions['D'].width = 35
+        sheet.column_dimensions['E'].width = 35
+        sheet.column_dimensions['F'].width = 35
+        sheet['A1'] = "Hora"
+        sheet['B1'] = 'Lunes'
+        sheet['C1'] = 'Martes'
+        sheet['D1'] = 'Miércoles'
+        sheet['E1'] = 'Jueves'
+        sheet['F1'] = 'Viernes'
+        # Fill from A2 to A31 with blocks of 30 minutes starting at 7:00 (7:00 - 7:30, 7:30 - 8:00, etc.)
+        for i in range(2, 32):
+            sheet['A' + str(i)] = f"{6 + i // 2}:{30 * (i % 2):02d} - {6 + (i + 1) // 2}:{30 * ((i + 1) % 2):02d}"
+        days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']
+        row = 2
+        for day in days:
+            if day in schedule:
+                classes = schedule[day]
+                for class_info in classes:
+                    for class_period, details in class_info.items():
+                        #align the block of time with the corresponding row using the hourrowrelation dictionary
+                        start_time, end_time = class_period.split(' - ')
+                        start_cell = sheet.cell(row=hourrowrelation[start_time], column=days.index(day) + 2) #
+                        end_cell = sheet.cell(row=hourrowrelation[end_time]-1, column=days.index(day) + 2)
+                        merge_range = start_cell.coordinate + ':' + end_cell.coordinate
+                        sheet.merge_cells(merge_range)
+                        sheet[start_cell.coordinate] = f"{start_time} - {end_time} {details['Materia']} {details['Maestro']} ID Salon: {details['Salon']}"
+                        sheet[start_cell.coordinate].alignment = openpyxl.styles.Alignment(horizontal='center', vertical='center')                       
+        #make the cells A1:F31 have a border
+        for i in range(1, 32):
+            for j in range(1, 7):
+                sheet.cell(row=i, column=j).border = openpyxl.styles.Border(left=openpyxl.styles.Side(style='thin'), right=openpyxl.styles.Side(style='thin'), top=openpyxl.styles.Side(style='thin'), bottom=openpyxl.styles.Side(style='thin'))
+        #make the cells B2:F31 adjust the text to fit in the cell and center it horizontally and vertically
+        for i in range(2, 32):
+            for j in range(2, 7):
+                sheet.cell(row=i, column=j).alignment = openpyxl.styles.Alignment(horizontal='center', vertical='center', wrap_text=True)
+        #fill the cells A1:F1 with a yellow background
+        for i in range(1, 7):
+            sheet.cell(row=1, column=i).fill = openpyxl.styles.PatternFill(start_color='FFFF00', end_color='FFFF00', fill_type='solid')
+        schedulecount += 1
+    #delete default sheet
+    wb.remove(wb['Sheet'])
+    wb.save('Horariosss.xlsx')
