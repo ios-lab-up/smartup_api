@@ -9,7 +9,8 @@ from  typing import Optional
 import traceback
 import logging
 import networkx as nx
-
+import pandas as pd
+import openpyxl
 
 
 def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Group) -> Schedule:
@@ -141,7 +142,7 @@ def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[
         message = "Error creating compatible schedules"
         status_code = 500
         error = str(e)
-
+    cleanSchedulesOutput(compatible_schedules)
     return compatible_schedules, message, status_code, error
 
 
@@ -177,3 +178,58 @@ def schedulesOverlap(group_1: Group, group_2: Group) -> bool:
         return False
     
 
+def cleanSchedulesOutput(schedules):
+    '''
+    Cleans the schedules output in the next format
+    List of dictionaries, each dictionary is a schedule
+    Each schedule has a key for each day of the week
+    Each day of the week has a list of dictionaries, each dictionary is a block of time
+    '''
+    cleanSchedules = []
+    for schedule in schedules:
+        Horario = {
+            'Lunes': [],
+            'Martes': [],
+            'Miercoles': [],
+            'Jueves': [],
+            'Viernes': []
+        }
+        for group in schedule:
+            for block in group['schedules']:
+                block['startTime'] = block['startTime'][:-3]
+                block['endTime'] = block['endTime'][:-3]
+                hora=block['startTime']+' - '+block['endTime']
+                if block['day']=='Lun':
+                    Horario['Lunes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID']}})
+                elif block['day']=='Mart':
+                    Horario['Martes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID']}})
+                elif block['day']=='Miérc':
+                    Horario['Miercoles'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID']}})
+                elif block['day']=='Jue':
+                    Horario['Jueves'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID']}})
+                elif block['day']=='V':
+                    Horario['Viernes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID']}})
+        cleanSchedules.append(Horario)
+    #excelOutput(cleanSchedules)
+    return cleanSchedules
+
+def excelOutput(schedules):
+    '''
+    Creates an excel file with inital format, STILL NO INFO
+    '''
+    wb = openpyxl.Workbook()
+    sheet = wb.active
+    sheet.title = 'Horario'
+    sheet['A1'] = "Hora"
+    sheet['B1'] = 'Lunes'
+    sheet['C1'] = 'Martes'
+    sheet['D1'] = 'Miercoles'
+    sheet['E1'] = 'Jueves'
+    sheet['F1'] = 'Viernes'
+    #fill from A2 to A31 with blocks of 30 minutes starting at 7:00 (7:00 - 7:30, 7:30 - 8:00, etc.)
+    for i in range(2,32):
+        sheet['A'+str(i)] = str(6+i//2)+':'+str(30*(i%2)).zfill(2)+' - '+str(6+(i+1)//2)+':'+str(30*((i+1)%2)).zfill(2)
+    #fill the rest of the table with the info from the schedules
+
+    # Save the file
+    wb.save('Horario.xlsx')

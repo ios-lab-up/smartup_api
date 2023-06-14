@@ -41,3 +41,4 @@ def createSchedules() -> dict[str:str]:
             'error': str(e),
             'code': 2
         }), status_code
+    
