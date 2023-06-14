@@ -40,6 +40,16 @@ def enterUPSiteSubjects(browser) -> str:
 
         browser.get(
             "https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&")
+        '''
+        #ADDITION --------------------------------------
+        dropdown =browser.find_elements(by=By.TAG_NAME, value="Option")
+        for element in dropdown:
+            if element.text == "Otoño 2023":
+                element.click()
+                break
+        browser.switch_to.default_content()
+        #ADDITION --------------------------------------
+        '''
         WebDriverWait(browser, 20).until(
             EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
         browser.find_element(

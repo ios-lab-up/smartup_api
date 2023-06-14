@@ -22,3 +22,4 @@ qrcode
 networkx
 flask-restful
 beautifulsoup4
+openpyxl

@@ -33,6 +33,8 @@ class Config:
     QR_PATH = os.environ.get(
         "QR_PATH", 'App/school/static/guests_qr_codes'
     )
+    SCHEDULE_PATH = os.environ.get(
+        "SCHEDULE_PATH", 'App/school/static/schedules')
 
     # check if the folder exists
     if not os.path.exists(UPLOAD_FOLDER):
@@ -40,6 +42,9 @@ class Config:
 
     if not os.path.exists(QR_PATH):
         os.makedirs(QR_PATH)
+    
+    if not os.path.exists(SCHEDULE_PATH):
+        os.makedirs(SCHEDULE_PATH)
 
     # # Flask-Mail SMTP server settings
     # MAIL_SERVER = os.environ.get("MAIL_SERVER", 'smtp.@gmail.com')

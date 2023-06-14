@@ -9,6 +9,11 @@ teacher= Blueprint('teacher', __name__)
 @teacher.route('/getTeachers', methods=['GET'])
 
 def get_Teachers() -> dict:
+    '''
+    Returns a list of teachers that match the filter parameters
+    Filter can be: all or id of the class
+    Id can be: id of the teacher
+    '''
     jsonData = request.get_json()
     response: dict[str, str] = {}
     error, code = None, None

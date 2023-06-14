@@ -351,6 +351,65 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Create Excel Schedules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c82fe558-376a-4671-ad25-5e2a1b515458",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"\r",
+									"// The status code is valid\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//The requests was succesful\r",
+									"pm.test(\"Succesful request\", function () {\r",
+									"    pm.expect(jsonData.sucess).to.eql(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8a078c49-7b0c-4c32-8bd6-c2913e3e3b6a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subjects\":[47,48,6,7,9,25,22],\r\n    \"teachers\":[8,21], // Optional\r\n    \"minimum\": 5 //Optional\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/excelSchedules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"excelSchedules"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"id": "c3a89fbd-a7e6-4f3c-8e36-fbcbfe321797"
