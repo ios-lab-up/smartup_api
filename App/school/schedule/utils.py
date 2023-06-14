@@ -142,7 +142,6 @@ def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[
         message = "Error creating compatible schedules"
         status_code = 500
         error = str(e)
-    cleanSchedulesOutput(compatible_schedules)
     return compatible_schedules, message, status_code, error
 
 
