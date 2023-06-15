@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
 from school.tools.utils import color
 from school.security import *
 import logging
@@ -50,8 +51,14 @@ def enterUPSiteSubjects(browser) -> str:
         browser.switch_to.default_content()
         #ADDITION --------------------------------------
         '''
+        
         WebDriverWait(browser, 20).until(
             EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
+        
+        element = browser.find_element(By.XPATH, '//*[@id="CLASS_SRCH_WRK2_STRM$35$"]')
+        dropdown = Select(element)
+        dropdown.select_by_value("1238")
+        
         browser.find_element(
             By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
