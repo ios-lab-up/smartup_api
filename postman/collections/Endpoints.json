@@ -49,7 +49,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"user_id\": \"0250009\",\r\n  \"password\": \"Lu57529564#\"\r\n}",
+							"raw": "{\r\n  \"user_id\": \"0250009\", // user id\r\n  \"password\": \"Lu57529564#\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
