@@ -58,7 +58,7 @@ def enterUPSiteSubjects(browser) -> str:
         element = browser.find_element(By.XPATH, '//*[@id="CLASS_SRCH_WRK2_STRM$35$"]')
         dropdown = Select(element)
         dropdown.select_by_value("1238")
-        
+
         browser.find_element(
             By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
