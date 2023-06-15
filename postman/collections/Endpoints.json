@@ -294,7 +294,7 @@
 			"name": "ScheduleMaker",
 			"item": [
 				{
-					"name": "Create Compatible Schedules",
+					"name": "Create Excel Schedules",
 					"event": [
 						{
 							"listen": "test",
@@ -305,12 +305,12 @@
 									"\r",
 									"// The status code is valid\r",
 									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
+									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
 									"//The requests was succesful\r",
 									"pm.test(\"Succesful request\", function () {\r",
-									"    pm.expect(jsonData.success).to.eql(true);\r",
+									"    pm.expect(jsonData.sucess).to.eql(true);\r",
 									"});\r",
 									""
 								],
@@ -333,7 +333,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"subjects\":[47,48,6,7,9,25,22],\r\n    \"teachers\":[8,21], \r\n    \"minimum\": 5\r\n}",
+							"raw": "{\r\n    \"subjects\":[47,48,6,7,9,25,22],\r\n    \"teachers\":[8,21], // Optional\r\n    \"minimum\": 5 //Optional\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -341,12 +341,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/createSchedules",
+							"raw": "{{base_url}}/excelSchedules",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"createSchedules"
+								"excelSchedules"
 							]
 						}
 					},
@@ -406,6 +406,36 @@
 							],
 							"path": [
 								"excelSchedules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Compatible Schedules",
+					"id": "e79ec6bf-ed6e-4d85-97c7-c045bb8a24cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"subjects\":[47,48,6,7,9,25,22],\r\n    \"teachers\":[8,21], \r\n    \"minimum\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/createSchedules",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"createSchedules"
 							]
 						}
 					},
