@@ -1,0 +1,18 @@
+FROM alpine
+
+RUN apk update && apk add --no-cache curl && apk add --no-cache bash
+
+COPY crontab /etc/cron.d/scraper-cron
+RUN chmod 0644 /etc/cron.d/scraper-cron
+RUN crontab /etc/cron.d/scraper-cron
+
+# Copy the scripts directory into the container
+COPY scripts/trigger-scraper.sh /SmartUP/scripts/trigger-scraper.sh
+
+
+# Set execute permissions for the script
+RUN chmod +x /SmartUP/scripts/trigger-scraper.sh
+
+# Add your remaining configuration and setup steps here
+
+CMD ["crond", "-f", "-d", "8"]

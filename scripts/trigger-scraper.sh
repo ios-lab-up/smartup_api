@@ -1,6 +1,6 @@
 #!/bin/bash
-sleep 30
-URL="http://localhost:5555/FetchGroupDataUPSite"
+URL="http://api:5555/FetchGroupDataUPSite"
+
 max_retries=3
 retries=0
 delay=10

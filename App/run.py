@@ -7,7 +7,7 @@ app = create_app()
 admin = Admin(app, name='UP4U', template_mode='bootstrap3')
 
 
-@app.errorhandler(Exception)
+@app.errorhandler(Exception) 
 def handle_exception(e):
     # pass through HTTP errors
     if isinstance(e, HTTPException):
