@@ -57,6 +57,12 @@ def enterUPSiteSubjects(browser) -> str:
         button= browser.find_element(By.ID, "SSR_DUMMY_RECV1$sels$1$$0")
         button.click()
         print("Element 2 clicked")
+        continue_button = browser.find_element(By.XPATH, '//*[@id="DERIVED_SSS_SCT_SSR_PB_GO"]')
+        continue_button.click()
+        sleep(2)
+        buscar_button = browser.find_element(By.XPATH, '//*[@id="DERIVED_REGFRM1_SSR_PB_SRCH"]')
+        buscar_button.click()
+        sleep(2)
     else:
         print(False)
 
