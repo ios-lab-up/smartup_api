@@ -3,10 +3,12 @@ from school.login.utils import *
 from school.models import ChromeBrowser
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import Select
 from school.tools.utils import color
+from selenium.webdriver.common.keys import Keys
+
 from school.security import *
 import logging
 import traceback
@@ -36,11 +38,29 @@ def enterDashboard(browser: ChromeBrowser) -> str:
 
 def enterUPSiteSubjects(browser) -> str:
     '''Fetches the subjects from the UPSite page'''
-    try:
         # sleep 10 seconds and print it
 
-        browser.get(
-            "https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&")
+    browser.get(
+        "https://upsite.up.edu.mx/psp/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES_2.SSR_SSENRL_CART.GBL")
+    logging.info(
+        f'{color(2,"Enter Carrito de Inscripción...")} ✅')
+    # print the html
+    
+    browser.switch_to.frame(0)
+
+    # button = browser.find_element(By.ID, "DERIVED_SSS_SCT_SSS_TERM_LINK")
+    if WebDriverWait(browser, 20).until(EC.presence_of_element_located((By.ID, "DERIVED_SSS_SCT_SSS_TERM_LINK"))):
+        button = browser.find_element(By.ID, "DERIVED_SSS_SCT_SSS_TERM_LINK")
+        button.click()
+        print("Element clicked")
+        WebDriverWait(browser, 20).until(EC.presence_of_element_located((By.ID, "SSR_DUMMY_RECV1")))
+        button= browser.find_element(By.ID, "SSR_DUMMY_RECV1$sels$1$$0")
+        button.click()
+        print("Element 2 clicked")
+    else:
+        print(False)
+
+    # browser.find_element(By.ID, "DERIVED_SSS_SCT_SSR_PB_GO").click()
         '''
         #ADDITION --------------------------------------
         dropdown =browser.find_elements(by=By.TAG_NAME, value="Option")
@@ -51,30 +71,45 @@ def enterUPSiteSubjects(browser) -> str:
         browser.switch_to.default_content()
         #ADDITION --------------------------------------
         '''
-        
-        WebDriverWait(browser, 20).until(
-            EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
-        
-        element = browser.find_element(By.XPATH, '//*[@id="CLASS_SRCH_WRK2_STRM$35$"]')
-        dropdown = Select(element)
-        dropdown.select_by_value("1238")
 
-        browser.find_element(
-            By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+        # Switch to the first frame
 
-        WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
-        browser.switch_to.frame(
-            browser.find_elements(By.TAG_NAME, 'iframe')[0])
-        browser.find_element(By.ID, "#ICSave").click()
-        WebDriverWait(browser, 30).until(
-            EC.presence_of_element_located((By.ID, 'win0div$ICField94')))
+    #     # Click on the element
+    #     dropdown = WebDriverWait(c, 10).until(
+    # EC.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_STRM$35$"))
+    #     )
 
-        logging.info(
-            f'{color(2,"Enter Carrito de Inscripción...")} ✅')
-    except NoSuchElementException:
-        logging.error(
-            f'{color(1,"Carrito de Inscripción link not found")} ❌ {traceback.format_exc().splitlines()[-3]}')
+    #     # Create a Select object
+    #     select = Select(dropdown)
+
+    #     # Select the option by its index
+    #     select.select_by_index(127)
+
+    #     # Click on the element
+
+        # Switch to the first frame
+
+        # Find the dropdown element
+        # WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_STRM$35$")))
+        # select = Select(browser.find_element(By.ID, "CLASS_SRCH_WRK2_STRM$35$"))
+        # select.select_by_value("1238")
+
+
+        # WebDriverWait(browser, 20).until(
+        #     EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
+        # browser.find_element(
+        #     By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+
+        # WebDriverWait(browser, 10).until(
+        #     EC.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
+        # browser.switch_to.frame(
+        #     browser.find_elements(By.TAG_NAME, 'iframe')[0])
+        # browser.find_element(By.ID, "#ICSave").click()
+        # WebDriverWait(browser, 30).until(
+        #     EC.presence_of_element_located((By.ID, 'win0div$ICField94')))
+
+
+    
 
 
 def getGrades(studentId: str, password: str):
