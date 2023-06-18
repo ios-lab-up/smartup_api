@@ -2,12 +2,10 @@ from school.user.utils import createUser
 from school.login.utils import *
 from school.models import ChromeBrowser
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException,TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait, Select
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from school.tools.utils import color
-from selenium.webdriver.common.keys import Keys
 
 from school.security import *
 import logging
@@ -44,75 +42,76 @@ def enterUPSiteSubjects(browser) -> str:
         "https://upsite.up.edu.mx/psp/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES_2.SSR_SSENRL_CART.GBL")
     logging.info(
         f'{color(2,"Enter Carrito de Inscripción...")} ✅')
-    # print the html
-    
-    browser.switch_to.frame(0)
 
-    # button = browser.find_element(By.ID, "DERIVED_SSS_SCT_SSS_TERM_LINK")
-    if WebDriverWait(browser, 20).until(EC.presence_of_element_located((By.ID, "DERIVED_SSS_SCT_SSS_TERM_LINK"))):
+    try:
+        WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.XPATH, '//*[@id="UP_DERIVED_IDM_PUSH"]')))
+        button = browser.find_element(By.XPATH, '//*[@id="UP_DERIVED_IDM_PUSH"]')
+        button.click()
+        logging.info(f'{color(5, "Warning screen showed up, moving forward...")}')
+    except TimeoutException:
+        changeTerm(browser)
+        
+
+        accessClassMenu(browser)
+
+
+def changeTerm(browser) -> None:
+    '''Changes the term to the current one'''
+    try:
+        # Look for change term button
+        browser.switch_to.frame(0)
+        WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.ID, "DERIVED_SSS_SCT_SSS_TERM_LINK")))
         button = browser.find_element(By.ID, "DERIVED_SSS_SCT_SSS_TERM_LINK")
         button.click()
-        print("Element clicked")
-        WebDriverWait(browser, 20).until(EC.presence_of_element_located((By.ID, "SSR_DUMMY_RECV1")))
-        button= browser.find_element(By.ID, "SSR_DUMMY_RECV1$sels$1$$0")
+
+        # Select current term
+        WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.ID, "SSR_DUMMY_RECV1$sels$1$$0")))
+        button = browser.find_element(By.XPATH, '//*[@id="SSR_DUMMY_RECV1$sels$1$$0"]')
         button.click()
-        print("Element 2 clicked")
+
+        # Press Continue button
         continue_button = browser.find_element(By.XPATH, '//*[@id="DERIVED_SSS_SCT_SSR_PB_GO"]')
         continue_button.click()
-        sleep(2)
-        buscar_button = browser.find_element(By.XPATH, '//*[@id="DERIVED_REGFRM1_SSR_PB_SRCH"]')
-        buscar_button.click()
-        sleep(2)
-    else:
-        print(False)
 
-    # browser.find_element(By.ID, "DERIVED_SSS_SCT_SSR_PB_GO").click()
-        '''
-        #ADDITION --------------------------------------
-        dropdown =browser.find_elements(by=By.TAG_NAME, value="Option")
-        for element in dropdown:
-            if element.text == "Otoño 2023":
-                element.click()
-                break
-        browser.switch_to.default_content()
-        #ADDITION --------------------------------------
-        '''
-
-        # Switch to the first frame
-
-    #     # Click on the element
-    #     dropdown = WebDriverWait(c, 10).until(
-    # EC.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_STRM$35$"))
-    #     )
-
-    #     # Create a Select object
-    #     select = Select(dropdown)
-
-    #     # Select the option by its index
-    #     select.select_by_index(127)
-
-    #     # Click on the element
-
-        # Switch to the first frame
-
-        # Find the dropdown element
-        # WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_STRM$35$")))
-        # select = Select(browser.find_element(By.ID, "CLASS_SRCH_WRK2_STRM$35$"))
-        # select.select_by_value("1238")
+        logging.info(f'{color(2,"Changed midterm correctly!")} ✅')
 
 
-        # WebDriverWait(browser, 20).until(
-        #     EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
-        # browser.find_element(
-        #     By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+    except TimeoutException:
+        logging.error(f'{color(1,"Couldnt acces the subject table")} ❌ {traceback.format_exc().splitlines()[-3]}')
 
-        # WebDriverWait(browser, 10).until(
-        #     EC.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
-        # browser.switch_to.frame(
-        #     browser.find_elements(By.TAG_NAME, 'iframe')[0])
-        # browser.find_element(By.ID, "#ICSave").click()
-        # WebDriverWait(browser, 30).until(
-        #     EC.presence_of_element_located((By.ID, 'win0div$ICField94')))
+
+def accessClassMenu(browser):
+    '''Access the class menu in order to access class table'''
+    
+    
+
+    # Click on the button to search classes
+    button = browser.find_element(By.XPATH, '//*[@id="DERIVED_REGFRM1_SSR_PB_SRCH"]')
+    button.click()
+    logging.info(f'{color(2,"Accesed to search classes menu")} ✅')
+    
+    # Open the class Menu
+    # browser.switch_to.frame(3)
+    WebDriverWait(browser, 5).until(EC.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
+    buscar_button = browser.find_element(By.XPATH, '//*[@id="CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH"]')
+    buscar_button.click()
+
+    # 
+    
+    
+
+    # WebDriverWait(browser, 20).until(
+    #     EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
+    # browser.find_element(
+    #     By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+
+    # WebDriverWait(browser, 10).until(
+    #     EC.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
+    # browser.switch_to.frame(
+    #     browser.find_elements(By.TAG_NAME, 'iframe')[0])
+    # browser.find_element(By.ID, "#ICSave").click()
+    # WebDriverWait(browser, 30).until(
+    #     EC.presence_of_element_located((By.ID, 'win0div$ICField94')))
 
 
     
