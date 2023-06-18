@@ -99,7 +99,8 @@
 								"user",
 								"registerGuest"
 							]
-						}
+						},
+						"description": "# API Documentation: Register Guest\n\nThis documentation describes the API endpoint for registering a guest. This endpoint allows you to register a new guest by providing their personal information.\n\n## Request\n\n### Endpoint\n\n`POST /user/registerGuest`\n\n### Headers\n\n```\nbashCopy codeContent-Type: application/json\n\n```\n\n### Body\n\nThe request body must be a JSON object that includes the following fields:\n\n| Field | Type | Description |\n| --- | --- | --- |\n| name | string | The name of the guest |\n| lastName | string | The last name of the guest |\n| email | string | The email address of the guest |\n| visitDate | string | The date of the guest's visit (MM/DD/YYYY) |\n\nExample:\n\n```\njsonCopy code{\n  \"name\": \"Luis\",\n  \"lastName\": \"Cedillo\",\n  \"email\": \"luisced02031@gmail.com\",\n  \"visitDate\": \"04/19/2023\"\n}\n\n```\n\n## Response\n\nThe response will be a JSON object that includes the following fields:\n\n| Field | Type | Description |\n| --- | --- | --- |\n| User | object | Contains details about the registered guest |\n| code | integer | Numeric code signifying the result of the operation |\n| error | string | An error message, null if the operation was successful |\n| message | string | A human-readable message describing the operation result |\n| status_code | integer | HTTP status code |\n| success | boolean | Indicates whether the operation was successful or not |\n\n### `User` Object\n\nThe `User` object has the following fields:\n\n| Field | Type | Description |\n| --- | --- | --- |\n| creationDate | string | Date of creation of the user account |\n| email | string | Email of the user |\n| id | integer | Unique ID of the user |\n| lastName | string | Last name of the user |\n| lastupDate | string | The last updated date of the user's information |\n| name | string | Name of the user |\n| options | integer | Options set by the user |\n| password | string | Hashed password of the user |\n| profileID | integer | User's profile ID |\n| status | boolean | Status of the user's account |\n| userID | string | The user's ID |\n\nExample:\n\n```\njsonCopy code{\n  \"User\": {\n    \"creationDate\": null,\n    \"email\": \"luisced02031@gmail.com\",\n    \"id\": null,\n    \"lastName\": \"Cedillo\",\n    \"lastupDate\": null,\n    \"name\": \"Luis\",\n    \"options\": null,\n    \"password\": null,\n    \"profileID\": 4,\n    \"status\": null,\n    \"userID\": null\n  },\n  \"code\": 1,\n  \"error\": null,\n  \"message\": \"User registered\",\n  \"status_code\": 200,\n  \"success\": true\n}\n\n```\n\nEndFragment"
 					},
 					"response": []
 				},
@@ -152,7 +153,8 @@
 							"path": [
 								"getUsers"
 							]
-						}
+						},
+						"description": "# API Documentation: Get Users by ID\n\nThis documentation describes the API endpoint for retrieving users by their ID. This endpoint allows you to fetch user information based on the specified ID.\n\n## Request\n\n### Endpoint\n\n`GET /getUsers`\n\n### Headers\n\n```\nbashCopy codeContent-Type: application/json\n\n```\n\n### Body\n\nThe request does not require a request body.\n\n## Response\n\nThe response will be a JSON object that includes the following fields:\n\n| Field | Type | Description |\n| --- | --- | --- |\n| code | integer | Numeric code signifying the result of the operation |\n| error | string | An error message, if any, null otherwise |\n| message | string | A human-readable message describing the operation result |\n| status_code | integer | HTTP status code |\n| success | boolean | Indicates whether the operation was successful or not |\n\nExample:\n\n```\njsonCopy code{\n  \"code\": 1,\n  \"error\": \"None\",\n  \"message\": \"Could not get content\",\n  \"status_code\": 400,\n  \"success\": false\n}\n\n```\n\nEndFragment"
 					},
 					"response": []
 				}
@@ -283,7 +285,8 @@
 							"path": [
 								"health_check"
 							]
-						}
+						},
+						"description": "StartFragment\n\n# API Documentation: Health Check\n\nThis documentation describes the API endpoint for performing a health check. This endpoint allows you to verify the health and availability of the API.\n\n## Request\n\n### Endpoint\n\n`GET /health_check`\n\n### Headers\n\nThe request does not require any specific headers.\n\n### Body\n\nThe request does not require a request body.\n\n## Response\n\nThe response will be a JSON object that includes the following fields:\n\n| Field | Type | Description |\n| --- | --- | --- |\n| cpu_usage | string | CPU usage percentage |\n| date | string | Date and time of the health check response |\n| memory_usage | string | Memory usage percentage |\n| message | string | A human-readable message describing the response |\n| port | integer | The port number on which the server is running |\n| status | string | Status of the server (e.g., \"OK\", \"Error\") |\n| uptime | string | Uptime of the server |\n\nExample:\n\n```\njsonCopy code{\n  \"cpu_usage\": \"1.5%\",\n  \"date\": \"2023-06-18 20:13:35\",\n  \"memory_usage\": \"37.9%\",\n  \"message\": \"Server is up and running\",\n  \"port\": 5555,\n  \"status\": \"OK\",\n  \"uptime\": \"5.74 days\"\n}\n\n```\n\nEndFragment"
 					},
 					"response": []
 				}
