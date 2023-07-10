@@ -6,7 +6,6 @@ from flask_restful import reqparse, abort
 
 schedule = Blueprint('schedule', __name__)
 
-@schedule.route('/createSchedules', methods=['POST'])
 @tokenRequired
 def createSchedules() -> dict[str:str]:
     '''This endpoint returns a group '''

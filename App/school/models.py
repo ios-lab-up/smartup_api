@@ -29,18 +29,6 @@ class ChromeBrowser:
 
 
 
-@dataclass
-class App(db.Model):
-    '''App main table'''
-
-    __tablename__ = 'App'
-
-    id: int = db.Column(db.Integer, primary_key=True,
-                        autoincrement=True, nullable=False)
-    name: str = db.Column(db.String(280), nullable=False)
-    key: str = db.Column(db.String(280), nullable=False)
-    admin: int = db.Column(
-        db.Integer, db.ForeignKey('User.id'), nullable=False)
 
 
 @dataclass
