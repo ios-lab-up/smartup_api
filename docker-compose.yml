@@ -16,7 +16,7 @@ services:
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
     ports:
-      - 3306:3306
+      - "3306:3306"
     networks:
       - app-tier
   adminer:
@@ -24,7 +24,7 @@ services:
     container_name: UP_Adminer
     restart: always
     ports:
-      - 8080:8080
+      - "8080:8080"
     networks:
       - app-tier
   api:
@@ -35,7 +35,7 @@ services:
     restart: always
     build: .
     ports:
-      - 5555:5555
+      - "5555:5555"
     volumes:
       - ./App:/SmartUP/App
     networks:

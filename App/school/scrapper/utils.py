@@ -1,14 +1,12 @@
-from school.models import ChromeBrowser
-from school.dashboard.utils import  enterUPSiteSubjects
-from school.schedule.utils import *
-from school.login.utils import *
-from school.subjects.utils import fetchGroupData
-from school.tools.utils import color, WrongCredentialsError
+from ..dashboard.utils import  enterUPSiteSubjects
+from ..login.utils import *
+from ..subjects.utils import fetchGroupData
+from ..tools.utils import WrongCredentialsError
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from school.groups.utils import *
-from school.user.utils import createUser, getUser
-from school.security import *
+from ..groups.utils import *
+from ..user.utils import createUser, getUser
+from ..security import *
 from flask import session
 from flask_bcrypt  import check_password_hash
 import traceback

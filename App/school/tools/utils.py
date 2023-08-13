@@ -1,20 +1,17 @@
 from flask import session
 from contextlib import contextmanager
 from datetime import datetime
-from school import db
-from school.models import Group
+from .. import db
 import psutil
-import logging
-import traceback
 
 
 def server_status() -> str:
-    '''
+    """
     Check if the server is up and running
     OK: memory usage < 80% and cpu usage < 80%
     SLOW: memory usage < 80% and cpu usage > 80%
     CRITICAL: memory usage > 80% and cpu usage > 80%
-    '''
+    """
     memory = psutil.virtual_memory()
     cpu = psutil.cpu_percent()
     status = ""

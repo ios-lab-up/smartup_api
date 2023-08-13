@@ -1,15 +1,14 @@
-from school.schedule.utils import *
-from school.groups.utils import *
-from school.dashboard.utils import *
-from school.security import tokenRequired
-from flask import Blueprint, request, jsonify
-from flask_restful import reqparse, abort
+from typing import Any
+from ..schedule.utils import *
+from ..dashboard.utils import *
+from flask import Blueprint, jsonify, Response
+from flask_restful import reqparse
 
 dashboard = Blueprint('dashboard', __name__)
 
 @dashboard.route('/dashboard/self', methods=['GET'])
-def dashboard_endpoint() -> dict[str,str]:
-    '''This endpoint returns a group '''
+def dashboard_endpoint() -> tuple[Response, Any] | tuple[Response, int]:
+    """This endpoint returns a group """
     # Request parsing
     parser = reqparse.RequestParser(bundle_errors=True)
     parser.add_argument("user_id", type=str, location='json', required=True)

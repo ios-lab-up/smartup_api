@@ -1,12 +1,11 @@
-from school.models import Classroom, Subject
-from school import db
-from school.tools.utils import color
+from ..models import Classroom, Subject
+from .. import db
+from ..tools.utils import color
 import logging
 import traceback
 
-
-def createClassroom(name: str) -> Classroom:
-    '''Creates a classroom object'''
+def create_classroom(name: str) -> Classroom:
+    """Creates a classroom object"""
 
     try:
         # Check if classroom already exists in database
@@ -19,7 +18,7 @@ def createClassroom(name: str) -> Classroom:
             logging.info(f'{color(2,"Classroom created")} ✅')
 
         else:
-            classroom = Classroom.query.filter_by(name=name).first()
+            Classroom.query.filter_by(name=name).first()
             # Raise an error if classroom already exists in database
             raise ValueError(
                 f'{color(3,"Classroom already exists in database")}'
@@ -32,8 +31,8 @@ def createClassroom(name: str) -> Classroom:
     return classroom
 
 
-def createClassroomSubjectRelationship(classroom: Classroom, subject: Subject) -> None:
-    '''Creates a relationship between a subject and a classroom by adding the classroom to the subject's classrooms list'''
+def create_classroom_subject_relationship(classroom: Classroom, subject: Subject) -> None:
+    """Creates a relationship between a subject and a classroom by adding the classroom to the subject's classrooms list"""
 
     try:
         if classroom and subject:

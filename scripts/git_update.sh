@@ -5,6 +5,7 @@ VERSION=""
 # get parameters
 while getopts v: flag
 do
+  # shellcheck disable=SC2220
   case "${flag}" in
     v) VERSION=${OPTARG};;
   esac
@@ -12,6 +13,7 @@ done
 
 # get highest tag number, and add v0.1.0 if doesn't exist
 git fetch --prune --unshallow 2>/dev/null
+# shellcheck disable=SC2006
 CURRENT_VERSION=`git describe --abbrev=0 --tags 2>/dev/null`
 
 if [[ $CURRENT_VERSION == '' ]]
@@ -21,6 +23,7 @@ fi
 echo "Current Version: $CURRENT_VERSION"
 
 # replace . with space so can split into an array
+# shellcheck disable=SC2206
 CURRENT_VERSION_PARTS=(${CURRENT_VERSION//./ })
 
 # get number parts
@@ -47,8 +50,10 @@ NEW_TAG="$VNUM1.$VNUM2.$VNUM3"
 echo "($VERSION) updating $CURRENT_VERSION to $NEW_TAG"
 
 # get current hash and see if it already has a tag
+# shellcheck disable=SC2006
 GIT_COMMIT=`git rev-parse HEAD`
-NEEDS_TAG=`git describe --contains $GIT_COMMIT 2>/dev/null`
+# shellcheck disable=SC2006
+NEEDS_TAG=`git describe --contains "$GIT_COMMIT" 2>/dev/null`
 
 # only tag if no tag already
 if [ -z "$NEEDS_TAG" ]; then

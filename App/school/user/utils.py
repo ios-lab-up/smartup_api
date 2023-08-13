@@ -1,7 +1,7 @@
-from school.models import User, Subject
-from school import db
-from school.tools.utils import color
-from school.config import Config
+from ..models import User, Subject
+from .. import db
+from ..tools.utils import color
+from ..config import Config
 import logging
 import traceback
 import qrcode

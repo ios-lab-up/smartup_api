@@ -1,4 +1,3 @@
-from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask import Flask
@@ -8,7 +7,6 @@ from flask_session import Session
 import logging
 import json
 from datetime import datetime
-from flask_wtf.csrf import CSRFProtect
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 
@@ -34,12 +32,12 @@ handler = logging.StreamHandler()
 handler.setFormatter(formatter)
 
 
-def create_app(config_class=Config):
-    '''
+def create_app():
+    """
     This function creates the app and returns it to the user,
     also it registers the blueprints to the app by calling the
     register_blueprint function
-    '''
+    """
     
     # Define the WSGI application object and initialize the app
     app = Flask(__name__)

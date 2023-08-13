@@ -1,16 +1,13 @@
-from school.user.utils import createUser
-from school.login.utils import *
-from school.models import ChromeBrowser
+from ..login.utils import *
+from ..models import ChromeBrowser
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-from school.tools.utils import color
-from school.security import *
+from ..tools.utils import color
 import logging
 import traceback
-import time
 from bs4 import BeautifulSoup
 
 
@@ -34,7 +31,7 @@ def enterDashboard(browser: ChromeBrowser) -> str:
     return userName
 
 
-def enterUPSiteSubjects(browser) -> str:
+def enterUPSiteSubjects(browser) -> None:
     '''Fetches the subjects from the UPSite page'''
     try:
         # sleep 10 seconds and print it

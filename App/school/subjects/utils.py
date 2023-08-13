@@ -1,10 +1,10 @@
-from school import db
-from school.models import Subject, ChromeBrowser, Teacher, Classroom
-from school.tools.utils import color
-from school.groups.utils import createGroup
-from school.teacher.utils import createTeacher
-from school.classrooms.utils import createClassroom
-from school.schedule.utils import createSchedule
+from .. import db
+from ..models import Subject, ChromeBrowser, Teacher
+from ..tools.utils import color
+from ..groups.utils import createGroup
+from ..teacher.utils import createTeacher
+from ..classrooms.utils import create_classroom
+from ..schedule.utils import createSchedule
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import re
@@ -141,7 +141,7 @@ def fetchGroupData(browser: ChromeBrowser) -> list[str]:
 
         subject = createSubject(subjectElement[0])
         teacher = fetchTeachers(subjectElement)
-        classrooms = [classroom.id for classroom in (createClassroom(
+        classrooms = [classroom.id for classroom in (create_classroom(
             classroomObj) for classroomObj in fetchClassroom(subjectElement)) if classroom is not None]
 
         dayshours = fetchDateTime(subjectElement)

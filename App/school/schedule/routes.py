@@ -1,6 +1,6 @@
-from school.schedule.utils import *
-from school.groups.utils import *
-from school.security import tokenRequired
+from ..schedule.utils import *
+from ..groups.utils import *
+from ..security import tokenRequired
 from flask import Blueprint, request, jsonify
 from flask_restful import reqparse, abort
 

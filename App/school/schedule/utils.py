@@ -1,9 +1,6 @@
-from school import db
-from school.tools.utils import *
-from school.tools.utils import color
-from school.models import Group, Schedule, Classroom, Teacher
-from school.days.utils import *
-from school.hours.utils import *
+from .. import db
+from ..models import Group, Schedule, Classroom, Teacher
+from ..hours.utils import *
 from datetime import datetime
 from  typing import Optional
 import traceback

@@ -8,7 +8,7 @@ COPY . .
 
 # Download Google Chrome and Chrome Driver concurrently using curl with -OJ option
 RUN curl -OJ https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    curl -OJ http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip && \
+    curl -OJ https://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip -d /usr/local/bin/
 
 # Install all dependencies

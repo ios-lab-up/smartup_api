@@ -1,16 +1,17 @@
 # from school.schedule.utils import getSubject, getUserSubjects
-from flask import Blueprint, request, jsonify
+from typing import Any
+from flask import Blueprint, request, jsonify, Response
 from flask_restful import reqparse
-from school.scrapper.utils import *
-from school.user.utils import *
+from ..scrapper.utils import *
+from ..user.utils import *
 
 
 login = Blueprint('login', __name__)
 
 
 @login.route('/user/login', methods=['POST'])
-def login_endpoint() -> dict[str,str]:
-    '''This endpoint returns a group '''
+def login_endpoint() -> tuple[Response, Any] | tuple[Response, int]:
+    """This endpoint returns a group """
     # Request parsing
     parser = reqparse.RequestParser(bundle_errors=True)
     parser.add_argument("user_id", type=str, location='json', required=True)
@@ -70,10 +71,10 @@ def login_endpoint() -> dict[str,str]:
 
 
 @login.route('/user/registerGuest', methods=['GET', 'POST'])
-def registerGuestDB() -> dict[str, str]:
-    '''
+def registerGuestDB() -> Response:
+    """
     This endpoint returns the schedule of a user in a json format
-    '''
+    """
     json_data = request.get_json()
     data: list[dict[str, str]] = []
     response: dict[str, str] = {}

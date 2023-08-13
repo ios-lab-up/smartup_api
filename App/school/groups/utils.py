@@ -1,15 +1,14 @@
-from school import db
-from school.models import Group, Schedule, Subject, Teacher
-from school.relations import RelationGroupSchedule
-from school.schedule.utils import  getSchedule
-from flask import jsonify
+from .. import db
+from ..models import Group, Schedule, Subject, Teacher
+from ..relations import RelationGroupSchedule
+from ..schedule.utils import  getSchedule
 import logging
 import traceback
-from school.tools.utils import color
+from ..tools.utils import color
 
 
 def createGroup(classNumber: int, group: str, subject: int, teacher: int, language: int, students: str, modality: str, description: str) -> Group:
-    '''Creates a group in the database'''
+    """Creates a group in the database"""
     try:
         if not Group.query.filter_by(classNumber=classNumber).first():
 

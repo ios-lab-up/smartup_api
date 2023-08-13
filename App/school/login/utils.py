@@ -3,11 +3,9 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from flask_bcrypt import generate_password_hash
-from school.models import *
+from ..models import *
 from flask import session
-from school.tools.utils import color, WrongCredentialsError
-import time
-import requests
+from ..tools.utils import color, WrongCredentialsError
 import logging
 
 

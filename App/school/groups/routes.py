@@ -1,7 +1,7 @@
-from school.models import Group
+from ..models import Group
 from flask import Blueprint, request, jsonify, render_template, session
-from school.groups.utils import *
-from school.security import *
+from ..groups.utils import *
+from ..security import *
 
 groups = Blueprint('groups', __name__)
 

@@ -1,8 +1,7 @@
-from school.models import Teacher
-from school.models import Subject
-from school.models import Group
-from school import db
-from school.tools.utils import color
+from ..models import Teacher
+from ..models import Group
+from .. import db
+from ..tools.utils import color
 import logging
 import traceback
 
