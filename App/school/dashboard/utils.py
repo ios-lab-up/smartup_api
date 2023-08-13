@@ -3,7 +3,7 @@ from ..models import ChromeBrowser
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
 from ..tools.utils import color
 import logging
@@ -11,11 +11,12 @@ import traceback
 from bs4 import BeautifulSoup
 
 
-def enterDashboard(browser: ChromeBrowser) -> str:
-    '''Extracts the schedule link from the main page'''
+def enter_dashboard(browser: ChromeBrowser) -> str:
+    """Extracts the schedule link from the main page"""
+    user_name = None
     try:
         try:
-            userName = browser.find_element(
+            user_name = browser.find_element(
                 By.XPATH, "//div[@class='user-title pull-left hidden-xs']").find_element(By.XPATH, "//strong").text
 
         except NoSuchElementException:
@@ -28,11 +29,11 @@ def enterDashboard(browser: ChromeBrowser) -> str:
     except NoSuchElementException:
         logging.error(f'{color(1,"Schedule link not found")} ❌')
 
-    return userName
+    return user_name
 
 
-def enterUPSiteSubjects(browser) -> None:
-    '''Fetches the subjects from the UPSite page'''
+def enter_up_site_subjects(browser) -> None:
+    """Fetches the subjects from the UPSite page"""
     try:
         # sleep 10 seconds and print it
 
@@ -50,7 +51,7 @@ def enterUPSiteSubjects(browser) -> None:
         '''
         
         WebDriverWait(browser, 20).until(
-            EC.presence_of_element_located(( By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
+            ec.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
         
         element = browser.find_element(By.XPATH, '//*[@id="CLASS_SRCH_WRK2_STRM$35$"]')
         dropdown = Select(element)
@@ -60,12 +61,12 @@ def enterUPSiteSubjects(browser) -> None:
             By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
         WebDriverWait(browser, 10).until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
+            ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
         browser.switch_to.frame(
             browser.find_elements(By.TAG_NAME, 'iframe')[0])
         browser.find_element(By.ID, "#ICSave").click()
         WebDriverWait(browser, 30).until(
-            EC.presence_of_element_located((By.ID, 'win0div$ICField94')))
+            ec.presence_of_element_located((By.ID, 'win0div$ICField94')))
 
         logging.info(
             f'{color(2,"Enter Carrito de Inscripción...")} ✅')
@@ -74,18 +75,18 @@ def enterUPSiteSubjects(browser) -> None:
             f'{color(1,"Carrito de Inscripción link not found")} ❌ {traceback.format_exc().splitlines()[-3]}')
 
 
-def getGrades(studentId: str, password: str):
-    '''Extracts the grades of a user from the UP4U platform'''
+def get_grades(student_id: str, password: str):
+    """Extracts the grades of a user from the UP4U platform"""
     try:
         user_data = {
             'grades': [],
         }
 
-        user = User.query.filter_by(userID=studentId).first()
+        user = User.query.filter_by(userID=student_id).first()
         if user:
             with ChromeBrowser().buildBrowser() as browser:
                 browser.get("https://up4u.up.edu.mx/user/auth/login")
-                loginUP4U(browser, studentId, password)
+                loginUP4U(browser, student_id, password)
                 user_data['grades'] = fetch_grades_content(browser) #TODO: Create a junction table user-group-grade-parcial
 
                 # Scrap the grades from the user grades
@@ -129,19 +130,18 @@ def getGrades(studentId: str, password: str):
     return user, message, status_code, error
 
 
-def getSchedule(studentId: str, password: str):
-    '''Extracts the grades of a user from the UP4U platform'''
+def get_schedule(student_id: str, password: str):
+    """Extracts the grades of a user from the UP4U platform"""
     try:
         user_data = {
             'schedule': [],
         }
-        current_schedule = []
 
-        user = User.query.filter_by(userID=studentId).first()
+        user = User.query.filter_by(userID=student_id).first()
         if user:
             with ChromeBrowser().buildBrowser() as browser:
                 browser.get("https://up4u.up.edu.mx/user/auth/login")
-                loginUP4U(browser, studentId, password)
+                loginUP4U(browser, student_id, password)
                 user_data['schedule'] = fetch_schedule_content(browser) #TODO: Create a relation table user-group
                 
                 #Scrap the schedule from the user schedule

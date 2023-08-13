@@ -1,4 +1,4 @@
-from ..dashboard.utils import  enterUPSiteSubjects
+from ..dashboard.utils import  enter_up_site_subjects
 from ..login.utils import *
 from ..subjects.utils import fetchGroupData
 from ..tools.utils import WrongCredentialsError
@@ -125,7 +125,7 @@ def extractUPSiteContent(studentId: str, password: str) -> bool:
             # Login
             loginUPSite(browser, studentId, password)
             # Enter the dashboard
-            enterUPSiteSubjects(browser)
+            enter_up_site_subjects(browser)
 
             fetchGroupData(browser)
             # Get the schedule content

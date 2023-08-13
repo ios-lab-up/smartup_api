@@ -9,6 +9,13 @@ dashboard = Blueprint('dashboard', __name__)
 @dashboard.route('/dashboard/self', methods=['GET'])
 def dashboard_endpoint() -> tuple[Response, Any] | tuple[Response, int]:
     """This endpoint returns a group """
+
+    # Resolving References
+    message = None
+    data = None
+    status_code = None
+    error = None
+
     # Request parsing
     parser = reqparse.RequestParser(bundle_errors=True)
     parser.add_argument("user_id", type=str, location='json', required=True)
@@ -26,9 +33,9 @@ def dashboard_endpoint() -> tuple[Response, Any] | tuple[Response, int]:
 
     try:
         if info_requested == 1:
-            data,message,status_code, error = getGrades(user_id,password)
+            data,message,status_code, error = get_grades(user_id, password)
         elif info_requested == 2:
-            data,message,status_code, error = getSchedule(user_id,password)
+            data,message,status_code, error = get_schedule(user_id, password)
         return jsonify({
             'success': True,
             'message': f'{message}',

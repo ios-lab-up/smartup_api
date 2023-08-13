@@ -1,7 +1,6 @@
 from ..models import Days
 from ..tools.utils import color
 import logging
-import traceback
 
 
 def getDays() -> list[Days]:

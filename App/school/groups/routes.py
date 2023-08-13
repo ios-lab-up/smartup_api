@@ -1,5 +1,4 @@
-from ..models import Group
-from flask import Blueprint, request, jsonify, render_template, session
+from flask import Blueprint, Response
 from ..groups.utils import *
 from ..security import *
 
@@ -7,8 +6,8 @@ groups = Blueprint('groups', __name__)
 
 @groups.route('/getGroup', methods=['GET', 'POST'])
 @tokenRequired
-def getGroupDB() -> dict[str, str]:
-    '''This endpoint returns a group from the database'''
+def getGroupDB() -> Response:
+    """This endpoint returns a group from the database"""
 
     jsonData = request.get_json()
     data: list[dict[str, str]] = []
