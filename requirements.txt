@@ -15,8 +15,8 @@ flask_admin
 Flask-Session
 psutil~=5.9.5
 requests==2.28.1
-selenium==4.7.2
-webdriver-manager==3.8.5
+selenium==4.10.0
+webdriver-manager==4.0.0
 pyjwt==2.6.0
 qrcode~=7.4.2
 networkx~=3.1
