@@ -2,9 +2,8 @@ from school import db
 from school.relations import *
 from dataclasses import dataclass
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver import FirefoxOptions
 from datetime import datetime
 
 
@@ -14,20 +13,16 @@ class ChromeBrowser:
 
     def __init__(self):
         """Constructor method to initialize the Chrome browser instance"""
-        self.chromeOptions = Options()
-        self.chromeOptions.add_argument("--headless")  # Ensure GUI is off
-        self.chromeOptions.add_argument("--no-sandbox")
-        self.chromeOptions.add_argument("--disable-dev-shm-usage")
+        self.firefoxOptions = FirefoxOptions()
+        self.firefoxOptions.add_argument("--headless")  # Ensure GUI is off
+        self.firefoxOptions.add_argument("--no-sandbox")
+        self.firefoxOptions.add_argument("--disable-dev-shm-usage")
 
     def buildBrowser(self) -> webdriver:
-        """Method to build a Chrome browser instance"""
-        webdriverService = Service(ChromeDriverManager().install())
-        browser = webdriver.Chrome(
-            service=webdriverService, options=self.chromeOptions)
-        return browser
-
-
-
+        """Method to build a Firefox browser instance"""
+        service = Service(executable_path='/usr/local/bin/geckodriver')
+        driver = webdriver.Firefox(service=service, options=self.firefoxOptions)
+        return driver
 
 
 @dataclass
