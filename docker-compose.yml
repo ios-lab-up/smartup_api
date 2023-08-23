@@ -3,56 +3,18 @@ networks:
   app-tier:
     driver: bridge
 services:
-  db:
-    image: mysql:8.0
-    container_name: UP_DB
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: school
-      MYSQL_PASSWORD: school
-      MYSQL_DATABASE: School_DB
-      MYSQL_USER: generic_operator
-    command: --default-authentication-plugin=mysql_native_password --bind-address=0.0.0.0 --explicit_defaults_for_timestamp
-    volumes:
-      - ./sql:/docker-entrypoint-initdb.d
-    ports:
-      - 3306:3306
-    networks:
-      - app-tier
-  adminer:
-    image: adminer
-    container_name: UP_Adminer
-    restart: always
-    ports:
-      - 8080:8080
-    networks:
-      - app-tier
   api:
     platform: linux/amd64
-    container_name: UP_API
+    container_name: API
     stdin_open: true
     tty: true
     restart: always
-    build: .
-    ports:
-      - 5555:5555
-    volumes:
-      - ./App:/SmartUP/App
-    networks:
-      - app-tier
-  scrapper:
-    stdin_open: true
-    tty: true
-    container_name: UP_Scrapper
     build:
       context: .
-      dockerfile: Dockerfile.scrapper
+      dockerfile: Dockerfile
+    ports:
+      - "5555:5555"
     volumes:
-      - ./App:/SmartUP/App
-      - ./crontab:/etc/cron.d/scraper-cron
-    depends_on:
-      - db
-      - adminer
-      - api
+        - .:/app
     networks:
       - app-tier
