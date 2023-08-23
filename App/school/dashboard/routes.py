@@ -1,5 +1,4 @@
 from typing import Any
-from ..schedule.utils import *
 from ..dashboard.utils import *
 from flask import Blueprint, jsonify, Response
 from flask_restful import reqparse

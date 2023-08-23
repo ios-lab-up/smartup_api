@@ -1,7 +1,7 @@
 from .. import db
 from ..models import Subject, FirefoxBrowser, Teacher
 from ..tools.utils import color
-from ..groups.utils import createGroup
+from ..groups.utils import create_group
 from ..teacher.utils import createTeacher
 from ..classrooms.utils import create_classroom
 from ..schedule.utils import createSchedule
@@ -146,9 +146,9 @@ def fetchGroupData(browser: FirefoxBrowser) -> list[str]:
 
         dayshours = fetchDateTime(subjectElement)
 
-        group = createGroup(subject=subject.id, classNumber=subjectElement[1], group=subjectElement[2].split(
+        group = create_group(subject=subject.id, class_number=subjectElement[1], group=subjectElement[2].split(
             '-')[0], teacher=teacher.id, language=subjectElement[-1], students=getUserRoom(subjectElement),
-            modality=fetchModality(subjectElement), description=fetchDescription(subjectElement))
+                             modality=fetchModality(subjectElement), description=fetchDescription(subjectElement))
 
         createSchedule(dayshours, classrooms, group)
 

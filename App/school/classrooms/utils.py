@@ -8,9 +8,9 @@ def create_classroom(name: str) -> Classroom:
     """Creates a classroom object"""
 
     try:
-        # Check if classroom already exists in database
+        # Check if classroom already exists in a database
         if not Classroom.query.filter_by(name=name).first():
-            # Create classroom object if it doesn't exist in database
+            # Create a classroom object if it doesn't exist in a database
             classroom = Classroom(name=name)
             # Add classroom to database
             db.session.add(classroom)
@@ -19,7 +19,7 @@ def create_classroom(name: str) -> Classroom:
 
         else:
             Classroom.query.filter_by(name=name).first()
-            # Raise an error if classroom already exists in database
+            # Raise an error if a classroom already exists in a database
             raise ValueError(
                 f'{color(3,"Classroom already exists in database")}'
             )
@@ -32,7 +32,8 @@ def create_classroom(name: str) -> Classroom:
 
 
 def create_classroom_subject_relationship(classroom: Classroom, subject: Subject) -> None:
-    """Creates a relationship between a subject and a classroom by adding the classroom to the subject's classrooms list"""
+    """Creates a relationship between a subject and a classroom
+    by adding the classroom to the subject's classroom list"""
 
     try:
         if classroom and subject:

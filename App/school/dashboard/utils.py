@@ -5,13 +5,15 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver import Firefox
 from ..tools.utils import color
+from ..models import User
 import logging
 import traceback
 from bs4 import BeautifulSoup
 
 
-def enter_dashboard(browser: FirefoxBrowser) -> str:
+def enter_dashboard(browser: Firefox) -> str:
     """Extracts the schedule link from the main page"""
     user_name = None
     try:
@@ -32,7 +34,7 @@ def enter_dashboard(browser: FirefoxBrowser) -> str:
     return user_name
 
 
-def enter_up_site_subjects(browser) -> None:
+def enter_up_site_subjects(browser: Firefox) -> None:
     """Fetches the subjects from the UPSite page"""
     try:
         # sleep 10 seconds and print it
@@ -57,8 +59,7 @@ def enter_up_site_subjects(browser) -> None:
         dropdown = Select(element)
         dropdown.select_by_value("1238")
 
-        browser.find_element(
-            By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+        browser.find_element(By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
         WebDriverWait(browser, 10).until(
             ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))

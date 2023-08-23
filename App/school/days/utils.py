@@ -3,7 +3,7 @@ from ..tools.utils import color
 import logging
 
 
-def getDays() -> list[Days]:
+def get_days() -> list[Days]:
     """Returns the days of the week stored in the database"""
     days = Days.query.all()
     if days:
@@ -13,7 +13,7 @@ def getDays() -> list[Days]:
         return []
 
 
-def abreviatonToDay(abv: str) -> int:
+def abbreviation_to_day(abv: str) -> int:
     """Given an abbreviation, it returns the day name and its corresponding ID"""
     days = {
         'Lun': 1,
