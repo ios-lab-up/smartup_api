@@ -1,5 +1,5 @@
 from .. import db
-from ..models import Subject, ChromeBrowser, Teacher
+from ..models import Subject, FirefoxBrowser, Teacher
 from ..tools.utils import color
 from ..groups.utils import createGroup
 from ..teacher.utils import createTeacher
@@ -53,7 +53,7 @@ def formatDateObjsSubject(subjects: dict[str, str]) -> dict[str, str]:
     return subjects
 
 
-def extractSubjectsFromTable(browser: ChromeBrowser) -> list[str]:
+def extractSubjectsFromTable(browser: FirefoxBrowser) -> list[str]:
     '''Once the html table was located, it scrappes the subjects out
        of it and returns a list of list, each list represents a subject '''
     try:
@@ -123,7 +123,7 @@ def splitListCourses(rows: list[str]) -> list[list[str]]:
 
 
 
-def fetchGroupData(browser: ChromeBrowser) -> list[str]:
+def fetchGroupData(browser: FirefoxBrowser) -> list[str]:
     '''Fetches the subject data from the html'''
     groups: list[str] = []
     extractedHTML: list[str] = extractSubjectsFromTable(browser)
@@ -224,7 +224,7 @@ def fetchTeachers(data: list[list[str]]) -> Teacher:
     return teacher
 
 
-def fetchLanguages(browser: ChromeBrowser, subjects: int) -> list[str]:
+def fetchLanguages(browser: FirefoxBrowser, subjects: int) -> list[str]:
     languagesList = []
     try:
         for subject in range(subjects):

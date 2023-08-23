@@ -1,5 +1,5 @@
 from ..login.utils import *
-from ..models import ChromeBrowser
+from ..models import FirefoxBrowser
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
@@ -11,7 +11,7 @@ import traceback
 from bs4 import BeautifulSoup
 
 
-def enter_dashboard(browser: ChromeBrowser) -> str:
+def enter_dashboard(browser: FirefoxBrowser) -> str:
     """Extracts the schedule link from the main page"""
     user_name = None
     try:
@@ -84,7 +84,7 @@ def get_grades(student_id: str, password: str):
 
         user = User.query.filter_by(userID=student_id).first()
         if user:
-            with ChromeBrowser().buildBrowser() as browser:
+            with FirefoxBrowser().buildBrowser() as browser:
                 browser.get("https://up4u.up.edu.mx/user/auth/login")
                 loginUP4U(browser, student_id, password)
                 user_data['grades'] = fetch_grades_content(browser) #TODO: Create a junction table user-group-grade-parcial
@@ -139,7 +139,7 @@ def get_schedule(student_id: str, password: str):
 
         user = User.query.filter_by(userID=student_id).first()
         if user:
-            with ChromeBrowser().buildBrowser() as browser:
+            with FirefoxBrowser().buildBrowser() as browser:
                 browser.get("https://up4u.up.edu.mx/user/auth/login")
                 loginUP4U(browser, student_id, password)
                 user_data['schedule'] = fetch_schedule_content(browser) #TODO: Create a relation table user-group

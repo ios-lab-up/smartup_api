@@ -8,7 +8,7 @@ from datetime import datetime
 
 
 @dataclass
-class ChromeBrowser:
+class FirefoxBrowser:
     """Class to create a Chrome browser instance"""
 
     def __init__(self):

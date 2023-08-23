@@ -8,10 +8,12 @@ from ..groups.utils import *
 from ..user.utils import createUser, getUser
 from ..security import *
 from flask import session
-from flask_bcrypt  import check_password_hash
+from flask_bcrypt import check_password_hash
 import traceback
 import logging
 from bs4 import BeautifulSoup
+from ..models import User
+from ..models import FirefoxBrowser
 
 
 def extractUP4UContent(studentId: str, password: str) -> User:
@@ -24,7 +26,7 @@ def extractUP4UContent(studentId: str, password: str) -> User:
 
         user = User.query.filter_by(userID=studentId).first()
         if not user:
-            with ChromeBrowser().buildBrowser() as browser:
+            with FirefoxBrowser().buildBrowser() as browser:
                 browser.get("https://up4u.up.edu.mx/user/auth/login")
                 loginUP4U(browser, studentId, password)
                 user = createUser(**session['user'])
@@ -116,7 +118,7 @@ def extractUPSiteContent(studentId: str, password: str) -> bool:
     '''Extracts the schedule of a user from the UP site'''
     try:
         # Start the browser
-        with ChromeBrowser().buildBrowser() as browser:
+        with FirefoxBrowser().buildBrowser() as browser:
             # Go to the main page
             browser.get("https://upsite.up.edu.mx/psp/CAMPUS/?cmd=login&languageCd=ESP&")
             
