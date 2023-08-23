@@ -38,14 +38,13 @@ def findPasswordInput(browser: Firefox) -> WebElement | None:
 # define username and password
 def fillUsernameInput(browser: Firefox, student_id: str) -> None:
     """Fills the username input with the username"""
-    browser.find_element(
-        By.XPATH, "//input[@name='Login[username]' and @id='login_username']").send_keys(student_id)
+    browser.find_element(By.ID, "login_username").send_keys(student_id)
 
 
 # Fill inputs with username and password
 def fillPasswordInput(browser: Firefox, password: str) -> None:
     """Fills the password input with the password"""
-    browser.find_element(By.XPATH, "//input[@name='Login[password]'and @id='login_password'] ").send_keys(password)
+    browser.find_element(By.ID, "login_password").send_keys(password)
 
 
 # Click on the login button
