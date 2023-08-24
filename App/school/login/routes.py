@@ -1,9 +1,12 @@
-# from school.schedule.utils import getSubject, getUserSubjects
 from typing import Any
-from flask import Blueprint, request, jsonify, Response
+from flask import Blueprint, Response
 from flask_restful import reqparse
-from ..scrapper.utils import *
-from ..user.utils import *
+from ..user.utils import createGuest
+from ..scrapper.utils import (
+    extractUP4UContent,
+    jsonify,
+    request
+)
 
 
 login = Blueprint('login', __name__)
@@ -80,6 +83,7 @@ def registerGuestDB() -> Response:
     response: dict[str, str] = {}
     error, code = None, None
     fields = ['name', 'lastName', 'email', 'visitDate']
+    message: str | None = None
     if request.method == 'POST':
         if not json_data or not all(json_data.values()):
             error, code = 'No data received', 3

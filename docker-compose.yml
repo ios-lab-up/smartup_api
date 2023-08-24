@@ -40,19 +40,19 @@ services:
       - ./App:/SmartUP/App
     networks:
       - app-tier
-  scrapper:
-    stdin_open: true
-    tty: true
-    container_name: UP_Scrapper
-    build:
-      context: .
-      dockerfile: Dockerfile.scrapper
-    volumes:
-      - ./App:/SmartUP/App
-      - ./crontab:/etc/cron.d/scraper-cron
-    depends_on:
-      - db
-      - adminer
-      - api
-    networks:
-      - app-tier
+  #scrapper:
+  #  stdin_open: true
+  #  tty: true
+  #  container_name: UP_Scrapper
+  #  build:
+  #    context: .
+  #    dockerfile: Dockerfile.scrapper
+  #  volumes:
+  #    - ./App:/SmartUP/App
+  #    - ./crontab:/etc/cron.d/scraper-cron
+  #  depends_on:
+  #    - db
+  #    - adminer
+  #    - api
+  #  networks:
+  #    - app-tier
