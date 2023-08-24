@@ -1,4 +1,4 @@
-FROM python:3.10.7-bullseye
+FROM python:3.11.0-bullseye
 
 # Set the working directory in the container to /SmartUP
 WORKDIR /SmartUP
