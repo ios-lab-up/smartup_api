@@ -7,6 +7,7 @@ from ..classrooms.utils import create_classroom
 from ..schedule.utils import createSchedule
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver import Firefox
 import re
 import logging
 import traceback
@@ -53,13 +54,36 @@ def formatDateObjsSubject(subjects: dict[str, str]) -> dict[str, str]:
     return subjects
 
 
-def extractSubjectsFromTable(browser: FirefoxBrowser) -> list[str]:
+def CloseUnnecessaryTabs(browser: Firefox) -> None:
+    '''Closes the unnecessary tabs'''
+    try:
+        # Get the tabs
+        tabs = browser.window_handles
+        # Close the tabs
+        for tab in tabs[1:]:
+            browser.switch_to.window(tab)
+            browser.close()
+        # Switch to the main tab
+        browser.switch_to.window(tabs[0])
+        logging.info(
+            f"{color(2,'Unnecessary tabs closed')} ✅")
+    except Exception as e:
+        logging.error(
+            f"{color(1,'Unnecessary tabs not closed')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
+
+
+def extractSubjectsFromTable(browser: Firefox) -> list[str]:
     '''Once the html table was located, it scrappes the subjects out
        of it and returns a list of list, each list represents a subject '''
     try:
+        # Close the unnecessary tabs
+        CloseUnnecessaryTabs(browser)
         # var is used to iterate over the rows of the table
-        rows = browser.find_elements(
-            By.XPATH, f'//*[@id="ACE_$ICField$4$$0"]/tbody/tr')
+        rows = browser.find_elements(By.XPATH, f'//*[@id="ACE_$ICField$4$$0"]')
+
+        if not rows:
+            logging.info(f'{color(1,"Rows not found")} ❌')
+            raise NoSuchElementException
 
         logging.info(
             f"{color(2,'Subjects content found')} ✅")
@@ -129,7 +153,6 @@ def fetchGroupData(browser: FirefoxBrowser) -> list[str]:
     extractedHTML: list[str] = extractSubjectsFromTable(browser)
     subjectData: list[list[str]] = splitListCourses(
         extractedHTML)
-    # print(subjectData)
     languages: list[str] = fetchLanguages(browser, len(subjectData))
 
     # add language to the end of each list

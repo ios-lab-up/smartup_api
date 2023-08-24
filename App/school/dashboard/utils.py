@@ -1,3 +1,5 @@
+from time import sleep
+
 from ..login.utils import *
 from ..models import FirefoxBrowser
 from selenium.webdriver.common.by import By
@@ -34,7 +36,7 @@ def enter_dashboard(browser: Firefox) -> str:
     return user_name
 
 
-def enter_up_site_subjects(browser: Firefox) -> None:
+def enter_up_site_subjects(browser: Firefox) -> bool:
     """Fetches the subjects from the UPSite page"""
     try:
         # sleep 10 seconds and print it
@@ -51,29 +53,39 @@ def enter_up_site_subjects(browser: Firefox) -> None:
         browser.switch_to.default_content()
         #ADDITION --------------------------------------
         '''
-        
         WebDriverWait(browser, 20).until(
             ec.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
-        
-        element = browser.find_element(By.XPATH, '//*[@id="CLASS_SRCH_WRK2_STRM$35$"]')
+
+        element = browser.find_element(By.ID, 'CLASS_SRCH_WRK2_STRM$35$')
         dropdown = Select(element)
-        dropdown.select_by_value("1238")
+        # dropdown.select_by_value("Otoño 2022")
+        dropdown.select_by_visible_text("Otoño 2022")
 
         browser.find_element(By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
         WebDriverWait(browser, 10).until(
             ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
+
         browser.switch_to.frame(
             browser.find_elements(By.TAG_NAME, 'iframe')[0])
-        browser.find_element(By.ID, "#ICSave").click()
-        WebDriverWait(browser, 30).until(
-            ec.presence_of_element_located((By.ID, 'win0div$ICField94')))
 
-        logging.info(
-            f'{color(2,"Enter Carrito de Inscripción...")} ✅')
+        sleep(5)
+        browser.find_element(By.ID, "#ICSave").click()
+
+        #WebDriverWait(browser, 30).until(ec.presence_of_element_located((By.ID, 'win0div$ICField94')))
+        sleep(15)
+
+        if ec.presence_of_element_located((By.ID, 'win0div$ICField94')):
+            logging.info(
+                f'{color(2,"Enter Carrito de Inscripción...")} ✅')
+            browser.switch_to.default_content()
+            return True
+        else:
+            raise NoSuchElementException
     except NoSuchElementException:
         logging.error(
             f'{color(1,"Carrito de Inscripción link not found")} ❌ {traceback.format_exc().splitlines()[-3]}')
+        return False
 
 
 def get_grades(student_id: str, password: str):

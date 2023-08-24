@@ -1,7 +1,7 @@
 from ..dashboard.utils import  enter_up_site_subjects
 from ..login.utils import *
 from ..subjects.utils import fetchGroupData
-from ..tools.utils import WrongCredentialsError
+from ..tools.utils import WrongCredentialsError, ScheduleExtractionError
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from ..groups.utils import *
@@ -126,13 +126,21 @@ def extractUPSiteContent(studentId: str, password: str) -> bool:
         
             # Login
             loginUPSite(browser, studentId, password)
-            # Enter the dashboard
-            enter_up_site_subjects(browser)
 
-            fetchGroupData(browser)
+            # Enter the dashboard
+            success = enter_up_site_subjects(browser)
+
+            if success:
+                # Get the group data
+                logging.info(f'{color(2,"Fetching data")} ✅')
+                fetchGroupData(browser)
+
+            else:
+                print(color(5, 'Schedule extraction failed'))
+                raise ScheduleExtractionError
+
             # Get the schedule content
             return True
-
 
     except Exception as e:
         logging.critical(
