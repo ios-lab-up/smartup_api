@@ -1,16 +1,17 @@
+from flask_restful.reqparse import RequestParser
 from ..schedule.utils import *
 from ..groups.utils import *
 from ..security import tokenRequired
-from flask import Blueprint, request, jsonify
-from flask_restful import reqparse, abort
+from flask import Blueprint, jsonify
+from flask_restful import reqparse
 
 schedule = Blueprint('schedule', __name__)
 
 @tokenRequired
 def createSchedules() -> dict[str:str]:
-    '''This endpoint returns a group '''
+    """This endpoint returns a group """
     # Request parsing
-    parser = reqparse.RequestParser(bundle_errors=True)
+    parser: RequestParser = reqparse.RequestParser(bundle_errors=True)
     parser.add_argument("subjects", type=list, location='json', required=True)
     parser.add_argument("teachers", type=list, location='json', required=False, default=[])
     parser.add_argument("minimum", type=int, location='json', required=False, default=3)
@@ -20,6 +21,7 @@ def createSchedules() -> dict[str:str]:
     teachers = args.get("teachers")
     minimum = args.get("minimum")
 
+    status_code: int | None = 200
     try:
         data,message,status_code, error = createCompatibleSchedules(
             [getGroup(group.id, 2) for group in Group.query.filter(Group.subject.in_(args['subjects']),Group.schedule.any(),Group.status == True).all()], teachers, minimum)
@@ -43,10 +45,10 @@ def createSchedules() -> dict[str:str]:
 
 @schedule.route('/excelSchedules', methods=['POST'])
 @tokenRequired
-def ScheduleswithExcel() -> dict[str:str]:
-    '''This endpoint returns a group '''
+def schedules_with_excel() -> dict[str:str]:
+    """This endpoint returns a group """
     # Request parsing
-    parser = reqparse.RequestParser(bundle_errors=True)
+    parser: RequestParser = reqparse.RequestParser(bundle_errors=True)
     parser.add_argument("subjects", type=list, location='json', required=True)
     parser.add_argument("teachers", type=list, location='json', required=False, default=[])
     parser.add_argument("minimum", type=int, location='json', required=False, default=3)
@@ -56,6 +58,7 @@ def ScheduleswithExcel() -> dict[str:str]:
     teachers = args.get("teachers")
     minimum = args.get("minimum")
 
+    status_code: int | None = 200
     try:
         data,message,status_code, error = createCompatibleSchedules(
             [getGroup(group.id, 2) for group in Group.query.filter(Group.subject.in_(args['subjects']),Group.schedule.any(),Group.status == True).all()], teachers, minimum)

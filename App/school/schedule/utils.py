@@ -2,24 +2,23 @@ from .. import db
 from ..models import Group, Schedule, Classroom, Teacher
 from ..hours.utils import *
 from datetime import datetime
-from  typing import Optional
+from typing import Optional, Any
 import traceback
 import logging
 import networkx as nx
 import openpyxl
 import os
 
-
-def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Group) -> Schedule:
-    '''Creates a schedule taking the days and hours from the schedule content and the classroom and groups objects'''
+def createSchedule(days_hours: list[str], classrooms: list[int], group: Group) -> Schedule:
+    """Creates a schedule taking the days and hours from the schedule content and the classroom and groups objects"""
+    schedule: Schedule | None = None
     try:
-
-        if len(daysHours) != 0 and group:
-            for i in range(len(daysHours)):
+        if len(days_hours) != 0 and group:
+            for i in range(len(days_hours)):
                 schedule = Schedule(
-                    day=daysHours[i].split()[0], # extract day from string using split
-                    startTime=datetime.strptime(daysHours[i].split()[1], '%I:%M%p').strftime('%H:%M'), # extract start time from string and convert to 24-hour format
-                    endTime=datetime.strptime(daysHours[i].split()[3], '%I:%M%p').strftime('%H:%M'), # extract end time from string and convert to 24-hour format
+                    day=days_hours[i].split()[0], # extract day from string using split
+                    startTime=datetime.strptime(days_hours[i].split()[1], '%I:%M%p').strftime('%H:%M'), # extract start time from string and convert to 24-hour format
+                    endTime=datetime.strptime(days_hours[i].split()[3], '%I:%M%p').strftime('%H:%M'), # extract end time from string and convert to 24-hour format
                     classroomID=classrooms[i]
                 )
 
@@ -43,7 +42,7 @@ def createSchedule(daysHours: list[str], classrooms: list[Classroom], group: Gro
 
 
 def createScheduleGroupRelation(group: Group, schedule: Schedule) -> None:
-    '''Create a relation between schedule and group in DB'''
+    """Create a relation between schedule and group in DB"""
     try:
         if group and schedule:
             if schedule not in group.schedule:
@@ -63,10 +62,10 @@ def createScheduleGroupRelation(group: Group, schedule: Schedule) -> None:
 
 
 
-def getSchedule(Schedule: int) -> Schedule:
-    '''Returns a object of type schedule given an id'''
+def getSchedule(schedule: int | Schedule) -> Schedule:
+    """Returns an object of type schedule given an id"""
     try:
-        schedule = Schedule.query.filter_by(id=Schedule.id).first().toDict()
+        schedule = schedule.query.filter_by(id=schedule.id).first().toDict()
     except Exception as e:
         logging.critical(
             f'{color(5,"Schedule not found")} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}')
@@ -76,7 +75,7 @@ def getSchedule(Schedule: int) -> Schedule:
 
 
 def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
-    '''Formats the date objects in the schedule dictionary'''
+    """Formats the date objects in the schedule dictionary"""
     # Format the date objects in the dictionary
     schedule['creationDate'] = schedule['creationDate'].strftime(
         '%Y-%m-%d %H:%M:%S')
@@ -87,12 +86,13 @@ def formatDateObjsSchedule(schedule: dict[str:str]) -> dict[str:str]:
     return schedule
 
  
-def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[list[int]]=None, minimum: Optional[int]=3) -> list[list[dict[str,Group]]]:
-    '''
+def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[list[int]]=None, minimum: Optional[int]=3) -> \
+tuple[list[list[dict[str, Group] | list[dict[str, Group]]]] | list[Any], str, int, str | None]:
+    """
     Returns a list of lists containing groups whose schedules don't overlap given a list of groups.
-    If `teachers` is specified, only considers groups taught by those teachers.
+    If `teachers` are specified, only consider groups taught by those teachers.
     Only returns schedules that contain at least `minimum` groups.
-    '''
+    """
 
     try:
 
@@ -143,10 +143,10 @@ def createCompatibleSchedules(groups: list[dict[str,Group]], teachers: Optional[
 
 
 
-def schedulesOverlap(group_1: Group, group_2: Group) -> bool:
-    '''
+def schedulesOverlap(group_1: Group | dict[str, Group], group_2: Group | dict[str, Group]) -> bool:
+    """
     Returns True if the schedules of group_1 and group_2 overlap, False otherwise
-    '''
+    """
 
     try:
         # Get the schedules of each group
@@ -175,15 +175,15 @@ def schedulesOverlap(group_1: Group, group_2: Group) -> bool:
     
 
 def cleanSchedulesOutput(schedules):
-    '''
+    """
     Cleans the schedules output in the next format
     List of dictionaries, each dictionary is a schedule
     Each schedule has a key for each day of the week
     Each day of the week has a list of dictionaries, each dictionary is a block of time
-    '''
-    cleanSchedules = []
+    """
+    clean_schedules = []
     for schedule in schedules:
-        Horario = {
+        horario = {
             'Lunes': [],
             'Martes': [],
             'Miercoles': [],
@@ -211,19 +211,19 @@ def cleanSchedulesOutput(schedules):
                     block['endTime'] = block['endTime'][:-3]
                 hora=block['startTime']+' - '+block['endTime']
                 if block['day']=='Lun':
-                    Horario['Lunes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
+                    horario['Lunes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
                 elif block['day']=='Mart':
-                    Horario['Martes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
+                    horario['Martes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
                 elif block['day']=='Miérc':
-                    Horario['Miercoles'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
+                    horario['Miercoles'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
                 elif block['day']=='Jue':
-                    Horario['Jueves'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
+                    horario['Jueves'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
                 elif block['day']=='V':
-                    Horario['Viernes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
-        cleanSchedules.append(Horario)
-    if len(cleanSchedules) > 0:
-        excelOutput(cleanSchedules)
-    return cleanSchedules
+                    horario['Viernes'].append({hora:{'Clase': group['classNumber'],'Materia': group['subject'],'Maestro': group['teacher'], 'Salon': block['classroomID'], 'Color': color}})
+        clean_schedules.append(horario)
+    if len(clean_schedules) > 0:
+        excelOutput(clean_schedules)
+    return clean_schedules
 
 def excelOutput(schedules):
     print("Creating excel with schedules")
@@ -262,7 +262,7 @@ def excelOutput(schedules):
     }
     schedulecount = 1
     for schedule in schedules:
-        sheet=wb.create_sheet(title="Horario " + str(schedulecount))
+        wb.create_sheet(title="Horario " + str(schedulecount))
         sheet = wb['Horario ' + str(schedulecount)]
         sheet.column_dimensions['A'].width = 15
         sheet.column_dimensions['B'].width = 35
@@ -279,11 +279,10 @@ def excelOutput(schedules):
         sheet['D1'] = 'Miércoles'
         sheet['E1'] = 'Jueves'
         sheet['F1'] = 'Viernes'
-        # Fill from A2 to A31 with blocks of 30 minutes starting at 7:00 (7:00 - 7:30, 7:30 - 8:00, etc.)
+        # Fill from A2 to A31 with blocks of 30 minutes starting at 7:00 (7:00-7:30, 7:30-8:00, etc.)
         for i in range(2, 32):
             sheet['A' + str(i)] = f"{6 + i // 2}:{30 * (i % 2):02d} - {6 + (i + 1) // 2}:{30 * ((i + 1) % 2):02d}"
         days = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']
-        row = 2
         for day in days:
             if day in schedule:
                 classes = schedule[day]
@@ -299,15 +298,15 @@ def excelOutput(schedules):
                         sheet[start_cell.coordinate].fill = openpyxl.styles.PatternFill(start_color=details['Color'], end_color=details['Color'], fill_type='solid')
                         sheet[start_cell.coordinate] = f"{start_time} - {end_time} {details['Materia']} {details['Maestro']} ID Salon: {details['Salon']}"
                         sheet[start_cell.coordinate].alignment = openpyxl.styles.Alignment(horizontal='center', vertical='center')                       
-        #make the cells A1:F31 have a border
+        #make the cells A1: F31 have a border
         for i in range(1, 32):
             for j in range(1, 7):
                 sheet.cell(row=i, column=j).border = openpyxl.styles.Border(left=openpyxl.styles.Side(style='thin'), right=openpyxl.styles.Side(style='thin'), top=openpyxl.styles.Side(style='thin'), bottom=openpyxl.styles.Side(style='thin'))
-        #make the cells B2:F31 adjust the text to fit in the cell and center it horizontally and vertically
+        #make the cells B2: F31 adjust the text to fit in the cell and center it horizontally and vertically
         for i in range(2, 32):
             for j in range(1, 7):
                 sheet.cell(row=i, column=j).alignment = openpyxl.styles.Alignment(horizontal='center', vertical='center', wrap_text=True)
-        #fill the cells A1:F1 with a yellow background
+        #fill the cells A1: F1 with a yellow background
 
         for i in range(1, 7):
             sheet.cell(row=1, column=i).fill = openpyxl.styles.PatternFill(start_color='FFFF00', end_color='FFFF00', fill_type='solid')

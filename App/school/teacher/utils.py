@@ -6,7 +6,7 @@ import logging
 import traceback
 
 
-def createTeacher(name: str) -> Teacher:
+def createTeacher(name: str | list[str]) -> Teacher:
     '''Creates a teacher object'''
 
     try:

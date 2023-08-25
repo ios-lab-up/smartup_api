@@ -231,8 +231,8 @@ class Schedule(db.Model):
     classroomID: int = db.Column(db.Integer, db.ForeignKey(
         'Classroom.id'), nullable=False)
     day: str = db.Column(db.String(280), nullable=False)
-    startTime: datetime = db.Column(db.Time, nullable=False)
-    endTime: datetime = db.Column(db.Time, nullable=False)
+    startTime: str | datetime = db.Column(db.Time, nullable=False)
+    endTime: str | datetime = db.Column(db.Time, nullable=False)
     status: bool = db.Column(db.Boolean, nullable=False, default=True)
     creationDate: datetime = db.Column(
         db.Date, nullable=False, default=datetime.now)

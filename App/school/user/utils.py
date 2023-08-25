@@ -157,11 +157,11 @@ def createUserSubjectRelationship(user: User, subject: Subject) -> None:
             f'{color(1,"Couldnt create user-subject relationship")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
 
 
-def getUser(userID: User, type: int) -> User:
-    '''Returns a list with the group data by passing an ID
+def getUser(userID: int, type: int) -> User:
+    """Returns a list with the group data by passing an ID
        type: 1 = list
              2 = dict
-    '''
+    """
     try:
         user = User.query.filter_by(id=userID).first()
         match type:

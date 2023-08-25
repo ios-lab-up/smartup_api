@@ -3,7 +3,7 @@ from ..login.utils import *
 from ..subjects.utils import fetchGroupData
 from ..tools.utils import WrongCredentialsError, ScheduleExtractionError
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from ..groups.utils import *
 from ..user.utils import createUser, getUser
 from ..security import *
@@ -16,19 +16,19 @@ from ..models import User
 from ..models import FirefoxBrowser
 
 
-def extractUP4UContent(studentId: str, password: str) -> User:
-    '''Extracts the schedule of a user from the UP4U platform'''
+def extractUP4UContent(student_id: str, password: str) -> tuple[User | dict[str, dict[str, str]], str, int, str | None]:
+    """Extracts the schedule of a user from the UP4U platform"""
     try:
         user_data = {
             'schedule': [],
             'grades': [],
         }
 
-        user = User.query.filter_by(userID=studentId).first()
+        user = User.query.filter_by(userID=student_id).first()
         if not user:
             with FirefoxBrowser().buildBrowser() as browser:
                 browser.get("https://up4u.up.edu.mx/user/auth/login")
-                loginUP4U(browser, studentId, password)
+                loginUP4U(browser, student_id, password)
                 user = createUser(**session['user'])
                 user_data['schedule'] = fetch_schedule_content(browser) #TODO: Create a relation table user-group
                 user_data['grades'] = fetch_grades_content(browser) #TODO: Create a junction table user-group-grade-parcial
@@ -62,17 +62,17 @@ def extractUP4UContent(studentId: str, password: str) -> User:
                     cols = row.find_all('div', class_='col-md-1')
                     class_num = cols[0].text.strip() if cols else None
                     groups.append(class_num)
-                groups = list(set(groups))
+                list(set(groups))
 
-                # At this point we have the grades and the groups of the user
+                # At this point, we have the grades and the groups of the users
 
-                user, message, status_code, error = user, f'User: {user["userID"]} was succesfully created', 201, None
+                user, message, status_code, error = user, f'User: {user["userID"]} was successfully created', 201, None
 
         else:
             if check_password_hash(user.password, password):
                 user = getUser(user.id, 2)
                 user['jwt_token'] = encodeJwtToken(user)
-                message, status_code, error = f'User: {user["userID"]} was succesfully logged in', 200, None
+                message, status_code, error = f'User: {user["userID"]} was successfully logged in', 200, None
             else:
                 user, message, status_code, error  = {}, "Wrong Credentials!", 401, "Unauthorized"
     except WrongCredentialsError as e:
@@ -114,18 +114,18 @@ def extractUP4UContent(studentId: str, password: str) -> User:
     # return scheduleContent
 
 
-def extractUPSiteContent(studentId: str, password: str) -> bool:
-    '''Extracts the schedule of a user from the UP site'''
+def extractUPSiteContent(student_id: str, password: str) -> bool:
+    """Extracts the schedule of a user from the UP site"""
     try:
         # Start the browser
         with FirefoxBrowser().buildBrowser() as browser:
             # Go to the main page
             browser.get("https://upsite.up.edu.mx/psp/CAMPUS/?cmd=login&languageCd=ESP&")
             
-            WebDriverWait(browser, 10).until(EC.presence_of_element_located(( By.XPATH, "//input[@name='userid' and @id='userid']")))
+            WebDriverWait(browser, 10).until(ec.presence_of_element_located((By.XPATH, "//input[@name='userid' and @id='userid']")))
         
             # Login
-            loginUPSite(browser, studentId, password)
+            loginUPSite(browser, student_id, password)
 
             # Enter the dashboard
             success = enter_up_site_subjects(browser)

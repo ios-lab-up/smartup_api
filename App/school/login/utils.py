@@ -38,13 +38,13 @@ def findPasswordInput(browser: Firefox) -> WebElement | None:
 # define username and password
 def fillUsernameInput(browser: Firefox, student_id: str) -> None:
     """Fills the username input with the username"""
-    browser.find_element(By.ID, "login_username").send_keys(student_id)
+    browser.find_element(value="login_username").send_keys(student_id)
 
 
 # Fill inputs with username and password
 def fillPasswordInput(browser: Firefox, password: str) -> None:
     """Fills the password input with the password"""
-    browser.find_element(By.ID, "login_password").send_keys(password)
+    browser.find_element(value="login_password").send_keys(password)
 
 
 # Click on the login button
@@ -53,29 +53,10 @@ def fillPasswordInput(browser: Firefox, password: str) -> None:
 def clickLoginButton(browser: Firefox) -> None:
     """Clicks on the login button"""
     try:
-        browser.find_element(By.ID, "login-button").click()
+        browser.find_element(value="login-button").click()
     except NoSuchElementException:
         logging.error(f'{color(1, "Login button not found")} ❌')
 
-
-# def login(browser: ChromeBrowser, studentId: str, password: str) -> None:
-#     '''Logs in to the UP4U page'''
-#     try:
-#         ID = fillUsernameInput(browser, studentId)
-#         psw = fillPasswordInput(findPasswordInput(browser), password)
-#         clickLoginButton(browser)
-#         if browser.find_element(By.CLASS_NAME, "help-block").text:
-#             logging.error(f"{color(1,'Error message found, login failed')} ❌")
-#         else:
-#             logging.info(f"{color(2,'Login successful')} ✅")
-#             logging.info(f'{color(6,"I'm going to sleep now 😴 ZzZzZ...")}')
-#             session['logged_in'] = True
-#             session['user'] = {'userID': Id, 'password': generate_password_hash(
-#                 psw).decode('utf-8')}
-#             time.sleep(3)
-#             logging.info(f'{color(6,"Im awake now 🤓")}')
-#     except Exception as e:
-#         logging.critical(f"{color(5,'Login failed')} ❌\n{e}")
 
 def loginUP4U(browser: Firefox, user_id: str, password: str) -> None:
     """Logs is UP4U page given credentials"""
@@ -149,7 +130,7 @@ def fillUsernameInputUPSite(browser: Firefox, student_id: str) -> None:
 
 
 # Fill inputs with username and password
-def fillPassswordInputUPSite(browser: Firefox, password: str) -> None:
+def fillPasswordInputUPSite(browser: Firefox, password: str) -> None:
     """Fills the password input with the password"""
 
     browser.find_element(By.XPATH, '//*[@id="pwd"]').send_keys(password)
@@ -169,7 +150,7 @@ def loginUPSite(browser: Firefox, student_id: str, password: str) -> None:
     """Logs in to the UPSite page"""
     try:
         fillUsernameInputUPSite(browser, student_id)
-        fillPassswordInputUPSite(browser, password)
+        fillPasswordInputUPSite(browser, password)
         clickLoginButtonUPSite(browser)
         WebDriverWait(browser, 10).until(
             ec.presence_of_element_located(

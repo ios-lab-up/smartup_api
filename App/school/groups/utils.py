@@ -1,5 +1,3 @@
-from typing import Tuple, List
-
 from .. import db
 from ..models import Group, Schedule, Subject, Teacher
 from ..relations import RelationGroupSchedule
@@ -9,7 +7,7 @@ import traceback
 from ..tools.utils import color
 
 
-def create_group(class_number: int, group: str, subject: int, teacher: int, language: str, students: str, modality: str, description: str) -> Group:
+def create_group(class_number: int | str, group: str, subject: int, teacher: int, language: str, students: str, modality: str, description: str) -> Group:
     """Creates a group in the database"""
     try:
         if not Group.query.filter_by(classNumber=class_number).first():
@@ -35,7 +33,7 @@ def create_group(class_number: int, group: str, subject: int, teacher: int, lang
 
     except Exception as e:
         logging.error(
-            f'{color(1,"Couldnt create group")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+            f'{color(1,"Could not create group")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         group = Group.query.filter_by(classNumber=class_number).first()
 
     return group
@@ -75,7 +73,7 @@ def getGroup(group_id: int, data_type: int) -> Group:
 
     except Exception as e:
         logging.error(
-            f'{color(1,"Couldnt get group")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+            f'{color(1,"Could not get group")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         group_data = None
     
     return group_data
@@ -108,16 +106,16 @@ def filterGroups(filter_params: ...) -> tuple[list[Group] | None, str]:
     The function will return a list of groups that match the filter criteria
     but if the filterParams is empty or contains the key 'all' it will return all the groups in the database
     """
+    message: str = ''
     try:
-
         filter_map = {
             'id': Group.id,
             'subject': Group.subject,
             'language': Group.language,
             'dateRange': Group.creationDate
         }
-        message: str = ''
         criteria: str = ''
+        query: Group | None = None
         if 'all' in filter_params:
             groups = Group.query.all()
             message = f'{len(groups)} Groups in DB'
@@ -144,7 +142,7 @@ def filterGroups(filter_params: ...) -> tuple[list[Group] | None, str]:
 
     except Exception as e:
         logging.error(
-            f'{color(1,"Couldnt get groups")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+            f'{color(1,"Could not get groups")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         groups = None
 
     return [getGroup(group.id, 2) for group in cleanGroupQuery(groups)] if groups else None, message
