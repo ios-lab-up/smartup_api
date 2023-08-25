@@ -25,7 +25,7 @@ def create_classroom(name: str) -> Classroom:
             )
     except Exception as e:
         logging.error(
-            f'{color(1,"Couldnt create classroom")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+            f'{color(1,"Could not create classroom")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         classroom = Classroom.query.filter_by(name=name).first()
 
     return classroom
@@ -61,4 +61,4 @@ def create_classroom_subject_relationship(classroom: Classroom, subject: Subject
             )
     except Exception as e:
         logging.error(
-            f'{color(1,"Couldnt create classroom-subject relationship")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+            f'{color(1,"Could not create classroom-subject relationship")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')

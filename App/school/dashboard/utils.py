@@ -1,5 +1,4 @@
 from time import sleep
-
 from ..login.utils import *
 from ..models import FirefoxBrowser
 from selenium.webdriver.common.by import By
@@ -27,9 +26,6 @@ def enter_dashboard(browser: Firefox) -> str:
             logging.error(
                 f'{color(1,"Couldnt create user")} ❌ {traceback.format_exc().splitlines()[-3]}')
 
-        # browser.find_element(By.LINK_TEXT, "Horarios").click()
-        # time.sleep(3)
-        # logging.info(f'{color(2,"Loading schedule...")} ✅')
     except NoSuchElementException:
         logging.error(f'{color(1,"Schedule link not found")} ❌')
 
@@ -56,12 +52,12 @@ def enter_up_site_subjects(browser: Firefox) -> bool:
         WebDriverWait(browser, 20).until(
             ec.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
 
-        element = browser.find_element(By.ID, 'CLASS_SRCH_WRK2_STRM$35$')
+        element = browser.find_element(value='CLASS_SRCH_WRK2_STRM$35$')
         dropdown = Select(element)
         # dropdown.select_by_value("Otoño 2022")
         dropdown.select_by_visible_text("Otoño 2022")
 
-        browser.find_element(By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+        browser.find_element(value="CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
         WebDriverWait(browser, 10).until(
             ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
@@ -70,7 +66,7 @@ def enter_up_site_subjects(browser: Firefox) -> bool:
             browser.find_elements(By.TAG_NAME, 'iframe')[0])
 
         sleep(5)
-        browser.find_element(By.ID, "#ICSave").click()
+        browser.find_element(value="#ICSave").click()
 
         #WebDriverWait(browser, 30).until(ec.presence_of_element_located((By.ID, 'win0div$ICField94')))
         sleep(15)
