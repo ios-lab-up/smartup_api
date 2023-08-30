@@ -1,19 +1,22 @@
-from school import db
-from school.models import Subject, ChromeBrowser, Teacher, Classroom
-from school.tools.utils import color
-from school.groups.utils import createGroup
-from school.teacher.utils import createTeacher
-from school.classrooms.utils import createClassroom
-from school.schedule.utils import createSchedule
+from typing import SupportsIndex, List
+from selenium.webdriver.remote.webelement import WebElement
+from .. import db
+from ..models import Subject, FirefoxBrowser, Teacher
+from ..tools.utils import color
+from ..groups.utils import create_group
+from ..teacher.utils import createTeacher
+from ..classrooms.utils import create_classroom
+from ..schedule.utils import createSchedule
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver import Firefox
 import re
 import logging
 import traceback
 
 
 def createSubject(name: str):
-    '''Creates a subject object'''
+    """Creates a subject object"""
     try:
 
         if not Subject.query.filter_by(name=name).first():
@@ -23,7 +26,7 @@ def createSubject(name: str):
             db.session.commit()
             logging.info(f"{color(2,'Subject created:')} ✅")
         else:
-            subject = Subject.query.filter_by(name=name).first()
+            Subject.query.filter_by(name=name).first()
             raise ValueError(
                 f"{color(3,'Subject already exists in the database')}")
     except Exception as e:
@@ -41,7 +44,7 @@ def getSubject(subject: Subject) -> dict[str, str]:
 
 
 def formatDateObjsSubject(subjects: dict[str, str]) -> dict[str, str]:
-    '''Formats the date objects in the subject dictionary'''
+    """Formats the date objects in the subject dictionary"""
     subjects['startDate'] = subjects['startDate'].strftime('%Y-%m-%d')
     subjects['endDate'] = subjects['endDate'].strftime('%Y-%m-%d')
     subjects['startTime'] = subjects['startTime'].strftime('%H:%M')
@@ -53,13 +56,37 @@ def formatDateObjsSubject(subjects: dict[str, str]) -> dict[str, str]:
     return subjects
 
 
-def extractSubjectsFromTable(browser: ChromeBrowser) -> list[str]:
-    '''Once the html table was located, it scrappes the subjects out
-       of it and returns a list of list, each list represents a subject '''
+def CloseUnnecessaryTabs(browser: Firefox) -> None:
+    """Closes the unnecessary tabs"""
     try:
+        # Get the tabs
+        tabs = browser.window_handles
+        # Close the tabs
+        for tab in tabs[1:]:
+            browser.switch_to.window(tab)
+            browser.close()
+        # Switch to the main tab
+        browser.switch_to.window(tabs[0])
+        logging.info(
+            f"{color(2,'Unnecessary tabs closed')} ✅")
+    except Exception as e:
+        logging.error(
+            f"{color(1,'Unnecessary tabs not closed')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
+
+
+def extractSubjectsFromTable(browser: Firefox | FirefoxBrowser) -> list[WebElement]:
+    """Once the html table was located, it scrapes the subjects out
+       of it and returns a list of list, each list represents a subject """
+    rows: list[WebElement] = []
+    try:
+        # Close the unnecessary tabs
+        CloseUnnecessaryTabs(browser)
         # var is used to iterate over the rows of the table
-        rows = browser.find_elements(
-            By.XPATH, f'//*[@id="ACE_$ICField$4$$0"]/tbody/tr')
+        rows = browser.find_elements(By.XPATH, f'//*[@id="ACE_$ICField$4$$0"]')
+
+        if not rows:
+            logging.info(f'{color(1,"Rows not found")} ❌')
+            raise NoSuchElementException
 
         logging.info(
             f"{color(2,'Subjects content found')} ✅")
@@ -72,19 +99,20 @@ def extractSubjectsFromTable(browser: ChromeBrowser) -> list[str]:
     return rows
 
 
-def splitListCourses(rows: list[str]) -> list[list[str]]:
-    '''Given a list of courses, it splits them into a list of lists, each list represents a course'''
+def splitListCourses(rows: list[WebElement]) -> list[list[str]]:
+    """Given a list of courses, it splits them into a list of lists, each list represents a course"""
+    cleaned_subject_data: list[list[str]] = []
     # The try-except block is used to catch any errors that may occur and log them
     try:
         # The map() function returns a list of the results after applying the given function to each item of a given iterable (list, tuple etc.)
         # In this case, the given function is the lambda function, which splits the text of each row using the new line character (\n) as a separator
         # The result of this is a list of lists, each sublist contains the text of each row
-        subjectData = [[line.strip() for line in row.text.splitlines() if line.strip() != '']
+        subject_data = [[line.strip() for line in row.text.splitlines() if line.strip() != '']
                        for row in rows if rows != []]
         separated_classes = []
         current_group = []
-        # The for loop iterates over each list in the subjectData list and stores the result of each iteration in the sub_list variable
-        for sub_list in subjectData:
+        # The for loop iterates over each list in the subject_data list and stores the result of each iteration in the sub_list variable
+        for sub_list in subject_data:
             # The for loop iterates over each element in the sub_list variable and stores the result of each iteration in the item variable
             for item in sub_list:
                 # The if statement verifies that the item variable is not equal to the string "Clase Sección Días y Horas Aula Instructor Idioma Inscr / Cap Estado      "
@@ -105,7 +133,7 @@ def splitListCourses(rows: list[str]) -> list[list[str]]:
             # The current_group list is reset to an empty list
             current_group = []
 
-        cleanedSubjectData = [
+        cleaned_subject_data = [
             classes for classes in separated_classes if len(classes) > 1]
 
         logging.info(
@@ -117,38 +145,36 @@ def splitListCourses(rows: list[str]) -> list[list[str]]:
     # The function returns a list containing only the courses in separated_classes that have more than one element
     # add language to the end of each list
 
-    return cleanedSubjectData
+    return cleaned_subject_data
 
 
 
 
 
-def fetchGroupData(browser: ChromeBrowser) -> list[str]:
-    '''Fetches the subject data from the html'''
+def fetchGroupData(browser: FirefoxBrowser) -> list[str]:
+    """Fetches the subject data from the html"""
     groups: list[str] = []
-    extractedHTML: list[str] = extractSubjectsFromTable(browser)
-    subjectData: list[list[str]] = splitListCourses(
-        extractedHTML)
-    # print(subjectData)
-    languages: list[str] = fetchLanguages(browser, len(subjectData))
+    extracted_html: list[WebElement] = extractSubjectsFromTable(browser)
+    subject_data: list[list[str]] | slice | list[str] | SupportsIndex = splitListCourses(extracted_html)
+    languages: list[str] = fetchLanguages(browser, len(subject_data))
 
     # add language to the end of each list
-    for i in enumerate(subjectData):
-        subjectData[i[0]].append(languages[i[0]])
+    for i in enumerate(subject_data):
+        subject_data[i[0]].append(languages[i[0]])
 
     # add days and times to the end of each list
-    for subjectElement in subjectData:
+    for subjectElement in subject_data:
 
         subject = createSubject(subjectElement[0])
         teacher = fetchTeachers(subjectElement)
-        classrooms = [classroom.id for classroom in (createClassroom(
+        classrooms = [classroom.id for classroom in (create_classroom(
             classroomObj) for classroomObj in fetchClassroom(subjectElement)) if classroom is not None]
 
         dayshours = fetchDateTime(subjectElement)
 
-        group = createGroup(subject=subject.id, classNumber=subjectElement[1], group=subjectElement[2].split(
+        group = create_group(subject=subject.id, class_number=subjectElement[1], group=subjectElement[2].split(
             '-')[0], teacher=teacher.id, language=subjectElement[-1], students=getUserRoom(subjectElement),
-            modality=fetchModality(subjectElement), description=fetchDescription(subjectElement))
+                             modality=fetchModality(subjectElement), description=fetchDescription(subjectElement))
 
         createSchedule(dayshours, classrooms, group)
 
@@ -158,8 +184,8 @@ def fetchGroupData(browser: ChromeBrowser) -> list[str]:
     return groups
 
 
-def getUserRoom(data: list[list[str]]) -> str:
-    '''Gets the user room'''
+def getUserRoom(data: list[list[str]]) -> list[str] | str:
+    """Gets the user room"""
     try:
         for studentRoom in data:
             if re.search(r'\d{2}/\d{2}|\d{1}/\d{1}|\d{1}/\d{2}', studentRoom):
@@ -170,8 +196,8 @@ def getUserRoom(data: list[list[str]]) -> str:
         return ''
 
 
-def fetchModality(data: list[list[str]]) -> str:
-    '''Fetches the modality from the lists'''
+def fetchModality(data: list[list[str]]) -> list[str] | str:
+    """Fetches the modality from the lists"""
     try:
         for modality in data:
             if modality.startswith('Pres') or modality.startswith('En l'):
@@ -184,8 +210,8 @@ def fetchModality(data: list[list[str]]) -> str:
         return ''
 
 
-def fetchDescription(data: list[list[str]]) -> str:
-    '''Fetches the description from the lists'''
+def fetchDescription(data: list[list[str]]) -> list[str] | str:
+    """Fetches the description from the lists"""
     try:
         for description in data:
             if description.startswith('Notas:'):
@@ -201,8 +227,9 @@ def fetchDescription(data: list[list[str]]) -> str:
 
 
 def fetchTeachers(data: list[list[str]]) -> Teacher:
-    '''Fetches the teachers from the lists'''
+    """Fetches the teachers from the lists"""
     teachers = []
+    teacher: Teacher = None
     substrings = ('Clase', 'Sección', 'Notas:', 'Sala ', 'Salón', 'Se prevé', 'Todas',
                   'Presencial', 'Personal', 'En l', 'Español', 'Lun', 'Mart', 'Jue', 'Miérc', 'V', 'Sáb', 'Lab')
     try:
@@ -224,7 +251,7 @@ def fetchTeachers(data: list[list[str]]) -> Teacher:
     return teacher
 
 
-def fetchLanguages(browser: ChromeBrowser, subjects: int) -> list[str]:
+def fetchLanguages(browser: Firefox, subjects: int) -> list[str]:
     languagesList = []
     try:
         for subject in range(subjects):
@@ -246,26 +273,26 @@ def fetchLanguages(browser: ChromeBrowser, subjects: int) -> list[str]:
 
 
 
-def fetchDateTime(data: list[list[str]]) -> list[str]:
-    '''Gets the date and time from the lists'''
+def fetchDateTime(data: list[list[str]]) -> list[list[str]] | str:
+    """Gets the date and time from the lists"""
     try:
-        dateTimeStrings = set()
+        date_time_strings = set()
         for info in data:
             if ":" in info and " - " in info and len(re.findall(r'[A-Z]', info.split()[0])) <= 1:
-                dateTimeStrings.add(info)
+                date_time_strings.add(info)
 
 
     except Exception as e:
         logging.error(
             f"{color(1,'Date and time not found')} ❌: {e}\n{traceback.format_exc().splitlines()[-3]}")
         return ''
-    return list(dateTimeStrings)
+    return list(date_time_strings)
 
 
 
 
-def fetchClassroom(data: list[list[str]]) -> list[str]:
-    '''Gets the classroom from the lists'''
+def fetchClassroom(data: list[list[str]]) -> list[list[str]] | str:
+    """Gets the classroom from the lists"""
     try:
         classrooms = [
             info for info in data if "Sala " in info or "Salón" in info or "Laboratorio" in info or "P/Asig" in info]

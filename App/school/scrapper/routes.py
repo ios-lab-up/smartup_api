@@ -1,18 +1,15 @@
-from flask import Blueprint, request, jsonify
-from school.config import Config
-from school.scrapper.utils import *
+from flask import Blueprint, Response
+from ..config import Config
+from ..scrapper.utils import *
 
 scrapper = Blueprint('scrapper', __name__)
 
 
-
 @scrapper.route('/FetchGroupDataUPSite', methods=['GET'])
-def fetchUPSite() -> dict[str, str]:
-    '''
+def fetchUPSite() -> tuple[Response, int]:
+    """
     This endpoint returns the schedule of a user in a json format
-    '''
-    data: list[dict[str, str]] = []
-    response: dict[str, str] = {}
+    """
     if request.method == 'GET':
         data = extractUPSiteContent(Config.ADMIN_USERNAME, Config.ADMIN_PASSWORD)
         if data:
@@ -34,4 +31,3 @@ def fetchUPSite() -> dict[str, str]:
             'code': 3
         }
     return jsonify(response), 200 if response['success'] else 400
-        

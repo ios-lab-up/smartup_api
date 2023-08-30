@@ -4,7 +4,6 @@ from school.models import User
 from functools import wraps
 from typing import Callable
 from flask import Flask, request, jsonify
-from school import db, bcrypt
 from school.tools.utils import color
 import logging
 import jwt

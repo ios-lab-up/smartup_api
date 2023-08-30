@@ -1,7 +1,7 @@
-from school.models import User, Subject
-from school import db
-from school.tools.utils import color
-from school.config import Config
+from ..models import User, Subject
+from .. import db
+from ..tools.utils import color
+from ..config import Config
 import logging
 import traceback
 import qrcode
@@ -157,11 +157,11 @@ def createUserSubjectRelationship(user: User, subject: Subject) -> None:
             f'{color(1,"Couldnt create user-subject relationship")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
 
 
-def getUser(userID: User, type: int) -> User:
-    '''Returns a list with the group data by passing an ID
+def getUser(userID: int, type: int) -> User:
+    """Returns a list with the group data by passing an ID
        type: 1 = list
              2 = dict
-    '''
+    """
     try:
         user = User.query.filter_by(id=userID).first()
         match type:

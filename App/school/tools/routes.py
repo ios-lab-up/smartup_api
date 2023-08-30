@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from uptime import uptime
-from school.tools.utils import *
+from ..tools.utils import *
 import psutil
 import datetime
 

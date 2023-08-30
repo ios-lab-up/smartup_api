@@ -137,5 +137,8 @@ static/
 workspace.xml
 tasks.xml
 
+# Idea
 .idea/
+
+# Requests
 requests/

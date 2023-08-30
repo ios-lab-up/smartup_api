@@ -1,12 +1,10 @@
-from school import db
-from school.models import Days
-from school.tools.utils import color
+from ..models import Days
+from ..tools.utils import color
 import logging
-import traceback
 
 
-def getDays() -> list[Days]:
-    '''Returns the days of the week stored in the database'''
+def get_days() -> list[Days]:
+    """Returns the days of the week stored in the database"""
     days = Days.query.all()
     if days:
         return days
@@ -15,7 +13,7 @@ def getDays() -> list[Days]:
         return []
 
 
-def abreviatonToDay(abv: str) -> int:
+def abbreviation_to_day(abv: str) -> int:
     """Given an abbreviation, it returns the day name and its corresponding ID"""
     days = {
         'Lun': 1,

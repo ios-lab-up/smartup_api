@@ -2,33 +2,27 @@ from school import db
 from school.relations import *
 from dataclasses import dataclass
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver import FirefoxOptions
 from datetime import datetime
-import os.path
 
 
 @dataclass
-class ChromeBrowser:
+class FirefoxBrowser:
     """Class to create a Chrome browser instance"""
 
     def __init__(self):
         """Constructor method to initialize the Chrome browser instance"""
-        self.chromeOptions = Options()
-        self.chromeOptions.add_argument("--headless")  # Ensure GUI is off
-        self.chromeOptions.add_argument("--no-sandbox")
-        self.chromeOptions.add_argument("--disable-dev-shm-usage")
+        self.firefoxOptions = FirefoxOptions()
+        self.firefoxOptions.add_argument("--headless")  # Ensure GUI is off
+        self.firefoxOptions.add_argument("--no-sandbox")
+        self.firefoxOptions.add_argument("--disable-dev-shm-usage")
 
     def buildBrowser(self) -> webdriver:
-        """Method to build a Chrome browser instance"""
-        webdriverService = Service(ChromeDriverManager().install())
-        browser = webdriver.Chrome(
-            service=webdriverService, options=self.chromeOptions)
-        return browser
-
-
-
+        """Method to build a Firefox browser instance"""
+        service = Service(executable_path='/usr/local/bin/geckodriver')
+        driver = webdriver.Firefox(service=service, options=self.firefoxOptions)
+        return driver
 
 
 @dataclass
@@ -237,8 +231,8 @@ class Schedule(db.Model):
     classroomID: int = db.Column(db.Integer, db.ForeignKey(
         'Classroom.id'), nullable=False)
     day: str = db.Column(db.String(280), nullable=False)
-    startTime: datetime = db.Column(db.Time, nullable=False)
-    endTime: datetime = db.Column(db.Time, nullable=False)
+    startTime: str | datetime = db.Column(db.Time, nullable=False)
+    endTime: str | datetime = db.Column(db.Time, nullable=False)
     status: bool = db.Column(db.Boolean, nullable=False, default=True)
     creationDate: datetime = db.Column(
         db.Date, nullable=False, default=datetime.now)

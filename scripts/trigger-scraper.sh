@@ -10,7 +10,7 @@ echo "Sending GET request to scrapper endpoint..."
 while [ $retries -lt $max_retries ]
 do
   response=$(curl -s -o /dev/null -w "%{http_code}" -X GET $URL)
-  if [ $response -eq 200 ]
+  if [ "$response" -eq 200 ]
   then
     echo "Scrapper script completed."
     break

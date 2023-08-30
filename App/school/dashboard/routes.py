@@ -1,15 +1,20 @@
-from school.schedule.utils import *
-from school.groups.utils import *
-from school.dashboard.utils import *
-from school.security import tokenRequired
-from flask import Blueprint, request, jsonify
-from flask_restful import reqparse, abort
+from typing import Any
+from ..dashboard.utils import *
+from flask import Blueprint, jsonify, Response
+from flask_restful import reqparse
 
 dashboard = Blueprint('dashboard', __name__)
 
 @dashboard.route('/dashboard/self', methods=['GET'])
-def dashboard_endpoint() -> dict[str,str]:
-    '''This endpoint returns a group '''
+def dashboard_endpoint() -> tuple[Response, Any] | tuple[Response, int]:
+    """This endpoint returns a group """
+
+    # Resolving References
+    message = None
+    data = None
+    status_code = None
+    error = None
+
     # Request parsing
     parser = reqparse.RequestParser(bundle_errors=True)
     parser.add_argument("user_id", type=str, location='json', required=True)
@@ -27,9 +32,9 @@ def dashboard_endpoint() -> dict[str,str]:
 
     try:
         if info_requested == 1:
-            data,message,status_code, error = getGrades(user_id,password)
+            data,message,status_code, error = get_grades(user_id, password)
         elif info_requested == 2:
-            data,message,status_code, error = getSchedule(user_id,password)
+            data,message,status_code, error = get_schedule(user_id, password)
         return jsonify({
             'success': True,
             'message': f'{message}',
@@ -47,53 +52,3 @@ def dashboard_endpoint() -> dict[str,str]:
             'error': str(e),
             'code': 2
         }), 400
-
-# @dashboard.route('/getCurrentGrades', methods=['GET'])
-# @tokenRequired
-# def getCurrentGrades() -> dict[str:str]:
-#     '''This endpoint returns the current grades of the student'''
-#     try:
-#         data,message,status_code, error = someFunction()
-#         return jsonify({
-#             'success': True,
-#             'message': f'{message}',
-#             'compatible_schedules': data,
-#             'status_code': status_code,
-#             'error': error,
-#             'code':1
-#         }), status_code
-
-#     except Exception as e:
-#         return jsonify({
-#             'success': False,
-#             'message': f'message',
-#             'status_code': status_code,
-#             'error': str(e),
-#             'code': 2
-#         }), status_code
-
-
-# @dashboard.route('/getCurrentSchedule', methods=['GET'])
-# @tokenRequired
-# def getCurrentSchedule() -> dict[str:str]:
-#     '''This endpoint returns the current schedule of the student'''
-#     try:
-#         data,message,status_code, error = someFunction()
-#         return jsonify({
-#             'success': True,
-#             'message': f'{message}',
-#             'compatible_schedules': data,
-#             'status_code': status_code,
-#             'error': error,
-#             'code':1
-#         }), status_code
-
-#     except Exception as e:
-#         return jsonify({
-#             'success': False,
-#             'message': f'message',
-#             'status_code': status_code,
-#             'error': str(e),
-#             'code': 2
-#         }), status_code
-

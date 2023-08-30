@@ -1,17 +1,16 @@
-from school.models import Classroom, Subject
-from school import db
-from school.tools.utils import color
+from ..models import Classroom, Subject
+from .. import db
+from ..tools.utils import color
 import logging
 import traceback
 
-
-def createClassroom(name: str) -> Classroom:
-    '''Creates a classroom object'''
+def create_classroom(name: str) -> Classroom:
+    """Creates a classroom object"""
 
     try:
-        # Check if classroom already exists in database
+        # Check if classroom already exists in a database
         if not Classroom.query.filter_by(name=name).first():
-            # Create classroom object if it doesn't exist in database
+            # Create a classroom object if it doesn't exist in a database
             classroom = Classroom(name=name)
             # Add classroom to database
             db.session.add(classroom)
@@ -19,21 +18,22 @@ def createClassroom(name: str) -> Classroom:
             logging.info(f'{color(2,"Classroom created")} ✅')
 
         else:
-            classroom = Classroom.query.filter_by(name=name).first()
-            # Raise an error if classroom already exists in database
+            Classroom.query.filter_by(name=name).first()
+            # Raise an error if a classroom already exists in a database
             raise ValueError(
                 f'{color(3,"Classroom already exists in database")}'
             )
     except Exception as e:
         logging.error(
-            f'{color(1,"Couldnt create classroom")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+            f'{color(1,"Could not create classroom")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
         classroom = Classroom.query.filter_by(name=name).first()
 
     return classroom
 
 
-def createClassroomSubjectRelationship(classroom: Classroom, subject: Subject) -> None:
-    '''Creates a relationship between a subject and a classroom by adding the classroom to the subject's classrooms list'''
+def create_classroom_subject_relationship(classroom: Classroom, subject: Subject) -> None:
+    """Creates a relationship between a subject and a classroom
+    by adding the classroom to the subject's classroom list"""
 
     try:
         if classroom and subject:
@@ -61,4 +61,4 @@ def createClassroomSubjectRelationship(classroom: Classroom, subject: Subject) -
             )
     except Exception as e:
         logging.error(
-            f'{color(1,"Couldnt create classroom-subject relationship")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')
+            f'{color(1,"Could not create classroom-subject relationship")} ❌: {e} {traceback.format_exc().splitlines()[-3]}')

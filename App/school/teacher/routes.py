@@ -1,8 +1,7 @@
-from school.models import Teacher
 # from school.schedule.utils import getSubject, getUserSubjects
 from flask import Blueprint, request, jsonify, session
-from school.scrapper.utils import *
-from school.teacher.utils import *
+from ..scrapper.utils import *
+from ..teacher.utils import *
 
 teacher= Blueprint('teacher', __name__)
 
