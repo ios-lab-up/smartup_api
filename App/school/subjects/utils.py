@@ -43,7 +43,7 @@ def getSubject(subject: Subject) -> dict[str, str]:
     return formatDateObjsSubject(subjects)
 
 
-def formatDateObjsSubject(subjects: dict[str, str] | ...) -> dict[str, str]:
+def formatDateObjsSubject(subjects: dict[str, str]) -> dict[str, str]:
     """Formats the date objects in the subject dictionary"""
     subjects['startDate'] = subjects['startDate'].strftime('%Y-%m-%d')
     subjects['endDate'] = subjects['endDate'].strftime('%Y-%m-%d')

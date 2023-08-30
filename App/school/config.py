@@ -18,8 +18,8 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     # Credentials
-    ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", 'USER ADMIN')
-    ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", 'PASSWORD ADMIN')
+    ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", '0256158')
+    ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", 'olypapamama123A@')
 
     # JWT Secret Key
 
