@@ -4,7 +4,7 @@ networks:
     driver: bridge
 services:
   db:
-    image: mysql:8.0
+    image: mysql:latest
     container_name: UP_DB
     restart: always
     environment:
@@ -20,7 +20,9 @@ services:
     networks:
       - app-tier
   adminer:
-    image: adminer
+    image: adminer:latest
+    environment:
+      ADMINER_DESIGN: galkaev
     container_name: UP_Adminer
     restart: always
     ports:
