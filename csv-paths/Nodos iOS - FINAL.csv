@@ -1,0 +1,15 @@
+ID,Nombre,Vecinos,Costo,Edificio,Nivel
+P1,Entrada,P2,,Periquillo,1
+P2,Salón P1,P1-P3,,Periquillo,1
+P3,Sindical,P2,,Periquillo,1
+P4,Area Común,P5-P7-P8-P9-P10-P11,,Periquillo,1
+P5,Salón P2,P4,,Periquillo,1
+P6,Baño Hombres,P10,,Periquillo,1
+P7,Baño Mujeres,P4,,Periquillo,1
+P8,Salón P3,P4,,Periquillo,1
+P9,PM1,P4,,Periquillo,1
+P10,Patio,P4-P6-P11,,Periquillo,1
+P11,Salón P4,P4-P10-P12,,Periquillo,1
+P12,Salón P5,P11-P13,,Periquillo,1
+P13,Hamacas,P12-P14,,Periquillo,1
+P14,Lic. Mates Aplicadas,P13,,Periquillo,1
