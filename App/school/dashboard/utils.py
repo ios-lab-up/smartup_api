@@ -39,34 +39,31 @@ def enter_up_site_subjects(browser: Firefox) -> bool:
 
         browser.get(
             "https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&")
-        '''
-        #ADDITION --------------------------------------
-        dropdown =browser.find_elements(by=By.TAG_NAME, value="Option")
-        for element in dropdown:
-            if element.text == "Otoño 2023":
-                element.click()
-                break
-        browser.switch_to.default_content()
-        #ADDITION --------------------------------------
-        '''
+
         WebDriverWait(browser, 20).until(
             ec.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
-
+        #print("Found the element")
         element = browser.find_element(value='CLASS_SRCH_WRK2_STRM$35$')
+        #print ("Found the element drop")
         dropdown = Select(element)
+        #print("Select the element drop")
         # dropdown.select_by_value("Otoño 2022")
         dropdown.select_by_visible_text("Otoño 2022")
+        #print("Select the element drop Otoño 2022")
 
         browser.find_element(value="CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+        #print("Click the search bt")
 
         WebDriverWait(browser, 10).until(
             ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
 
         browser.switch_to.frame(
             browser.find_elements(By.TAG_NAME, 'iframe')[0])
+        #print("Switch to frame")
 
         sleep(5)
         browser.find_element(value="#ICSave").click()
+        #print("Click the search bt")
 
         #WebDriverWait(browser, 30).until(ec.presence_of_element_located((By.ID, 'win0div$ICField94')))
         sleep(15)
