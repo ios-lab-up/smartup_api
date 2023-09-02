@@ -62,10 +62,11 @@ def create_app():
     from school.user.routes import user
     from school.groups.routes import groups
     from school.login.routes import login
-    #from school.nodes.routes import nodes
     from school.schedule.routes import schedule
     from school.teacher.routes import teacher
     from school.dashboard.routes import dashboard
+    from school.nodes.routes import nodes
+
 
     # Here is where you register your blueprints to the app
     app.config.from_object(Config)
@@ -74,9 +75,9 @@ def create_app():
     app.register_blueprint(user)
     app.register_blueprint(groups)
     app.register_blueprint(login)
-    #app.register_blueprint(nodes)
     app.register_blueprint(schedule)
     app.register_blueprint(teacher)
     app.register_blueprint(dashboard)
+    app.register_blueprint(nodes)
 
     return app

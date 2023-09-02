@@ -27,7 +27,7 @@ class FirefoxBrowser:
 
 @dataclass
 class Group(db.Model):
-    '''Model to represent a group for storing groups in the database'''
+    """Model to represent a group for storing groups in the database"""
 
     __tablename__ = 'Group'
 
@@ -73,7 +73,7 @@ class Group(db.Model):
 
 @dataclass
 class Subject(db.Model):
-    '''Model to represent a subject for storing subjects in the database'''
+    """Model to represent a subject for storing subjects in the database"""
 
     __tablename__ = 'Subject'
 
@@ -102,7 +102,7 @@ class Subject(db.Model):
 
 @dataclass
 class User(db.Model):
-    '''Model to represent a User for storing Users in the database'''
+    """Model to represent a User for storing Users in the database"""
 
     __tablename__ = 'User'
     id: int = db.Column(db.Integer, primary_key=True,
@@ -142,7 +142,7 @@ class User(db.Model):
 
 @dataclass
 class Profile(db.Model):
-    '''Model to represent a profile for storing profiles in the database'''
+    """Model to represent a profile for storing profiles in the database"""
 
     __tablename__ = 'Profile'
 
@@ -171,7 +171,7 @@ class Profile(db.Model):
 
 @ dataclass
 class Classroom(db.Model):
-    '''Model to represent a classroom '''
+    """Model to represent a classroom """
     __tablename__ = 'Classroom'
     id: int = db.Column(db.Integer, primary_key=True,
                         autoincrement=True, nullable=False)
@@ -188,7 +188,7 @@ class Classroom(db.Model):
 
 @dataclass
 class Teacher(db.Model):
-    '''Model to represent a teacher '''
+    """Model to represent a teacher """
     __tablename__ = 'Teacher'
     id: int = db.Column(db.Integer, primary_key=True,
                         autoincrement=True, nullable=False)
@@ -205,7 +205,7 @@ class Teacher(db.Model):
 
 @dataclass
 class Days(db.Model):
-    '''Model to represent a day '''
+    """Model to represent a day """
     __tablename__ = 'Days'
     id: int = db.Column(db.Integer, primary_key=True,
                         autoincrement=True, nullable=False)
@@ -214,7 +214,7 @@ class Days(db.Model):
 
 @dataclass
 class Hours(db.Model):
-    '''Model to represent a hour '''
+    """Model to represent a hour """
     __tablename__ = 'Hours'
     id: int = db.Column(db.Integer, primary_key=True,
                         autoincrement=True, nullable=False)
@@ -223,7 +223,7 @@ class Hours(db.Model):
 
 @dataclass
 class Schedule(db.Model):
-    '''Model to represent the junction table between groups and days and hours'''
+    """Model to represent the junction table between groups and days and hours"""
 
     __tablename__ = 'Schedule'
     id: int = db.Column(db.Integer, primary_key=True,
@@ -241,3 +241,16 @@ class Schedule(db.Model):
 
     def toDict(self) -> dict:
         return {column.name: getattr(self, column.name) for column in self.__table__.columns}
+
+
+@dataclass
+class Nodes(db.Model):
+    """Model to represent a node """
+    __tablename__ = 'Nodes'
+    id: int = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False, unique=True)
+    id_node: str = db.Column(db.String, nullable=False, unique=True)
+    name: str = db.Column(db.String, nullable=False)
+    neighbors: str = db.Column(db.String, nullable=False)
+    floor: int = db.Column(db.Integer, nullable=False)
+    status: int = db.Column(db.Integer, nullable=False, default=1)
+    Extra: str = db.Column(db.String, nullable=True)
