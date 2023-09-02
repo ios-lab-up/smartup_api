@@ -39,23 +39,15 @@ def enter_up_site_subjects(browser: Firefox) -> bool:
 
         browser.get(
             "https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&")
-        '''
-        #ADDITION --------------------------------------
-        dropdown =browser.find_elements(by=By.TAG_NAME, value="Option")
-        for element in dropdown:
-            if element.text == "Otoño 2023":
-                element.click()
-                break
-        browser.switch_to.default_content()
-        #ADDITION --------------------------------------
-        '''
+
         WebDriverWait(browser, 20).until(
             ec.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
 
         element = browser.find_element(value='CLASS_SRCH_WRK2_STRM$35$')
         dropdown = Select(element)
-        # dropdown.select_by_value("Otoño 2022")
-        dropdown.select_by_visible_text("Otoño 2022")
+        print (dropdown.options)
+        dropdown.select_by_value("1238")
+        # dropdown.select_by_visible_text("Otoño 2022")
 
         browser.find_element(value="CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
 
