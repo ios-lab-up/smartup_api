@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{enumitem}
+
+\title{API Technical Details Review}
+\author{Enrique Ulises Báez Gómez Tagle}
+\date{August 2023}
+
+\begin{document
+\maketitle
+
+\section{Architecture and Design}
+
+\begin{itemize}
+    \item \textbf{CRUD Operations}: Full support for Create, Read, Update, and Delete operations.
+    \item \textbf{OAS (OpenAPI Specification)}: Technical documentation complying with OAS 3.0 or higher.
+    \item \textbf{Idempotency}: Idempotent methods to ensure consistency.
+\end{itemize}
+
+\section{Security}
+\begin{itemize}
+    \item \textbf{OAuth 2.0/ JWT (JSON Web Tokens)}: Secure authentication and authorization.
+    \item \textbf{TLS 1.2+}: Data encryption in transit.
+    \item \textbf{Rate Limiting}: Limit the number of requests per user to prevent abuse.
+    \item \textbf{WAF (Web Application Firewall)}: Additional protection against common web attacks.
+\end{itemize}
+
+\section{Scalability and Performance}
+\begin{itemize}
+    \item \textbf{Caching (Memcached/Redis)}: Use caching algorithms.
+    \item \textbf{Load Balancing}: Traffic distribution across multiple servers.
+    \item \textbf{Throttling}: Control access based on usage to prevent resource overload.
+\end{itemize}
+
+\section{Data}
+\begin{itemize}
+    \item \textbf{DBMS (Database Management System)}: Choice of database management system SQL.
+    \item \textbf{ACID Transactions}: Ensure secure and reliable transactions.
+    \item \textbf{ORM (Object-Relational Mapping)}: Mapping between objects and the database.
+\end{itemize}
+
+\section{Monitoring and Auditing}
+\begin{itemize}
+    \item \textbf{Logging}: Detailed recording of events and transactions.
+    \item \textbf{APM (Application Performance Monitoring)}: Tools for monitoring health and performance.
+    \item \textbf{Audit and Compliance}: Compliance review with GDPR, HIPAA, or other regulations.
+\end{itemize}
+
+\section{Interoperability}
+\begin{itemize}
+    \item \textbf{API Versioning}: Version control to ensure backward compatibility.
+    \item \textbf{Internationalization}: Availability for student exchange program.
+    \item \textbf{Webhooks}: For real-time events and notifications.
+\end{itemize}
+
+\section{Testing}
+\begin{itemize}
+    \item \textbf{Unit Testing}: Unit tests for each functional component.
+    \item \textbf{Integration Testing}: Integration tests for complete workflows.
+    \item \textbf{E2E (End-to-End) Testing}: Tests from start to finish in an environment similar to production.
+\end{itemize}
+
+\section{Documentation and SDK}
+\begin{itemize}
+    \item \textbf{Swagger or Postman Collections}: Tools for interactive documentation.
+    \item \textbf{SDKs (Software Development Kits)}: Software development kits to facilitate integration.
+\end{itemize}
+
+\section{DevOps}
+\begin{itemize}
+    \item \textbf{CI/CD (Continuous Integration/Continuous Deployment)}: Automated pipelines for testing and deployment.
+    \item \textbf{Docker/Kubernetes}: Containerization and orchestration to facilitate deployment and scalability.
+\end{itemize}
+
+\end{document}
+
