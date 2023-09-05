@@ -4,37 +4,39 @@ from ..models import Nodes
 from .. import db
 import csv
 import sys
+import glob
 
 def store_nodes_database():
-    csv_file_path = '/SmartUP/csv-paths/Nodos iOS - FINAL.csv'
-    with open(csv_file_path) as file:
-        csvreader = csv.reader(file)
+    csv_files_path = glob.glob('/SmartUP/App/school/csv-paths/*.csv')
+    for csv_file_path in csv_files_path:
+        with open(csv_file_path) as file:
+            csvreader = csv.reader(file)
 
-        next(csvreader)
+            next(csvreader)
 
-        for row in csvreader:
-            id_node = row[0]
-            name = row[1]
-            neighbors = row[2]
-            cost = row[3]
-            floor = row[5]
+            for row in csvreader:
+                id_node = row[0]
+                name = row[1]
+                neighbors = row[2]
+                cost = row[3]
+                floor = row[5]
 
-            neighbors = neighbors.split('-')
-            cost = cost.split('-')
+                neighbors = neighbors.split('-')
+                cost = cost.split('-')
 
-            neighbors = {key: value for key, value in zip(neighbors, cost)}
+                neighbors = {key: value for key, value in zip(neighbors, cost)}
 
-            node = Nodes(
-                id_node=id_node,
-                name=name,
-                neighbors=json.dumps(neighbors),
-                floor=int(floor),
-                status=1
-            )
+                node = Nodes(
+                    id_node=id_node,
+                    name=name,
+                    neighbors=json.dumps(neighbors),
+                    floor=int(floor),
+                    status=1
+                )
 
-            if Nodes.query.filter_by(id_node=id_node).first() is None:
-                db.session.add(node)
-                db.session.commit()
+                if Nodes.query.filter_by(id_node=id_node).first() is None:
+                    db.session.add(node)
+                    db.session.commit()
 
 
 def return_all_nodes() -> dict[Any, Any]:
@@ -74,9 +76,12 @@ def dijkstra(graph, start, goal) -> dict[str, Any]:
             elif shortest_distance[node] < shortest_distance[minNode]:
                 minNode = node
         for childNode, weight in graph[minNode].items():
-            if int(weight) + int(shortest_distance[minNode]) < shortest_distance[childNode]:
-                shortest_distance[childNode] = int(weight) + int(shortest_distance[minNode])
-                predecessor[childNode] = minNode
+            try:
+                if int(weight) + int(shortest_distance[minNode]) < shortest_distance[childNode]:
+                    shortest_distance[childNode] = int(weight) + int(shortest_distance[minNode])
+                    predecessor[childNode] = minNode
+            except ValueError:
+                pass
         unseenNodes.pop(minNode)
     currentNode = goal
     while currentNode != start:

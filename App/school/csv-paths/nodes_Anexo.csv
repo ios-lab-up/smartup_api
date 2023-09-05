@@ -1,6 +1,6 @@
 ID,Nombre,Vecinos,Costo,Edificio,Nivel
-A0,Entrada Anexo,AP1,22,Anexo,0
-AP1,Pasillo entrada,A0-AP2-AP3,22-10-55,Anexo,0
+AP0,Entrada Anexo,AP1-ESQ1,22-76,Anexo,0
+AP1,Pasillo entrada,AP0-AP2-AP3,22-10-55,Anexo,0
 AP2,Primer pasillo lateral,AP1-C1-R23,10-6-6,Anexo,0
 R23,Salon,AP2,6,Anexo,0
 C1,Salon C1,AP2-C2,6-20,Anexo,0

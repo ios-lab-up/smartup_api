@@ -1,0 +1,3 @@
+ID,Nombre,Vecinos,Costo,Edificio,Piso
+ESQ1,Esquina qiosco,AP0-PCM1,76-422,None,0
+PCM1,Intermedo m-c,ESQ1-CP0,422-34-90,None,0

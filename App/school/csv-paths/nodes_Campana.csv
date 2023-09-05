@@ -1,0 +1,34 @@
+ID,Nombre,Vecinos,Costo,Edificio,Nivel
+CP0,Entrada Campana 1,CP1-CP5-PCM1,15-12-34,Campana,0
+CP1,Pasillo C1,CP0-CP2-2C,15-27-35,Campana,0
+CP2,Pasillo C2,CP1-1C,27-12,Campana,0
+1C,Salón C1,CP2-DC1,12-9,Campana,0
+DC1,CAE Derecho,1C,9,Campana,0
+2C,Salón C2,CP1-CP3,35-11,Campana,0
+CP3,Pasillo C3,2C-CBH1-CP4,11-25-37,Campana,0
+CBH1,Baños H,CP3-CBM1,25-8,Campana,0
+CBM1,Baños M,CBH1-CO1,8-8,Campana,0
+CO1,Oficinas Campana,CBM1-CPD1,8-12,Campana,0
+CPD1,Posgrado Derecho,CO1,12,Campana,0
+CP4,Pasillo C4,CP3-3C-5C,37-14-9,Campana,0
+3C,Salón C3,CP4,14,Campana,0
+5C,Salón C5,CP4-6C,9-16,Campana,0
+6C,Salón C6,5C-4C,16-1,Campana,0
+4C,Salón C4,6C,1,Campana,0
+CP5,Entrada Campana 2,CP0-CP6,12-29,Campana,0
+CP6,Pasillo C5,CP5-7C,29-9,Campana,0
+7C,C7,CP6-CP7,9-8,Campana,0
+CP7,Pasillo C6,7C-CBH2-CF1,8-6-8,Campana,0
+CBH2,Baño Hombres,CP7,6,Campana,0
+CF1,Foráneos UP,CP7-CP8-8C,8-14-16,Campana,1
+CP8,Pasillo C7,CF1-CS1,14-12,Campana,1
+CS1,Compromiso Social Lobby,CP8-CS2,12-13,Campana,2
+CS2,Dirección Compromiso Social,CS1-CS3,13-8,Campana,2
+CS3,Oficinas Compromiso Social,CS2,8,Campana,2
+8C,Salón C8,CF1-CCPT1,16-10,Campana,1
+CCPT1,Centro Profesores Talent 1,8C-CP9,10-9,Campana,1
+CP9,Pasillo C8,CCPT1-CP10,9-13,Campana,1
+CP10,Pasillo C9,CP9-10C-CCPT2-CCPT3,13-15-15-15,Campana,0
+10C,Salón C10,CP10-CCPT2-CCPT3,15-6-13,Campana,0
+CCPT2,Centro Profesores Talent 2,10C-CP10-CCPT3,6-15-16,Campana,0
+CCPT3,Centro Profesores Talent 3,10C-CCPT2-CP10,13-16-15,Campana,1
