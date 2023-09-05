@@ -16,11 +16,11 @@ def find_path() -> tuple[Response, int]:
         'code': 1
     }), 200
 
-@nodes.route('/nodes', methods=['GET'])
-def get_nodes() -> tuple[Response, int]:
+@nodes.route('/pathfinder/<string:start>/<string:goal>', methods=['GET'])
+def get_nodes(start, goal) -> tuple[Response, int]:
 
     graph = return_all_nodes()
-    path = dijkstra(graph, 'ABH1', 'ABM1')
+    path = dijkstra(graph, start=start, goal=goal)
 
     return jsonify({
         'success': True,
