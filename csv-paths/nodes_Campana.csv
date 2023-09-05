@@ -1,0 +1,34 @@
+ID,Nombre,Vecinos,Costo,Edificio,Nivel
+C1,Entrada Campana 1,C2-C17,,Campana,0
+C2,Pasillo C1,C1-C3-C6,,Campana,0
+C3,Pasillo C2,C2-C4,,Campana,0
+C4,Salón C1,C3-C5,,Campana,0
+C5,CAE Derecho,C4,,Campana,0
+C6,Salón C2,C2-C7,,Campana,0
+C7,Pasillo C3,C6-C8-C12,,Campana,0
+C8,Baños H,C7-C9,,Campana,0
+C9,Baños M,C8-C10,,Campana,0
+C10,Oficinas Campana,C9-C11,,Campana,0
+C11,Posgrado Derecho,C10,,Campana,0
+C12,Pasillo C4,C7-C13-C14,,Campana,0
+C13,Salón C3,C12,,Campana,0
+C14,Salón C5,C12-C15,,Campana,0
+C15,Salón C6,C14-C16,,Campana,0
+C16,Salón C4,C15,,Campana,0
+C17,Entrada Campana 2,C1-C18,,Campana,0
+C18,Pasillo C5,C17-C19,,Campana,0
+C19,C7,C18-C20,,Campana,0
+C20,Pasillo C6,C19-C21-C22,,Campana,0
+C21,Baño Hombres,C20,,Campana,0
+C22,Foráneos UP,C20-C23-C27,,Campana,1
+C23,Pasillo C7,C22-C24,,Campana,1
+C24,Compromiso Social Lobby,C23-C25,,Campana,2
+C25,Dirección Compromiso Social,C24-C26,,Campana,2
+C26,Oficinas Compromiso Social,C25,,Campana,2
+C27,Salón C8,C22-C28,,Campana,1
+C28,Centro Profesores Talent 1,C27-C29,,Campana,1
+C29,Pasillo C8,C28-C30,,Campana,1
+C30,Pasillo C9,C29-C31,,Campana,0
+C31,Salón C10,C30-C32-C33,,Campana,0
+C32,Centro Profesores Talent 2,C31,,Campana,0
+C33,Centro Profesores Talent 3,C31,,Campana,1
