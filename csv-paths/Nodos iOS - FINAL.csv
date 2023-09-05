@@ -45,3 +45,17 @@ O1,Salon O1,C13,7,Anexo,1
 C14,Salon C14,C13-C15,10-4,Anexo,1
 C15,Salon C15,C14-O2,4-8,Anexo,1
 O2,Salon O2,C15,8,Anexo,1
+P1,Entrada,P2,1,Periquillo,1
+P2,Salón P1,P1-P3,2-2,Periquillo,1
+P3,Sindical,P2,3,Periquillo,1
+P4,Area Común,P5-P7-P8-P9-P10-P11,4-4-4-4-4-4,Periquillo,1
+P5,Salón P2,P4,5,Periquillo,1
+P6,Baño Hombres,P10,6,Periquillo,1
+P7,Baño Mujeres,P4,7,Periquillo,1
+P8,Salón P3,P4,8,Periquillo,1
+P9,PM1,P4,9,Periquillo,1
+P10,Patio,P4-P6-P11,10-10-10,Periquillo,1
+P11,Salón P4,P4-P10-P12,11-11-11,Periquillo,1
+P12,Salón P5,P11-P13,12-12,Periquillo,1
+P13,Hamacas,P12-P14,13-13,Periquillo,1
+P14,Lic. Mates Aplicadas,P13,14,Periquillo,1
