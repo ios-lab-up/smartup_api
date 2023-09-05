@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, Response
-from ..nodes.utils import store_nodes_database, return_all_nodes
+from ..nodes.utils import store_nodes_database, return_all_nodes, dijkstra
 
 nodes = Blueprint('nodes', __name__)
 
@@ -19,7 +19,8 @@ def find_path() -> tuple[Response, int]:
 @nodes.route('/nodes', methods=['GET'])
 def get_nodes() -> tuple[Response, int]:
 
-    nodes_paths = return_all_nodes()
+    graph = return_all_nodes()
+    path = dijkstra(graph, 'ABH1', 'ABM1')
 
     return jsonify({
         'success': True,
@@ -27,5 +28,5 @@ def get_nodes() -> tuple[Response, int]:
         'status_code': 200,
         'error': None,
         'code': 1,
-        'data': nodes_paths
+        'data': path
     }), 200

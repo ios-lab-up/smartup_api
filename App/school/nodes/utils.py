@@ -1,7 +1,9 @@
 import json
+from typing import Any
 from ..models import Nodes
 from .. import db
 import csv
+import sys
 
 def store_nodes_database():
     csv_file_path = '/SmartUP/csv-paths/Nodos iOS - FINAL.csv'
@@ -35,15 +37,64 @@ def store_nodes_database():
                 db.session.commit()
 
 
-def return_all_nodes() -> list[dict]:
+def return_all_nodes() -> dict[Any, Any]:
     all_nodes = Nodes.query.all()
-    nodes_paths = []
+    graph = {}
     for node in all_nodes:
-        nodes_paths.append(
-            {
-                'ID': node.id_node,
-                'neighbors': json.loads(node.neighbors)
-            }
-        )
+        graph[node.id_node] = json.loads(node.neighbors)
 
-    return nodes_paths
+
+    return graph
+
+
+def dijkstra(graph, start, goal) -> dict[str, Any]:
+    if start not in graph:
+        return {
+            'distance': f'{start} not in graph',
+            'path': []
+        }
+    if goal not in graph:
+        return {
+            'distance': f'{goal} not in graph',
+            'path': []
+        }
+    shortest_distance = {}
+    predecessor = {}
+    unseenNodes = graph
+    infinity = sys.maxsize
+    path = []
+    for node in unseenNodes:
+        shortest_distance[node] = infinity
+    shortest_distance[start] = 0
+    while unseenNodes:
+        minNode = None
+        for node in unseenNodes:
+            if minNode is None:
+                minNode = node
+            elif shortest_distance[node] < shortest_distance[minNode]:
+                minNode = node
+        for childNode, weight in graph[minNode].items():
+            if int(weight) + int(shortest_distance[minNode]) < shortest_distance[childNode]:
+                shortest_distance[childNode] = int(weight) + int(shortest_distance[minNode])
+                predecessor[childNode] = minNode
+        unseenNodes.pop(minNode)
+    currentNode = goal
+    while currentNode != start:
+        try:
+            path.insert(0, currentNode)
+            currentNode = predecessor[currentNode]
+        except KeyError:
+            print('Path not reachable')
+            break
+    path.insert(0, start)
+    if shortest_distance[goal] != infinity:
+        return {
+            'distance': shortest_distance[goal],
+            'path': path
+        }
+    else:
+        return {
+            'distance': 'No path found',
+            'path': []
+        }
+
