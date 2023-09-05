@@ -1,15 +1,47 @@
 ID,Nombre,Vecinos,Costo,Edificio,Nivel
-P1,Entrada,P2,1,Periquillo,1
-P2,Salón P1,P1-P3,2-2,Periquillo,1
-P3,Sindical,P2,3,Periquillo,1
-P4,Area Común,P5-P7-P8-P9-P10-P11,4-4-4-4-4-4,Periquillo,1
-P5,Salón P2,P4,5,Periquillo,1
-P6,Baño Hombres,P10,6,Periquillo,1
-P7,Baño Mujeres,P4,7,Periquillo,1
-P8,Salón P3,P4,8,Periquillo,1
-P9,PM1,P4,9,Periquillo,1
-P10,Patio,P4-P6-P11,10-10-10,Periquillo,1
-P11,Salón P4,P4-P10-P12,11-11-11,Periquillo,1
-P12,Salón P5,P11-P13,12-12,Periquillo,1
-P13,Hamacas,P12-P14,13-13,Periquillo,1
-P14,Lic. Mates Aplicadas,P13,14,Periquillo,1
+A0,Entrada Anexo,AP1,22,Anexo,1
+AP1,Pasillo entrada,A0-AP2-AP3,22-10-55,Anexo,1
+AP2,Primer pasillo lateral,AP1-C1-R23,10-6-6,Anexo,1
+R23,Salon,AP2,6,Anexo,1
+C1,Salon C1,AP2-C2,6-20,Anexo,1
+C2,Salon C2,C1-C3,20-18,Anexo,1
+C3,Salon C3,C2-AR1,18-18,Anexo,1
+AR1,Recepcion 1,C3-R24e1,18-7,Anexo,1
+R24e1,Salon R24 entrada 1,AR1-AP3,7-10,Anexo,1
+AP3,Pasillo principal,R24e1-AP1-AP4,10-55-32,Anexo,1
+AP4,Pasillo 4,AP3-R24e2-AP5,32-18-8,Anexo,1
+AP5,Pasillo 5,AP4-SEe2-AP6,8-33-15,Anexo,1
+R24e2,Salon R24 entrada 2,AP4-R25-AP6,18-16-6,Anexo,1
+R25,Salon R25,R24e2-R26,16-8,Anexo,1
+R26,Salon R26,R25,8,Anexo,1
+AP6,Pasillo 6,AP5-R24e2-AP7,15-6-13,Anexo,1
+AP7,Pasillo 7,AP6-AP8-AP10,13-14-26,Anexo,1
+AP8,Pasillo 8,AP7-SEe1-AP9,14-8-27,Anexo,1
+SEe1,Salon Eventos entrada 1,AP8,8,Anexo,1
+AP9,Pasillo 9,AJ1-AH1-AP10-AP8,6-5-18-27,Anexo,1
+AP10,Pasillo 10,AP9-AP7-C4,18-26-5,Anexo,1
+AJ1,Jardin1,AP9,6,Anexo,1
+AH1,Cafe Hispano,AP9,5,Anexo,1
+C4,Salon C4,AP10-C5,5-9,Anexo,1
+C5,Salon C5,C4-C6,9-12,Anexo,1
+C6,Salon C6,C5-C7,12-12,Anexo,1
+C7,Salon C7,C6,12,Anexo,1
+SEe2,Salon Eventos entrada 2,SEe3-AP5,29-33,Anexo,1
+SEe3,Salon Eventos entrada 3,SEe2-AP11,29-14,Anexo,1
+AP11,Pasillo 11,SEe3-AC1,14-18,Anexo,1
+AC1,Comedor 1,AP11-AP12,18-8,Anexo,1
+AP12,Pasillo 12,AC1-B1-B2,8-6-18,Anexo,1
+B2,Salon B2,AP12,18,Anexo,2
+ABH1,Anexo Baños Hombres 1,B1,10,Anexo,1
+B1,Salon B1,AP12-ABH1-C8,6-10-10,Anexo,1
+C8,Salon C8,B1-C9,10-9,Anexo,1
+C9,Salon C9,C8-C10,9-6,Anexo,1
+C10,Salon C10,C9-C11,6-5,Anexo,1
+ABM1,Anexo Baños Mujeres 1,C11,6,Anexo,1
+C11,Salon C11,ABM1-C10-C12,6-5-8,Anexo,1
+C12,Salon C12,C11-C13,8-9,Anexo,1
+C13,Salon C13,C12-O1-C14,9-7-10,Anexo,1
+O1,Salon O1,C13,7,Anexo,1
+C14,Salon C14,C13-C15,10-4,Anexo,1
+C15,Salon C15,C14-O2,4-8,Anexo,1
+O2,Salon O2,C15,8,Anexo,1

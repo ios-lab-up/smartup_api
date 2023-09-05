@@ -8,6 +8,8 @@ def store_nodes_database():
     with open(csv_file_path) as file:
         csvreader = csv.reader(file)
 
+        next(csvreader)
+
         for row in csvreader:
             id_node = row[0]
             name = row[1]
@@ -28,8 +30,9 @@ def store_nodes_database():
                 status=1
             )
 
-            db.session.add(node)
-            db.session.commit()
+            if Nodes.query.filter_by(id_node=id_node).first() is None:
+                db.session.add(node)
+                db.session.commit()
 
 
 def return_all_nodes() -> list[dict]:
