@@ -1,0 +1,1388 @@
+Branch,Commit SHA,Author,Date,Message
+enchancement/filtersSchedules,ca2b0f74a60a729115f6413f90ca9e255c4abb4e,MAurch,2023-05-21T21:50:06Z,Changes: None; Added: None; Fixed: None; Deleted: Clone copy of config.py under App directory
+enchancement/filtersSchedules,965e1024c1c45b2e01e3ed2b5d0734eb9f1c89e3,luisced,2023-05-21T02:41:37Z,cleaned code p2
+enchancement/filtersSchedules,15841398b5b71295488c1f64b142a6e7c570d029,MAurch,2023-05-21T00:53:59Z,Changes: None; Added: routes file under dashboard module / blueprint of dashboard under __init__; Fixed: None
+enchancement/filtersSchedules,0b9bf5f52c9c610fd06489078b78e6d0261edcf5,MAurch,2023-05-21T00:40:10Z,"Changes: Minimum amount of subjects, changed from 1 to 3; Added: Modified requirements.txt, added beautifulsoup4 to libraries; Fixed: None"
+enchancement/filtersSchedules,2418bcfe6d8d7e670137cf1ef1a3b940fa94a238,luisced,2023-05-20T23:01:19Z,cleaned code
+enchancement/filtersSchedules,d0e69d0f12122415c4624a4f1049526ab95467e0,luisced,2023-05-20T22:43:04Z,New endpoint structure and new filter (teacher) for schedules
+enchancement/filtersSchedules,8451ae3cd067233167679958d831340c3b6da7af,luisced,2023-05-20T21:27:30Z,new schedule algorithm
+enchancement/filtersSchedules,99d1cb6f029a1adc03061ed86f07dbe3af7b7aa3,Luis Cedillo Maldonado,2023-05-19T16:57:23Z,filter for status: True
+enchancement/filtersSchedules,0d3f36d7a534e7cd7ef9231cd2177e143ce599e5,Luis Cedillo Maldonado,2023-05-19T16:37:36Z,added jwt to createSchedules
+enchancement/filtersSchedules,1b85af5735acfa594aa3a1d16a256d327a4f4485,Luis Cedillo Maldonado,2023-05-19T16:26:15Z,only schedules with more than one subject are returned
+enchancement/filtersSchedules,a300096b2ec0b20e268cfef3c8103a1b27d7b8f3,Luis Cedillo Maldonado,2023-05-19T15:23:10Z,finished compatible schedules endpoint
+enchancement/filtersSchedules,f153ba5c7834a7145a8b426868e0dca5f8a86096,Luis Cedillo Maldonado,2023-05-19T05:01:13Z,modified create schedules algorithm
+enchancement/filtersSchedules,1798b182322081fe6e125b97b73b0b05f03b4732,supply-geologist-11139420,2023-05-17T06:01:53Z,added create shecules
+enchancement/filtersSchedules,b85450182c4181d336d57c53af3dac766ef4c08e,luisced,2023-05-17T06:00:32Z,initialized function for schedules
+enchancement/filtersSchedules,f1c77e2a376373f85c0f5af7548f7fc17366f719,luisced,2023-05-17T02:29:16Z,Modified fetch days function in oder to only add groups with valid schedule days
+enchancement/filtersSchedules,1441fda8b6b30daa4cf2c3dd0d116a811e8a96ec,luisced,2023-05-17T01:00:42Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,7630566f30e1fed80a14d9305750e5ce6fb35268,luisced,2023-05-17T01:00:05Z,only get full groups
+enchancement/filtersSchedules,60017ff497355fba509a41656dfbf82f2e61fffc,supply-geologist-11139420,2023-05-16T00:32:49Z,deleted combs
+enchancement/filtersSchedules,c856f15c523abd56897b8d9baa5eb3d17c92ea4e,luisced,2023-05-16T00:27:56Z,new filters
+enchancement/filtersSchedules,40c0fceb4657a67df82cba9e105000c5c5965661,luisced,2023-05-16T00:17:34Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,7c0b227955e76c79621099a75decc8ab8b66eaf5,luisced,2023-05-16T00:14:54Z,Merge branch 'fix/dockerContainer'
+enchancement/filtersSchedules,1b32f62127bae458531d37ed4202030c40507eaf,luisced,2023-05-16T00:11:55Z,added srapper http request
+enchancement/filtersSchedules,bdf102964f207a683f80ffb603fe16fb649c232d,luisced,2023-05-15T23:46:06Z,added srapper http request
+enchancement/filtersSchedules,ca4b86467148022f5f1d0d9260c7ccb63cfbbb7f,luisced,2023-05-15T23:44:46Z,added chrome base image to usr/bin
+enchancement/filtersSchedules,ac6df40b63b5a80f1a4db33459a2888ccdfe5153,luisced,2023-05-15T23:31:51Z,added chrome base image
+enchancement/filtersSchedules,5848fe99ea0bebf0e4fd596c8ae97ba67c189085,luisced,2023-05-13T02:15:08Z,Updated docker mysql version and added platform
+enchancement/filtersSchedules,66aeb9873e22e89785ecd2f50861fc4f4ecf0d7e,luisced,2023-05-09T00:19:35Z,changed docker mysql version
+enchancement/filtersSchedules,45ada0c254d0cd8779246ab48dda1bfdf8aa37f5,luisced,2023-05-09T00:05:44Z,Updated docker mysql version and added platform
+enchancement/filtersSchedules,90379552247f00c65549ed69e0774cd1af5120ef,luisced,2023-05-08T23:40:30Z,Updated docker mysql version and added platform
+enchancement/filtersSchedules,b47f8cd841cb2c5cd9d1ec7762dbbf3c37c00f31,Daniel Peláez,2023-05-08T23:30:26Z,flask update
+enchancement/filtersSchedules,920fbd2768bd8a492302f49b7418bce07420d4cb,Luis Cedillo Maldonado,2023-05-04T18:05:40Z,"Merge pull request #2 from iOS-Lab-UP/add/getTeacher
+
+Add/get teacher endpoint"
+enchancement/filtersSchedules,d193713eabea54d47612fd196b80729c824c96c0,Javier Rangel,2023-05-04T16:23:43Z,Added subjectTeacher function and implementation
+enchancement/filtersSchedules,f825c302915de40d205d88a60db6e56a300bc470,JavierRangel2004,2023-05-03T07:26:16Z,"Added get teacher endpoint, function and declaration"
+enchancement/filtersSchedules,e8770bb2b229902ef260dc510e8188f310238083,JavierRangel2004,2023-05-03T05:55:26Z,"Merge pull request #1 from iOS-Lab-UP/name_surname_validation
+
+Added filter_Users function and endpoint"
+enchancement/filtersSchedules,fc5877191d6c5bea9cd8a3f2070fa658dad670d6,JavierRangel2004,2023-05-03T05:42:25Z,Merge branch 'main' into name_surname_validation
+enchancement/filtersSchedules,1f42ac9fcb5e49a85cb7ea77bcc7b24f5ffa9fe0,Javier Rangel,2023-05-02T20:00:49Z,Fixed filter_User function and endpoint
+enchancement/filtersSchedules,516651f966f6d93d4f164752b48f49af04a93ea2,JavierRangel2004,2023-04-28T16:20:10Z,"del pruebas.py, added getUsers function and endpoint"
+enchancement/filtersSchedules,f238ee09aa71e327876249f772c9419f8b88ca3a,Javier Rangel,2023-04-27T01:02:03Z,added filterUsers function and added some explanantion comments. Created pruebas.py file to try functions
+enchancement/filtersSchedules,73fae13be500c45c235c507eaade9985c05bd82b,Javier Rangel,2023-04-25T20:54:52Z,Eliminar archivo namepy extra
+enchancement/filtersSchedules,a0e7e545f2dd457d27b1b77f5bcce8789a622c71,Javier Rangel,2023-04-25T18:19:21Z,func Separar nombres e implementacion en createUser
+enchancement/filtersSchedules,773e65a646c57749ddaebdc78420cb1c9ae126b2,supply-geologist-11139420,2023-04-25T18:18:31Z,renamed endpoint
+enchancement/filtersSchedules,23f08431214467fcd4dda9cb550a032aa8963fec,Luis Cedillo Maldonado,2023-04-25T18:16:20Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,f5c53a350be0d9caf7e50e055faede032c87a920,supply-geologist-11139420,2023-04-25T18:16:12Z,added tests
+enchancement/filtersSchedules,52e3530769b597f126660fe54508146b4da23c1d,Luis Cedillo Maldonado,2023-04-25T18:15:00Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,fa1dcf2b7739c1fe154fc3be2ab0d0185aa86526,Luis Cedillo Maldonado,2023-04-25T18:14:41Z,Renamed variables for create schedule
+enchancement/filtersSchedules,e37c82bcc775810f49480cfc746caede338ced6d,navigation-candidate-92544788,2023-04-25T18:10:46Z,created get request for schedules
+enchancement/filtersSchedules,1e23b9dd4f41980dbb4396bdf7d603c1d4b8a2ff,supply-geologist-11139420,2023-04-25T16:33:32Z,Created tests
+enchancement/filtersSchedules,c94b8b884b1cea75379cae90d156739eea13aa98,MAurch,2023-04-25T07:07:11Z,Fixed schedule
+enchancement/filtersSchedules,7db972de111722839e8fd735428317ef33939193,luisced,2023-04-25T05:24:20Z,updated postman endpoints
+enchancement/filtersSchedules,e9ca6d59ab9c81192ae0587bc47976d0c9482634,navigation-candidate-92544788,2023-04-24T18:25:28Z,m
+enchancement/filtersSchedules,822c3bccc2845f0aeacd8de999b8b5fe6b082abd,JavierRangel2004,2023-04-24T06:17:54Z,funcion para separar nombres y apellidos - JavierR
+enchancement/filtersSchedules,e9642ceec3eda1519bb4e1c2b62cd125dbbcf829,luisced,2023-04-24T04:17:18Z,Merge branch 'main' into fix/create_schedule
+enchancement/filtersSchedules,392bf3c632c4255a3c6c8b3e50d0819a6e6b0885,supply-geologist-11139420,2023-04-24T04:10:55Z,moved endpoint
+enchancement/filtersSchedules,e98134d3637f81a145d5310a4a074888039b40d1,luisced,2023-04-24T04:08:59Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,8547e4b99e04d85320ebfe66345d8d2242cdb171,luisced,2023-04-24T04:08:53Z,deleted boiler-plate code
+enchancement/filtersSchedules,67a91273cbb1a6b52b956058dfeff68b5cf1f24e,supply-geologist-11139420,2023-04-24T04:01:29Z,Deleted endpoint in order to fix it in other branch
+enchancement/filtersSchedules,b3431a750efd1040de04e15e3ef6bc43c2eeee5a,navigation-candidate-92544788,2023-04-24T01:50:12Z,Me mi endpoint
+enchancement/filtersSchedules,fbc6b3994b008fb752403b288857c14d0773c644,luisced,2023-04-24T01:17:32Z,optimized splitCourses function
+enchancement/filtersSchedules,89a1e18844df7f73caaaf51532812057794c5974,Iñaki Sigüenza,2023-04-23T16:29:53Z,delete test
+enchancement/filtersSchedules,2a18827b7981454239a32b66bc607405791bfb69,Iñaki Sigüenza,2023-04-23T16:29:06Z,Test logo Discord
+enchancement/filtersSchedules,89cd65fd0e07f42c30f4f4c3786858a736fd78e4,luisced,2023-04-23T06:54:13Z,fixed tagging
+enchancement/filtersSchedules,c8665de333329a1477d9d038b39ec19aa8655aa2,luisced,2023-04-23T06:46:26Z,Chaned relative path for automatic tagging fixed
+enchancement/filtersSchedules,753b5b468c741d942ee2993b63abae8310200e12,luisced,2023-04-23T06:42:21Z,Chaned relative path for automatic tagging fixed
+enchancement/filtersSchedules,ad8cbaee683b629e670ec746a30871d6fdecdc68,luisced,2023-04-23T06:38:23Z,Chaned relative path for automatic tagging fixed
+enchancement/filtersSchedules,bcf076f756e8c29fc1bcd3701a123de07a814994,luisced,2023-04-23T06:30:34Z,Chaned relative path for automatic tagging
+enchancement/filtersSchedules,3f05d5d0733f80e5b4a81bdf7adf28a8592490ca,luisced,2023-04-23T06:30:02Z,Chaned relative path for automatic tagging
+enchancement/filtersSchedules,0c122a4455d46cb7557f0489fcd7579c40ce5f1e,luisced,2023-04-23T06:29:49Z,Chaned relative path for automatic tagging
+enchancement/filtersSchedules,510deee067de0bac5a0d977996f7772487c9881d,Luis Cedillo Maldonado,2023-04-23T06:01:22Z,Update main.yml
+enchancement/filtersSchedules,45aa2d634d8c80760828d8f11f5b77872881562d,luisced,2023-04-23T05:55:28Z,Chaned relative path for automatic tagging
+enchancement/filtersSchedules,268a0ac86c53130f598a11c41456a9534b0878d9,luisced,2023-04-23T05:47:03Z,Created automatig tagging for app versioning
+enchancement/filtersSchedules,a6196c0d1a2ec39b881a3ded8ce582cd876e7b0d,luisced,2023-04-23T05:36:17Z,Created automatig tagging for app versioning
+enchancement/filtersSchedules,faed1d076d148b035005f03393755e69b2f22250,luisced,2023-04-23T04:16:27Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,74d878e15b350350e34aabde0695c467a8d397be,luisced,2023-04-23T04:16:22Z,return group
+enchancement/filtersSchedules,8b0eaf9ca0796da621ac50f58891b19a9116321f,supply-geologist-11139420,2023-04-23T04:10:34Z,deleted upsite endpoint
+enchancement/filtersSchedules,e46020fb2d93086e5d747a525d1f02832d138713,luisced,2023-04-23T04:08:05Z,return group
+enchancement/filtersSchedules,40209317ca4f8e290248f90efab80d9572213aec,luisced,2023-04-23T03:41:06Z,scrapper volume created
+enchancement/filtersSchedules,7ef1478f25e4e126e94a67d44db49e84196e6340,luisced,2023-04-23T02:40:50Z,test run_scrapper.sh
+enchancement/filtersSchedules,3ddaa939a2aa812ef923c40732b45c7ca798b27e,luisced,2023-04-23T02:40:33Z,test run_scrapper.sh
+enchancement/filtersSchedules,5e1d94c41d9ee7440016fb755021f4a5f28a1d68,luisced,2023-04-23T00:31:22Z,Fixed bug: datetime objs not parsed correctly
+enchancement/filtersSchedules,d135c09d222f5c5cec59fb06a6405dcde65a8787,luisced,2023-04-22T18:35:44Z,Fixed bug: Timeout within enterUPSiteSubjects
+enchancement/filtersSchedules,b070e544a0972838455678416b0c8a1bbdc2a7c8,luisced,2023-04-22T18:17:33Z,Fixed bug: Timeout within enterUPSiteSubjects
+enchancement/filtersSchedules,fc52d63bbc27dbe20422aa5ed84f456d9008530f,luisced,2023-04-22T18:15:35Z,Fixed bug: Timeout within enterUPSiteSubjects
+enchancement/filtersSchedules,fe2fadd18adb530f09e5cdba6e8bf4e56f76a2d9,Luis Cedillo Maldonado,2023-04-21T23:42:23Z,"New delay time, until prescence of an element"
+enchancement/filtersSchedules,a7ab5c02aa78d4056ba98cf8dfcb81c9602551d5,Luis Cedillo Maldonado,2023-04-21T21:51:34Z,"New delay time, until prescence of an element"
+enchancement/filtersSchedules,1e521fa764ba5988f9abc6b2efc8b11019e2c310,luisced,2023-04-21T02:39:02Z,Its necessary to finish build before this job
+enchancement/filtersSchedules,0102aae36cfd284c6b6d34ab8b9496e4a6983688,luisced,2023-04-21T02:32:46Z,Its necessary to finish build before this job
+enchancement/filtersSchedules,cdc2640ede3afed48551509ff458a1a567d9ecb1,luisced,2023-04-21T02:30:17Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,35c427f4336036073a55c6bb6eb6c0f019439544,luisced,2023-04-21T02:28:13Z,tests changes to newman report
+enchancement/filtersSchedules,f07184fa1b2b7bbebf2a92447ff4801093de074c,supply-geologist-11139420,2023-04-21T01:56:44Z,sleepBetweenTries
+enchancement/filtersSchedules,3f3cb4e31d1f7a6706254dd8c200f79119a4d819,luisced,2023-04-21T01:51:13Z,changed groups function
+enchancement/filtersSchedules,77f666ccf9d9661c59d516ba8c48ec14e7398a5e,luisced,2023-04-21T01:43:20Z,changed groups function
+enchancement/filtersSchedules,8931293e4f2f58ca1b279e4a753e2cc0dd2de84b,luisced,2023-04-21T01:35:22Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,7833a32e55cc96b3f59ebf7508c08604a6ee9938,luisced,2023-04-21T01:34:41Z,changed groups function
+enchancement/filtersSchedules,bc1a6ec3d264fb652d2f91b4d5830df8b1a4124b,supply-geologist-11139420,2023-04-21T01:19:23Z,changed test for fetch group
+enchancement/filtersSchedules,b9168ec719a2470aaddab7ae300726cacb2bf9cc,luisced,2023-04-21T01:19:02Z,changed groups function
+enchancement/filtersSchedules,c285bf743e8e639a39e28b945fcb8137bfee7db0,Luis Cedillo Maldonado,2023-04-20T21:39:20Z,"New delay time, until prescence of an element"
+enchancement/filtersSchedules,6731b9223fdca5599b813b9abfc9838f17628132,Luis Cedillo Maldonado,2023-04-20T21:33:45Z,"New delay time, until prescence of an element"
+enchancement/filtersSchedules,63643ec11fefc3e252a9dc68bd3b2cfa594b3678,Luis Cedillo Maldonado,2023-04-20T21:22:31Z,"New delay time, until prescence of an element"
+enchancement/filtersSchedules,ab61f9ec5d31b519afea4c2af75223d4c559a8b8,Luis Cedillo Maldonado,2023-04-20T21:20:35Z,"New delay time, until prescence of an element"
+enchancement/filtersSchedules,eb1b78f723b177f974463fae18b28c9d1c1ac0fe,Luis Cedillo Maldonado,2023-04-20T21:01:43Z,"New delay time, until prescence of an element"
+enchancement/filtersSchedules,983f33e02c10cf8d78cb384f3b634b5b54efda10,Luis Cedillo Maldonado,2023-04-20T20:20:43Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,bba00d416894bedfb6704ef5259653518f9c7d85,Luis Cedillo Maldonado,2023-04-20T20:20:03Z,changed ci/cd file checkout v
+enchancement/filtersSchedules,d83055a6e6a57dc0200a45c6892bc14d42b7fb41,supply-geologist-11139420,2023-04-20T20:19:50Z,added retries
+enchancement/filtersSchedules,d09b4627da3182372b99edaf791693140a91f427,supply-geologist-11139420,2023-04-20T19:44:27Z,changed tests
+enchancement/filtersSchedules,6e739d2ac64e0ebaf970697cdd8dc989645f7700,Luis Cedillo Maldonado,2023-04-20T19:32:17Z,changed ci/cd file checkout v
+enchancement/filtersSchedules,059ef704d4e2a7145c33fa818f11b829dc302eab,Luis Cedillo Maldonado,2023-04-20T19:29:05Z,changed ci/cd file checkout v
+enchancement/filtersSchedules,8e25367cadbcf3125ab0b278bb71e67162a54c66,Luis Cedillo Maldonado,2023-04-20T18:55:43Z,changed ci/cd file checkout v
+enchancement/filtersSchedules,4ffe2ec395ea6b14686c563083e9106006c85c08,Luis Cedillo Maldonado,2023-04-20T18:51:52Z,changed ci/cd file checkout v
+enchancement/filtersSchedules,43bfd96fe0facb944ba51bf48ca9522f15534cea,Luis Cedillo Maldonado,2023-04-20T18:02:54Z,changed ci/cd file
+enchancement/filtersSchedules,d85f7e630d3a2f52ae55db6a926f964d492a8591,Luis Cedillo Maldonado,2023-04-20T17:56:09Z,changed ci/cd file
+enchancement/filtersSchedules,0cf37880e054648c197b20f6b1111970a85eb79e,Luis Cedillo Maldonado,2023-04-20T17:48:18Z,Deleted .idea dir
+enchancement/filtersSchedules,8a1b87b18ddbd670e30e83ff7bea629794eb2d1d,Luis Cedillo Maldonado,2023-04-20T17:37:34Z,Automated testing for API
+enchancement/filtersSchedules,bfb7116705548ab1c92ae54cb83cbc91e494ce14,supply-geologist-11139420,2023-04-20T16:43:23Z,created postman test for login
+enchancement/filtersSchedules,3a5eb65beabacda77f0370f37b69f1b91feff530,luisced,2023-04-20T02:51:13Z,modified yml region to us-east-2
+enchancement/filtersSchedules,f5adfbb704172c9970e0b15a8348bfa79c31d401,luisced,2023-04-20T02:43:56Z,modified yml region
+enchancement/filtersSchedules,53f69a6dd2dbc349a87023692297d34d1bdee903,luisced,2023-04-20T02:39:10Z,modified dockerfile
+enchancement/filtersSchedules,1d8624f1216b581c8e5c494f10a7d6f1562e6b07,luisced,2023-04-20T02:36:44Z,modified dockerfile
+enchancement/filtersSchedules,93a04f174cc0d37bbcb50fe6bf55ebccec585217,luisced,2023-04-20T01:53:15Z,modified dockerfile
+enchancement/filtersSchedules,1af993b2d7dac36d076a52d9047c79c2cedf1d62,luisced,2023-04-20T01:34:01Z,modified workflow
+enchancement/filtersSchedules,26a57202f8858abb72aa0f86a0794cc9b04865f3,luisced,2023-04-20T01:25:12Z,modified workflow
+enchancement/filtersSchedules,187e48d987fa10456c668aaebab7a72edc8cb1a5,luisced,2023-04-20T01:22:50Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+enchancement/filtersSchedules,6a70ee13a1747dd9331116ace860a188939476c4,luisced,2023-04-20T01:22:33Z,created workflow
+enchancement/filtersSchedules,bf8a38650852e4b8f912eeaf0ebb15976b5c2520,supply-geologist-11139420,2023-04-18T02:15:13Z,Added healtcheck
+enchancement/filtersSchedules,61347fc7c287aac94b05804089bda4689038f8a7,supply-geologist-11139420,2023-04-18T02:10:25Z,Updated postman endpoints
+enchancement/filtersSchedules,b6496bd990e6bb7a6bd67a8c4e8ed84a04bb7b67,Maurch,2023-03-27T05:45:06Z,Commented some algorithms
+enchancement/filtersSchedules,fabdd8943cccfb780045a5717087ff2d149bc666,Maurch,2023-03-27T05:09:19Z,Added function to validate a list of schedules generated by another function and fixed errors when intrudciong non-existent courses under the createSchedule endpoint
+enchancement/filtersSchedules,cd76604c037a3a7a9dcbb36c23834c147cf3b1b5,Maurch,2023-03-24T22:44:14Z,"Added schedule generator, createSchedule endpoint"
+enchancement/filtersSchedules,c750545ae26a8a4abf9fce94defb4bf3dacd18b4,Maurch,2023-03-24T19:52:07Z,Added schedule permutations endpoint
+enchancement/filtersSchedules,6f88ada8986670cecd64caecb2d7f826ac3c6a0c,luisced,2023-03-22T03:44:29Z,changed requierements
+enchancement/filtersSchedules,8e5dbe346dae81b454133f6b4bcbc2673932b73c,MAurch,2023-03-20T21:32:12Z,Added schedule endpoint
+enchancement/filtersSchedules,af35513c4195d7530e12111a2a0486a3361a4489,luisced,2023-03-20T05:28:33Z,created guest registration
+enchancement/filtersSchedules,3b38ddb5ac2726719f67ce75f220c220f9ff8919,luisced,2023-03-20T03:30:33Z,modified login
+enchancement/filtersSchedules,1a340e05e440e4b1f47e90e17cec9283ee2a6c02,luisced,2023-03-20T03:14:19Z,merge from security/Validations
+enchancement/filtersSchedules,72ffd615eaae723a722b61d3835650e9f3a35a5e,MAurch,2023-03-18T02:49:45Z,Added schedule endpoint
+enchancement/filtersSchedules,9f4aa4a7aa2c50c43299704d6be885f46eaf97ac,Luis Cedillo Maldonado,2023-03-17T20:29:39Z,Created DB table for User and Profile
+enchancement/filtersSchedules,726ea5f3f2bcd7100d53962dc2b048786334e50f,luisced,2023-03-17T05:16:46Z,created profile model
+enchancement/filtersSchedules,36704ebdf14a696e98a8d45db48f6add0825cb79,luisced,2023-03-17T05:09:19Z,add user table
+enchancement/filtersSchedules,1761a4d9c38a14f74f871ef1bd4073838f5010f8,luisced,2023-03-17T02:35:22Z,merge from main
+enchancement/filtersSchedules,f5d3f5942c0b6a12a456d32d5394a910a3e73819,Maurch,2023-03-17T02:21:46Z,login changed route
+enchancement/filtersSchedules,6685a21b017104c6c74c1566ac306900dbad1f73,luisced,2023-03-17T02:15:39Z,updated dependencies
+enchancement/filtersSchedules,8fc1e43deb039e39bffae405897a3015484b520b,Luis Cedillo Maldonado,2023-03-16T21:59:24Z,added security dir
+enchancement/filtersSchedules,fe4c69383d492cb1fefa00428d7d29584c7a46c9,Luis Cedillo Maldonado,2023-03-14T19:09:30Z,Update README.MD
+enchancement/filtersSchedules,ced860fe1f0eb4227f7be9e758b1e56529f19894,Luis Cedillo Maldonado,2023-03-13T03:38:37Z,Update README.MD
+enchancement/filtersSchedules,073ad02b3be20ad6bb6cba98292d1cb26860eea4,Maurch,2023-03-10T19:25:57Z,Added CommonZones and Zones tables
+enchancement/filtersSchedules,71d0cf0c9cc93998a704339111ff2c88618a67f7,Luis Cedillo Maldonado,2023-03-07T06:56:25Z,Update README.MD
+enchancement/filtersSchedules,888ec38e670fe7d1384e82fe2be235180f391704,luisced,2023-03-07T06:55:17Z,updated  Readme file to the repo
+enchancement/filtersSchedules,a128a8dd6ec2f2016d621fab5d51b3d996d640b0,luisced,2023-03-07T06:54:17Z,Added Readme file to the repo
+enchancement/filtersSchedules,dcd8dedd23c665453be0d2d7f5fa01a02d6d06f2,luisced,2023-03-07T06:27:22Z,Modified docker containers name
+enchancement/filtersSchedules,8e1e7a436cb106e88bf0e665293b8d4098aa9546,luisced,2023-03-07T06:19:46Z,merge from feature/api
+enchancement/filtersSchedules,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Borre mis pendientes
+enchancement/filtersSchedules,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
+enchancement/filtersSchedules,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
+enchancement/filtersSchedules,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+feature/caching,40cc1591e3bcd8d439a170fbd98e51eea8a5e5b9,luisced,2023-05-20T19:55:29Z,optimized schedule function
+feature/caching,99d1cb6f029a1adc03061ed86f07dbe3af7b7aa3,Luis Cedillo Maldonado,2023-05-19T16:57:23Z,filter for status: True
+feature/caching,0d3f36d7a534e7cd7ef9231cd2177e143ce599e5,Luis Cedillo Maldonado,2023-05-19T16:37:36Z,added jwt to createSchedules
+feature/caching,1b85af5735acfa594aa3a1d16a256d327a4f4485,Luis Cedillo Maldonado,2023-05-19T16:26:15Z,only schedules with more than one subject are returned
+feature/caching,a300096b2ec0b20e268cfef3c8103a1b27d7b8f3,Luis Cedillo Maldonado,2023-05-19T15:23:10Z,finished compatible schedules endpoint
+feature/caching,f153ba5c7834a7145a8b426868e0dca5f8a86096,Luis Cedillo Maldonado,2023-05-19T05:01:13Z,modified create schedules algorithm
+feature/caching,1798b182322081fe6e125b97b73b0b05f03b4732,supply-geologist-11139420,2023-05-17T06:01:53Z,added create shecules
+feature/caching,b85450182c4181d336d57c53af3dac766ef4c08e,luisced,2023-05-17T06:00:32Z,initialized function for schedules
+feature/caching,f1c77e2a376373f85c0f5af7548f7fc17366f719,luisced,2023-05-17T02:29:16Z,Modified fetch days function in oder to only add groups with valid schedule days
+feature/caching,1441fda8b6b30daa4cf2c3dd0d116a811e8a96ec,luisced,2023-05-17T01:00:42Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,7630566f30e1fed80a14d9305750e5ce6fb35268,luisced,2023-05-17T01:00:05Z,only get full groups
+feature/caching,60017ff497355fba509a41656dfbf82f2e61fffc,supply-geologist-11139420,2023-05-16T00:32:49Z,deleted combs
+feature/caching,c856f15c523abd56897b8d9baa5eb3d17c92ea4e,luisced,2023-05-16T00:27:56Z,new filters
+feature/caching,40c0fceb4657a67df82cba9e105000c5c5965661,luisced,2023-05-16T00:17:34Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,7c0b227955e76c79621099a75decc8ab8b66eaf5,luisced,2023-05-16T00:14:54Z,Merge branch 'fix/dockerContainer'
+feature/caching,1b32f62127bae458531d37ed4202030c40507eaf,luisced,2023-05-16T00:11:55Z,added srapper http request
+feature/caching,bdf102964f207a683f80ffb603fe16fb649c232d,luisced,2023-05-15T23:46:06Z,added srapper http request
+feature/caching,ca4b86467148022f5f1d0d9260c7ccb63cfbbb7f,luisced,2023-05-15T23:44:46Z,added chrome base image to usr/bin
+feature/caching,ac6df40b63b5a80f1a4db33459a2888ccdfe5153,luisced,2023-05-15T23:31:51Z,added chrome base image
+feature/caching,5848fe99ea0bebf0e4fd596c8ae97ba67c189085,luisced,2023-05-13T02:15:08Z,Updated docker mysql version and added platform
+feature/caching,66aeb9873e22e89785ecd2f50861fc4f4ecf0d7e,luisced,2023-05-09T00:19:35Z,changed docker mysql version
+feature/caching,45ada0c254d0cd8779246ab48dda1bfdf8aa37f5,luisced,2023-05-09T00:05:44Z,Updated docker mysql version and added platform
+feature/caching,90379552247f00c65549ed69e0774cd1af5120ef,luisced,2023-05-08T23:40:30Z,Updated docker mysql version and added platform
+feature/caching,b47f8cd841cb2c5cd9d1ec7762dbbf3c37c00f31,Daniel Peláez,2023-05-08T23:30:26Z,flask update
+feature/caching,920fbd2768bd8a492302f49b7418bce07420d4cb,Luis Cedillo Maldonado,2023-05-04T18:05:40Z,"Merge pull request #2 from iOS-Lab-UP/add/getTeacher
+
+Add/get teacher endpoint"
+feature/caching,d193713eabea54d47612fd196b80729c824c96c0,Javier Rangel,2023-05-04T16:23:43Z,Added subjectTeacher function and implementation
+feature/caching,f825c302915de40d205d88a60db6e56a300bc470,JavierRangel2004,2023-05-03T07:26:16Z,"Added get teacher endpoint, function and declaration"
+feature/caching,e8770bb2b229902ef260dc510e8188f310238083,JavierRangel2004,2023-05-03T05:55:26Z,"Merge pull request #1 from iOS-Lab-UP/name_surname_validation
+
+Added filter_Users function and endpoint"
+feature/caching,fc5877191d6c5bea9cd8a3f2070fa658dad670d6,JavierRangel2004,2023-05-03T05:42:25Z,Merge branch 'main' into name_surname_validation
+feature/caching,1f42ac9fcb5e49a85cb7ea77bcc7b24f5ffa9fe0,Javier Rangel,2023-05-02T20:00:49Z,Fixed filter_User function and endpoint
+feature/caching,516651f966f6d93d4f164752b48f49af04a93ea2,JavierRangel2004,2023-04-28T16:20:10Z,"del pruebas.py, added getUsers function and endpoint"
+feature/caching,f238ee09aa71e327876249f772c9419f8b88ca3a,Javier Rangel,2023-04-27T01:02:03Z,added filterUsers function and added some explanantion comments. Created pruebas.py file to try functions
+feature/caching,73fae13be500c45c235c507eaade9985c05bd82b,Javier Rangel,2023-04-25T20:54:52Z,Eliminar archivo namepy extra
+feature/caching,a0e7e545f2dd457d27b1b77f5bcce8789a622c71,Javier Rangel,2023-04-25T18:19:21Z,func Separar nombres e implementacion en createUser
+feature/caching,773e65a646c57749ddaebdc78420cb1c9ae126b2,supply-geologist-11139420,2023-04-25T18:18:31Z,renamed endpoint
+feature/caching,23f08431214467fcd4dda9cb550a032aa8963fec,Luis Cedillo Maldonado,2023-04-25T18:16:20Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,f5c53a350be0d9caf7e50e055faede032c87a920,supply-geologist-11139420,2023-04-25T18:16:12Z,added tests
+feature/caching,52e3530769b597f126660fe54508146b4da23c1d,Luis Cedillo Maldonado,2023-04-25T18:15:00Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,fa1dcf2b7739c1fe154fc3be2ab0d0185aa86526,Luis Cedillo Maldonado,2023-04-25T18:14:41Z,Renamed variables for create schedule
+feature/caching,e37c82bcc775810f49480cfc746caede338ced6d,navigation-candidate-92544788,2023-04-25T18:10:46Z,created get request for schedules
+feature/caching,1e23b9dd4f41980dbb4396bdf7d603c1d4b8a2ff,supply-geologist-11139420,2023-04-25T16:33:32Z,Created tests
+feature/caching,c94b8b884b1cea75379cae90d156739eea13aa98,MAurch,2023-04-25T07:07:11Z,Fixed schedule
+feature/caching,7db972de111722839e8fd735428317ef33939193,luisced,2023-04-25T05:24:20Z,updated postman endpoints
+feature/caching,e9ca6d59ab9c81192ae0587bc47976d0c9482634,navigation-candidate-92544788,2023-04-24T18:25:28Z,m
+feature/caching,822c3bccc2845f0aeacd8de999b8b5fe6b082abd,JavierRangel2004,2023-04-24T06:17:54Z,funcion para separar nombres y apellidos - JavierR
+feature/caching,e9642ceec3eda1519bb4e1c2b62cd125dbbcf829,luisced,2023-04-24T04:17:18Z,Merge branch 'main' into fix/create_schedule
+feature/caching,392bf3c632c4255a3c6c8b3e50d0819a6e6b0885,supply-geologist-11139420,2023-04-24T04:10:55Z,moved endpoint
+feature/caching,e98134d3637f81a145d5310a4a074888039b40d1,luisced,2023-04-24T04:08:59Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,8547e4b99e04d85320ebfe66345d8d2242cdb171,luisced,2023-04-24T04:08:53Z,deleted boiler-plate code
+feature/caching,67a91273cbb1a6b52b956058dfeff68b5cf1f24e,supply-geologist-11139420,2023-04-24T04:01:29Z,Deleted endpoint in order to fix it in other branch
+feature/caching,b3431a750efd1040de04e15e3ef6bc43c2eeee5a,navigation-candidate-92544788,2023-04-24T01:50:12Z,Me mi endpoint
+feature/caching,fbc6b3994b008fb752403b288857c14d0773c644,luisced,2023-04-24T01:17:32Z,optimized splitCourses function
+feature/caching,89a1e18844df7f73caaaf51532812057794c5974,Iñaki Sigüenza,2023-04-23T16:29:53Z,delete test
+feature/caching,2a18827b7981454239a32b66bc607405791bfb69,Iñaki Sigüenza,2023-04-23T16:29:06Z,Test logo Discord
+feature/caching,89cd65fd0e07f42c30f4f4c3786858a736fd78e4,luisced,2023-04-23T06:54:13Z,fixed tagging
+feature/caching,c8665de333329a1477d9d038b39ec19aa8655aa2,luisced,2023-04-23T06:46:26Z,Chaned relative path for automatic tagging fixed
+feature/caching,753b5b468c741d942ee2993b63abae8310200e12,luisced,2023-04-23T06:42:21Z,Chaned relative path for automatic tagging fixed
+feature/caching,ad8cbaee683b629e670ec746a30871d6fdecdc68,luisced,2023-04-23T06:38:23Z,Chaned relative path for automatic tagging fixed
+feature/caching,bcf076f756e8c29fc1bcd3701a123de07a814994,luisced,2023-04-23T06:30:34Z,Chaned relative path for automatic tagging
+feature/caching,3f05d5d0733f80e5b4a81bdf7adf28a8592490ca,luisced,2023-04-23T06:30:02Z,Chaned relative path for automatic tagging
+feature/caching,0c122a4455d46cb7557f0489fcd7579c40ce5f1e,luisced,2023-04-23T06:29:49Z,Chaned relative path for automatic tagging
+feature/caching,510deee067de0bac5a0d977996f7772487c9881d,Luis Cedillo Maldonado,2023-04-23T06:01:22Z,Update main.yml
+feature/caching,45aa2d634d8c80760828d8f11f5b77872881562d,luisced,2023-04-23T05:55:28Z,Chaned relative path for automatic tagging
+feature/caching,268a0ac86c53130f598a11c41456a9534b0878d9,luisced,2023-04-23T05:47:03Z,Created automatig tagging for app versioning
+feature/caching,a6196c0d1a2ec39b881a3ded8ce582cd876e7b0d,luisced,2023-04-23T05:36:17Z,Created automatig tagging for app versioning
+feature/caching,faed1d076d148b035005f03393755e69b2f22250,luisced,2023-04-23T04:16:27Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,74d878e15b350350e34aabde0695c467a8d397be,luisced,2023-04-23T04:16:22Z,return group
+feature/caching,8b0eaf9ca0796da621ac50f58891b19a9116321f,supply-geologist-11139420,2023-04-23T04:10:34Z,deleted upsite endpoint
+feature/caching,e46020fb2d93086e5d747a525d1f02832d138713,luisced,2023-04-23T04:08:05Z,return group
+feature/caching,40209317ca4f8e290248f90efab80d9572213aec,luisced,2023-04-23T03:41:06Z,scrapper volume created
+feature/caching,7ef1478f25e4e126e94a67d44db49e84196e6340,luisced,2023-04-23T02:40:50Z,test run_scrapper.sh
+feature/caching,3ddaa939a2aa812ef923c40732b45c7ca798b27e,luisced,2023-04-23T02:40:33Z,test run_scrapper.sh
+feature/caching,5e1d94c41d9ee7440016fb755021f4a5f28a1d68,luisced,2023-04-23T00:31:22Z,Fixed bug: datetime objs not parsed correctly
+feature/caching,d135c09d222f5c5cec59fb06a6405dcde65a8787,luisced,2023-04-22T18:35:44Z,Fixed bug: Timeout within enterUPSiteSubjects
+feature/caching,b070e544a0972838455678416b0c8a1bbdc2a7c8,luisced,2023-04-22T18:17:33Z,Fixed bug: Timeout within enterUPSiteSubjects
+feature/caching,fc52d63bbc27dbe20422aa5ed84f456d9008530f,luisced,2023-04-22T18:15:35Z,Fixed bug: Timeout within enterUPSiteSubjects
+feature/caching,fe2fadd18adb530f09e5cdba6e8bf4e56f76a2d9,Luis Cedillo Maldonado,2023-04-21T23:42:23Z,"New delay time, until prescence of an element"
+feature/caching,a7ab5c02aa78d4056ba98cf8dfcb81c9602551d5,Luis Cedillo Maldonado,2023-04-21T21:51:34Z,"New delay time, until prescence of an element"
+feature/caching,1e521fa764ba5988f9abc6b2efc8b11019e2c310,luisced,2023-04-21T02:39:02Z,Its necessary to finish build before this job
+feature/caching,0102aae36cfd284c6b6d34ab8b9496e4a6983688,luisced,2023-04-21T02:32:46Z,Its necessary to finish build before this job
+feature/caching,cdc2640ede3afed48551509ff458a1a567d9ecb1,luisced,2023-04-21T02:30:17Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,35c427f4336036073a55c6bb6eb6c0f019439544,luisced,2023-04-21T02:28:13Z,tests changes to newman report
+feature/caching,f07184fa1b2b7bbebf2a92447ff4801093de074c,supply-geologist-11139420,2023-04-21T01:56:44Z,sleepBetweenTries
+feature/caching,3f3cb4e31d1f7a6706254dd8c200f79119a4d819,luisced,2023-04-21T01:51:13Z,changed groups function
+feature/caching,77f666ccf9d9661c59d516ba8c48ec14e7398a5e,luisced,2023-04-21T01:43:20Z,changed groups function
+feature/caching,8931293e4f2f58ca1b279e4a753e2cc0dd2de84b,luisced,2023-04-21T01:35:22Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,7833a32e55cc96b3f59ebf7508c08604a6ee9938,luisced,2023-04-21T01:34:41Z,changed groups function
+feature/caching,bc1a6ec3d264fb652d2f91b4d5830df8b1a4124b,supply-geologist-11139420,2023-04-21T01:19:23Z,changed test for fetch group
+feature/caching,b9168ec719a2470aaddab7ae300726cacb2bf9cc,luisced,2023-04-21T01:19:02Z,changed groups function
+feature/caching,c285bf743e8e639a39e28b945fcb8137bfee7db0,Luis Cedillo Maldonado,2023-04-20T21:39:20Z,"New delay time, until prescence of an element"
+feature/caching,6731b9223fdca5599b813b9abfc9838f17628132,Luis Cedillo Maldonado,2023-04-20T21:33:45Z,"New delay time, until prescence of an element"
+feature/caching,63643ec11fefc3e252a9dc68bd3b2cfa594b3678,Luis Cedillo Maldonado,2023-04-20T21:22:31Z,"New delay time, until prescence of an element"
+feature/caching,ab61f9ec5d31b519afea4c2af75223d4c559a8b8,Luis Cedillo Maldonado,2023-04-20T21:20:35Z,"New delay time, until prescence of an element"
+feature/caching,eb1b78f723b177f974463fae18b28c9d1c1ac0fe,Luis Cedillo Maldonado,2023-04-20T21:01:43Z,"New delay time, until prescence of an element"
+feature/caching,983f33e02c10cf8d78cb384f3b634b5b54efda10,Luis Cedillo Maldonado,2023-04-20T20:20:43Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,bba00d416894bedfb6704ef5259653518f9c7d85,Luis Cedillo Maldonado,2023-04-20T20:20:03Z,changed ci/cd file checkout v
+feature/caching,d83055a6e6a57dc0200a45c6892bc14d42b7fb41,supply-geologist-11139420,2023-04-20T20:19:50Z,added retries
+feature/caching,d09b4627da3182372b99edaf791693140a91f427,supply-geologist-11139420,2023-04-20T19:44:27Z,changed tests
+feature/caching,6e739d2ac64e0ebaf970697cdd8dc989645f7700,Luis Cedillo Maldonado,2023-04-20T19:32:17Z,changed ci/cd file checkout v
+feature/caching,059ef704d4e2a7145c33fa818f11b829dc302eab,Luis Cedillo Maldonado,2023-04-20T19:29:05Z,changed ci/cd file checkout v
+feature/caching,8e25367cadbcf3125ab0b278bb71e67162a54c66,Luis Cedillo Maldonado,2023-04-20T18:55:43Z,changed ci/cd file checkout v
+feature/caching,4ffe2ec395ea6b14686c563083e9106006c85c08,Luis Cedillo Maldonado,2023-04-20T18:51:52Z,changed ci/cd file checkout v
+feature/caching,43bfd96fe0facb944ba51bf48ca9522f15534cea,Luis Cedillo Maldonado,2023-04-20T18:02:54Z,changed ci/cd file
+feature/caching,d85f7e630d3a2f52ae55db6a926f964d492a8591,Luis Cedillo Maldonado,2023-04-20T17:56:09Z,changed ci/cd file
+feature/caching,0cf37880e054648c197b20f6b1111970a85eb79e,Luis Cedillo Maldonado,2023-04-20T17:48:18Z,Deleted .idea dir
+feature/caching,8a1b87b18ddbd670e30e83ff7bea629794eb2d1d,Luis Cedillo Maldonado,2023-04-20T17:37:34Z,Automated testing for API
+feature/caching,bfb7116705548ab1c92ae54cb83cbc91e494ce14,supply-geologist-11139420,2023-04-20T16:43:23Z,created postman test for login
+feature/caching,3a5eb65beabacda77f0370f37b69f1b91feff530,luisced,2023-04-20T02:51:13Z,modified yml region to us-east-2
+feature/caching,f5adfbb704172c9970e0b15a8348bfa79c31d401,luisced,2023-04-20T02:43:56Z,modified yml region
+feature/caching,53f69a6dd2dbc349a87023692297d34d1bdee903,luisced,2023-04-20T02:39:10Z,modified dockerfile
+feature/caching,1d8624f1216b581c8e5c494f10a7d6f1562e6b07,luisced,2023-04-20T02:36:44Z,modified dockerfile
+feature/caching,93a04f174cc0d37bbcb50fe6bf55ebccec585217,luisced,2023-04-20T01:53:15Z,modified dockerfile
+feature/caching,1af993b2d7dac36d076a52d9047c79c2cedf1d62,luisced,2023-04-20T01:34:01Z,modified workflow
+feature/caching,26a57202f8858abb72aa0f86a0794cc9b04865f3,luisced,2023-04-20T01:25:12Z,modified workflow
+feature/caching,187e48d987fa10456c668aaebab7a72edc8cb1a5,luisced,2023-04-20T01:22:50Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+feature/caching,6a70ee13a1747dd9331116ace860a188939476c4,luisced,2023-04-20T01:22:33Z,created workflow
+feature/caching,bf8a38650852e4b8f912eeaf0ebb15976b5c2520,supply-geologist-11139420,2023-04-18T02:15:13Z,Added healtcheck
+feature/caching,61347fc7c287aac94b05804089bda4689038f8a7,supply-geologist-11139420,2023-04-18T02:10:25Z,Updated postman endpoints
+feature/caching,b6496bd990e6bb7a6bd67a8c4e8ed84a04bb7b67,Maurch,2023-03-27T05:45:06Z,Commented some algorithms
+feature/caching,fabdd8943cccfb780045a5717087ff2d149bc666,Maurch,2023-03-27T05:09:19Z,Added function to validate a list of schedules generated by another function and fixed errors when intrudciong non-existent courses under the createSchedule endpoint
+feature/caching,cd76604c037a3a7a9dcbb36c23834c147cf3b1b5,Maurch,2023-03-24T22:44:14Z,"Added schedule generator, createSchedule endpoint"
+feature/caching,c750545ae26a8a4abf9fce94defb4bf3dacd18b4,Maurch,2023-03-24T19:52:07Z,Added schedule permutations endpoint
+feature/caching,6f88ada8986670cecd64caecb2d7f826ac3c6a0c,luisced,2023-03-22T03:44:29Z,changed requierements
+feature/caching,8e5dbe346dae81b454133f6b4bcbc2673932b73c,MAurch,2023-03-20T21:32:12Z,Added schedule endpoint
+feature/caching,af35513c4195d7530e12111a2a0486a3361a4489,luisced,2023-03-20T05:28:33Z,created guest registration
+feature/caching,3b38ddb5ac2726719f67ce75f220c220f9ff8919,luisced,2023-03-20T03:30:33Z,modified login
+feature/caching,1a340e05e440e4b1f47e90e17cec9283ee2a6c02,luisced,2023-03-20T03:14:19Z,merge from security/Validations
+feature/caching,72ffd615eaae723a722b61d3835650e9f3a35a5e,MAurch,2023-03-18T02:49:45Z,Added schedule endpoint
+feature/caching,9f4aa4a7aa2c50c43299704d6be885f46eaf97ac,Luis Cedillo Maldonado,2023-03-17T20:29:39Z,Created DB table for User and Profile
+feature/caching,726ea5f3f2bcd7100d53962dc2b048786334e50f,luisced,2023-03-17T05:16:46Z,created profile model
+feature/caching,36704ebdf14a696e98a8d45db48f6add0825cb79,luisced,2023-03-17T05:09:19Z,add user table
+feature/caching,1761a4d9c38a14f74f871ef1bd4073838f5010f8,luisced,2023-03-17T02:35:22Z,merge from main
+feature/caching,f5d3f5942c0b6a12a456d32d5394a910a3e73819,Maurch,2023-03-17T02:21:46Z,login changed route
+feature/caching,6685a21b017104c6c74c1566ac306900dbad1f73,luisced,2023-03-17T02:15:39Z,updated dependencies
+feature/caching,8fc1e43deb039e39bffae405897a3015484b520b,Luis Cedillo Maldonado,2023-03-16T21:59:24Z,added security dir
+feature/caching,fe4c69383d492cb1fefa00428d7d29584c7a46c9,Luis Cedillo Maldonado,2023-03-14T19:09:30Z,Update README.MD
+feature/caching,ced860fe1f0eb4227f7be9e758b1e56529f19894,Luis Cedillo Maldonado,2023-03-13T03:38:37Z,Update README.MD
+feature/caching,073ad02b3be20ad6bb6cba98292d1cb26860eea4,Maurch,2023-03-10T19:25:57Z,Added CommonZones and Zones tables
+feature/caching,71d0cf0c9cc93998a704339111ff2c88618a67f7,Luis Cedillo Maldonado,2023-03-07T06:56:25Z,Update README.MD
+feature/caching,888ec38e670fe7d1384e82fe2be235180f391704,luisced,2023-03-07T06:55:17Z,updated  Readme file to the repo
+feature/caching,a128a8dd6ec2f2016d621fab5d51b3d996d640b0,luisced,2023-03-07T06:54:17Z,Added Readme file to the repo
+feature/caching,dcd8dedd23c665453be0d2d7f5fa01a02d6d06f2,luisced,2023-03-07T06:27:22Z,Modified docker containers name
+feature/caching,8e1e7a436cb106e88bf0e665293b8d4098aa9546,luisced,2023-03-07T06:19:46Z,merge from feature/api
+feature/caching,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Borre mis pendientes
+feature/caching,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
+feature/caching,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
+feature/caching,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+fix/UPSite-Scrapping,c976a6d30023940b61c8d8ae2cbdd4e91e5e69bd,luisced,2023-06-18T07:53:31Z,changed sracpping to carrito de compras page
+fix/UPSite-Scrapping,48e965d334791ad35ccabd41b265f0e1fa318338,Fernando Mauricio Chavarría Reyes,2023-06-16T04:10:14Z,Update utils.py
+fix/UPSite-Scrapping,3f5968daba91a91925421fc6574bc86d42e147ff,luisced,2023-06-16T02:30:16Z,changed sracpping to carrito de compras page
+fix/UPSite-Scrapping,f3b8df7650a67d0af338d3432d3eca3622ccb77d,MAurch,2023-06-15T06:34:39Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+fix/UPSite-Scrapping,19d9f770fc5fe7d00d30a26f177beb5fbab5bb21,MAurch,2023-06-15T06:27:42Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+fix/UPSite-Scrapping,45ced4a7552658267fc99fd5e86680aed495d7cf,luisced,2023-06-15T05:47:03Z,added periodic scrapping
+fix/UPSite-Scrapping,71f7de7f173eaf497b5846501cba520c272cdf8f,supply-geologist-11139420,2023-06-15T00:40:36Z,addd user id comment
+fix/UPSite-Scrapping,6bb091fba5e5134b3bb6ff417b4a790b34ea801d,supply-geologist-11139420,2023-06-15T00:13:11Z,Added create schedules endpoint
+fix/UPSite-Scrapping,55364675b8fb944badc40d128c67e3ed1916764f,JavierRangel2004,2023-06-14T19:49:42Z,Added feature/schedulesPandas changes to main
+fix/UPSite-Scrapping,01f589ca0d50df070320812857c75eafe9b7265b,luisced,2023-06-09T06:05:31Z,modified op
+fix/UPSite-Scrapping,991e66997863e6c086bb020b95d3a8c5c0452992,Javier Rangel,2023-06-08T02:42:16Z,Update README.MD
+fix/UPSite-Scrapping,732e22967cb5962a3fbf8549403a2753ba79e245,Luis Cedillo Maldonado,2023-06-07T04:56:22Z,Update README.MD
+fix/UPSite-Scrapping,5266158723cddb5aa45816ac6abe7620f36a1e9a,MAurch,2023-05-28T20:12:06Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: fix schedule json format from List to Dict
+fix/UPSite-Scrapping,8e90e0a0750b7209918de4aee1af2f8622123f19,MAurch,2023-05-27T10:52:57Z,Changes: None; Added: relation user-group table; Fixed: None; Deleted: None; Pending: None
+fix/UPSite-Scrapping,194a538f3d16e5171460a2b7dcc1f7a1ad7efd64,supply-geologist-11139420,2023-05-23T07:26:31Z,again changed user code
+fix/UPSite-Scrapping,8557b75626c5f37fd72b5d68c3daf5ef85e20df8,supply-geologist-11139420,2023-05-23T07:19:50Z,changes user login test
+fix/UPSite-Scrapping,3c420210b995ebe5978a4a76ceebb004434ff0d4,supply-geologist-11139420,2023-05-23T07:15:56Z,changed json key
+fix/UPSite-Scrapping,5b09a324fdc70a7e16f73efe4cb1cf88eb71bc76,supply-geologist-11139420,2023-05-23T07:11:17Z,Created documentation for user
+fix/UPSite-Scrapping,bf6833932b2a139ece6f8ade9dfb93084bf6fe26,luisced,2023-05-23T07:09:18Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,ff38a6893821a4717b3cc8edb9f8bbbf8fd95279,luisced,2023-05-23T07:09:14Z,Fixed upsite login and added jwt when user is created
+fix/UPSite-Scrapping,4bff9292f3c72fccb47d56224a53516c0cb7bf16,MAurch,2023-05-23T04:39:42Z,"Changes: None; Added: Scrap schedule functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+fix/UPSite-Scrapping,c7741a22fffd0d17d60f2e58c6ea20ac06fc2dcf,MAurch,2023-05-23T03:18:27Z,"Changes: None; Added: Scrap grades functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+fix/UPSite-Scrapping,7b1fdc28b4d627ffa3bb95088d3d941947a47db6,luisced,2023-05-23T02:26:54Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,96ec815cd0342b56143731b5c1455c3241fe5f45,supply-geologist-11139420,2023-05-23T02:26:07Z,added new tests
+fix/UPSite-Scrapping,d9055c6bb9f1ca66b1ea85485b4b4b916801a2f5,luisced,2023-05-23T02:25:57Z,changed success key
+fix/UPSite-Scrapping,3080b430eb16017c8a69a27f15c2f177dd98c466,supply-geologist-11139420,2023-05-23T02:16:46Z,updated jwt test
+fix/UPSite-Scrapping,6e0921ab811cc52facaf98e6f5aee2556f74fde5,supply-geologist-11139420,2023-05-23T02:08:11Z,updated user keys
+fix/UPSite-Scrapping,33b61aee08e9681a05beb08cd2f7a317567798a0,luisced,2023-05-23T02:07:50Z,login restructured
+fix/UPSite-Scrapping,09f2e9abcbcb668fccb7f5f63f0222687db216b3,supply-geologist-11139420,2023-05-21T02:43:08Z,added tests
+fix/UPSite-Scrapping,7e53ec85819d32e2649ad519d867774419be0cfb,luisced,2023-05-21T02:42:38Z,Merge branch 'enchancement/filtersSchedules'
+fix/UPSite-Scrapping,965e1024c1c45b2e01e3ed2b5d0734eb9f1c89e3,luisced,2023-05-21T02:41:37Z,cleaned code p2
+fix/UPSite-Scrapping,15841398b5b71295488c1f64b142a6e7c570d029,MAurch,2023-05-21T00:53:59Z,Changes: None; Added: routes file under dashboard module / blueprint of dashboard under __init__; Fixed: None
+fix/UPSite-Scrapping,0b9bf5f52c9c610fd06489078b78e6d0261edcf5,MAurch,2023-05-21T00:40:10Z,"Changes: Minimum amount of subjects, changed from 1 to 3; Added: Modified requirements.txt, added beautifulsoup4 to libraries; Fixed: None"
+fix/UPSite-Scrapping,2418bcfe6d8d7e670137cf1ef1a3b940fa94a238,luisced,2023-05-20T23:01:19Z,cleaned code
+fix/UPSite-Scrapping,d0e69d0f12122415c4624a4f1049526ab95467e0,luisced,2023-05-20T22:43:04Z,New endpoint structure and new filter (teacher) for schedules
+fix/UPSite-Scrapping,b37d62cc2e8507872e7e33f41df0ccc276619d4b,supply-geologist-11139420,2023-05-20T21:33:48Z,added schedule maker endpoint
+fix/UPSite-Scrapping,8451ae3cd067233167679958d831340c3b6da7af,luisced,2023-05-20T21:27:30Z,new schedule algorithm
+fix/UPSite-Scrapping,99d1cb6f029a1adc03061ed86f07dbe3af7b7aa3,Luis Cedillo Maldonado,2023-05-19T16:57:23Z,filter for status: True
+fix/UPSite-Scrapping,0d3f36d7a534e7cd7ef9231cd2177e143ce599e5,Luis Cedillo Maldonado,2023-05-19T16:37:36Z,added jwt to createSchedules
+fix/UPSite-Scrapping,1b85af5735acfa594aa3a1d16a256d327a4f4485,Luis Cedillo Maldonado,2023-05-19T16:26:15Z,only schedules with more than one subject are returned
+fix/UPSite-Scrapping,a300096b2ec0b20e268cfef3c8103a1b27d7b8f3,Luis Cedillo Maldonado,2023-05-19T15:23:10Z,finished compatible schedules endpoint
+fix/UPSite-Scrapping,f153ba5c7834a7145a8b426868e0dca5f8a86096,Luis Cedillo Maldonado,2023-05-19T05:01:13Z,modified create schedules algorithm
+fix/UPSite-Scrapping,1798b182322081fe6e125b97b73b0b05f03b4732,supply-geologist-11139420,2023-05-17T06:01:53Z,added create shecules
+fix/UPSite-Scrapping,b85450182c4181d336d57c53af3dac766ef4c08e,luisced,2023-05-17T06:00:32Z,initialized function for schedules
+fix/UPSite-Scrapping,f1c77e2a376373f85c0f5af7548f7fc17366f719,luisced,2023-05-17T02:29:16Z,Modified fetch days function in oder to only add groups with valid schedule days
+fix/UPSite-Scrapping,1441fda8b6b30daa4cf2c3dd0d116a811e8a96ec,luisced,2023-05-17T01:00:42Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,7630566f30e1fed80a14d9305750e5ce6fb35268,luisced,2023-05-17T01:00:05Z,only get full groups
+fix/UPSite-Scrapping,60017ff497355fba509a41656dfbf82f2e61fffc,supply-geologist-11139420,2023-05-16T00:32:49Z,deleted combs
+fix/UPSite-Scrapping,c856f15c523abd56897b8d9baa5eb3d17c92ea4e,luisced,2023-05-16T00:27:56Z,new filters
+fix/UPSite-Scrapping,40c0fceb4657a67df82cba9e105000c5c5965661,luisced,2023-05-16T00:17:34Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,7c0b227955e76c79621099a75decc8ab8b66eaf5,luisced,2023-05-16T00:14:54Z,Merge branch 'fix/dockerContainer'
+fix/UPSite-Scrapping,1b32f62127bae458531d37ed4202030c40507eaf,luisced,2023-05-16T00:11:55Z,added srapper http request
+fix/UPSite-Scrapping,bdf102964f207a683f80ffb603fe16fb649c232d,luisced,2023-05-15T23:46:06Z,added srapper http request
+fix/UPSite-Scrapping,ca4b86467148022f5f1d0d9260c7ccb63cfbbb7f,luisced,2023-05-15T23:44:46Z,added chrome base image to usr/bin
+fix/UPSite-Scrapping,ac6df40b63b5a80f1a4db33459a2888ccdfe5153,luisced,2023-05-15T23:31:51Z,added chrome base image
+fix/UPSite-Scrapping,5848fe99ea0bebf0e4fd596c8ae97ba67c189085,luisced,2023-05-13T02:15:08Z,Updated docker mysql version and added platform
+fix/UPSite-Scrapping,66aeb9873e22e89785ecd2f50861fc4f4ecf0d7e,luisced,2023-05-09T00:19:35Z,changed docker mysql version
+fix/UPSite-Scrapping,45ada0c254d0cd8779246ab48dda1bfdf8aa37f5,luisced,2023-05-09T00:05:44Z,Updated docker mysql version and added platform
+fix/UPSite-Scrapping,90379552247f00c65549ed69e0774cd1af5120ef,luisced,2023-05-08T23:40:30Z,Updated docker mysql version and added platform
+fix/UPSite-Scrapping,b47f8cd841cb2c5cd9d1ec7762dbbf3c37c00f31,Daniel Peláez,2023-05-08T23:30:26Z,flask update
+fix/UPSite-Scrapping,920fbd2768bd8a492302f49b7418bce07420d4cb,Luis Cedillo Maldonado,2023-05-04T18:05:40Z,"Merge pull request #2 from iOS-Lab-UP/add/getTeacher
+
+Add/get teacher endpoint"
+fix/UPSite-Scrapping,d193713eabea54d47612fd196b80729c824c96c0,Javier Rangel,2023-05-04T16:23:43Z,Added subjectTeacher function and implementation
+fix/UPSite-Scrapping,f825c302915de40d205d88a60db6e56a300bc470,JavierRangel2004,2023-05-03T07:26:16Z,"Added get teacher endpoint, function and declaration"
+fix/UPSite-Scrapping,e8770bb2b229902ef260dc510e8188f310238083,JavierRangel2004,2023-05-03T05:55:26Z,"Merge pull request #1 from iOS-Lab-UP/name_surname_validation
+
+Added filter_Users function and endpoint"
+fix/UPSite-Scrapping,fc5877191d6c5bea9cd8a3f2070fa658dad670d6,JavierRangel2004,2023-05-03T05:42:25Z,Merge branch 'main' into name_surname_validation
+fix/UPSite-Scrapping,1f42ac9fcb5e49a85cb7ea77bcc7b24f5ffa9fe0,Javier Rangel,2023-05-02T20:00:49Z,Fixed filter_User function and endpoint
+fix/UPSite-Scrapping,516651f966f6d93d4f164752b48f49af04a93ea2,JavierRangel2004,2023-04-28T16:20:10Z,"del pruebas.py, added getUsers function and endpoint"
+fix/UPSite-Scrapping,f238ee09aa71e327876249f772c9419f8b88ca3a,Javier Rangel,2023-04-27T01:02:03Z,added filterUsers function and added some explanantion comments. Created pruebas.py file to try functions
+fix/UPSite-Scrapping,73fae13be500c45c235c507eaade9985c05bd82b,Javier Rangel,2023-04-25T20:54:52Z,Eliminar archivo namepy extra
+fix/UPSite-Scrapping,a0e7e545f2dd457d27b1b77f5bcce8789a622c71,Javier Rangel,2023-04-25T18:19:21Z,func Separar nombres e implementacion en createUser
+fix/UPSite-Scrapping,773e65a646c57749ddaebdc78420cb1c9ae126b2,supply-geologist-11139420,2023-04-25T18:18:31Z,renamed endpoint
+fix/UPSite-Scrapping,23f08431214467fcd4dda9cb550a032aa8963fec,Luis Cedillo Maldonado,2023-04-25T18:16:20Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,f5c53a350be0d9caf7e50e055faede032c87a920,supply-geologist-11139420,2023-04-25T18:16:12Z,added tests
+fix/UPSite-Scrapping,52e3530769b597f126660fe54508146b4da23c1d,Luis Cedillo Maldonado,2023-04-25T18:15:00Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,fa1dcf2b7739c1fe154fc3be2ab0d0185aa86526,Luis Cedillo Maldonado,2023-04-25T18:14:41Z,Renamed variables for create schedule
+fix/UPSite-Scrapping,e37c82bcc775810f49480cfc746caede338ced6d,navigation-candidate-92544788,2023-04-25T18:10:46Z,created get request for schedules
+fix/UPSite-Scrapping,1e23b9dd4f41980dbb4396bdf7d603c1d4b8a2ff,supply-geologist-11139420,2023-04-25T16:33:32Z,Created tests
+fix/UPSite-Scrapping,c94b8b884b1cea75379cae90d156739eea13aa98,MAurch,2023-04-25T07:07:11Z,Fixed schedule
+fix/UPSite-Scrapping,7db972de111722839e8fd735428317ef33939193,luisced,2023-04-25T05:24:20Z,updated postman endpoints
+fix/UPSite-Scrapping,e9ca6d59ab9c81192ae0587bc47976d0c9482634,navigation-candidate-92544788,2023-04-24T18:25:28Z,m
+fix/UPSite-Scrapping,822c3bccc2845f0aeacd8de999b8b5fe6b082abd,JavierRangel2004,2023-04-24T06:17:54Z,funcion para separar nombres y apellidos - JavierR
+fix/UPSite-Scrapping,e9642ceec3eda1519bb4e1c2b62cd125dbbcf829,luisced,2023-04-24T04:17:18Z,Merge branch 'main' into fix/create_schedule
+fix/UPSite-Scrapping,392bf3c632c4255a3c6c8b3e50d0819a6e6b0885,supply-geologist-11139420,2023-04-24T04:10:55Z,moved endpoint
+fix/UPSite-Scrapping,e98134d3637f81a145d5310a4a074888039b40d1,luisced,2023-04-24T04:08:59Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,8547e4b99e04d85320ebfe66345d8d2242cdb171,luisced,2023-04-24T04:08:53Z,deleted boiler-plate code
+fix/UPSite-Scrapping,67a91273cbb1a6b52b956058dfeff68b5cf1f24e,supply-geologist-11139420,2023-04-24T04:01:29Z,Deleted endpoint in order to fix it in other branch
+fix/UPSite-Scrapping,b3431a750efd1040de04e15e3ef6bc43c2eeee5a,navigation-candidate-92544788,2023-04-24T01:50:12Z,Me mi endpoint
+fix/UPSite-Scrapping,fbc6b3994b008fb752403b288857c14d0773c644,luisced,2023-04-24T01:17:32Z,optimized splitCourses function
+fix/UPSite-Scrapping,89a1e18844df7f73caaaf51532812057794c5974,Iñaki Sigüenza,2023-04-23T16:29:53Z,delete test
+fix/UPSite-Scrapping,2a18827b7981454239a32b66bc607405791bfb69,Iñaki Sigüenza,2023-04-23T16:29:06Z,Test logo Discord
+fix/UPSite-Scrapping,89cd65fd0e07f42c30f4f4c3786858a736fd78e4,luisced,2023-04-23T06:54:13Z,fixed tagging
+fix/UPSite-Scrapping,c8665de333329a1477d9d038b39ec19aa8655aa2,luisced,2023-04-23T06:46:26Z,Chaned relative path for automatic tagging fixed
+fix/UPSite-Scrapping,753b5b468c741d942ee2993b63abae8310200e12,luisced,2023-04-23T06:42:21Z,Chaned relative path for automatic tagging fixed
+fix/UPSite-Scrapping,ad8cbaee683b629e670ec746a30871d6fdecdc68,luisced,2023-04-23T06:38:23Z,Chaned relative path for automatic tagging fixed
+fix/UPSite-Scrapping,bcf076f756e8c29fc1bcd3701a123de07a814994,luisced,2023-04-23T06:30:34Z,Chaned relative path for automatic tagging
+fix/UPSite-Scrapping,3f05d5d0733f80e5b4a81bdf7adf28a8592490ca,luisced,2023-04-23T06:30:02Z,Chaned relative path for automatic tagging
+fix/UPSite-Scrapping,0c122a4455d46cb7557f0489fcd7579c40ce5f1e,luisced,2023-04-23T06:29:49Z,Chaned relative path for automatic tagging
+fix/UPSite-Scrapping,510deee067de0bac5a0d977996f7772487c9881d,Luis Cedillo Maldonado,2023-04-23T06:01:22Z,Update main.yml
+fix/UPSite-Scrapping,45aa2d634d8c80760828d8f11f5b77872881562d,luisced,2023-04-23T05:55:28Z,Chaned relative path for automatic tagging
+fix/UPSite-Scrapping,268a0ac86c53130f598a11c41456a9534b0878d9,luisced,2023-04-23T05:47:03Z,Created automatig tagging for app versioning
+fix/UPSite-Scrapping,a6196c0d1a2ec39b881a3ded8ce582cd876e7b0d,luisced,2023-04-23T05:36:17Z,Created automatig tagging for app versioning
+fix/UPSite-Scrapping,faed1d076d148b035005f03393755e69b2f22250,luisced,2023-04-23T04:16:27Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,74d878e15b350350e34aabde0695c467a8d397be,luisced,2023-04-23T04:16:22Z,return group
+fix/UPSite-Scrapping,8b0eaf9ca0796da621ac50f58891b19a9116321f,supply-geologist-11139420,2023-04-23T04:10:34Z,deleted upsite endpoint
+fix/UPSite-Scrapping,e46020fb2d93086e5d747a525d1f02832d138713,luisced,2023-04-23T04:08:05Z,return group
+fix/UPSite-Scrapping,40209317ca4f8e290248f90efab80d9572213aec,luisced,2023-04-23T03:41:06Z,scrapper volume created
+fix/UPSite-Scrapping,7ef1478f25e4e126e94a67d44db49e84196e6340,luisced,2023-04-23T02:40:50Z,test run_scrapper.sh
+fix/UPSite-Scrapping,3ddaa939a2aa812ef923c40732b45c7ca798b27e,luisced,2023-04-23T02:40:33Z,test run_scrapper.sh
+fix/UPSite-Scrapping,5e1d94c41d9ee7440016fb755021f4a5f28a1d68,luisced,2023-04-23T00:31:22Z,Fixed bug: datetime objs not parsed correctly
+fix/UPSite-Scrapping,d135c09d222f5c5cec59fb06a6405dcde65a8787,luisced,2023-04-22T18:35:44Z,Fixed bug: Timeout within enterUPSiteSubjects
+fix/UPSite-Scrapping,b070e544a0972838455678416b0c8a1bbdc2a7c8,luisced,2023-04-22T18:17:33Z,Fixed bug: Timeout within enterUPSiteSubjects
+fix/UPSite-Scrapping,fc52d63bbc27dbe20422aa5ed84f456d9008530f,luisced,2023-04-22T18:15:35Z,Fixed bug: Timeout within enterUPSiteSubjects
+fix/UPSite-Scrapping,fe2fadd18adb530f09e5cdba6e8bf4e56f76a2d9,Luis Cedillo Maldonado,2023-04-21T23:42:23Z,"New delay time, until prescence of an element"
+fix/UPSite-Scrapping,a7ab5c02aa78d4056ba98cf8dfcb81c9602551d5,Luis Cedillo Maldonado,2023-04-21T21:51:34Z,"New delay time, until prescence of an element"
+fix/UPSite-Scrapping,1e521fa764ba5988f9abc6b2efc8b11019e2c310,luisced,2023-04-21T02:39:02Z,Its necessary to finish build before this job
+fix/UPSite-Scrapping,0102aae36cfd284c6b6d34ab8b9496e4a6983688,luisced,2023-04-21T02:32:46Z,Its necessary to finish build before this job
+fix/UPSite-Scrapping,cdc2640ede3afed48551509ff458a1a567d9ecb1,luisced,2023-04-21T02:30:17Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,35c427f4336036073a55c6bb6eb6c0f019439544,luisced,2023-04-21T02:28:13Z,tests changes to newman report
+fix/UPSite-Scrapping,f07184fa1b2b7bbebf2a92447ff4801093de074c,supply-geologist-11139420,2023-04-21T01:56:44Z,sleepBetweenTries
+fix/UPSite-Scrapping,3f3cb4e31d1f7a6706254dd8c200f79119a4d819,luisced,2023-04-21T01:51:13Z,changed groups function
+fix/UPSite-Scrapping,77f666ccf9d9661c59d516ba8c48ec14e7398a5e,luisced,2023-04-21T01:43:20Z,changed groups function
+fix/UPSite-Scrapping,8931293e4f2f58ca1b279e4a753e2cc0dd2de84b,luisced,2023-04-21T01:35:22Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,7833a32e55cc96b3f59ebf7508c08604a6ee9938,luisced,2023-04-21T01:34:41Z,changed groups function
+fix/UPSite-Scrapping,bc1a6ec3d264fb652d2f91b4d5830df8b1a4124b,supply-geologist-11139420,2023-04-21T01:19:23Z,changed test for fetch group
+fix/UPSite-Scrapping,b9168ec719a2470aaddab7ae300726cacb2bf9cc,luisced,2023-04-21T01:19:02Z,changed groups function
+fix/UPSite-Scrapping,c285bf743e8e639a39e28b945fcb8137bfee7db0,Luis Cedillo Maldonado,2023-04-20T21:39:20Z,"New delay time, until prescence of an element"
+fix/UPSite-Scrapping,6731b9223fdca5599b813b9abfc9838f17628132,Luis Cedillo Maldonado,2023-04-20T21:33:45Z,"New delay time, until prescence of an element"
+fix/UPSite-Scrapping,63643ec11fefc3e252a9dc68bd3b2cfa594b3678,Luis Cedillo Maldonado,2023-04-20T21:22:31Z,"New delay time, until prescence of an element"
+fix/UPSite-Scrapping,ab61f9ec5d31b519afea4c2af75223d4c559a8b8,Luis Cedillo Maldonado,2023-04-20T21:20:35Z,"New delay time, until prescence of an element"
+fix/UPSite-Scrapping,eb1b78f723b177f974463fae18b28c9d1c1ac0fe,Luis Cedillo Maldonado,2023-04-20T21:01:43Z,"New delay time, until prescence of an element"
+fix/UPSite-Scrapping,983f33e02c10cf8d78cb384f3b634b5b54efda10,Luis Cedillo Maldonado,2023-04-20T20:20:43Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,bba00d416894bedfb6704ef5259653518f9c7d85,Luis Cedillo Maldonado,2023-04-20T20:20:03Z,changed ci/cd file checkout v
+fix/UPSite-Scrapping,d83055a6e6a57dc0200a45c6892bc14d42b7fb41,supply-geologist-11139420,2023-04-20T20:19:50Z,added retries
+fix/UPSite-Scrapping,d09b4627da3182372b99edaf791693140a91f427,supply-geologist-11139420,2023-04-20T19:44:27Z,changed tests
+fix/UPSite-Scrapping,6e739d2ac64e0ebaf970697cdd8dc989645f7700,Luis Cedillo Maldonado,2023-04-20T19:32:17Z,changed ci/cd file checkout v
+fix/UPSite-Scrapping,059ef704d4e2a7145c33fa818f11b829dc302eab,Luis Cedillo Maldonado,2023-04-20T19:29:05Z,changed ci/cd file checkout v
+fix/UPSite-Scrapping,8e25367cadbcf3125ab0b278bb71e67162a54c66,Luis Cedillo Maldonado,2023-04-20T18:55:43Z,changed ci/cd file checkout v
+fix/UPSite-Scrapping,4ffe2ec395ea6b14686c563083e9106006c85c08,Luis Cedillo Maldonado,2023-04-20T18:51:52Z,changed ci/cd file checkout v
+fix/UPSite-Scrapping,43bfd96fe0facb944ba51bf48ca9522f15534cea,Luis Cedillo Maldonado,2023-04-20T18:02:54Z,changed ci/cd file
+fix/UPSite-Scrapping,d85f7e630d3a2f52ae55db6a926f964d492a8591,Luis Cedillo Maldonado,2023-04-20T17:56:09Z,changed ci/cd file
+fix/UPSite-Scrapping,0cf37880e054648c197b20f6b1111970a85eb79e,Luis Cedillo Maldonado,2023-04-20T17:48:18Z,Deleted .idea dir
+fix/UPSite-Scrapping,8a1b87b18ddbd670e30e83ff7bea629794eb2d1d,Luis Cedillo Maldonado,2023-04-20T17:37:34Z,Automated testing for API
+fix/UPSite-Scrapping,bfb7116705548ab1c92ae54cb83cbc91e494ce14,supply-geologist-11139420,2023-04-20T16:43:23Z,created postman test for login
+fix/UPSite-Scrapping,3a5eb65beabacda77f0370f37b69f1b91feff530,luisced,2023-04-20T02:51:13Z,modified yml region to us-east-2
+fix/UPSite-Scrapping,f5adfbb704172c9970e0b15a8348bfa79c31d401,luisced,2023-04-20T02:43:56Z,modified yml region
+fix/UPSite-Scrapping,53f69a6dd2dbc349a87023692297d34d1bdee903,luisced,2023-04-20T02:39:10Z,modified dockerfile
+fix/UPSite-Scrapping,1d8624f1216b581c8e5c494f10a7d6f1562e6b07,luisced,2023-04-20T02:36:44Z,modified dockerfile
+fix/UPSite-Scrapping,93a04f174cc0d37bbcb50fe6bf55ebccec585217,luisced,2023-04-20T01:53:15Z,modified dockerfile
+fix/UPSite-Scrapping,1af993b2d7dac36d076a52d9047c79c2cedf1d62,luisced,2023-04-20T01:34:01Z,modified workflow
+fix/UPSite-Scrapping,26a57202f8858abb72aa0f86a0794cc9b04865f3,luisced,2023-04-20T01:25:12Z,modified workflow
+fix/UPSite-Scrapping,187e48d987fa10456c668aaebab7a72edc8cb1a5,luisced,2023-04-20T01:22:50Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+fix/UPSite-Scrapping,6a70ee13a1747dd9331116ace860a188939476c4,luisced,2023-04-20T01:22:33Z,created workflow
+fix/UPSite-Scrapping,bf8a38650852e4b8f912eeaf0ebb15976b5c2520,supply-geologist-11139420,2023-04-18T02:15:13Z,Added healtcheck
+fix/UPSite-Scrapping,61347fc7c287aac94b05804089bda4689038f8a7,supply-geologist-11139420,2023-04-18T02:10:25Z,Updated postman endpoints
+fix/UPSite-Scrapping,b6496bd990e6bb7a6bd67a8c4e8ed84a04bb7b67,Maurch,2023-03-27T05:45:06Z,Commented some algorithms
+fix/UPSite-Scrapping,fabdd8943cccfb780045a5717087ff2d149bc666,Maurch,2023-03-27T05:09:19Z,Added function to validate a list of schedules generated by another function and fixed errors when intrudciong non-existent courses under the createSchedule endpoint
+fix/UPSite-Scrapping,cd76604c037a3a7a9dcbb36c23834c147cf3b1b5,Maurch,2023-03-24T22:44:14Z,"Added schedule generator, createSchedule endpoint"
+fix/UPSite-Scrapping,c750545ae26a8a4abf9fce94defb4bf3dacd18b4,Maurch,2023-03-24T19:52:07Z,Added schedule permutations endpoint
+fix/UPSite-Scrapping,6f88ada8986670cecd64caecb2d7f826ac3c6a0c,luisced,2023-03-22T03:44:29Z,changed requierements
+fix/UPSite-Scrapping,8e5dbe346dae81b454133f6b4bcbc2673932b73c,MAurch,2023-03-20T21:32:12Z,Added schedule endpoint
+fix/UPSite-Scrapping,af35513c4195d7530e12111a2a0486a3361a4489,luisced,2023-03-20T05:28:33Z,created guest registration
+fix/UPSite-Scrapping,3b38ddb5ac2726719f67ce75f220c220f9ff8919,luisced,2023-03-20T03:30:33Z,modified login
+fix/UPSite-Scrapping,1a340e05e440e4b1f47e90e17cec9283ee2a6c02,luisced,2023-03-20T03:14:19Z,merge from security/Validations
+fix/UPSite-Scrapping,72ffd615eaae723a722b61d3835650e9f3a35a5e,MAurch,2023-03-18T02:49:45Z,Added schedule endpoint
+fix/UPSite-Scrapping,9f4aa4a7aa2c50c43299704d6be885f46eaf97ac,Luis Cedillo Maldonado,2023-03-17T20:29:39Z,Created DB table for User and Profile
+fix/UPSite-Scrapping,726ea5f3f2bcd7100d53962dc2b048786334e50f,luisced,2023-03-17T05:16:46Z,created profile model
+fix/UPSite-Scrapping,36704ebdf14a696e98a8d45db48f6add0825cb79,luisced,2023-03-17T05:09:19Z,add user table
+fix/UPSite-Scrapping,1761a4d9c38a14f74f871ef1bd4073838f5010f8,luisced,2023-03-17T02:35:22Z,merge from main
+fix/UPSite-Scrapping,f5d3f5942c0b6a12a456d32d5394a910a3e73819,Maurch,2023-03-17T02:21:46Z,login changed route
+fix/UPSite-Scrapping,6685a21b017104c6c74c1566ac306900dbad1f73,luisced,2023-03-17T02:15:39Z,updated dependencies
+fix/UPSite-Scrapping,8fc1e43deb039e39bffae405897a3015484b520b,Luis Cedillo Maldonado,2023-03-16T21:59:24Z,added security dir
+fix/UPSite-Scrapping,fe4c69383d492cb1fefa00428d7d29584c7a46c9,Luis Cedillo Maldonado,2023-03-14T19:09:30Z,Update README.MD
+fix/UPSite-Scrapping,ced860fe1f0eb4227f7be9e758b1e56529f19894,Luis Cedillo Maldonado,2023-03-13T03:38:37Z,Update README.MD
+fix/UPSite-Scrapping,073ad02b3be20ad6bb6cba98292d1cb26860eea4,Maurch,2023-03-10T19:25:57Z,Added CommonZones and Zones tables
+fix/UPSite-Scrapping,71d0cf0c9cc93998a704339111ff2c88618a67f7,Luis Cedillo Maldonado,2023-03-07T06:56:25Z,Update README.MD
+fix/UPSite-Scrapping,888ec38e670fe7d1384e82fe2be235180f391704,luisced,2023-03-07T06:55:17Z,updated  Readme file to the repo
+fix/UPSite-Scrapping,a128a8dd6ec2f2016d621fab5d51b3d996d640b0,luisced,2023-03-07T06:54:17Z,Added Readme file to the repo
+fix/UPSite-Scrapping,dcd8dedd23c665453be0d2d7f5fa01a02d6d06f2,luisced,2023-03-07T06:27:22Z,Modified docker containers name
+fix/UPSite-Scrapping,8e1e7a436cb106e88bf0e665293b8d4098aa9546,luisced,2023-03-07T06:19:46Z,merge from feature/api
+fix/UPSite-Scrapping,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Borre mis pendientes
+fix/UPSite-Scrapping,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
+fix/UPSite-Scrapping,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
+fix/UPSite-Scrapping,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+main,a4406360bb10b9a368669818ec67fdf6ac9942b2,Iñaki Sigüenza,2023-09-07T05:20:43Z,Update extract.py
+main,dbf2347b4c0488449b21147960eaefe099ab34c1,Iñaki Sigüenza,2023-09-07T05:19:47Z,Update main.yml
+main,7c76ecf29a7e28e9779089ba3e492c036b760245,Iñaki Sigüenza,2023-09-07T05:18:25Z,Add files via upload
+main,05bed112d70af212a1b7013ad34482cc706bca07,Mauricio,2023-08-30T18:02:15Z,"updated mysql and adminer version, changed adminer design"
+main,2f3f4baadedd6b1810020082de45bdd5340ef236,Mauricio,2023-08-30T02:20:59Z,Merge NewApiModel
+main,29a62af85456be67a2dd75c1fd8e70865b6278f4,Mauricio,2023-08-30T02:03:25Z,fixed missconfiguration
+main,7106a244dd51831ebce51ed9acaca2767161ff04,Bruno,2023-08-29T18:02:33Z,Se ha modificado el archivo routes de nodes
+main,6e08e24cfbb32dde279c3613bd5bb1d0585de048,Xayil,2023-08-28T19:30:03Z,Creación de endpoint para los nodos
+main,0b9987deef5b18949b6bb8a9c341c1b50cbaa60e,Mauricio,2023-08-25T08:57:38Z,"Deleted misconfigurations, changed multiple data types and default values"
+main,edfde077adba169e135a8f0c09b02869e95584d2,Mauricio,2023-08-25T07:12:58Z,Deleted misconfiguration
+main,4b241ab258f9f1b2ba558e6db07e37491d3ab69d,Mauricio,2023-08-24T23:05:41Z,Fixed scrapper endpoint (firefox was opening multiple unnecessary tabs)
+main,b643dda930667670b39520672ba452f6dd0a1b96,Mauricio,2023-08-24T17:59:54Z,changed python version
+main,3a69a9957204f707d1074f58f6ff675e8186026a,Mauricio,2023-08-24T08:08:00Z,Commented scrapper volume inside docker container
+main,a5c8ea047b22d9b9fcbae79a11eaad477b2b4daf,Mauricio,2023-08-23T19:14:22Z,"Resolved some PEP8 error.
+Fixed some function data types."
+main,586fa1b657f6eceac85fa03e6fce4692210b6890,Mauricio,2023-08-23T18:36:26Z,Fixed login endpoint
+main,71668cc7f02d08814df94f62924bd86c8b94cac8,Mauricio,2023-08-23T07:19:26Z,"Fix API driver deprecated error, web driver now working"
+main,a38f2d187576e835dcda87f97aa47d141bc19f1d,Maurch,2023-08-23T06:35:57Z,fix selenium driver
+main,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+main,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+main,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+main,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+main,f79861e85bb212e7625b666c5d92a64118becc33,Mauricio,2023-08-16T06:05:12Z,added .idea to .gitignore entries and deleted .idea
+main,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+main,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+main,7589db40a37e99aa4d3d2dc4937951726f2266b3,Mauricio,2023-08-15T16:30:07Z,updated gitignore
+main,3880fd2d54e70be3d0dd99f71e6a505b9a2553b5,Mauricio,2023-08-15T02:39:19Z,updated selenium and webdriver versions
+main,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+main,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+main,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+main,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
+main,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+main,7f23ab36b3692074a0ec4d387ec466188c9a7b14,dpelaezr,2023-06-19T03:00:59Z,Documentación terminada
+main,e9da1ace1559e82cf0d6b305a25e69ab0b79cc7d,dpelaezr,2023-06-18T21:30:07Z,Documentación casi terminada
+main,238457a84f67be26281637f48615096e0dd3245d,dpelaezr,2023-06-18T20:22:28Z,Documentación a medias
+main,f3b8df7650a67d0af338d3432d3eca3622ccb77d,MAurch,2023-06-15T06:34:39Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+main,19d9f770fc5fe7d00d30a26f177beb5fbab5bb21,MAurch,2023-06-15T06:27:42Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+main,45ced4a7552658267fc99fd5e86680aed495d7cf,luisced,2023-06-15T05:47:03Z,added periodic scrapping
+main,71f7de7f173eaf497b5846501cba520c272cdf8f,supply-geologist-11139420,2023-06-15T00:40:36Z,addd user id comment
+main,6bb091fba5e5134b3bb6ff417b4a790b34ea801d,supply-geologist-11139420,2023-06-15T00:13:11Z,Added create schedules endpoint
+main,55364675b8fb944badc40d128c67e3ed1916764f,JavierRangel2004,2023-06-14T19:49:42Z,Added feature/schedulesPandas changes to main
+main,01f589ca0d50df070320812857c75eafe9b7265b,luisced,2023-06-09T06:05:31Z,modified op
+main,991e66997863e6c086bb020b95d3a8c5c0452992,Javier Rangel,2023-06-08T02:42:16Z,Update README.MD
+main,732e22967cb5962a3fbf8549403a2753ba79e245,Luis Cedillo Maldonado,2023-06-07T04:56:22Z,Update README.MD
+main,5266158723cddb5aa45816ac6abe7620f36a1e9a,MAurch,2023-05-28T20:12:06Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: fix schedule json format from List to Dict
+main,8e90e0a0750b7209918de4aee1af2f8622123f19,MAurch,2023-05-27T10:52:57Z,Changes: None; Added: relation user-group table; Fixed: None; Deleted: None; Pending: None
+main,194a538f3d16e5171460a2b7dcc1f7a1ad7efd64,supply-geologist-11139420,2023-05-23T07:26:31Z,again changed user code
+main,8557b75626c5f37fd72b5d68c3daf5ef85e20df8,supply-geologist-11139420,2023-05-23T07:19:50Z,changes user login test
+main,3c420210b995ebe5978a4a76ceebb004434ff0d4,supply-geologist-11139420,2023-05-23T07:15:56Z,changed json key
+main,5b09a324fdc70a7e16f73efe4cb1cf88eb71bc76,supply-geologist-11139420,2023-05-23T07:11:17Z,Created documentation for user
+main,bf6833932b2a139ece6f8ade9dfb93084bf6fe26,luisced,2023-05-23T07:09:18Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,ff38a6893821a4717b3cc8edb9f8bbbf8fd95279,luisced,2023-05-23T07:09:14Z,Fixed upsite login and added jwt when user is created
+main,4bff9292f3c72fccb47d56224a53516c0cb7bf16,MAurch,2023-05-23T04:39:42Z,"Changes: None; Added: Scrap schedule functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+main,c7741a22fffd0d17d60f2e58c6ea20ac06fc2dcf,MAurch,2023-05-23T03:18:27Z,"Changes: None; Added: Scrap grades functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+main,7b1fdc28b4d627ffa3bb95088d3d941947a47db6,luisced,2023-05-23T02:26:54Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,96ec815cd0342b56143731b5c1455c3241fe5f45,supply-geologist-11139420,2023-05-23T02:26:07Z,added new tests
+main,d9055c6bb9f1ca66b1ea85485b4b4b916801a2f5,luisced,2023-05-23T02:25:57Z,changed success key
+main,3080b430eb16017c8a69a27f15c2f177dd98c466,supply-geologist-11139420,2023-05-23T02:16:46Z,updated jwt test
+main,6e0921ab811cc52facaf98e6f5aee2556f74fde5,supply-geologist-11139420,2023-05-23T02:08:11Z,updated user keys
+main,33b61aee08e9681a05beb08cd2f7a317567798a0,luisced,2023-05-23T02:07:50Z,login restructured
+main,09f2e9abcbcb668fccb7f5f63f0222687db216b3,supply-geologist-11139420,2023-05-21T02:43:08Z,added tests
+main,7e53ec85819d32e2649ad519d867774419be0cfb,luisced,2023-05-21T02:42:38Z,Merge branch 'enchancement/filtersSchedules'
+main,965e1024c1c45b2e01e3ed2b5d0734eb9f1c89e3,luisced,2023-05-21T02:41:37Z,cleaned code p2
+main,15841398b5b71295488c1f64b142a6e7c570d029,MAurch,2023-05-21T00:53:59Z,Changes: None; Added: routes file under dashboard module / blueprint of dashboard under __init__; Fixed: None
+main,0b9bf5f52c9c610fd06489078b78e6d0261edcf5,MAurch,2023-05-21T00:40:10Z,"Changes: Minimum amount of subjects, changed from 1 to 3; Added: Modified requirements.txt, added beautifulsoup4 to libraries; Fixed: None"
+main,2418bcfe6d8d7e670137cf1ef1a3b940fa94a238,luisced,2023-05-20T23:01:19Z,cleaned code
+main,d0e69d0f12122415c4624a4f1049526ab95467e0,luisced,2023-05-20T22:43:04Z,New endpoint structure and new filter (teacher) for schedules
+main,b37d62cc2e8507872e7e33f41df0ccc276619d4b,supply-geologist-11139420,2023-05-20T21:33:48Z,added schedule maker endpoint
+main,8451ae3cd067233167679958d831340c3b6da7af,luisced,2023-05-20T21:27:30Z,new schedule algorithm
+main,99d1cb6f029a1adc03061ed86f07dbe3af7b7aa3,Luis Cedillo Maldonado,2023-05-19T16:57:23Z,filter for status: True
+main,0d3f36d7a534e7cd7ef9231cd2177e143ce599e5,Luis Cedillo Maldonado,2023-05-19T16:37:36Z,added jwt to createSchedules
+main,1b85af5735acfa594aa3a1d16a256d327a4f4485,Luis Cedillo Maldonado,2023-05-19T16:26:15Z,only schedules with more than one subject are returned
+main,a300096b2ec0b20e268cfef3c8103a1b27d7b8f3,Luis Cedillo Maldonado,2023-05-19T15:23:10Z,finished compatible schedules endpoint
+main,f153ba5c7834a7145a8b426868e0dca5f8a86096,Luis Cedillo Maldonado,2023-05-19T05:01:13Z,modified create schedules algorithm
+main,1798b182322081fe6e125b97b73b0b05f03b4732,supply-geologist-11139420,2023-05-17T06:01:53Z,added create shecules
+main,b85450182c4181d336d57c53af3dac766ef4c08e,luisced,2023-05-17T06:00:32Z,initialized function for schedules
+main,f1c77e2a376373f85c0f5af7548f7fc17366f719,luisced,2023-05-17T02:29:16Z,Modified fetch days function in oder to only add groups with valid schedule days
+main,1441fda8b6b30daa4cf2c3dd0d116a811e8a96ec,luisced,2023-05-17T01:00:42Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,7630566f30e1fed80a14d9305750e5ce6fb35268,luisced,2023-05-17T01:00:05Z,only get full groups
+main,60017ff497355fba509a41656dfbf82f2e61fffc,supply-geologist-11139420,2023-05-16T00:32:49Z,deleted combs
+main,c856f15c523abd56897b8d9baa5eb3d17c92ea4e,luisced,2023-05-16T00:27:56Z,new filters
+main,40c0fceb4657a67df82cba9e105000c5c5965661,luisced,2023-05-16T00:17:34Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,7c0b227955e76c79621099a75decc8ab8b66eaf5,luisced,2023-05-16T00:14:54Z,Merge branch 'fix/dockerContainer'
+main,1b32f62127bae458531d37ed4202030c40507eaf,luisced,2023-05-16T00:11:55Z,added srapper http request
+main,bdf102964f207a683f80ffb603fe16fb649c232d,luisced,2023-05-15T23:46:06Z,added srapper http request
+main,ca4b86467148022f5f1d0d9260c7ccb63cfbbb7f,luisced,2023-05-15T23:44:46Z,added chrome base image to usr/bin
+main,ac6df40b63b5a80f1a4db33459a2888ccdfe5153,luisced,2023-05-15T23:31:51Z,added chrome base image
+main,5848fe99ea0bebf0e4fd596c8ae97ba67c189085,luisced,2023-05-13T02:15:08Z,Updated docker mysql version and added platform
+main,66aeb9873e22e89785ecd2f50861fc4f4ecf0d7e,luisced,2023-05-09T00:19:35Z,changed docker mysql version
+main,45ada0c254d0cd8779246ab48dda1bfdf8aa37f5,luisced,2023-05-09T00:05:44Z,Updated docker mysql version and added platform
+main,90379552247f00c65549ed69e0774cd1af5120ef,luisced,2023-05-08T23:40:30Z,Updated docker mysql version and added platform
+main,b47f8cd841cb2c5cd9d1ec7762dbbf3c37c00f31,Daniel Peláez,2023-05-08T23:30:26Z,flask update
+main,920fbd2768bd8a492302f49b7418bce07420d4cb,Luis Cedillo Maldonado,2023-05-04T18:05:40Z,"Merge pull request #2 from iOS-Lab-UP/add/getTeacher
+
+Add/get teacher endpoint"
+main,d193713eabea54d47612fd196b80729c824c96c0,Javier Rangel,2023-05-04T16:23:43Z,Added subjectTeacher function and implementation
+main,f825c302915de40d205d88a60db6e56a300bc470,JavierRangel2004,2023-05-03T07:26:16Z,"Added get teacher endpoint, function and declaration"
+main,e8770bb2b229902ef260dc510e8188f310238083,JavierRangel2004,2023-05-03T05:55:26Z,"Merge pull request #1 from iOS-Lab-UP/name_surname_validation
+
+Added filter_Users function and endpoint"
+main,fc5877191d6c5bea9cd8a3f2070fa658dad670d6,JavierRangel2004,2023-05-03T05:42:25Z,Merge branch 'main' into name_surname_validation
+main,1f42ac9fcb5e49a85cb7ea77bcc7b24f5ffa9fe0,Javier Rangel,2023-05-02T20:00:49Z,Fixed filter_User function and endpoint
+main,516651f966f6d93d4f164752b48f49af04a93ea2,JavierRangel2004,2023-04-28T16:20:10Z,"del pruebas.py, added getUsers function and endpoint"
+main,f238ee09aa71e327876249f772c9419f8b88ca3a,Javier Rangel,2023-04-27T01:02:03Z,added filterUsers function and added some explanantion comments. Created pruebas.py file to try functions
+main,73fae13be500c45c235c507eaade9985c05bd82b,Javier Rangel,2023-04-25T20:54:52Z,Eliminar archivo namepy extra
+main,a0e7e545f2dd457d27b1b77f5bcce8789a622c71,Javier Rangel,2023-04-25T18:19:21Z,func Separar nombres e implementacion en createUser
+main,773e65a646c57749ddaebdc78420cb1c9ae126b2,supply-geologist-11139420,2023-04-25T18:18:31Z,renamed endpoint
+main,23f08431214467fcd4dda9cb550a032aa8963fec,Luis Cedillo Maldonado,2023-04-25T18:16:20Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,f5c53a350be0d9caf7e50e055faede032c87a920,supply-geologist-11139420,2023-04-25T18:16:12Z,added tests
+main,52e3530769b597f126660fe54508146b4da23c1d,Luis Cedillo Maldonado,2023-04-25T18:15:00Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,fa1dcf2b7739c1fe154fc3be2ab0d0185aa86526,Luis Cedillo Maldonado,2023-04-25T18:14:41Z,Renamed variables for create schedule
+main,e37c82bcc775810f49480cfc746caede338ced6d,navigation-candidate-92544788,2023-04-25T18:10:46Z,created get request for schedules
+main,1e23b9dd4f41980dbb4396bdf7d603c1d4b8a2ff,supply-geologist-11139420,2023-04-25T16:33:32Z,Created tests
+main,c94b8b884b1cea75379cae90d156739eea13aa98,MAurch,2023-04-25T07:07:11Z,Fixed schedule
+main,7db972de111722839e8fd735428317ef33939193,luisced,2023-04-25T05:24:20Z,updated postman endpoints
+main,e9ca6d59ab9c81192ae0587bc47976d0c9482634,navigation-candidate-92544788,2023-04-24T18:25:28Z,m
+main,822c3bccc2845f0aeacd8de999b8b5fe6b082abd,JavierRangel2004,2023-04-24T06:17:54Z,funcion para separar nombres y apellidos - JavierR
+main,e9642ceec3eda1519bb4e1c2b62cd125dbbcf829,luisced,2023-04-24T04:17:18Z,Merge branch 'main' into fix/create_schedule
+main,392bf3c632c4255a3c6c8b3e50d0819a6e6b0885,supply-geologist-11139420,2023-04-24T04:10:55Z,moved endpoint
+main,e98134d3637f81a145d5310a4a074888039b40d1,luisced,2023-04-24T04:08:59Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,8547e4b99e04d85320ebfe66345d8d2242cdb171,luisced,2023-04-24T04:08:53Z,deleted boiler-plate code
+main,67a91273cbb1a6b52b956058dfeff68b5cf1f24e,supply-geologist-11139420,2023-04-24T04:01:29Z,Deleted endpoint in order to fix it in other branch
+main,b3431a750efd1040de04e15e3ef6bc43c2eeee5a,navigation-candidate-92544788,2023-04-24T01:50:12Z,Me mi endpoint
+main,fbc6b3994b008fb752403b288857c14d0773c644,luisced,2023-04-24T01:17:32Z,optimized splitCourses function
+main,89a1e18844df7f73caaaf51532812057794c5974,Iñaki Sigüenza,2023-04-23T16:29:53Z,delete test
+main,2a18827b7981454239a32b66bc607405791bfb69,Iñaki Sigüenza,2023-04-23T16:29:06Z,Test logo Discord
+main,89cd65fd0e07f42c30f4f4c3786858a736fd78e4,luisced,2023-04-23T06:54:13Z,fixed tagging
+main,c8665de333329a1477d9d038b39ec19aa8655aa2,luisced,2023-04-23T06:46:26Z,Chaned relative path for automatic tagging fixed
+main,753b5b468c741d942ee2993b63abae8310200e12,luisced,2023-04-23T06:42:21Z,Chaned relative path for automatic tagging fixed
+main,ad8cbaee683b629e670ec746a30871d6fdecdc68,luisced,2023-04-23T06:38:23Z,Chaned relative path for automatic tagging fixed
+main,bcf076f756e8c29fc1bcd3701a123de07a814994,luisced,2023-04-23T06:30:34Z,Chaned relative path for automatic tagging
+main,3f05d5d0733f80e5b4a81bdf7adf28a8592490ca,luisced,2023-04-23T06:30:02Z,Chaned relative path for automatic tagging
+main,0c122a4455d46cb7557f0489fcd7579c40ce5f1e,luisced,2023-04-23T06:29:49Z,Chaned relative path for automatic tagging
+main,510deee067de0bac5a0d977996f7772487c9881d,Luis Cedillo Maldonado,2023-04-23T06:01:22Z,Update main.yml
+main,45aa2d634d8c80760828d8f11f5b77872881562d,luisced,2023-04-23T05:55:28Z,Chaned relative path for automatic tagging
+main,268a0ac86c53130f598a11c41456a9534b0878d9,luisced,2023-04-23T05:47:03Z,Created automatig tagging for app versioning
+main,a6196c0d1a2ec39b881a3ded8ce582cd876e7b0d,luisced,2023-04-23T05:36:17Z,Created automatig tagging for app versioning
+main,faed1d076d148b035005f03393755e69b2f22250,luisced,2023-04-23T04:16:27Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,74d878e15b350350e34aabde0695c467a8d397be,luisced,2023-04-23T04:16:22Z,return group
+main,8b0eaf9ca0796da621ac50f58891b19a9116321f,supply-geologist-11139420,2023-04-23T04:10:34Z,deleted upsite endpoint
+main,e46020fb2d93086e5d747a525d1f02832d138713,luisced,2023-04-23T04:08:05Z,return group
+main,40209317ca4f8e290248f90efab80d9572213aec,luisced,2023-04-23T03:41:06Z,scrapper volume created
+main,7ef1478f25e4e126e94a67d44db49e84196e6340,luisced,2023-04-23T02:40:50Z,test run_scrapper.sh
+main,3ddaa939a2aa812ef923c40732b45c7ca798b27e,luisced,2023-04-23T02:40:33Z,test run_scrapper.sh
+main,5e1d94c41d9ee7440016fb755021f4a5f28a1d68,luisced,2023-04-23T00:31:22Z,Fixed bug: datetime objs not parsed correctly
+main,d135c09d222f5c5cec59fb06a6405dcde65a8787,luisced,2023-04-22T18:35:44Z,Fixed bug: Timeout within enterUPSiteSubjects
+main,b070e544a0972838455678416b0c8a1bbdc2a7c8,luisced,2023-04-22T18:17:33Z,Fixed bug: Timeout within enterUPSiteSubjects
+main,fc52d63bbc27dbe20422aa5ed84f456d9008530f,luisced,2023-04-22T18:15:35Z,Fixed bug: Timeout within enterUPSiteSubjects
+main,fe2fadd18adb530f09e5cdba6e8bf4e56f76a2d9,Luis Cedillo Maldonado,2023-04-21T23:42:23Z,"New delay time, until prescence of an element"
+main,a7ab5c02aa78d4056ba98cf8dfcb81c9602551d5,Luis Cedillo Maldonado,2023-04-21T21:51:34Z,"New delay time, until prescence of an element"
+main,1e521fa764ba5988f9abc6b2efc8b11019e2c310,luisced,2023-04-21T02:39:02Z,Its necessary to finish build before this job
+main,0102aae36cfd284c6b6d34ab8b9496e4a6983688,luisced,2023-04-21T02:32:46Z,Its necessary to finish build before this job
+main,cdc2640ede3afed48551509ff458a1a567d9ecb1,luisced,2023-04-21T02:30:17Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,35c427f4336036073a55c6bb6eb6c0f019439544,luisced,2023-04-21T02:28:13Z,tests changes to newman report
+main,f07184fa1b2b7bbebf2a92447ff4801093de074c,supply-geologist-11139420,2023-04-21T01:56:44Z,sleepBetweenTries
+main,3f3cb4e31d1f7a6706254dd8c200f79119a4d819,luisced,2023-04-21T01:51:13Z,changed groups function
+main,77f666ccf9d9661c59d516ba8c48ec14e7398a5e,luisced,2023-04-21T01:43:20Z,changed groups function
+main,8931293e4f2f58ca1b279e4a753e2cc0dd2de84b,luisced,2023-04-21T01:35:22Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,7833a32e55cc96b3f59ebf7508c08604a6ee9938,luisced,2023-04-21T01:34:41Z,changed groups function
+main,bc1a6ec3d264fb652d2f91b4d5830df8b1a4124b,supply-geologist-11139420,2023-04-21T01:19:23Z,changed test for fetch group
+main,b9168ec719a2470aaddab7ae300726cacb2bf9cc,luisced,2023-04-21T01:19:02Z,changed groups function
+main,c285bf743e8e639a39e28b945fcb8137bfee7db0,Luis Cedillo Maldonado,2023-04-20T21:39:20Z,"New delay time, until prescence of an element"
+main,6731b9223fdca5599b813b9abfc9838f17628132,Luis Cedillo Maldonado,2023-04-20T21:33:45Z,"New delay time, until prescence of an element"
+main,63643ec11fefc3e252a9dc68bd3b2cfa594b3678,Luis Cedillo Maldonado,2023-04-20T21:22:31Z,"New delay time, until prescence of an element"
+main,ab61f9ec5d31b519afea4c2af75223d4c559a8b8,Luis Cedillo Maldonado,2023-04-20T21:20:35Z,"New delay time, until prescence of an element"
+main,eb1b78f723b177f974463fae18b28c9d1c1ac0fe,Luis Cedillo Maldonado,2023-04-20T21:01:43Z,"New delay time, until prescence of an element"
+main,983f33e02c10cf8d78cb384f3b634b5b54efda10,Luis Cedillo Maldonado,2023-04-20T20:20:43Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,bba00d416894bedfb6704ef5259653518f9c7d85,Luis Cedillo Maldonado,2023-04-20T20:20:03Z,changed ci/cd file checkout v
+main,d83055a6e6a57dc0200a45c6892bc14d42b7fb41,supply-geologist-11139420,2023-04-20T20:19:50Z,added retries
+main,d09b4627da3182372b99edaf791693140a91f427,supply-geologist-11139420,2023-04-20T19:44:27Z,changed tests
+main,6e739d2ac64e0ebaf970697cdd8dc989645f7700,Luis Cedillo Maldonado,2023-04-20T19:32:17Z,changed ci/cd file checkout v
+main,059ef704d4e2a7145c33fa818f11b829dc302eab,Luis Cedillo Maldonado,2023-04-20T19:29:05Z,changed ci/cd file checkout v
+main,8e25367cadbcf3125ab0b278bb71e67162a54c66,Luis Cedillo Maldonado,2023-04-20T18:55:43Z,changed ci/cd file checkout v
+main,4ffe2ec395ea6b14686c563083e9106006c85c08,Luis Cedillo Maldonado,2023-04-20T18:51:52Z,changed ci/cd file checkout v
+main,43bfd96fe0facb944ba51bf48ca9522f15534cea,Luis Cedillo Maldonado,2023-04-20T18:02:54Z,changed ci/cd file
+main,d85f7e630d3a2f52ae55db6a926f964d492a8591,Luis Cedillo Maldonado,2023-04-20T17:56:09Z,changed ci/cd file
+main,0cf37880e054648c197b20f6b1111970a85eb79e,Luis Cedillo Maldonado,2023-04-20T17:48:18Z,Deleted .idea dir
+main,8a1b87b18ddbd670e30e83ff7bea629794eb2d1d,Luis Cedillo Maldonado,2023-04-20T17:37:34Z,Automated testing for API
+main,bfb7116705548ab1c92ae54cb83cbc91e494ce14,supply-geologist-11139420,2023-04-20T16:43:23Z,created postman test for login
+main,3a5eb65beabacda77f0370f37b69f1b91feff530,luisced,2023-04-20T02:51:13Z,modified yml region to us-east-2
+main,f5adfbb704172c9970e0b15a8348bfa79c31d401,luisced,2023-04-20T02:43:56Z,modified yml region
+main,53f69a6dd2dbc349a87023692297d34d1bdee903,luisced,2023-04-20T02:39:10Z,modified dockerfile
+main,1d8624f1216b581c8e5c494f10a7d6f1562e6b07,luisced,2023-04-20T02:36:44Z,modified dockerfile
+main,93a04f174cc0d37bbcb50fe6bf55ebccec585217,luisced,2023-04-20T01:53:15Z,modified dockerfile
+main,1af993b2d7dac36d076a52d9047c79c2cedf1d62,luisced,2023-04-20T01:34:01Z,modified workflow
+main,26a57202f8858abb72aa0f86a0794cc9b04865f3,luisced,2023-04-20T01:25:12Z,modified workflow
+main,187e48d987fa10456c668aaebab7a72edc8cb1a5,luisced,2023-04-20T01:22:50Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,6a70ee13a1747dd9331116ace860a188939476c4,luisced,2023-04-20T01:22:33Z,created workflow
+main,bf8a38650852e4b8f912eeaf0ebb15976b5c2520,supply-geologist-11139420,2023-04-18T02:15:13Z,Added healtcheck
+main,61347fc7c287aac94b05804089bda4689038f8a7,supply-geologist-11139420,2023-04-18T02:10:25Z,Updated postman endpoints
+main,b6496bd990e6bb7a6bd67a8c4e8ed84a04bb7b67,Maurch,2023-03-27T05:45:06Z,Commented some algorithms
+main,fabdd8943cccfb780045a5717087ff2d149bc666,Maurch,2023-03-27T05:09:19Z,Added function to validate a list of schedules generated by another function and fixed errors when intrudciong non-existent courses under the createSchedule endpoint
+main,cd76604c037a3a7a9dcbb36c23834c147cf3b1b5,Maurch,2023-03-24T22:44:14Z,"Added schedule generator, createSchedule endpoint"
+main,c750545ae26a8a4abf9fce94defb4bf3dacd18b4,Maurch,2023-03-24T19:52:07Z,Added schedule permutations endpoint
+main,6f88ada8986670cecd64caecb2d7f826ac3c6a0c,luisced,2023-03-22T03:44:29Z,changed requierements
+main,8e5dbe346dae81b454133f6b4bcbc2673932b73c,MAurch,2023-03-20T21:32:12Z,Added schedule endpoint
+main,af35513c4195d7530e12111a2a0486a3361a4489,luisced,2023-03-20T05:28:33Z,created guest registration
+main,3b38ddb5ac2726719f67ce75f220c220f9ff8919,luisced,2023-03-20T03:30:33Z,modified login
+main,1a340e05e440e4b1f47e90e17cec9283ee2a6c02,luisced,2023-03-20T03:14:19Z,merge from security/Validations
+main,72ffd615eaae723a722b61d3835650e9f3a35a5e,MAurch,2023-03-18T02:49:45Z,Added schedule endpoint
+main,9f4aa4a7aa2c50c43299704d6be885f46eaf97ac,Luis Cedillo Maldonado,2023-03-17T20:29:39Z,Created DB table for User and Profile
+main,726ea5f3f2bcd7100d53962dc2b048786334e50f,luisced,2023-03-17T05:16:46Z,created profile model
+main,36704ebdf14a696e98a8d45db48f6add0825cb79,luisced,2023-03-17T05:09:19Z,add user table
+main,1761a4d9c38a14f74f871ef1bd4073838f5010f8,luisced,2023-03-17T02:35:22Z,merge from main
+main,f5d3f5942c0b6a12a456d32d5394a910a3e73819,Maurch,2023-03-17T02:21:46Z,login changed route
+main,6685a21b017104c6c74c1566ac306900dbad1f73,luisced,2023-03-17T02:15:39Z,updated dependencies
+main,8fc1e43deb039e39bffae405897a3015484b520b,Luis Cedillo Maldonado,2023-03-16T21:59:24Z,added security dir
+main,fe4c69383d492cb1fefa00428d7d29584c7a46c9,Luis Cedillo Maldonado,2023-03-14T19:09:30Z,Update README.MD
+main,ced860fe1f0eb4227f7be9e758b1e56529f19894,Luis Cedillo Maldonado,2023-03-13T03:38:37Z,Update README.MD
+main,073ad02b3be20ad6bb6cba98292d1cb26860eea4,Maurch,2023-03-10T19:25:57Z,Added CommonZones and Zones tables
+main,71d0cf0c9cc93998a704339111ff2c88618a67f7,Luis Cedillo Maldonado,2023-03-07T06:56:25Z,Update README.MD
+main,888ec38e670fe7d1384e82fe2be235180f391704,luisced,2023-03-07T06:55:17Z,updated  Readme file to the repo
+main,a128a8dd6ec2f2016d621fab5d51b3d996d640b0,luisced,2023-03-07T06:54:17Z,Added Readme file to the repo
+main,dcd8dedd23c665453be0d2d7f5fa01a02d6d06f2,luisced,2023-03-07T06:27:22Z,Modified docker containers name
+main,8e1e7a436cb106e88bf0e665293b8d4098aa9546,luisced,2023-03-07T06:19:46Z,merge from feature/api
+main,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Borre mis pendientes
+main,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
+main,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
+main,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+nodes,f4c5d454f06985ece8783be25f3f6f09211e9cbd,Mauricio,2023-09-05T23:21:38Z,"Fixed multiple errors, moved csv_nodes to school and added malaga nodes"
+nodes,e02a95fd6c7ab12ec8ae64c869d311408679c089,Mauricio,2023-09-05T05:00:59Z,Deleted Costo trash values
+nodes,84989264d0f303e537903e45af3e5c590ecba136,Mayze2602,2023-09-05T04:26:40Z,added each building its csv file
+nodes,cb45cd941ce266cdea8437e9b24f1814a81e00ad,Mauricio,2023-09-05T03:55:42Z,"updated nodes routes.py, now, the route for the best path is dynamic, and it is called /pathfinder, it takes 2 arguments in its route, /pathfinder/<string:start>/<string:goal>"
+nodes,de6f813b29dff109a3d4b605b895e53239b0356f,Mauricio,2023-09-05T03:26:44Z,Merge remote-tracking branch 'origin/nodes' into nodes
+nodes,ee4a0a463c33020e662001994194907776f1e4c9,Mauricio,2023-09-05T03:26:21Z,Finished path algorthm v1
+nodes,288a4f4390dbb026386574ea9226c2d3f0ba16d2,Esteban Mayoral,2023-09-05T02:06:20Z,updated campana and malaga
+nodes,1487321f440798f03605ec91358a03fa3125d8d6,Mauricio,2023-09-05T01:40:52Z,Added malaga changes
+nodes,09a8fd82ca5c5ec613a43f54b2d7f43b0b0c11da,Mauricio,2023-09-05T01:37:16Z,"Merge remote-tracking branch 'origin/nodes' into nodes
+
+# Conflicts:
+#	csv-paths/Nodos iOS - FINAL.csv"
+nodes,ffeb71f8be9ca4e81e6429df73fd04d84b6feed8,Mauricio,2023-09-05T01:33:08Z,Finished Anexo nodes with their cost
+nodes,d80679e91ef5053aa9d0ecd7f73b8cb44a806064,Esteban Mayoral,2023-09-05T01:30:39Z,Updated csv with Malaga and Campana nodes
+nodes,a591ce6ad155c4d7a0e07478b2b790ebe0cee33b,JavierRangel2004,2023-09-02T21:01:52Z,scrapp clean and log
+nodes,e8689c83d5852221a806610441eec6131a57972d,Mauricio,2023-09-02T07:27:09Z,"created /nodes route: returns all nodes in the database with their respective neighbors, also added /update_nodes route, store all nodes in the csv into the database, modify database table nodes, created model for the Nodes table"
+nodes,e6cc8b739bdb242275059e1b8a6fdb89ceca5bd8,Mauricio,2023-09-02T01:03:48Z,"deleted trash files under scripts, detected multiple misconfigurations under App/schools/nodes, changes sql nodes table structure"
+nodes,48f942a4603d0cbd17dab2014289e44c548f8650,Xayil,2023-09-01T23:34:36Z,Cambio al endpoint de nodes
+nodes,923ed73ecac0117a7949dce75d7e4730eae74f3a,Esteban Mayoral,2023-08-31T20:00:02Z,created csv for paths
+nodes,8656a5663b52c4b5fafc95d6fa9c2a249eaefcf4,Esteban Mayoral,2023-08-31T19:34:01Z,"Update 012_nodes_db.sql
+
+updated nodes database"
+nodes,54ce1429e3d2ba7c17017cba5191a63b5d0eb299,Mayze2602,2023-08-31T04:57:17Z,Create 012_nodes_db.sql
+nodes,05bed112d70af212a1b7013ad34482cc706bca07,Mauricio,2023-08-30T18:02:15Z,"updated mysql and adminer version, changed adminer design"
+nodes,2f3f4baadedd6b1810020082de45bdd5340ef236,Mauricio,2023-08-30T02:20:59Z,Merge NewApiModel
+nodes,29a62af85456be67a2dd75c1fd8e70865b6278f4,Mauricio,2023-08-30T02:03:25Z,fixed missconfiguration
+nodes,7106a244dd51831ebce51ed9acaca2767161ff04,Bruno,2023-08-29T18:02:33Z,Se ha modificado el archivo routes de nodes
+nodes,6e08e24cfbb32dde279c3613bd5bb1d0585de048,Xayil,2023-08-28T19:30:03Z,Creación de endpoint para los nodos
+nodes,0b9987deef5b18949b6bb8a9c341c1b50cbaa60e,Mauricio,2023-08-25T08:57:38Z,"Deleted misconfigurations, changed multiple data types and default values"
+nodes,edfde077adba169e135a8f0c09b02869e95584d2,Mauricio,2023-08-25T07:12:58Z,Deleted misconfiguration
+nodes,4b241ab258f9f1b2ba558e6db07e37491d3ab69d,Mauricio,2023-08-24T23:05:41Z,Fixed scrapper endpoint (firefox was opening multiple unnecessary tabs)
+nodes,b643dda930667670b39520672ba452f6dd0a1b96,Mauricio,2023-08-24T17:59:54Z,changed python version
+nodes,3a69a9957204f707d1074f58f6ff675e8186026a,Mauricio,2023-08-24T08:08:00Z,Commented scrapper volume inside docker container
+nodes,a5c8ea047b22d9b9fcbae79a11eaad477b2b4daf,Mauricio,2023-08-23T19:14:22Z,"Resolved some PEP8 error.
+Fixed some function data types."
+nodes,586fa1b657f6eceac85fa03e6fce4692210b6890,Mauricio,2023-08-23T18:36:26Z,Fixed login endpoint
+nodes,71668cc7f02d08814df94f62924bd86c8b94cac8,Mauricio,2023-08-23T07:19:26Z,"Fix API driver deprecated error, web driver now working"
+nodes,a38f2d187576e835dcda87f97aa47d141bc19f1d,Maurch,2023-08-23T06:35:57Z,fix selenium driver
+nodes,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+nodes,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+nodes,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+nodes,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+nodes,f79861e85bb212e7625b666c5d92a64118becc33,Mauricio,2023-08-16T06:05:12Z,added .idea to .gitignore entries and deleted .idea
+nodes,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+nodes,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+nodes,7589db40a37e99aa4d3d2dc4937951726f2266b3,Mauricio,2023-08-15T16:30:07Z,updated gitignore
+nodes,3880fd2d54e70be3d0dd99f71e6a505b9a2553b5,Mauricio,2023-08-15T02:39:19Z,updated selenium and webdriver versions
+nodes,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+nodes,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+nodes,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+nodes,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
+nodes,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+nodes,7f23ab36b3692074a0ec4d387ec466188c9a7b14,dpelaezr,2023-06-19T03:00:59Z,Documentación terminada
+nodes,e9da1ace1559e82cf0d6b305a25e69ab0b79cc7d,dpelaezr,2023-06-18T21:30:07Z,Documentación casi terminada
+nodes,238457a84f67be26281637f48615096e0dd3245d,dpelaezr,2023-06-18T20:22:28Z,Documentación a medias
+nodes,f3b8df7650a67d0af338d3432d3eca3622ccb77d,MAurch,2023-06-15T06:34:39Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+nodes,19d9f770fc5fe7d00d30a26f177beb5fbab5bb21,MAurch,2023-06-15T06:27:42Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+nodes,45ced4a7552658267fc99fd5e86680aed495d7cf,luisced,2023-06-15T05:47:03Z,added periodic scrapping
+nodes,71f7de7f173eaf497b5846501cba520c272cdf8f,supply-geologist-11139420,2023-06-15T00:40:36Z,addd user id comment
+nodes,6bb091fba5e5134b3bb6ff417b4a790b34ea801d,supply-geologist-11139420,2023-06-15T00:13:11Z,Added create schedules endpoint
+nodes,55364675b8fb944badc40d128c67e3ed1916764f,JavierRangel2004,2023-06-14T19:49:42Z,Added feature/schedulesPandas changes to main
+nodes,01f589ca0d50df070320812857c75eafe9b7265b,luisced,2023-06-09T06:05:31Z,modified op
+nodes,991e66997863e6c086bb020b95d3a8c5c0452992,Javier Rangel,2023-06-08T02:42:16Z,Update README.MD
+nodes,732e22967cb5962a3fbf8549403a2753ba79e245,Luis Cedillo Maldonado,2023-06-07T04:56:22Z,Update README.MD
+nodes,5266158723cddb5aa45816ac6abe7620f36a1e9a,MAurch,2023-05-28T20:12:06Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: fix schedule json format from List to Dict
+nodes,8e90e0a0750b7209918de4aee1af2f8622123f19,MAurch,2023-05-27T10:52:57Z,Changes: None; Added: relation user-group table; Fixed: None; Deleted: None; Pending: None
+nodes,194a538f3d16e5171460a2b7dcc1f7a1ad7efd64,supply-geologist-11139420,2023-05-23T07:26:31Z,again changed user code
+nodes,8557b75626c5f37fd72b5d68c3daf5ef85e20df8,supply-geologist-11139420,2023-05-23T07:19:50Z,changes user login test
+nodes,3c420210b995ebe5978a4a76ceebb004434ff0d4,supply-geologist-11139420,2023-05-23T07:15:56Z,changed json key
+nodes,5b09a324fdc70a7e16f73efe4cb1cf88eb71bc76,supply-geologist-11139420,2023-05-23T07:11:17Z,Created documentation for user
+nodes,bf6833932b2a139ece6f8ade9dfb93084bf6fe26,luisced,2023-05-23T07:09:18Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,ff38a6893821a4717b3cc8edb9f8bbbf8fd95279,luisced,2023-05-23T07:09:14Z,Fixed upsite login and added jwt when user is created
+nodes,4bff9292f3c72fccb47d56224a53516c0cb7bf16,MAurch,2023-05-23T04:39:42Z,"Changes: None; Added: Scrap schedule functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+nodes,c7741a22fffd0d17d60f2e58c6ea20ac06fc2dcf,MAurch,2023-05-23T03:18:27Z,"Changes: None; Added: Scrap grades functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+nodes,7b1fdc28b4d627ffa3bb95088d3d941947a47db6,luisced,2023-05-23T02:26:54Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,96ec815cd0342b56143731b5c1455c3241fe5f45,supply-geologist-11139420,2023-05-23T02:26:07Z,added new tests
+nodes,d9055c6bb9f1ca66b1ea85485b4b4b916801a2f5,luisced,2023-05-23T02:25:57Z,changed success key
+nodes,3080b430eb16017c8a69a27f15c2f177dd98c466,supply-geologist-11139420,2023-05-23T02:16:46Z,updated jwt test
+nodes,6e0921ab811cc52facaf98e6f5aee2556f74fde5,supply-geologist-11139420,2023-05-23T02:08:11Z,updated user keys
+nodes,33b61aee08e9681a05beb08cd2f7a317567798a0,luisced,2023-05-23T02:07:50Z,login restructured
+nodes,09f2e9abcbcb668fccb7f5f63f0222687db216b3,supply-geologist-11139420,2023-05-21T02:43:08Z,added tests
+nodes,7e53ec85819d32e2649ad519d867774419be0cfb,luisced,2023-05-21T02:42:38Z,Merge branch 'enchancement/filtersSchedules'
+nodes,965e1024c1c45b2e01e3ed2b5d0734eb9f1c89e3,luisced,2023-05-21T02:41:37Z,cleaned code p2
+nodes,15841398b5b71295488c1f64b142a6e7c570d029,MAurch,2023-05-21T00:53:59Z,Changes: None; Added: routes file under dashboard module / blueprint of dashboard under __init__; Fixed: None
+nodes,0b9bf5f52c9c610fd06489078b78e6d0261edcf5,MAurch,2023-05-21T00:40:10Z,"Changes: Minimum amount of subjects, changed from 1 to 3; Added: Modified requirements.txt, added beautifulsoup4 to libraries; Fixed: None"
+nodes,2418bcfe6d8d7e670137cf1ef1a3b940fa94a238,luisced,2023-05-20T23:01:19Z,cleaned code
+nodes,d0e69d0f12122415c4624a4f1049526ab95467e0,luisced,2023-05-20T22:43:04Z,New endpoint structure and new filter (teacher) for schedules
+nodes,b37d62cc2e8507872e7e33f41df0ccc276619d4b,supply-geologist-11139420,2023-05-20T21:33:48Z,added schedule maker endpoint
+nodes,8451ae3cd067233167679958d831340c3b6da7af,luisced,2023-05-20T21:27:30Z,new schedule algorithm
+nodes,99d1cb6f029a1adc03061ed86f07dbe3af7b7aa3,Luis Cedillo Maldonado,2023-05-19T16:57:23Z,filter for status: True
+nodes,0d3f36d7a534e7cd7ef9231cd2177e143ce599e5,Luis Cedillo Maldonado,2023-05-19T16:37:36Z,added jwt to createSchedules
+nodes,1b85af5735acfa594aa3a1d16a256d327a4f4485,Luis Cedillo Maldonado,2023-05-19T16:26:15Z,only schedules with more than one subject are returned
+nodes,a300096b2ec0b20e268cfef3c8103a1b27d7b8f3,Luis Cedillo Maldonado,2023-05-19T15:23:10Z,finished compatible schedules endpoint
+nodes,f153ba5c7834a7145a8b426868e0dca5f8a86096,Luis Cedillo Maldonado,2023-05-19T05:01:13Z,modified create schedules algorithm
+nodes,1798b182322081fe6e125b97b73b0b05f03b4732,supply-geologist-11139420,2023-05-17T06:01:53Z,added create shecules
+nodes,b85450182c4181d336d57c53af3dac766ef4c08e,luisced,2023-05-17T06:00:32Z,initialized function for schedules
+nodes,f1c77e2a376373f85c0f5af7548f7fc17366f719,luisced,2023-05-17T02:29:16Z,Modified fetch days function in oder to only add groups with valid schedule days
+nodes,1441fda8b6b30daa4cf2c3dd0d116a811e8a96ec,luisced,2023-05-17T01:00:42Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,7630566f30e1fed80a14d9305750e5ce6fb35268,luisced,2023-05-17T01:00:05Z,only get full groups
+nodes,60017ff497355fba509a41656dfbf82f2e61fffc,supply-geologist-11139420,2023-05-16T00:32:49Z,deleted combs
+nodes,c856f15c523abd56897b8d9baa5eb3d17c92ea4e,luisced,2023-05-16T00:27:56Z,new filters
+nodes,40c0fceb4657a67df82cba9e105000c5c5965661,luisced,2023-05-16T00:17:34Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,7c0b227955e76c79621099a75decc8ab8b66eaf5,luisced,2023-05-16T00:14:54Z,Merge branch 'fix/dockerContainer'
+nodes,1b32f62127bae458531d37ed4202030c40507eaf,luisced,2023-05-16T00:11:55Z,added srapper http request
+nodes,bdf102964f207a683f80ffb603fe16fb649c232d,luisced,2023-05-15T23:46:06Z,added srapper http request
+nodes,ca4b86467148022f5f1d0d9260c7ccb63cfbbb7f,luisced,2023-05-15T23:44:46Z,added chrome base image to usr/bin
+nodes,ac6df40b63b5a80f1a4db33459a2888ccdfe5153,luisced,2023-05-15T23:31:51Z,added chrome base image
+nodes,5848fe99ea0bebf0e4fd596c8ae97ba67c189085,luisced,2023-05-13T02:15:08Z,Updated docker mysql version and added platform
+nodes,66aeb9873e22e89785ecd2f50861fc4f4ecf0d7e,luisced,2023-05-09T00:19:35Z,changed docker mysql version
+nodes,45ada0c254d0cd8779246ab48dda1bfdf8aa37f5,luisced,2023-05-09T00:05:44Z,Updated docker mysql version and added platform
+nodes,90379552247f00c65549ed69e0774cd1af5120ef,luisced,2023-05-08T23:40:30Z,Updated docker mysql version and added platform
+nodes,b47f8cd841cb2c5cd9d1ec7762dbbf3c37c00f31,Daniel Peláez,2023-05-08T23:30:26Z,flask update
+nodes,920fbd2768bd8a492302f49b7418bce07420d4cb,Luis Cedillo Maldonado,2023-05-04T18:05:40Z,"Merge pull request #2 from iOS-Lab-UP/add/getTeacher
+
+Add/get teacher endpoint"
+nodes,d193713eabea54d47612fd196b80729c824c96c0,Javier Rangel,2023-05-04T16:23:43Z,Added subjectTeacher function and implementation
+nodes,f825c302915de40d205d88a60db6e56a300bc470,JavierRangel2004,2023-05-03T07:26:16Z,"Added get teacher endpoint, function and declaration"
+nodes,e8770bb2b229902ef260dc510e8188f310238083,JavierRangel2004,2023-05-03T05:55:26Z,"Merge pull request #1 from iOS-Lab-UP/name_surname_validation
+
+Added filter_Users function and endpoint"
+nodes,fc5877191d6c5bea9cd8a3f2070fa658dad670d6,JavierRangel2004,2023-05-03T05:42:25Z,Merge branch 'main' into name_surname_validation
+nodes,1f42ac9fcb5e49a85cb7ea77bcc7b24f5ffa9fe0,Javier Rangel,2023-05-02T20:00:49Z,Fixed filter_User function and endpoint
+nodes,516651f966f6d93d4f164752b48f49af04a93ea2,JavierRangel2004,2023-04-28T16:20:10Z,"del pruebas.py, added getUsers function and endpoint"
+nodes,f238ee09aa71e327876249f772c9419f8b88ca3a,Javier Rangel,2023-04-27T01:02:03Z,added filterUsers function and added some explanantion comments. Created pruebas.py file to try functions
+nodes,73fae13be500c45c235c507eaade9985c05bd82b,Javier Rangel,2023-04-25T20:54:52Z,Eliminar archivo namepy extra
+nodes,a0e7e545f2dd457d27b1b77f5bcce8789a622c71,Javier Rangel,2023-04-25T18:19:21Z,func Separar nombres e implementacion en createUser
+nodes,773e65a646c57749ddaebdc78420cb1c9ae126b2,supply-geologist-11139420,2023-04-25T18:18:31Z,renamed endpoint
+nodes,23f08431214467fcd4dda9cb550a032aa8963fec,Luis Cedillo Maldonado,2023-04-25T18:16:20Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,f5c53a350be0d9caf7e50e055faede032c87a920,supply-geologist-11139420,2023-04-25T18:16:12Z,added tests
+nodes,52e3530769b597f126660fe54508146b4da23c1d,Luis Cedillo Maldonado,2023-04-25T18:15:00Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,fa1dcf2b7739c1fe154fc3be2ab0d0185aa86526,Luis Cedillo Maldonado,2023-04-25T18:14:41Z,Renamed variables for create schedule
+nodes,e37c82bcc775810f49480cfc746caede338ced6d,navigation-candidate-92544788,2023-04-25T18:10:46Z,created get request for schedules
+nodes,1e23b9dd4f41980dbb4396bdf7d603c1d4b8a2ff,supply-geologist-11139420,2023-04-25T16:33:32Z,Created tests
+nodes,c94b8b884b1cea75379cae90d156739eea13aa98,MAurch,2023-04-25T07:07:11Z,Fixed schedule
+nodes,7db972de111722839e8fd735428317ef33939193,luisced,2023-04-25T05:24:20Z,updated postman endpoints
+nodes,e9ca6d59ab9c81192ae0587bc47976d0c9482634,navigation-candidate-92544788,2023-04-24T18:25:28Z,m
+nodes,822c3bccc2845f0aeacd8de999b8b5fe6b082abd,JavierRangel2004,2023-04-24T06:17:54Z,funcion para separar nombres y apellidos - JavierR
+nodes,e9642ceec3eda1519bb4e1c2b62cd125dbbcf829,luisced,2023-04-24T04:17:18Z,Merge branch 'main' into fix/create_schedule
+nodes,392bf3c632c4255a3c6c8b3e50d0819a6e6b0885,supply-geologist-11139420,2023-04-24T04:10:55Z,moved endpoint
+nodes,e98134d3637f81a145d5310a4a074888039b40d1,luisced,2023-04-24T04:08:59Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,8547e4b99e04d85320ebfe66345d8d2242cdb171,luisced,2023-04-24T04:08:53Z,deleted boiler-plate code
+nodes,67a91273cbb1a6b52b956058dfeff68b5cf1f24e,supply-geologist-11139420,2023-04-24T04:01:29Z,Deleted endpoint in order to fix it in other branch
+nodes,b3431a750efd1040de04e15e3ef6bc43c2eeee5a,navigation-candidate-92544788,2023-04-24T01:50:12Z,Me mi endpoint
+nodes,fbc6b3994b008fb752403b288857c14d0773c644,luisced,2023-04-24T01:17:32Z,optimized splitCourses function
+nodes,89a1e18844df7f73caaaf51532812057794c5974,Iñaki Sigüenza,2023-04-23T16:29:53Z,delete test
+nodes,2a18827b7981454239a32b66bc607405791bfb69,Iñaki Sigüenza,2023-04-23T16:29:06Z,Test logo Discord
+nodes,89cd65fd0e07f42c30f4f4c3786858a736fd78e4,luisced,2023-04-23T06:54:13Z,fixed tagging
+nodes,c8665de333329a1477d9d038b39ec19aa8655aa2,luisced,2023-04-23T06:46:26Z,Chaned relative path for automatic tagging fixed
+nodes,753b5b468c741d942ee2993b63abae8310200e12,luisced,2023-04-23T06:42:21Z,Chaned relative path for automatic tagging fixed
+nodes,ad8cbaee683b629e670ec746a30871d6fdecdc68,luisced,2023-04-23T06:38:23Z,Chaned relative path for automatic tagging fixed
+nodes,bcf076f756e8c29fc1bcd3701a123de07a814994,luisced,2023-04-23T06:30:34Z,Chaned relative path for automatic tagging
+nodes,3f05d5d0733f80e5b4a81bdf7adf28a8592490ca,luisced,2023-04-23T06:30:02Z,Chaned relative path for automatic tagging
+nodes,0c122a4455d46cb7557f0489fcd7579c40ce5f1e,luisced,2023-04-23T06:29:49Z,Chaned relative path for automatic tagging
+nodes,510deee067de0bac5a0d977996f7772487c9881d,Luis Cedillo Maldonado,2023-04-23T06:01:22Z,Update main.yml
+nodes,45aa2d634d8c80760828d8f11f5b77872881562d,luisced,2023-04-23T05:55:28Z,Chaned relative path for automatic tagging
+nodes,268a0ac86c53130f598a11c41456a9534b0878d9,luisced,2023-04-23T05:47:03Z,Created automatig tagging for app versioning
+nodes,a6196c0d1a2ec39b881a3ded8ce582cd876e7b0d,luisced,2023-04-23T05:36:17Z,Created automatig tagging for app versioning
+nodes,faed1d076d148b035005f03393755e69b2f22250,luisced,2023-04-23T04:16:27Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,74d878e15b350350e34aabde0695c467a8d397be,luisced,2023-04-23T04:16:22Z,return group
+nodes,8b0eaf9ca0796da621ac50f58891b19a9116321f,supply-geologist-11139420,2023-04-23T04:10:34Z,deleted upsite endpoint
+nodes,e46020fb2d93086e5d747a525d1f02832d138713,luisced,2023-04-23T04:08:05Z,return group
+nodes,40209317ca4f8e290248f90efab80d9572213aec,luisced,2023-04-23T03:41:06Z,scrapper volume created
+nodes,7ef1478f25e4e126e94a67d44db49e84196e6340,luisced,2023-04-23T02:40:50Z,test run_scrapper.sh
+nodes,3ddaa939a2aa812ef923c40732b45c7ca798b27e,luisced,2023-04-23T02:40:33Z,test run_scrapper.sh
+nodes,5e1d94c41d9ee7440016fb755021f4a5f28a1d68,luisced,2023-04-23T00:31:22Z,Fixed bug: datetime objs not parsed correctly
+nodes,d135c09d222f5c5cec59fb06a6405dcde65a8787,luisced,2023-04-22T18:35:44Z,Fixed bug: Timeout within enterUPSiteSubjects
+nodes,b070e544a0972838455678416b0c8a1bbdc2a7c8,luisced,2023-04-22T18:17:33Z,Fixed bug: Timeout within enterUPSiteSubjects
+nodes,fc52d63bbc27dbe20422aa5ed84f456d9008530f,luisced,2023-04-22T18:15:35Z,Fixed bug: Timeout within enterUPSiteSubjects
+nodes,fe2fadd18adb530f09e5cdba6e8bf4e56f76a2d9,Luis Cedillo Maldonado,2023-04-21T23:42:23Z,"New delay time, until prescence of an element"
+nodes,a7ab5c02aa78d4056ba98cf8dfcb81c9602551d5,Luis Cedillo Maldonado,2023-04-21T21:51:34Z,"New delay time, until prescence of an element"
+nodes,1e521fa764ba5988f9abc6b2efc8b11019e2c310,luisced,2023-04-21T02:39:02Z,Its necessary to finish build before this job
+nodes,0102aae36cfd284c6b6d34ab8b9496e4a6983688,luisced,2023-04-21T02:32:46Z,Its necessary to finish build before this job
+nodes,cdc2640ede3afed48551509ff458a1a567d9ecb1,luisced,2023-04-21T02:30:17Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,35c427f4336036073a55c6bb6eb6c0f019439544,luisced,2023-04-21T02:28:13Z,tests changes to newman report
+nodes,f07184fa1b2b7bbebf2a92447ff4801093de074c,supply-geologist-11139420,2023-04-21T01:56:44Z,sleepBetweenTries
+nodes,3f3cb4e31d1f7a6706254dd8c200f79119a4d819,luisced,2023-04-21T01:51:13Z,changed groups function
+nodes,77f666ccf9d9661c59d516ba8c48ec14e7398a5e,luisced,2023-04-21T01:43:20Z,changed groups function
+nodes,8931293e4f2f58ca1b279e4a753e2cc0dd2de84b,luisced,2023-04-21T01:35:22Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,7833a32e55cc96b3f59ebf7508c08604a6ee9938,luisced,2023-04-21T01:34:41Z,changed groups function
+nodes,bc1a6ec3d264fb652d2f91b4d5830df8b1a4124b,supply-geologist-11139420,2023-04-21T01:19:23Z,changed test for fetch group
+nodes,b9168ec719a2470aaddab7ae300726cacb2bf9cc,luisced,2023-04-21T01:19:02Z,changed groups function
+nodes,c285bf743e8e639a39e28b945fcb8137bfee7db0,Luis Cedillo Maldonado,2023-04-20T21:39:20Z,"New delay time, until prescence of an element"
+nodes,6731b9223fdca5599b813b9abfc9838f17628132,Luis Cedillo Maldonado,2023-04-20T21:33:45Z,"New delay time, until prescence of an element"
+nodes,63643ec11fefc3e252a9dc68bd3b2cfa594b3678,Luis Cedillo Maldonado,2023-04-20T21:22:31Z,"New delay time, until prescence of an element"
+nodes,ab61f9ec5d31b519afea4c2af75223d4c559a8b8,Luis Cedillo Maldonado,2023-04-20T21:20:35Z,"New delay time, until prescence of an element"
+nodes,eb1b78f723b177f974463fae18b28c9d1c1ac0fe,Luis Cedillo Maldonado,2023-04-20T21:01:43Z,"New delay time, until prescence of an element"
+nodes,983f33e02c10cf8d78cb384f3b634b5b54efda10,Luis Cedillo Maldonado,2023-04-20T20:20:43Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,bba00d416894bedfb6704ef5259653518f9c7d85,Luis Cedillo Maldonado,2023-04-20T20:20:03Z,changed ci/cd file checkout v
+nodes,d83055a6e6a57dc0200a45c6892bc14d42b7fb41,supply-geologist-11139420,2023-04-20T20:19:50Z,added retries
+nodes,d09b4627da3182372b99edaf791693140a91f427,supply-geologist-11139420,2023-04-20T19:44:27Z,changed tests
+nodes,6e739d2ac64e0ebaf970697cdd8dc989645f7700,Luis Cedillo Maldonado,2023-04-20T19:32:17Z,changed ci/cd file checkout v
+nodes,059ef704d4e2a7145c33fa818f11b829dc302eab,Luis Cedillo Maldonado,2023-04-20T19:29:05Z,changed ci/cd file checkout v
+nodes,8e25367cadbcf3125ab0b278bb71e67162a54c66,Luis Cedillo Maldonado,2023-04-20T18:55:43Z,changed ci/cd file checkout v
+nodes,4ffe2ec395ea6b14686c563083e9106006c85c08,Luis Cedillo Maldonado,2023-04-20T18:51:52Z,changed ci/cd file checkout v
+nodes,43bfd96fe0facb944ba51bf48ca9522f15534cea,Luis Cedillo Maldonado,2023-04-20T18:02:54Z,changed ci/cd file
+nodes,d85f7e630d3a2f52ae55db6a926f964d492a8591,Luis Cedillo Maldonado,2023-04-20T17:56:09Z,changed ci/cd file
+nodes,0cf37880e054648c197b20f6b1111970a85eb79e,Luis Cedillo Maldonado,2023-04-20T17:48:18Z,Deleted .idea dir
+nodes,8a1b87b18ddbd670e30e83ff7bea629794eb2d1d,Luis Cedillo Maldonado,2023-04-20T17:37:34Z,Automated testing for API
+nodes,bfb7116705548ab1c92ae54cb83cbc91e494ce14,supply-geologist-11139420,2023-04-20T16:43:23Z,created postman test for login
+nodes,3a5eb65beabacda77f0370f37b69f1b91feff530,luisced,2023-04-20T02:51:13Z,modified yml region to us-east-2
+nodes,f5adfbb704172c9970e0b15a8348bfa79c31d401,luisced,2023-04-20T02:43:56Z,modified yml region
+nodes,53f69a6dd2dbc349a87023692297d34d1bdee903,luisced,2023-04-20T02:39:10Z,modified dockerfile
+nodes,1d8624f1216b581c8e5c494f10a7d6f1562e6b07,luisced,2023-04-20T02:36:44Z,modified dockerfile
+nodes,93a04f174cc0d37bbcb50fe6bf55ebccec585217,luisced,2023-04-20T01:53:15Z,modified dockerfile
+nodes,1af993b2d7dac36d076a52d9047c79c2cedf1d62,luisced,2023-04-20T01:34:01Z,modified workflow
+nodes,26a57202f8858abb72aa0f86a0794cc9b04865f3,luisced,2023-04-20T01:25:12Z,modified workflow
+nodes,187e48d987fa10456c668aaebab7a72edc8cb1a5,luisced,2023-04-20T01:22:50Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,6a70ee13a1747dd9331116ace860a188939476c4,luisced,2023-04-20T01:22:33Z,created workflow
+nodes,bf8a38650852e4b8f912eeaf0ebb15976b5c2520,supply-geologist-11139420,2023-04-18T02:15:13Z,Added healtcheck
+nodes,61347fc7c287aac94b05804089bda4689038f8a7,supply-geologist-11139420,2023-04-18T02:10:25Z,Updated postman endpoints
+nodes,b6496bd990e6bb7a6bd67a8c4e8ed84a04bb7b67,Maurch,2023-03-27T05:45:06Z,Commented some algorithms
+nodes,fabdd8943cccfb780045a5717087ff2d149bc666,Maurch,2023-03-27T05:09:19Z,Added function to validate a list of schedules generated by another function and fixed errors when intrudciong non-existent courses under the createSchedule endpoint
+nodes,cd76604c037a3a7a9dcbb36c23834c147cf3b1b5,Maurch,2023-03-24T22:44:14Z,"Added schedule generator, createSchedule endpoint"
+nodes,c750545ae26a8a4abf9fce94defb4bf3dacd18b4,Maurch,2023-03-24T19:52:07Z,Added schedule permutations endpoint
+nodes,6f88ada8986670cecd64caecb2d7f826ac3c6a0c,luisced,2023-03-22T03:44:29Z,changed requierements
+nodes,8e5dbe346dae81b454133f6b4bcbc2673932b73c,MAurch,2023-03-20T21:32:12Z,Added schedule endpoint
+nodes,af35513c4195d7530e12111a2a0486a3361a4489,luisced,2023-03-20T05:28:33Z,created guest registration
+nodes,3b38ddb5ac2726719f67ce75f220c220f9ff8919,luisced,2023-03-20T03:30:33Z,modified login
+nodes,1a340e05e440e4b1f47e90e17cec9283ee2a6c02,luisced,2023-03-20T03:14:19Z,merge from security/Validations
+nodes,72ffd615eaae723a722b61d3835650e9f3a35a5e,MAurch,2023-03-18T02:49:45Z,Added schedule endpoint
+nodes,9f4aa4a7aa2c50c43299704d6be885f46eaf97ac,Luis Cedillo Maldonado,2023-03-17T20:29:39Z,Created DB table for User and Profile
+nodes,726ea5f3f2bcd7100d53962dc2b048786334e50f,luisced,2023-03-17T05:16:46Z,created profile model
+nodes,36704ebdf14a696e98a8d45db48f6add0825cb79,luisced,2023-03-17T05:09:19Z,add user table
+nodes,1761a4d9c38a14f74f871ef1bd4073838f5010f8,luisced,2023-03-17T02:35:22Z,merge from main
+nodes,f5d3f5942c0b6a12a456d32d5394a910a3e73819,Maurch,2023-03-17T02:21:46Z,login changed route
+nodes,6685a21b017104c6c74c1566ac306900dbad1f73,luisced,2023-03-17T02:15:39Z,updated dependencies
+nodes,8fc1e43deb039e39bffae405897a3015484b520b,Luis Cedillo Maldonado,2023-03-16T21:59:24Z,added security dir
+nodes,fe4c69383d492cb1fefa00428d7d29584c7a46c9,Luis Cedillo Maldonado,2023-03-14T19:09:30Z,Update README.MD
+nodes,ced860fe1f0eb4227f7be9e758b1e56529f19894,Luis Cedillo Maldonado,2023-03-13T03:38:37Z,Update README.MD
+nodes,073ad02b3be20ad6bb6cba98292d1cb26860eea4,Maurch,2023-03-10T19:25:57Z,Added CommonZones and Zones tables
+nodes,71d0cf0c9cc93998a704339111ff2c88618a67f7,Luis Cedillo Maldonado,2023-03-07T06:56:25Z,Update README.MD
+nodes,888ec38e670fe7d1384e82fe2be235180f391704,luisced,2023-03-07T06:55:17Z,updated  Readme file to the repo
+nodes,a128a8dd6ec2f2016d621fab5d51b3d996d640b0,luisced,2023-03-07T06:54:17Z,Added Readme file to the repo
+nodes,dcd8dedd23c665453be0d2d7f5fa01a02d6d06f2,luisced,2023-03-07T06:27:22Z,Modified docker containers name
+nodes,8e1e7a436cb106e88bf0e665293b8d4098aa9546,luisced,2023-03-07T06:19:46Z,merge from feature/api
+nodes,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Borre mis pendientes
+nodes,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
+nodes,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
+nodes,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+registros,2c524f5d0f1bc0bb83b40006794575f121ad8e36,Iñaki Sigüenza,2023-09-07T05:17:16Z,Update extract.py
+registros,3d5ff736a8f1a5acffa24e483de41297bdf31a48,Iñaki Sigüenza,2023-09-07T05:15:50Z,Create main.yml
+registros,8c0bbdccd6a778dc5900734f8a4bce3c552174ed,Iñaki Sigüenza,2023-09-07T05:15:19Z,Add files via upload
+registros,9ae8edc68b2d3800adb1638fbf9a361441af9bf8,Enrique Ulises Báez Gómez Tagle,2023-09-04T04:03:14Z,"BACK ATDR.tex, me das tu opinión porfa @KelThzear"
+registros,ad952ed6403d6c09a0f07134c65d39fed860eefc,Enrique Ulises Báez Gómez Tagle,2023-09-04T03:59:58Z,"BACK ATDR.tex, me das tu opinión porfa @KelThzear"
+registros,c4bbe9efbc6043df961c1c2606b97b55cd03dc84,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:59:12Z,CSV para avances
+registros,9565385d12af5e981d5877b50658a0a903d2df05,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:47Z,Delete .postman directory
+registros,5729bf2d33a6baeb3a6d5a39fe4c8eb78fe0c706,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:40Z,Delete .vscode directory
+registros,6263cef33debbd043210dac05f0bded4501c063a,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:31Z,Delete .DS_Store
+registros,835336151054e40ff30c6fd4e1a2f6c140272e25,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:24Z,Delete .gitignore
+registros,01b158438047d59f8b2abd8f0ffd9ab29d420876,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:17Z,Delete app.py
+registros,685c66dd8f07392c556974b7b6584194e7e6f3f7,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:57:37Z,Delete .github/workflows directory
+registros,87824eae8bd02ebd480fcdd67ee29911af6fd5f1,Mauricio,2023-08-23T14:59:17Z,changes
+registros,e84021f2613e74e4b61449a6b6ca6443f2f387d3,Maurch,2023-08-23T06:20:49Z,None
+registros,751f093c70450b9706a5e6307811ae340384f0a5,Maurch,2023-08-23T06:18:26Z,test docker for api fix
+registros,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+registros,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+registros,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+registros,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+registros,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+registros,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+registros,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+registros,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+registros,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+registros,7f23ab36b3692074a0ec4d387ec466188c9a7b14,dpelaezr,2023-06-19T03:00:59Z,Documentación terminada
+registros,e9da1ace1559e82cf0d6b305a25e69ab0b79cc7d,dpelaezr,2023-06-18T21:30:07Z,Documentación casi terminada
+registros,238457a84f67be26281637f48615096e0dd3245d,dpelaezr,2023-06-18T20:22:28Z,Documentación a medias
+registros,f3b8df7650a67d0af338d3432d3eca3622ccb77d,MAurch,2023-06-15T06:34:39Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+registros,19d9f770fc5fe7d00d30a26f177beb5fbab5bb21,MAurch,2023-06-15T06:27:42Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+registros,45ced4a7552658267fc99fd5e86680aed495d7cf,luisced,2023-06-15T05:47:03Z,added periodic scrapping
+registros,71f7de7f173eaf497b5846501cba520c272cdf8f,supply-geologist-11139420,2023-06-15T00:40:36Z,addd user id comment
+registros,6bb091fba5e5134b3bb6ff417b4a790b34ea801d,supply-geologist-11139420,2023-06-15T00:13:11Z,Added create schedules endpoint
+registros,55364675b8fb944badc40d128c67e3ed1916764f,JavierRangel2004,2023-06-14T19:49:42Z,Added feature/schedulesPandas changes to main
+registros,01f589ca0d50df070320812857c75eafe9b7265b,luisced,2023-06-09T06:05:31Z,modified op
+registros,991e66997863e6c086bb020b95d3a8c5c0452992,Javier Rangel,2023-06-08T02:42:16Z,Update README.MD
+registros,732e22967cb5962a3fbf8549403a2753ba79e245,Luis Cedillo Maldonado,2023-06-07T04:56:22Z,Update README.MD
+registros,5266158723cddb5aa45816ac6abe7620f36a1e9a,MAurch,2023-05-28T20:12:06Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: fix schedule json format from List to Dict
+registros,8e90e0a0750b7209918de4aee1af2f8622123f19,MAurch,2023-05-27T10:52:57Z,Changes: None; Added: relation user-group table; Fixed: None; Deleted: None; Pending: None
+registros,194a538f3d16e5171460a2b7dcc1f7a1ad7efd64,supply-geologist-11139420,2023-05-23T07:26:31Z,again changed user code
+registros,8557b75626c5f37fd72b5d68c3daf5ef85e20df8,supply-geologist-11139420,2023-05-23T07:19:50Z,changes user login test
+registros,3c420210b995ebe5978a4a76ceebb004434ff0d4,supply-geologist-11139420,2023-05-23T07:15:56Z,changed json key
+registros,5b09a324fdc70a7e16f73efe4cb1cf88eb71bc76,supply-geologist-11139420,2023-05-23T07:11:17Z,Created documentation for user
+registros,bf6833932b2a139ece6f8ade9dfb93084bf6fe26,luisced,2023-05-23T07:09:18Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,ff38a6893821a4717b3cc8edb9f8bbbf8fd95279,luisced,2023-05-23T07:09:14Z,Fixed upsite login and added jwt when user is created
+registros,4bff9292f3c72fccb47d56224a53516c0cb7bf16,MAurch,2023-05-23T04:39:42Z,"Changes: None; Added: Scrap schedule functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+registros,c7741a22fffd0d17d60f2e58c6ea20ac06fc2dcf,MAurch,2023-05-23T03:18:27Z,"Changes: None; Added: Scrap grades functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+registros,7b1fdc28b4d627ffa3bb95088d3d941947a47db6,luisced,2023-05-23T02:26:54Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,96ec815cd0342b56143731b5c1455c3241fe5f45,supply-geologist-11139420,2023-05-23T02:26:07Z,added new tests
+registros,d9055c6bb9f1ca66b1ea85485b4b4b916801a2f5,luisced,2023-05-23T02:25:57Z,changed success key
+registros,3080b430eb16017c8a69a27f15c2f177dd98c466,supply-geologist-11139420,2023-05-23T02:16:46Z,updated jwt test
+registros,6e0921ab811cc52facaf98e6f5aee2556f74fde5,supply-geologist-11139420,2023-05-23T02:08:11Z,updated user keys
+registros,33b61aee08e9681a05beb08cd2f7a317567798a0,luisced,2023-05-23T02:07:50Z,login restructured
+registros,09f2e9abcbcb668fccb7f5f63f0222687db216b3,supply-geologist-11139420,2023-05-21T02:43:08Z,added tests
+registros,7e53ec85819d32e2649ad519d867774419be0cfb,luisced,2023-05-21T02:42:38Z,Merge branch 'enchancement/filtersSchedules'
+registros,965e1024c1c45b2e01e3ed2b5d0734eb9f1c89e3,luisced,2023-05-21T02:41:37Z,cleaned code p2
+registros,15841398b5b71295488c1f64b142a6e7c570d029,MAurch,2023-05-21T00:53:59Z,Changes: None; Added: routes file under dashboard module / blueprint of dashboard under __init__; Fixed: None
+registros,0b9bf5f52c9c610fd06489078b78e6d0261edcf5,MAurch,2023-05-21T00:40:10Z,"Changes: Minimum amount of subjects, changed from 1 to 3; Added: Modified requirements.txt, added beautifulsoup4 to libraries; Fixed: None"
+registros,2418bcfe6d8d7e670137cf1ef1a3b940fa94a238,luisced,2023-05-20T23:01:19Z,cleaned code
+registros,d0e69d0f12122415c4624a4f1049526ab95467e0,luisced,2023-05-20T22:43:04Z,New endpoint structure and new filter (teacher) for schedules
+registros,b37d62cc2e8507872e7e33f41df0ccc276619d4b,supply-geologist-11139420,2023-05-20T21:33:48Z,added schedule maker endpoint
+registros,8451ae3cd067233167679958d831340c3b6da7af,luisced,2023-05-20T21:27:30Z,new schedule algorithm
+registros,99d1cb6f029a1adc03061ed86f07dbe3af7b7aa3,Luis Cedillo Maldonado,2023-05-19T16:57:23Z,filter for status: True
+registros,0d3f36d7a534e7cd7ef9231cd2177e143ce599e5,Luis Cedillo Maldonado,2023-05-19T16:37:36Z,added jwt to createSchedules
+registros,1b85af5735acfa594aa3a1d16a256d327a4f4485,Luis Cedillo Maldonado,2023-05-19T16:26:15Z,only schedules with more than one subject are returned
+registros,a300096b2ec0b20e268cfef3c8103a1b27d7b8f3,Luis Cedillo Maldonado,2023-05-19T15:23:10Z,finished compatible schedules endpoint
+registros,f153ba5c7834a7145a8b426868e0dca5f8a86096,Luis Cedillo Maldonado,2023-05-19T05:01:13Z,modified create schedules algorithm
+registros,1798b182322081fe6e125b97b73b0b05f03b4732,supply-geologist-11139420,2023-05-17T06:01:53Z,added create shecules
+registros,b85450182c4181d336d57c53af3dac766ef4c08e,luisced,2023-05-17T06:00:32Z,initialized function for schedules
+registros,f1c77e2a376373f85c0f5af7548f7fc17366f719,luisced,2023-05-17T02:29:16Z,Modified fetch days function in oder to only add groups with valid schedule days
+registros,1441fda8b6b30daa4cf2c3dd0d116a811e8a96ec,luisced,2023-05-17T01:00:42Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,7630566f30e1fed80a14d9305750e5ce6fb35268,luisced,2023-05-17T01:00:05Z,only get full groups
+registros,60017ff497355fba509a41656dfbf82f2e61fffc,supply-geologist-11139420,2023-05-16T00:32:49Z,deleted combs
+registros,c856f15c523abd56897b8d9baa5eb3d17c92ea4e,luisced,2023-05-16T00:27:56Z,new filters
+registros,40c0fceb4657a67df82cba9e105000c5c5965661,luisced,2023-05-16T00:17:34Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,7c0b227955e76c79621099a75decc8ab8b66eaf5,luisced,2023-05-16T00:14:54Z,Merge branch 'fix/dockerContainer'
+registros,1b32f62127bae458531d37ed4202030c40507eaf,luisced,2023-05-16T00:11:55Z,added srapper http request
+registros,bdf102964f207a683f80ffb603fe16fb649c232d,luisced,2023-05-15T23:46:06Z,added srapper http request
+registros,ca4b86467148022f5f1d0d9260c7ccb63cfbbb7f,luisced,2023-05-15T23:44:46Z,added chrome base image to usr/bin
+registros,ac6df40b63b5a80f1a4db33459a2888ccdfe5153,luisced,2023-05-15T23:31:51Z,added chrome base image
+registros,5848fe99ea0bebf0e4fd596c8ae97ba67c189085,luisced,2023-05-13T02:15:08Z,Updated docker mysql version and added platform
+registros,66aeb9873e22e89785ecd2f50861fc4f4ecf0d7e,luisced,2023-05-09T00:19:35Z,changed docker mysql version
+registros,45ada0c254d0cd8779246ab48dda1bfdf8aa37f5,luisced,2023-05-09T00:05:44Z,Updated docker mysql version and added platform
+registros,90379552247f00c65549ed69e0774cd1af5120ef,luisced,2023-05-08T23:40:30Z,Updated docker mysql version and added platform
+registros,b47f8cd841cb2c5cd9d1ec7762dbbf3c37c00f31,Daniel Peláez,2023-05-08T23:30:26Z,flask update
+registros,920fbd2768bd8a492302f49b7418bce07420d4cb,Luis Cedillo Maldonado,2023-05-04T18:05:40Z,"Merge pull request #2 from iOS-Lab-UP/add/getTeacher
+
+Add/get teacher endpoint"
+registros,d193713eabea54d47612fd196b80729c824c96c0,Javier Rangel,2023-05-04T16:23:43Z,Added subjectTeacher function and implementation
+registros,f825c302915de40d205d88a60db6e56a300bc470,JavierRangel2004,2023-05-03T07:26:16Z,"Added get teacher endpoint, function and declaration"
+registros,e8770bb2b229902ef260dc510e8188f310238083,JavierRangel2004,2023-05-03T05:55:26Z,"Merge pull request #1 from iOS-Lab-UP/name_surname_validation
+
+Added filter_Users function and endpoint"
+registros,fc5877191d6c5bea9cd8a3f2070fa658dad670d6,JavierRangel2004,2023-05-03T05:42:25Z,Merge branch 'main' into name_surname_validation
+registros,1f42ac9fcb5e49a85cb7ea77bcc7b24f5ffa9fe0,Javier Rangel,2023-05-02T20:00:49Z,Fixed filter_User function and endpoint
+registros,516651f966f6d93d4f164752b48f49af04a93ea2,JavierRangel2004,2023-04-28T16:20:10Z,"del pruebas.py, added getUsers function and endpoint"
+registros,f238ee09aa71e327876249f772c9419f8b88ca3a,Javier Rangel,2023-04-27T01:02:03Z,added filterUsers function and added some explanantion comments. Created pruebas.py file to try functions
+registros,73fae13be500c45c235c507eaade9985c05bd82b,Javier Rangel,2023-04-25T20:54:52Z,Eliminar archivo namepy extra
+registros,a0e7e545f2dd457d27b1b77f5bcce8789a622c71,Javier Rangel,2023-04-25T18:19:21Z,func Separar nombres e implementacion en createUser
+registros,773e65a646c57749ddaebdc78420cb1c9ae126b2,supply-geologist-11139420,2023-04-25T18:18:31Z,renamed endpoint
+registros,23f08431214467fcd4dda9cb550a032aa8963fec,Luis Cedillo Maldonado,2023-04-25T18:16:20Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,f5c53a350be0d9caf7e50e055faede032c87a920,supply-geologist-11139420,2023-04-25T18:16:12Z,added tests
+registros,52e3530769b597f126660fe54508146b4da23c1d,Luis Cedillo Maldonado,2023-04-25T18:15:00Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,fa1dcf2b7739c1fe154fc3be2ab0d0185aa86526,Luis Cedillo Maldonado,2023-04-25T18:14:41Z,Renamed variables for create schedule
+registros,e37c82bcc775810f49480cfc746caede338ced6d,navigation-candidate-92544788,2023-04-25T18:10:46Z,created get request for schedules
+registros,1e23b9dd4f41980dbb4396bdf7d603c1d4b8a2ff,supply-geologist-11139420,2023-04-25T16:33:32Z,Created tests
+registros,c94b8b884b1cea75379cae90d156739eea13aa98,MAurch,2023-04-25T07:07:11Z,Fixed schedule
+registros,7db972de111722839e8fd735428317ef33939193,luisced,2023-04-25T05:24:20Z,updated postman endpoints
+registros,e9ca6d59ab9c81192ae0587bc47976d0c9482634,navigation-candidate-92544788,2023-04-24T18:25:28Z,m
+registros,822c3bccc2845f0aeacd8de999b8b5fe6b082abd,JavierRangel2004,2023-04-24T06:17:54Z,funcion para separar nombres y apellidos - JavierR
+registros,e9642ceec3eda1519bb4e1c2b62cd125dbbcf829,luisced,2023-04-24T04:17:18Z,Merge branch 'main' into fix/create_schedule
+registros,392bf3c632c4255a3c6c8b3e50d0819a6e6b0885,supply-geologist-11139420,2023-04-24T04:10:55Z,moved endpoint
+registros,e98134d3637f81a145d5310a4a074888039b40d1,luisced,2023-04-24T04:08:59Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,8547e4b99e04d85320ebfe66345d8d2242cdb171,luisced,2023-04-24T04:08:53Z,deleted boiler-plate code
+registros,67a91273cbb1a6b52b956058dfeff68b5cf1f24e,supply-geologist-11139420,2023-04-24T04:01:29Z,Deleted endpoint in order to fix it in other branch
+registros,b3431a750efd1040de04e15e3ef6bc43c2eeee5a,navigation-candidate-92544788,2023-04-24T01:50:12Z,Me mi endpoint
+registros,fbc6b3994b008fb752403b288857c14d0773c644,luisced,2023-04-24T01:17:32Z,optimized splitCourses function
+registros,89a1e18844df7f73caaaf51532812057794c5974,Iñaki Sigüenza,2023-04-23T16:29:53Z,delete test
+registros,2a18827b7981454239a32b66bc607405791bfb69,Iñaki Sigüenza,2023-04-23T16:29:06Z,Test logo Discord
+registros,89cd65fd0e07f42c30f4f4c3786858a736fd78e4,luisced,2023-04-23T06:54:13Z,fixed tagging
+registros,c8665de333329a1477d9d038b39ec19aa8655aa2,luisced,2023-04-23T06:46:26Z,Chaned relative path for automatic tagging fixed
+registros,753b5b468c741d942ee2993b63abae8310200e12,luisced,2023-04-23T06:42:21Z,Chaned relative path for automatic tagging fixed
+registros,ad8cbaee683b629e670ec746a30871d6fdecdc68,luisced,2023-04-23T06:38:23Z,Chaned relative path for automatic tagging fixed
+registros,bcf076f756e8c29fc1bcd3701a123de07a814994,luisced,2023-04-23T06:30:34Z,Chaned relative path for automatic tagging
+registros,3f05d5d0733f80e5b4a81bdf7adf28a8592490ca,luisced,2023-04-23T06:30:02Z,Chaned relative path for automatic tagging
+registros,0c122a4455d46cb7557f0489fcd7579c40ce5f1e,luisced,2023-04-23T06:29:49Z,Chaned relative path for automatic tagging
+registros,510deee067de0bac5a0d977996f7772487c9881d,Luis Cedillo Maldonado,2023-04-23T06:01:22Z,Update main.yml
+registros,45aa2d634d8c80760828d8f11f5b77872881562d,luisced,2023-04-23T05:55:28Z,Chaned relative path for automatic tagging
+registros,268a0ac86c53130f598a11c41456a9534b0878d9,luisced,2023-04-23T05:47:03Z,Created automatig tagging for app versioning
+registros,a6196c0d1a2ec39b881a3ded8ce582cd876e7b0d,luisced,2023-04-23T05:36:17Z,Created automatig tagging for app versioning
+registros,faed1d076d148b035005f03393755e69b2f22250,luisced,2023-04-23T04:16:27Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,74d878e15b350350e34aabde0695c467a8d397be,luisced,2023-04-23T04:16:22Z,return group
+registros,8b0eaf9ca0796da621ac50f58891b19a9116321f,supply-geologist-11139420,2023-04-23T04:10:34Z,deleted upsite endpoint
+registros,e46020fb2d93086e5d747a525d1f02832d138713,luisced,2023-04-23T04:08:05Z,return group
+registros,40209317ca4f8e290248f90efab80d9572213aec,luisced,2023-04-23T03:41:06Z,scrapper volume created
+registros,7ef1478f25e4e126e94a67d44db49e84196e6340,luisced,2023-04-23T02:40:50Z,test run_scrapper.sh
+registros,3ddaa939a2aa812ef923c40732b45c7ca798b27e,luisced,2023-04-23T02:40:33Z,test run_scrapper.sh
+registros,5e1d94c41d9ee7440016fb755021f4a5f28a1d68,luisced,2023-04-23T00:31:22Z,Fixed bug: datetime objs not parsed correctly
+registros,d135c09d222f5c5cec59fb06a6405dcde65a8787,luisced,2023-04-22T18:35:44Z,Fixed bug: Timeout within enterUPSiteSubjects
+registros,b070e544a0972838455678416b0c8a1bbdc2a7c8,luisced,2023-04-22T18:17:33Z,Fixed bug: Timeout within enterUPSiteSubjects
+registros,fc52d63bbc27dbe20422aa5ed84f456d9008530f,luisced,2023-04-22T18:15:35Z,Fixed bug: Timeout within enterUPSiteSubjects
+registros,fe2fadd18adb530f09e5cdba6e8bf4e56f76a2d9,Luis Cedillo Maldonado,2023-04-21T23:42:23Z,"New delay time, until prescence of an element"
+registros,a7ab5c02aa78d4056ba98cf8dfcb81c9602551d5,Luis Cedillo Maldonado,2023-04-21T21:51:34Z,"New delay time, until prescence of an element"
+registros,1e521fa764ba5988f9abc6b2efc8b11019e2c310,luisced,2023-04-21T02:39:02Z,Its necessary to finish build before this job
+registros,0102aae36cfd284c6b6d34ab8b9496e4a6983688,luisced,2023-04-21T02:32:46Z,Its necessary to finish build before this job
+registros,cdc2640ede3afed48551509ff458a1a567d9ecb1,luisced,2023-04-21T02:30:17Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,35c427f4336036073a55c6bb6eb6c0f019439544,luisced,2023-04-21T02:28:13Z,tests changes to newman report
+registros,f07184fa1b2b7bbebf2a92447ff4801093de074c,supply-geologist-11139420,2023-04-21T01:56:44Z,sleepBetweenTries
+registros,3f3cb4e31d1f7a6706254dd8c200f79119a4d819,luisced,2023-04-21T01:51:13Z,changed groups function
+registros,77f666ccf9d9661c59d516ba8c48ec14e7398a5e,luisced,2023-04-21T01:43:20Z,changed groups function
+registros,8931293e4f2f58ca1b279e4a753e2cc0dd2de84b,luisced,2023-04-21T01:35:22Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,7833a32e55cc96b3f59ebf7508c08604a6ee9938,luisced,2023-04-21T01:34:41Z,changed groups function
+registros,bc1a6ec3d264fb652d2f91b4d5830df8b1a4124b,supply-geologist-11139420,2023-04-21T01:19:23Z,changed test for fetch group
+registros,b9168ec719a2470aaddab7ae300726cacb2bf9cc,luisced,2023-04-21T01:19:02Z,changed groups function
+registros,c285bf743e8e639a39e28b945fcb8137bfee7db0,Luis Cedillo Maldonado,2023-04-20T21:39:20Z,"New delay time, until prescence of an element"
+registros,6731b9223fdca5599b813b9abfc9838f17628132,Luis Cedillo Maldonado,2023-04-20T21:33:45Z,"New delay time, until prescence of an element"
+registros,63643ec11fefc3e252a9dc68bd3b2cfa594b3678,Luis Cedillo Maldonado,2023-04-20T21:22:31Z,"New delay time, until prescence of an element"
+registros,ab61f9ec5d31b519afea4c2af75223d4c559a8b8,Luis Cedillo Maldonado,2023-04-20T21:20:35Z,"New delay time, until prescence of an element"
+registros,eb1b78f723b177f974463fae18b28c9d1c1ac0fe,Luis Cedillo Maldonado,2023-04-20T21:01:43Z,"New delay time, until prescence of an element"
+registros,983f33e02c10cf8d78cb384f3b634b5b54efda10,Luis Cedillo Maldonado,2023-04-20T20:20:43Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,bba00d416894bedfb6704ef5259653518f9c7d85,Luis Cedillo Maldonado,2023-04-20T20:20:03Z,changed ci/cd file checkout v
+registros,d83055a6e6a57dc0200a45c6892bc14d42b7fb41,supply-geologist-11139420,2023-04-20T20:19:50Z,added retries
+registros,d09b4627da3182372b99edaf791693140a91f427,supply-geologist-11139420,2023-04-20T19:44:27Z,changed tests
+registros,6e739d2ac64e0ebaf970697cdd8dc989645f7700,Luis Cedillo Maldonado,2023-04-20T19:32:17Z,changed ci/cd file checkout v
+registros,059ef704d4e2a7145c33fa818f11b829dc302eab,Luis Cedillo Maldonado,2023-04-20T19:29:05Z,changed ci/cd file checkout v
+registros,8e25367cadbcf3125ab0b278bb71e67162a54c66,Luis Cedillo Maldonado,2023-04-20T18:55:43Z,changed ci/cd file checkout v
+registros,4ffe2ec395ea6b14686c563083e9106006c85c08,Luis Cedillo Maldonado,2023-04-20T18:51:52Z,changed ci/cd file checkout v
+registros,43bfd96fe0facb944ba51bf48ca9522f15534cea,Luis Cedillo Maldonado,2023-04-20T18:02:54Z,changed ci/cd file
+registros,d85f7e630d3a2f52ae55db6a926f964d492a8591,Luis Cedillo Maldonado,2023-04-20T17:56:09Z,changed ci/cd file
+registros,0cf37880e054648c197b20f6b1111970a85eb79e,Luis Cedillo Maldonado,2023-04-20T17:48:18Z,Deleted .idea dir
+registros,8a1b87b18ddbd670e30e83ff7bea629794eb2d1d,Luis Cedillo Maldonado,2023-04-20T17:37:34Z,Automated testing for API
+registros,bfb7116705548ab1c92ae54cb83cbc91e494ce14,supply-geologist-11139420,2023-04-20T16:43:23Z,created postman test for login
+registros,3a5eb65beabacda77f0370f37b69f1b91feff530,luisced,2023-04-20T02:51:13Z,modified yml region to us-east-2
+registros,f5adfbb704172c9970e0b15a8348bfa79c31d401,luisced,2023-04-20T02:43:56Z,modified yml region
+registros,53f69a6dd2dbc349a87023692297d34d1bdee903,luisced,2023-04-20T02:39:10Z,modified dockerfile
+registros,1d8624f1216b581c8e5c494f10a7d6f1562e6b07,luisced,2023-04-20T02:36:44Z,modified dockerfile
+registros,93a04f174cc0d37bbcb50fe6bf55ebccec585217,luisced,2023-04-20T01:53:15Z,modified dockerfile
+registros,1af993b2d7dac36d076a52d9047c79c2cedf1d62,luisced,2023-04-20T01:34:01Z,modified workflow
+registros,26a57202f8858abb72aa0f86a0794cc9b04865f3,luisced,2023-04-20T01:25:12Z,modified workflow
+registros,187e48d987fa10456c668aaebab7a72edc8cb1a5,luisced,2023-04-20T01:22:50Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,6a70ee13a1747dd9331116ace860a188939476c4,luisced,2023-04-20T01:22:33Z,created workflow
+registros,bf8a38650852e4b8f912eeaf0ebb15976b5c2520,supply-geologist-11139420,2023-04-18T02:15:13Z,Added healtcheck
+registros,61347fc7c287aac94b05804089bda4689038f8a7,supply-geologist-11139420,2023-04-18T02:10:25Z,Updated postman endpoints
+registros,b6496bd990e6bb7a6bd67a8c4e8ed84a04bb7b67,Maurch,2023-03-27T05:45:06Z,Commented some algorithms
+registros,fabdd8943cccfb780045a5717087ff2d149bc666,Maurch,2023-03-27T05:09:19Z,Added function to validate a list of schedules generated by another function and fixed errors when intrudciong non-existent courses under the createSchedule endpoint
+registros,cd76604c037a3a7a9dcbb36c23834c147cf3b1b5,Maurch,2023-03-24T22:44:14Z,"Added schedule generator, createSchedule endpoint"
+registros,c750545ae26a8a4abf9fce94defb4bf3dacd18b4,Maurch,2023-03-24T19:52:07Z,Added schedule permutations endpoint
+registros,6f88ada8986670cecd64caecb2d7f826ac3c6a0c,luisced,2023-03-22T03:44:29Z,changed requierements
+registros,8e5dbe346dae81b454133f6b4bcbc2673932b73c,MAurch,2023-03-20T21:32:12Z,Added schedule endpoint
+registros,af35513c4195d7530e12111a2a0486a3361a4489,luisced,2023-03-20T05:28:33Z,created guest registration
+registros,3b38ddb5ac2726719f67ce75f220c220f9ff8919,luisced,2023-03-20T03:30:33Z,modified login
+registros,1a340e05e440e4b1f47e90e17cec9283ee2a6c02,luisced,2023-03-20T03:14:19Z,merge from security/Validations
+registros,72ffd615eaae723a722b61d3835650e9f3a35a5e,MAurch,2023-03-18T02:49:45Z,Added schedule endpoint
+registros,9f4aa4a7aa2c50c43299704d6be885f46eaf97ac,Luis Cedillo Maldonado,2023-03-17T20:29:39Z,Created DB table for User and Profile
+registros,726ea5f3f2bcd7100d53962dc2b048786334e50f,luisced,2023-03-17T05:16:46Z,created profile model
+registros,36704ebdf14a696e98a8d45db48f6add0825cb79,luisced,2023-03-17T05:09:19Z,add user table
+registros,1761a4d9c38a14f74f871ef1bd4073838f5010f8,luisced,2023-03-17T02:35:22Z,merge from main
+registros,f5d3f5942c0b6a12a456d32d5394a910a3e73819,Maurch,2023-03-17T02:21:46Z,login changed route
+registros,6685a21b017104c6c74c1566ac306900dbad1f73,luisced,2023-03-17T02:15:39Z,updated dependencies
+registros,8fc1e43deb039e39bffae405897a3015484b520b,Luis Cedillo Maldonado,2023-03-16T21:59:24Z,added security dir
+registros,fe4c69383d492cb1fefa00428d7d29584c7a46c9,Luis Cedillo Maldonado,2023-03-14T19:09:30Z,Update README.MD
+registros,ced860fe1f0eb4227f7be9e758b1e56529f19894,Luis Cedillo Maldonado,2023-03-13T03:38:37Z,Update README.MD
+registros,073ad02b3be20ad6bb6cba98292d1cb26860eea4,Maurch,2023-03-10T19:25:57Z,Added CommonZones and Zones tables
+registros,71d0cf0c9cc93998a704339111ff2c88618a67f7,Luis Cedillo Maldonado,2023-03-07T06:56:25Z,Update README.MD
+registros,888ec38e670fe7d1384e82fe2be235180f391704,luisced,2023-03-07T06:55:17Z,updated  Readme file to the repo
+registros,a128a8dd6ec2f2016d621fab5d51b3d996d640b0,luisced,2023-03-07T06:54:17Z,Added Readme file to the repo
+registros,dcd8dedd23c665453be0d2d7f5fa01a02d6d06f2,luisced,2023-03-07T06:27:22Z,Modified docker containers name
+registros,8e1e7a436cb106e88bf0e665293b8d4098aa9546,luisced,2023-03-07T06:19:46Z,merge from feature/api
+registros,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Borre mis pendientes
+registros,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
+registros,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
+registros,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+scrapper/update,d5ac8802aa695a2989295cf6ac0156e6ce55dbe3,JavierRangel2004,2023-09-07T04:35:20Z,still testing solutions
+scrapper/update,602191b382aa119eefc04f497a0aea6c36ce714b,Javier Rangel,2023-09-07T01:07:41Z,"scrapper dont work, still fixing"
+scrapper/update,91f996b2c48301533c0306f69179d1c0ca867802,Javier Rangel,2023-09-02T19:15:03Z,Scrapping update start
+scrapper/update,05bed112d70af212a1b7013ad34482cc706bca07,Mauricio,2023-08-30T18:02:15Z,"updated mysql and adminer version, changed adminer design"
+scrapper/update,2f3f4baadedd6b1810020082de45bdd5340ef236,Mauricio,2023-08-30T02:20:59Z,Merge NewApiModel
+scrapper/update,29a62af85456be67a2dd75c1fd8e70865b6278f4,Mauricio,2023-08-30T02:03:25Z,fixed missconfiguration
+scrapper/update,7106a244dd51831ebce51ed9acaca2767161ff04,Bruno,2023-08-29T18:02:33Z,Se ha modificado el archivo routes de nodes
+scrapper/update,6e08e24cfbb32dde279c3613bd5bb1d0585de048,Xayil,2023-08-28T19:30:03Z,Creación de endpoint para los nodos
+scrapper/update,0b9987deef5b18949b6bb8a9c341c1b50cbaa60e,Mauricio,2023-08-25T08:57:38Z,"Deleted misconfigurations, changed multiple data types and default values"
+scrapper/update,edfde077adba169e135a8f0c09b02869e95584d2,Mauricio,2023-08-25T07:12:58Z,Deleted misconfiguration
+scrapper/update,4b241ab258f9f1b2ba558e6db07e37491d3ab69d,Mauricio,2023-08-24T23:05:41Z,Fixed scrapper endpoint (firefox was opening multiple unnecessary tabs)
+scrapper/update,b643dda930667670b39520672ba452f6dd0a1b96,Mauricio,2023-08-24T17:59:54Z,changed python version
+scrapper/update,3a69a9957204f707d1074f58f6ff675e8186026a,Mauricio,2023-08-24T08:08:00Z,Commented scrapper volume inside docker container
+scrapper/update,a5c8ea047b22d9b9fcbae79a11eaad477b2b4daf,Mauricio,2023-08-23T19:14:22Z,"Resolved some PEP8 error.
+Fixed some function data types."
+scrapper/update,586fa1b657f6eceac85fa03e6fce4692210b6890,Mauricio,2023-08-23T18:36:26Z,Fixed login endpoint
+scrapper/update,71668cc7f02d08814df94f62924bd86c8b94cac8,Mauricio,2023-08-23T07:19:26Z,"Fix API driver deprecated error, web driver now working"
+scrapper/update,a38f2d187576e835dcda87f97aa47d141bc19f1d,Maurch,2023-08-23T06:35:57Z,fix selenium driver
+scrapper/update,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+scrapper/update,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+scrapper/update,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+scrapper/update,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+scrapper/update,f79861e85bb212e7625b666c5d92a64118becc33,Mauricio,2023-08-16T06:05:12Z,added .idea to .gitignore entries and deleted .idea
+scrapper/update,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+scrapper/update,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+scrapper/update,7589db40a37e99aa4d3d2dc4937951726f2266b3,Mauricio,2023-08-15T16:30:07Z,updated gitignore
+scrapper/update,3880fd2d54e70be3d0dd99f71e6a505b9a2553b5,Mauricio,2023-08-15T02:39:19Z,updated selenium and webdriver versions
+scrapper/update,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+scrapper/update,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+scrapper/update,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+scrapper/update,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
+scrapper/update,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+scrapper/update,7f23ab36b3692074a0ec4d387ec466188c9a7b14,dpelaezr,2023-06-19T03:00:59Z,Documentación terminada
+scrapper/update,e9da1ace1559e82cf0d6b305a25e69ab0b79cc7d,dpelaezr,2023-06-18T21:30:07Z,Documentación casi terminada
+scrapper/update,238457a84f67be26281637f48615096e0dd3245d,dpelaezr,2023-06-18T20:22:28Z,Documentación a medias
+scrapper/update,f3b8df7650a67d0af338d3432d3eca3622ccb77d,MAurch,2023-06-15T06:34:39Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+scrapper/update,19d9f770fc5fe7d00d30a26f177beb5fbab5bb21,MAurch,2023-06-15T06:27:42Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: None
+scrapper/update,45ced4a7552658267fc99fd5e86680aed495d7cf,luisced,2023-06-15T05:47:03Z,added periodic scrapping
+scrapper/update,71f7de7f173eaf497b5846501cba520c272cdf8f,supply-geologist-11139420,2023-06-15T00:40:36Z,addd user id comment
+scrapper/update,6bb091fba5e5134b3bb6ff417b4a790b34ea801d,supply-geologist-11139420,2023-06-15T00:13:11Z,Added create schedules endpoint
+scrapper/update,55364675b8fb944badc40d128c67e3ed1916764f,JavierRangel2004,2023-06-14T19:49:42Z,Added feature/schedulesPandas changes to main
+scrapper/update,01f589ca0d50df070320812857c75eafe9b7265b,luisced,2023-06-09T06:05:31Z,modified op
+scrapper/update,991e66997863e6c086bb020b95d3a8c5c0452992,Javier Rangel,2023-06-08T02:42:16Z,Update README.MD
+scrapper/update,732e22967cb5962a3fbf8549403a2753ba79e245,Luis Cedillo Maldonado,2023-06-07T04:56:22Z,Update README.MD
+scrapper/update,5266158723cddb5aa45816ac6abe7620f36a1e9a,MAurch,2023-05-28T20:12:06Z,Changes: None; Added: grades and schedule scrapper/ grades and schedule endpoints under dashboard routes; Fixed: None; Deleted: None; Pending: fix schedule json format from List to Dict
+scrapper/update,8e90e0a0750b7209918de4aee1af2f8622123f19,MAurch,2023-05-27T10:52:57Z,Changes: None; Added: relation user-group table; Fixed: None; Deleted: None; Pending: None
+scrapper/update,194a538f3d16e5171460a2b7dcc1f7a1ad7efd64,supply-geologist-11139420,2023-05-23T07:26:31Z,again changed user code
+scrapper/update,8557b75626c5f37fd72b5d68c3daf5ef85e20df8,supply-geologist-11139420,2023-05-23T07:19:50Z,changes user login test
+scrapper/update,3c420210b995ebe5978a4a76ceebb004434ff0d4,supply-geologist-11139420,2023-05-23T07:15:56Z,changed json key
+scrapper/update,5b09a324fdc70a7e16f73efe4cb1cf88eb71bc76,supply-geologist-11139420,2023-05-23T07:11:17Z,Created documentation for user
+scrapper/update,bf6833932b2a139ece6f8ade9dfb93084bf6fe26,luisced,2023-05-23T07:09:18Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,ff38a6893821a4717b3cc8edb9f8bbbf8fd95279,luisced,2023-05-23T07:09:14Z,Fixed upsite login and added jwt when user is created
+scrapper/update,4bff9292f3c72fccb47d56224a53516c0cb7bf16,MAurch,2023-05-23T04:39:42Z,"Changes: None; Added: Scrap schedule functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+scrapper/update,c7741a22fffd0d17d60f2e58c6ea20ac06fc2dcf,MAurch,2023-05-23T03:18:27Z,"Changes: None; Added: Scrap grades functionality under Scrapper utils, awaiting for implementation and data base; Fixed: None; Deleted: None; Pending: Create the relation table user-group"
+scrapper/update,7b1fdc28b4d627ffa3bb95088d3d941947a47db6,luisced,2023-05-23T02:26:54Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,96ec815cd0342b56143731b5c1455c3241fe5f45,supply-geologist-11139420,2023-05-23T02:26:07Z,added new tests
+scrapper/update,d9055c6bb9f1ca66b1ea85485b4b4b916801a2f5,luisced,2023-05-23T02:25:57Z,changed success key
+scrapper/update,3080b430eb16017c8a69a27f15c2f177dd98c466,supply-geologist-11139420,2023-05-23T02:16:46Z,updated jwt test
+scrapper/update,6e0921ab811cc52facaf98e6f5aee2556f74fde5,supply-geologist-11139420,2023-05-23T02:08:11Z,updated user keys
+scrapper/update,33b61aee08e9681a05beb08cd2f7a317567798a0,luisced,2023-05-23T02:07:50Z,login restructured
+scrapper/update,09f2e9abcbcb668fccb7f5f63f0222687db216b3,supply-geologist-11139420,2023-05-21T02:43:08Z,added tests
+scrapper/update,7e53ec85819d32e2649ad519d867774419be0cfb,luisced,2023-05-21T02:42:38Z,Merge branch 'enchancement/filtersSchedules'
+scrapper/update,965e1024c1c45b2e01e3ed2b5d0734eb9f1c89e3,luisced,2023-05-21T02:41:37Z,cleaned code p2
+scrapper/update,15841398b5b71295488c1f64b142a6e7c570d029,MAurch,2023-05-21T00:53:59Z,Changes: None; Added: routes file under dashboard module / blueprint of dashboard under __init__; Fixed: None
+scrapper/update,0b9bf5f52c9c610fd06489078b78e6d0261edcf5,MAurch,2023-05-21T00:40:10Z,"Changes: Minimum amount of subjects, changed from 1 to 3; Added: Modified requirements.txt, added beautifulsoup4 to libraries; Fixed: None"
+scrapper/update,2418bcfe6d8d7e670137cf1ef1a3b940fa94a238,luisced,2023-05-20T23:01:19Z,cleaned code
+scrapper/update,d0e69d0f12122415c4624a4f1049526ab95467e0,luisced,2023-05-20T22:43:04Z,New endpoint structure and new filter (teacher) for schedules
+scrapper/update,b37d62cc2e8507872e7e33f41df0ccc276619d4b,supply-geologist-11139420,2023-05-20T21:33:48Z,added schedule maker endpoint
+scrapper/update,8451ae3cd067233167679958d831340c3b6da7af,luisced,2023-05-20T21:27:30Z,new schedule algorithm
+scrapper/update,99d1cb6f029a1adc03061ed86f07dbe3af7b7aa3,Luis Cedillo Maldonado,2023-05-19T16:57:23Z,filter for status: True
+scrapper/update,0d3f36d7a534e7cd7ef9231cd2177e143ce599e5,Luis Cedillo Maldonado,2023-05-19T16:37:36Z,added jwt to createSchedules
+scrapper/update,1b85af5735acfa594aa3a1d16a256d327a4f4485,Luis Cedillo Maldonado,2023-05-19T16:26:15Z,only schedules with more than one subject are returned
+scrapper/update,a300096b2ec0b20e268cfef3c8103a1b27d7b8f3,Luis Cedillo Maldonado,2023-05-19T15:23:10Z,finished compatible schedules endpoint
+scrapper/update,f153ba5c7834a7145a8b426868e0dca5f8a86096,Luis Cedillo Maldonado,2023-05-19T05:01:13Z,modified create schedules algorithm
+scrapper/update,1798b182322081fe6e125b97b73b0b05f03b4732,supply-geologist-11139420,2023-05-17T06:01:53Z,added create shecules
+scrapper/update,b85450182c4181d336d57c53af3dac766ef4c08e,luisced,2023-05-17T06:00:32Z,initialized function for schedules
+scrapper/update,f1c77e2a376373f85c0f5af7548f7fc17366f719,luisced,2023-05-17T02:29:16Z,Modified fetch days function in oder to only add groups with valid schedule days
+scrapper/update,1441fda8b6b30daa4cf2c3dd0d116a811e8a96ec,luisced,2023-05-17T01:00:42Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,7630566f30e1fed80a14d9305750e5ce6fb35268,luisced,2023-05-17T01:00:05Z,only get full groups
+scrapper/update,60017ff497355fba509a41656dfbf82f2e61fffc,supply-geologist-11139420,2023-05-16T00:32:49Z,deleted combs
+scrapper/update,c856f15c523abd56897b8d9baa5eb3d17c92ea4e,luisced,2023-05-16T00:27:56Z,new filters
+scrapper/update,40c0fceb4657a67df82cba9e105000c5c5965661,luisced,2023-05-16T00:17:34Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,7c0b227955e76c79621099a75decc8ab8b66eaf5,luisced,2023-05-16T00:14:54Z,Merge branch 'fix/dockerContainer'
+scrapper/update,1b32f62127bae458531d37ed4202030c40507eaf,luisced,2023-05-16T00:11:55Z,added srapper http request
+scrapper/update,bdf102964f207a683f80ffb603fe16fb649c232d,luisced,2023-05-15T23:46:06Z,added srapper http request
+scrapper/update,ca4b86467148022f5f1d0d9260c7ccb63cfbbb7f,luisced,2023-05-15T23:44:46Z,added chrome base image to usr/bin
+scrapper/update,ac6df40b63b5a80f1a4db33459a2888ccdfe5153,luisced,2023-05-15T23:31:51Z,added chrome base image
+scrapper/update,5848fe99ea0bebf0e4fd596c8ae97ba67c189085,luisced,2023-05-13T02:15:08Z,Updated docker mysql version and added platform
+scrapper/update,66aeb9873e22e89785ecd2f50861fc4f4ecf0d7e,luisced,2023-05-09T00:19:35Z,changed docker mysql version
+scrapper/update,45ada0c254d0cd8779246ab48dda1bfdf8aa37f5,luisced,2023-05-09T00:05:44Z,Updated docker mysql version and added platform
+scrapper/update,90379552247f00c65549ed69e0774cd1af5120ef,luisced,2023-05-08T23:40:30Z,Updated docker mysql version and added platform
+scrapper/update,b47f8cd841cb2c5cd9d1ec7762dbbf3c37c00f31,Daniel Peláez,2023-05-08T23:30:26Z,flask update
+scrapper/update,920fbd2768bd8a492302f49b7418bce07420d4cb,Luis Cedillo Maldonado,2023-05-04T18:05:40Z,"Merge pull request #2 from iOS-Lab-UP/add/getTeacher
+
+Add/get teacher endpoint"
+scrapper/update,d193713eabea54d47612fd196b80729c824c96c0,Javier Rangel,2023-05-04T16:23:43Z,Added subjectTeacher function and implementation
+scrapper/update,f825c302915de40d205d88a60db6e56a300bc470,JavierRangel2004,2023-05-03T07:26:16Z,"Added get teacher endpoint, function and declaration"
+scrapper/update,e8770bb2b229902ef260dc510e8188f310238083,JavierRangel2004,2023-05-03T05:55:26Z,"Merge pull request #1 from iOS-Lab-UP/name_surname_validation
+
+Added filter_Users function and endpoint"
+scrapper/update,fc5877191d6c5bea9cd8a3f2070fa658dad670d6,JavierRangel2004,2023-05-03T05:42:25Z,Merge branch 'main' into name_surname_validation
+scrapper/update,1f42ac9fcb5e49a85cb7ea77bcc7b24f5ffa9fe0,Javier Rangel,2023-05-02T20:00:49Z,Fixed filter_User function and endpoint
+scrapper/update,516651f966f6d93d4f164752b48f49af04a93ea2,JavierRangel2004,2023-04-28T16:20:10Z,"del pruebas.py, added getUsers function and endpoint"
+scrapper/update,f238ee09aa71e327876249f772c9419f8b88ca3a,Javier Rangel,2023-04-27T01:02:03Z,added filterUsers function and added some explanantion comments. Created pruebas.py file to try functions
+scrapper/update,73fae13be500c45c235c507eaade9985c05bd82b,Javier Rangel,2023-04-25T20:54:52Z,Eliminar archivo namepy extra
+scrapper/update,a0e7e545f2dd457d27b1b77f5bcce8789a622c71,Javier Rangel,2023-04-25T18:19:21Z,func Separar nombres e implementacion en createUser
+scrapper/update,773e65a646c57749ddaebdc78420cb1c9ae126b2,supply-geologist-11139420,2023-04-25T18:18:31Z,renamed endpoint
+scrapper/update,23f08431214467fcd4dda9cb550a032aa8963fec,Luis Cedillo Maldonado,2023-04-25T18:16:20Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,f5c53a350be0d9caf7e50e055faede032c87a920,supply-geologist-11139420,2023-04-25T18:16:12Z,added tests
+scrapper/update,52e3530769b597f126660fe54508146b4da23c1d,Luis Cedillo Maldonado,2023-04-25T18:15:00Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,fa1dcf2b7739c1fe154fc3be2ab0d0185aa86526,Luis Cedillo Maldonado,2023-04-25T18:14:41Z,Renamed variables for create schedule
+scrapper/update,e37c82bcc775810f49480cfc746caede338ced6d,navigation-candidate-92544788,2023-04-25T18:10:46Z,created get request for schedules
+scrapper/update,1e23b9dd4f41980dbb4396bdf7d603c1d4b8a2ff,supply-geologist-11139420,2023-04-25T16:33:32Z,Created tests
+scrapper/update,c94b8b884b1cea75379cae90d156739eea13aa98,MAurch,2023-04-25T07:07:11Z,Fixed schedule
+scrapper/update,7db972de111722839e8fd735428317ef33939193,luisced,2023-04-25T05:24:20Z,updated postman endpoints
+scrapper/update,e9ca6d59ab9c81192ae0587bc47976d0c9482634,navigation-candidate-92544788,2023-04-24T18:25:28Z,m
+scrapper/update,822c3bccc2845f0aeacd8de999b8b5fe6b082abd,JavierRangel2004,2023-04-24T06:17:54Z,funcion para separar nombres y apellidos - JavierR
+scrapper/update,e9642ceec3eda1519bb4e1c2b62cd125dbbcf829,luisced,2023-04-24T04:17:18Z,Merge branch 'main' into fix/create_schedule
+scrapper/update,392bf3c632c4255a3c6c8b3e50d0819a6e6b0885,supply-geologist-11139420,2023-04-24T04:10:55Z,moved endpoint
+scrapper/update,e98134d3637f81a145d5310a4a074888039b40d1,luisced,2023-04-24T04:08:59Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,8547e4b99e04d85320ebfe66345d8d2242cdb171,luisced,2023-04-24T04:08:53Z,deleted boiler-plate code
+scrapper/update,67a91273cbb1a6b52b956058dfeff68b5cf1f24e,supply-geologist-11139420,2023-04-24T04:01:29Z,Deleted endpoint in order to fix it in other branch
+scrapper/update,b3431a750efd1040de04e15e3ef6bc43c2eeee5a,navigation-candidate-92544788,2023-04-24T01:50:12Z,Me mi endpoint
+scrapper/update,fbc6b3994b008fb752403b288857c14d0773c644,luisced,2023-04-24T01:17:32Z,optimized splitCourses function
+scrapper/update,89a1e18844df7f73caaaf51532812057794c5974,Iñaki Sigüenza,2023-04-23T16:29:53Z,delete test
+scrapper/update,2a18827b7981454239a32b66bc607405791bfb69,Iñaki Sigüenza,2023-04-23T16:29:06Z,Test logo Discord
+scrapper/update,89cd65fd0e07f42c30f4f4c3786858a736fd78e4,luisced,2023-04-23T06:54:13Z,fixed tagging
+scrapper/update,c8665de333329a1477d9d038b39ec19aa8655aa2,luisced,2023-04-23T06:46:26Z,Chaned relative path for automatic tagging fixed
+scrapper/update,753b5b468c741d942ee2993b63abae8310200e12,luisced,2023-04-23T06:42:21Z,Chaned relative path for automatic tagging fixed
+scrapper/update,ad8cbaee683b629e670ec746a30871d6fdecdc68,luisced,2023-04-23T06:38:23Z,Chaned relative path for automatic tagging fixed
+scrapper/update,bcf076f756e8c29fc1bcd3701a123de07a814994,luisced,2023-04-23T06:30:34Z,Chaned relative path for automatic tagging
+scrapper/update,3f05d5d0733f80e5b4a81bdf7adf28a8592490ca,luisced,2023-04-23T06:30:02Z,Chaned relative path for automatic tagging
+scrapper/update,0c122a4455d46cb7557f0489fcd7579c40ce5f1e,luisced,2023-04-23T06:29:49Z,Chaned relative path for automatic tagging
+scrapper/update,510deee067de0bac5a0d977996f7772487c9881d,Luis Cedillo Maldonado,2023-04-23T06:01:22Z,Update main.yml
+scrapper/update,45aa2d634d8c80760828d8f11f5b77872881562d,luisced,2023-04-23T05:55:28Z,Chaned relative path for automatic tagging
+scrapper/update,268a0ac86c53130f598a11c41456a9534b0878d9,luisced,2023-04-23T05:47:03Z,Created automatig tagging for app versioning
+scrapper/update,a6196c0d1a2ec39b881a3ded8ce582cd876e7b0d,luisced,2023-04-23T05:36:17Z,Created automatig tagging for app versioning
+scrapper/update,faed1d076d148b035005f03393755e69b2f22250,luisced,2023-04-23T04:16:27Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,74d878e15b350350e34aabde0695c467a8d397be,luisced,2023-04-23T04:16:22Z,return group
+scrapper/update,8b0eaf9ca0796da621ac50f58891b19a9116321f,supply-geologist-11139420,2023-04-23T04:10:34Z,deleted upsite endpoint
+scrapper/update,e46020fb2d93086e5d747a525d1f02832d138713,luisced,2023-04-23T04:08:05Z,return group
+scrapper/update,40209317ca4f8e290248f90efab80d9572213aec,luisced,2023-04-23T03:41:06Z,scrapper volume created
+scrapper/update,7ef1478f25e4e126e94a67d44db49e84196e6340,luisced,2023-04-23T02:40:50Z,test run_scrapper.sh
+scrapper/update,3ddaa939a2aa812ef923c40732b45c7ca798b27e,luisced,2023-04-23T02:40:33Z,test run_scrapper.sh
+scrapper/update,5e1d94c41d9ee7440016fb755021f4a5f28a1d68,luisced,2023-04-23T00:31:22Z,Fixed bug: datetime objs not parsed correctly
+scrapper/update,d135c09d222f5c5cec59fb06a6405dcde65a8787,luisced,2023-04-22T18:35:44Z,Fixed bug: Timeout within enterUPSiteSubjects
+scrapper/update,b070e544a0972838455678416b0c8a1bbdc2a7c8,luisced,2023-04-22T18:17:33Z,Fixed bug: Timeout within enterUPSiteSubjects
+scrapper/update,fc52d63bbc27dbe20422aa5ed84f456d9008530f,luisced,2023-04-22T18:15:35Z,Fixed bug: Timeout within enterUPSiteSubjects
+scrapper/update,fe2fadd18adb530f09e5cdba6e8bf4e56f76a2d9,Luis Cedillo Maldonado,2023-04-21T23:42:23Z,"New delay time, until prescence of an element"
+scrapper/update,a7ab5c02aa78d4056ba98cf8dfcb81c9602551d5,Luis Cedillo Maldonado,2023-04-21T21:51:34Z,"New delay time, until prescence of an element"
+scrapper/update,1e521fa764ba5988f9abc6b2efc8b11019e2c310,luisced,2023-04-21T02:39:02Z,Its necessary to finish build before this job
+scrapper/update,0102aae36cfd284c6b6d34ab8b9496e4a6983688,luisced,2023-04-21T02:32:46Z,Its necessary to finish build before this job
+scrapper/update,cdc2640ede3afed48551509ff458a1a567d9ecb1,luisced,2023-04-21T02:30:17Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,35c427f4336036073a55c6bb6eb6c0f019439544,luisced,2023-04-21T02:28:13Z,tests changes to newman report
+scrapper/update,f07184fa1b2b7bbebf2a92447ff4801093de074c,supply-geologist-11139420,2023-04-21T01:56:44Z,sleepBetweenTries
+scrapper/update,3f3cb4e31d1f7a6706254dd8c200f79119a4d819,luisced,2023-04-21T01:51:13Z,changed groups function
+scrapper/update,77f666ccf9d9661c59d516ba8c48ec14e7398a5e,luisced,2023-04-21T01:43:20Z,changed groups function
+scrapper/update,8931293e4f2f58ca1b279e4a753e2cc0dd2de84b,luisced,2023-04-21T01:35:22Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,7833a32e55cc96b3f59ebf7508c08604a6ee9938,luisced,2023-04-21T01:34:41Z,changed groups function
+scrapper/update,bc1a6ec3d264fb652d2f91b4d5830df8b1a4124b,supply-geologist-11139420,2023-04-21T01:19:23Z,changed test for fetch group
+scrapper/update,b9168ec719a2470aaddab7ae300726cacb2bf9cc,luisced,2023-04-21T01:19:02Z,changed groups function
+scrapper/update,c285bf743e8e639a39e28b945fcb8137bfee7db0,Luis Cedillo Maldonado,2023-04-20T21:39:20Z,"New delay time, until prescence of an element"
+scrapper/update,6731b9223fdca5599b813b9abfc9838f17628132,Luis Cedillo Maldonado,2023-04-20T21:33:45Z,"New delay time, until prescence of an element"
+scrapper/update,63643ec11fefc3e252a9dc68bd3b2cfa594b3678,Luis Cedillo Maldonado,2023-04-20T21:22:31Z,"New delay time, until prescence of an element"
+scrapper/update,ab61f9ec5d31b519afea4c2af75223d4c559a8b8,Luis Cedillo Maldonado,2023-04-20T21:20:35Z,"New delay time, until prescence of an element"
+scrapper/update,eb1b78f723b177f974463fae18b28c9d1c1ac0fe,Luis Cedillo Maldonado,2023-04-20T21:01:43Z,"New delay time, until prescence of an element"
+scrapper/update,983f33e02c10cf8d78cb384f3b634b5b54efda10,Luis Cedillo Maldonado,2023-04-20T20:20:43Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,bba00d416894bedfb6704ef5259653518f9c7d85,Luis Cedillo Maldonado,2023-04-20T20:20:03Z,changed ci/cd file checkout v
+scrapper/update,d83055a6e6a57dc0200a45c6892bc14d42b7fb41,supply-geologist-11139420,2023-04-20T20:19:50Z,added retries
+scrapper/update,d09b4627da3182372b99edaf791693140a91f427,supply-geologist-11139420,2023-04-20T19:44:27Z,changed tests
+scrapper/update,6e739d2ac64e0ebaf970697cdd8dc989645f7700,Luis Cedillo Maldonado,2023-04-20T19:32:17Z,changed ci/cd file checkout v
+scrapper/update,059ef704d4e2a7145c33fa818f11b829dc302eab,Luis Cedillo Maldonado,2023-04-20T19:29:05Z,changed ci/cd file checkout v
+scrapper/update,8e25367cadbcf3125ab0b278bb71e67162a54c66,Luis Cedillo Maldonado,2023-04-20T18:55:43Z,changed ci/cd file checkout v
+scrapper/update,4ffe2ec395ea6b14686c563083e9106006c85c08,Luis Cedillo Maldonado,2023-04-20T18:51:52Z,changed ci/cd file checkout v
+scrapper/update,43bfd96fe0facb944ba51bf48ca9522f15534cea,Luis Cedillo Maldonado,2023-04-20T18:02:54Z,changed ci/cd file
+scrapper/update,d85f7e630d3a2f52ae55db6a926f964d492a8591,Luis Cedillo Maldonado,2023-04-20T17:56:09Z,changed ci/cd file
+scrapper/update,0cf37880e054648c197b20f6b1111970a85eb79e,Luis Cedillo Maldonado,2023-04-20T17:48:18Z,Deleted .idea dir
+scrapper/update,8a1b87b18ddbd670e30e83ff7bea629794eb2d1d,Luis Cedillo Maldonado,2023-04-20T17:37:34Z,Automated testing for API
+scrapper/update,bfb7116705548ab1c92ae54cb83cbc91e494ce14,supply-geologist-11139420,2023-04-20T16:43:23Z,created postman test for login
+scrapper/update,3a5eb65beabacda77f0370f37b69f1b91feff530,luisced,2023-04-20T02:51:13Z,modified yml region to us-east-2
+scrapper/update,f5adfbb704172c9970e0b15a8348bfa79c31d401,luisced,2023-04-20T02:43:56Z,modified yml region
+scrapper/update,53f69a6dd2dbc349a87023692297d34d1bdee903,luisced,2023-04-20T02:39:10Z,modified dockerfile
+scrapper/update,1d8624f1216b581c8e5c494f10a7d6f1562e6b07,luisced,2023-04-20T02:36:44Z,modified dockerfile
+scrapper/update,93a04f174cc0d37bbcb50fe6bf55ebccec585217,luisced,2023-04-20T01:53:15Z,modified dockerfile
+scrapper/update,1af993b2d7dac36d076a52d9047c79c2cedf1d62,luisced,2023-04-20T01:34:01Z,modified workflow
+scrapper/update,26a57202f8858abb72aa0f86a0794cc9b04865f3,luisced,2023-04-20T01:25:12Z,modified workflow
+scrapper/update,187e48d987fa10456c668aaebab7a72edc8cb1a5,luisced,2023-04-20T01:22:50Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,6a70ee13a1747dd9331116ace860a188939476c4,luisced,2023-04-20T01:22:33Z,created workflow
+scrapper/update,bf8a38650852e4b8f912eeaf0ebb15976b5c2520,supply-geologist-11139420,2023-04-18T02:15:13Z,Added healtcheck
+scrapper/update,61347fc7c287aac94b05804089bda4689038f8a7,supply-geologist-11139420,2023-04-18T02:10:25Z,Updated postman endpoints
+scrapper/update,b6496bd990e6bb7a6bd67a8c4e8ed84a04bb7b67,Maurch,2023-03-27T05:45:06Z,Commented some algorithms
+scrapper/update,fabdd8943cccfb780045a5717087ff2d149bc666,Maurch,2023-03-27T05:09:19Z,Added function to validate a list of schedules generated by another function and fixed errors when intrudciong non-existent courses under the createSchedule endpoint
+scrapper/update,cd76604c037a3a7a9dcbb36c23834c147cf3b1b5,Maurch,2023-03-24T22:44:14Z,"Added schedule generator, createSchedule endpoint"
+scrapper/update,c750545ae26a8a4abf9fce94defb4bf3dacd18b4,Maurch,2023-03-24T19:52:07Z,Added schedule permutations endpoint
+scrapper/update,6f88ada8986670cecd64caecb2d7f826ac3c6a0c,luisced,2023-03-22T03:44:29Z,changed requierements
+scrapper/update,8e5dbe346dae81b454133f6b4bcbc2673932b73c,MAurch,2023-03-20T21:32:12Z,Added schedule endpoint
+scrapper/update,af35513c4195d7530e12111a2a0486a3361a4489,luisced,2023-03-20T05:28:33Z,created guest registration
+scrapper/update,3b38ddb5ac2726719f67ce75f220c220f9ff8919,luisced,2023-03-20T03:30:33Z,modified login
+scrapper/update,1a340e05e440e4b1f47e90e17cec9283ee2a6c02,luisced,2023-03-20T03:14:19Z,merge from security/Validations
+scrapper/update,72ffd615eaae723a722b61d3835650e9f3a35a5e,MAurch,2023-03-18T02:49:45Z,Added schedule endpoint
+scrapper/update,9f4aa4a7aa2c50c43299704d6be885f46eaf97ac,Luis Cedillo Maldonado,2023-03-17T20:29:39Z,Created DB table for User and Profile
+scrapper/update,726ea5f3f2bcd7100d53962dc2b048786334e50f,luisced,2023-03-17T05:16:46Z,created profile model
+scrapper/update,36704ebdf14a696e98a8d45db48f6add0825cb79,luisced,2023-03-17T05:09:19Z,add user table
+scrapper/update,1761a4d9c38a14f74f871ef1bd4073838f5010f8,luisced,2023-03-17T02:35:22Z,merge from main
+scrapper/update,f5d3f5942c0b6a12a456d32d5394a910a3e73819,Maurch,2023-03-17T02:21:46Z,login changed route
+scrapper/update,6685a21b017104c6c74c1566ac306900dbad1f73,luisced,2023-03-17T02:15:39Z,updated dependencies
+scrapper/update,8fc1e43deb039e39bffae405897a3015484b520b,Luis Cedillo Maldonado,2023-03-16T21:59:24Z,added security dir
+scrapper/update,fe4c69383d492cb1fefa00428d7d29584c7a46c9,Luis Cedillo Maldonado,2023-03-14T19:09:30Z,Update README.MD
+scrapper/update,ced860fe1f0eb4227f7be9e758b1e56529f19894,Luis Cedillo Maldonado,2023-03-13T03:38:37Z,Update README.MD
+scrapper/update,073ad02b3be20ad6bb6cba98292d1cb26860eea4,Maurch,2023-03-10T19:25:57Z,Added CommonZones and Zones tables
+scrapper/update,71d0cf0c9cc93998a704339111ff2c88618a67f7,Luis Cedillo Maldonado,2023-03-07T06:56:25Z,Update README.MD
+scrapper/update,888ec38e670fe7d1384e82fe2be235180f391704,luisced,2023-03-07T06:55:17Z,updated  Readme file to the repo
+scrapper/update,a128a8dd6ec2f2016d621fab5d51b3d996d640b0,luisced,2023-03-07T06:54:17Z,Added Readme file to the repo
+scrapper/update,dcd8dedd23c665453be0d2d7f5fa01a02d6d06f2,luisced,2023-03-07T06:27:22Z,Modified docker containers name
+scrapper/update,8e1e7a436cb106e88bf0e665293b8d4098aa9546,luisced,2023-03-07T06:19:46Z,merge from feature/api
+scrapper/update,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Borre mis pendientes
+scrapper/update,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
+scrapper/update,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
+scrapper/update,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
