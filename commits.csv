@@ -494,6 +494,7 @@ fix/UPSite-Scrapping,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-
 fix/UPSite-Scrapping,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
 fix/UPSite-Scrapping,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
 fix/UPSite-Scrapping,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+main,0eedaa91d54f0a44d04044f78e7729d6c7d4b05a,HeinrichGomTag,2023-09-07T05:35:33Z,Added CSV and updated JSON
 main,cca2d925b0fcb5d956a9e7f6cb422808e233a160,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:35:02Z,Got run_commit_extractor.yml on the go
 main,38e136dd67f142848c66f525dfa3c0fb4cbf1b5e,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:34:28Z,Regresé el main.yml después de las pruebas
 main,c0fcbfeb1591e590bd8c6c94b7cb3b6ddf79e130,HeinrichGomTag,2023-09-07T05:21:10Z,Added CSV and updated JSON
@@ -717,6 +718,8 @@ main,047009a870b91b70ae676a6fb3cbed26ec67ef00,IvanCruzl,2023-02-20T23:21:31Z,Bor
 main,2c658756cbac7eda680b5d53651de4f49b0a9822,iOS Lab,2023-02-20T23:17:24Z,Añadí un pdf de los pendientes
 main,e5779f85e1d7fe924b38df589e4b31a91bbd4604,kikinacademy,2023-02-17T00:11:45Z,Logos
 main,9766236a0c9680ffef394c1e5353716862d7b919,KikinAcademy,2023-01-31T01:03:21Z,Initial commit
+registros,f6077b27983e7cd78e3457699c89be5201901b88,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:37:58Z,Updated extract.py repo name
+registros,e3c2b046f37bd7d00f556cb9b50ab1e3bf1f6512,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:35:42Z,Update main.yml
 registros,2c524f5d0f1bc0bb83b40006794575f121ad8e36,Iñaki Sigüenza,2023-09-07T05:17:16Z,Update extract.py
 registros,3d5ff736a8f1a5acffa24e483de41297bdf31a48,Iñaki Sigüenza,2023-09-07T05:15:50Z,Create main.yml
 registros,8c0bbdccd6a778dc5900734f8a4bce3c552174ed,Iñaki Sigüenza,2023-09-07T05:15:19Z,Add files via upload
