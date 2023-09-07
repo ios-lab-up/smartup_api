@@ -38,43 +38,58 @@ def enter_up_site_subjects(browser: Firefox) -> bool:
     try:
         # sleep 10 seconds and print it
 
-        browser.get(
-            "https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&")
+        # browser.get(
+        #     "https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&")
 
-        WebDriverWait(browser, 20).until(
-            ec.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
+        # WebDriverWait(browser, 20).until(
+        #     ec.presence_of_element_located((By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH")))
 
-        element = browser.find_element(value='CLASS_SRCH_WRK2_STRM$35$')
-        dropdown = Select(element)
-        print("selecting dropdown")
-        # i=0;
-        # for option in dropdown.options:
-        #     print(i, option.text)
-        #     i +=1
-        # print (i)
-        print("selected dropdown")
-        dropdown.select_by_index(126)
-        # dropdown.select_by_visible_text("Otoño 2022")
-        print("finding search 1st button")
 
-        element = browser.find_element(value='CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH')
-        print("search primero encontrado")
-        browser.execute_script("arguments[0].scrollIntoView();", element)
-        print("scrolled")
-        element.click()
-        print("clicked 1st button")
+        # element = browser.find_element(value='CLASS_SRCH_WRK2_STRM$35$')
+        # dropdown = Select(element)
+        # dropdown.select_by_index(126)
 
-        browser.find_element(value="CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
-        CloseUnnecessaryTabs(browser)
-        print("found and clicked search 1st button")
-        WebDriverWait(browser, 10).until(
-            ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
+        browser.get("https://upsite.up.edu.mx/psc/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?ICType=Panel&ICElementNum=0&ICStateNum=21&ICResubmit=1&ICAJAX=1&/psp/CAMPUS/EMPLOYEE/SA/c/SA_LEARNER_SERVICES.CLASS_SEARCH.GBL?PORTALPARAM_PTCNAV=HC_CLASS_SEARCH&EOPP.SCNode=SA&EOPP.SCPortal=EMPLOYEE&EOPP.SCName=PT_PTPP_PORTAL_ROOT&EOPP.SCLabel=Autoservicio&EOPP.SCFName=CO_EMPLOYEE_SELF_SERVICE&EOPP.SCSecondary=true&EOPP.SCPTfname=CO_EMPLOYEE_SELF_SERVICE&FolderPath=PORTAL_ROOT_OBJECT.CO_EMPLOYEE_SELF_SERVICE.HCCC_SS_CATALOG.HC_CLASS_SEARCH&IsFolder=false")
+        browser.set_window_size(1062, 768)
+        browser.execute_script("document.body.style.zoom='90%'")
 
-        browser.switch_to.frame(
-            browser.find_elements(By.TAG_NAME, 'iframe')[0])
+        #browser.switch_to.frame(0)
+        print("cambio pantalla y frame")
+        browser.find_element(By.ID, "CLASS_SRCH_WRK2_STRM$35$").click()
+        print("click en dropdown")
+        browser.find_element(By.CSS_SELECTOR, "option:nth-child(127)").click()
+        print("click en opcion")
+        print("licenciatura maybe")
+        # browser.find_element(By.ID, "SSR_CLSRCH_WRK_ACAD_CAREER$2").click()
+        # dropdown = browser.find_element(By.ID, "SSR_CLSRCH_WRK_ACAD_CAREER$2")
+        # dropdown.find_element(By.XPATH, "//option[. = 'Licenciatura']").click()
+        browser.execute_script("document.body.style.zoom='90%'")
+        browser.find_element(By.ID, "CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+        print("click en boton search 1st")
+        browser.switch_to.default_content()
+        browser.switch_to.frame(3)
+        browser.find_element(By.CSS_SELECTOR, ".PSPUSHBUTTON:nth-child(1) > span").click()
+        browser.find_element(By.ID, "#ICSave").click()
+        print("click en boton search 2nd")
 
-        sleep(5)
-        browser.find_element(value="#ICSave").click()
+        # element = browser.find_element(value='CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH')
+        # print("search primero encontrado")
+        # browser.execute_script("arguments[0].scrollIntoView();", element)
+        # print("scrolled")
+        # element.click()
+        # print("clicked 1st button")
+
+        # browser.find_element(value="CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
+        # CloseUnnecessaryTabs(browser)
+        # print("found and clicked search 1st button")
+        # WebDriverWait(browser, 10).until(
+        #     ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
+
+        # browser.switch_to.frame(
+        #     browser.find_elements(By.TAG_NAME, 'iframe')[0])
+
+        # sleep(5)
+        # browser.find_element(value="#ICSave").click()
 
         #WebDriverWait(browser, 30).until(ec.presence_of_element_located((By.ID, 'win0div$ICField94')))
         sleep(15)
