@@ -12,7 +12,7 @@ if gh_token is None:
     exit(1)
 
 owner = "iOS-Lab-UP"
-repo = "juegaElPollo"
+repo = "SmartUP-API"
 
 
 def run_command(command_list, cwd=None):
