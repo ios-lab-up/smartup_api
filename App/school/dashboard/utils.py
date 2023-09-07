@@ -1,4 +1,5 @@
 from time import sleep
+from ..subjects.utils import CloseUnnecessaryTabs
 from ..login.utils import *
 from ..models import FirefoxBrowser
 from selenium.webdriver.common.by import By
@@ -45,12 +46,27 @@ def enter_up_site_subjects(browser: Firefox) -> bool:
 
         element = browser.find_element(value='CLASS_SRCH_WRK2_STRM$35$')
         dropdown = Select(element)
-        print (dropdown.options)
-        dropdown.select_by_value("1238")
+        print("selecting dropdown")
+        # i=0;
+        # for option in dropdown.options:
+        #     print(i, option.text)
+        #     i +=1
+        # print (i)
+        print("selected dropdown")
+        dropdown.select_by_index(126)
         # dropdown.select_by_visible_text("Otoño 2022")
+        print("finding search 1st button")
+
+        element = browser.find_element(value='CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH')
+        print("search primero encontrado")
+        browser.execute_script("arguments[0].scrollIntoView();", element)
+        print("scrolled")
+        element.click()
+        print("clicked 1st button")
 
         browser.find_element(value="CLASS_SRCH_WRK2_SSR_PB_CLASS_SRCH").click()
-
+        CloseUnnecessaryTabs(browser)
+        print("found and clicked search 1st button")
         WebDriverWait(browser, 10).until(
             ec.presence_of_element_located((By.XPATH, '//*[@id="ptModFrame_0"]')))
 
