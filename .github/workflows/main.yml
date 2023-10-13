@@ -1,35 +1,36 @@
-name: Run Commit Extractor Script
+name: Run CACTOR Analysis
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - '*'
+      - "*"
     paths-ignore:
-      - '**/commits.csv'
-      - '**/last_checked.json'
-      - '**/last_shas.json'
-      
+      - "**/commits.csv"
+      - "**/last_checked.json"
+      - "**/last_shas.json"
+      - "**/cactor.py"
+      - "**/cactor_graphs.py"
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Python 3.x
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-      
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
 
-    - name: Execute script
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      run: python extract.py
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
+      - name: Generate commit matrix
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: python cactor.py
