@@ -1,0 +1,232 @@
+Commit Count by Author
+['Mauricio: 75 (52.4%)', 'Enrique Ulises Báez Gómez Tagle: 17 (11.9%)', 'Fernando: 12 (8.4%)', 'Esteban Mayoral: 8 (5.6%)', 'Iñaki Sigüenza: 6 (4.2%)', 'Maurch: 5 (3.5%)', 'Xayil: 4 (2.8%)', 'Luis Cedillo Maldonado: 4 (2.8%)', 'HeinrichGomTag: 3 (2.1%)', 'Bruno: 3 (2.1%)', 'Mayze2602: 2 (1.4%)', 'JavierRangel2004: 2 (1.4%)', 'Javier Rangel: 2 (1.4%)']
+----------------------
+Commit Distribution Over Time
+Day
+2023-07-10     4
+2023-08-13     6
+2023-08-15    14
+2023-08-16    11
+2023-08-21    16
+2023-08-22     4
+2023-08-23    15
+2023-08-24     9
+2023-08-25    13
+2023-08-28     3
+2023-08-29     3
+2023-08-30     9
+2023-08-31     3
+2023-09-01     1
+2023-09-02     4
+2023-09-04     2
+2023-09-05    11
+2023-09-07    15
+Name: count, dtype: int64
+----------------------
+Commit Distribution by Branch
+Branch
+nodes              47
+main               37
+scrapper/update    32
+registros          27
+Name: count, dtype: int64
+----------------------
+Most Active Days
+Weekday
+Wednesday    35
+Tuesday      32
+Thursday     27
+Monday       25
+Friday       14
+Sunday        6
+Saturday      4
+Name: count, dtype: int64
+----------------------
+Commits Containing "Vistas"
+Contains_Vistas
+False    142
+Name: count, dtype: int64
+----------------------
+Commit Frequency
+Day
+2023-07-10     4
+2023-08-13     6
+2023-08-15    14
+2023-08-16    11
+2023-08-21    16
+2023-08-22     4
+2023-08-23    15
+2023-08-24     9
+2023-08-25    13
+2023-08-28     3
+2023-08-29     3
+2023-08-30     9
+2023-08-31     3
+2023-09-01     1
+2023-09-02     4
+2023-09-04     2
+2023-09-05    11
+2023-09-07    15
+Name: count, dtype: int64
+----------------------
+Commit Length Analysis
+count    142.000000
+mean      38.070423
+std       31.732849
+min        7.000000
+25%       17.000000
+50%       25.500000
+75%       51.000000
+max      229.000000
+Name: Message_Length, dtype: float64
+----------------------
+Unique Branch Contributors
+Branch
+main               10
+nodes              10
+registros           7
+scrapper/update    10
+Name: Author, dtype: int64
+----------------------
+Average Time Between Commits (in hours)
+Author
+Bruno                                0.000000
+Enrique Ulises Báez Gómez Tagle     24.452014
+Esteban Mayoral                     48.553810
+Fernando                             0.003434
+HeinrichGomTag                       0.144306
+Iñaki Sigüenza                       0.018000
+Javier Rangel                      101.877222
+JavierRangel2004                   103.557778
+Luis Cedillo Maldonado               0.000000
+Maurch                               0.072986
+Mauricio                             7.490619
+Mayze2602                          119.489722
+Xayil                               33.358611
+Name: Time_Diff, dtype: float64
+----------------------
+Commits Without Issues/Task Reference
+Contains_Issue
+False    143
+Name: count, dtype: int64
+----------------------
+Top 10 Author Collaborations
+Collaborators
+Mauricio                                                           20
+Luis Cedillo Maldonado                                              4
+Fernando, Enrique Ulises Báez Gómez Tagle, Esteban Mayoral          4
+Fernando                                                            4
+Mauricio, Maurch                                                    4
+Xayil                                                               4
+Bruno                                                               3
+Enrique Ulises Báez Gómez Tagle                                     2
+HeinrichGomTag, Enrique Ulises Báez Gómez Tagle, Iñaki Sigüenza     1
+Esteban Mayoral, Mayze2602                                          1
+Name: count, dtype: int64
+----------------------
+Commit Time Analysis
+Hour
+0      4
+1      6
+2     18
+3      4
+4      4
+5     22
+6      8
+7     11
+8      6
+14     1
+16     3
+17     3
+18     9
+19    15
+20     1
+21     4
+22     8
+23    16
+Name: count, dtype: int64
+----------------------
+Commit Trend Over Time
+Day
+2023-07-10     4
+2023-08-13     6
+2023-08-15    14
+2023-08-16    11
+2023-08-21    16
+2023-08-22     4
+2023-08-23    15
+2023-08-24     9
+2023-08-25    13
+2023-08-28     3
+2023-08-29     3
+2023-08-30     9
+2023-08-31     3
+2023-09-01     1
+2023-09-02     4
+2023-09-04     2
+2023-09-05    11
+2023-09-07    15
+Name: count, dtype: int64
+----------------------
+Commit Impact Analysis (based on message length)
+Impact
+Low       104
+Medium     34
+High        5
+Name: count, dtype: int64
+----------------------
+Commits With/Without "bug"
+Contains_bug
+False    142
+Name: count, dtype: int64
+----------------------
+Commits With/Without "fix"
+Contains_fix
+False    107
+True      35
+Name: count, dtype: int64
+----------------------
+Commits With/Without "error"
+Contains_error
+False    125
+True      17
+Name: count, dtype: int64
+----------------------
+Commits With/Without "feature"
+Contains_feature
+False    142
+Name: count, dtype: int64
+----------------------
+Commits With/Without "update"
+Contains_update
+False    115
+True      27
+Name: count, dtype: int64
+----------------------
+Commits With/Without "refactor"
+Contains_refactor
+False    142
+Name: count, dtype: int64
+----------------------
+Commits With/Without "add"
+Contains_add
+False    130
+True      12
+Name: count, dtype: int64
+----------------------
+Commits With/Without "delete"
+Contains_delete
+False    117
+True      25
+Name: count, dtype: int64
+----------------------
+Commits With/Without "improve"
+Contains_improve
+False    142
+Name: count, dtype: int64
+----------------------
+Commits With/Without "docs"
+Contains_docs
+False    142
+Name: count, dtype: int64
+----------------------
