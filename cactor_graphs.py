@@ -70,11 +70,11 @@ save_to_txt('Most Active Days', weekday_counts)
 
 # 5. Commit Message Analysis
 plt.figure(figsize=(12, 7))
-df['Contains_Vistas'] = df['Message'].str.contains('Vistas')
-view_counts = df['Contains_Vistas'].value_counts()
-view_counts.plot(kind='pie', title='Commits Containing "Vistas"', labels=['Without "Vistas"', 'With "Vistas"'], autopct='%1.1f%%')
+df['Contains_merge'] = df['Message'].str.contains('merge')
+view_counts = df['Contains_merge'].value_counts()
+view_counts.plot(kind='pie', title='Commits Containing "merge"', labels=['Without "merge"', 'With "merge"'], autopct='%1.1f%%')
 save_plot('commit_message_analysis.png')
-save_to_txt('Commits Containing "Vistas"', view_counts)
+save_to_txt('Commits Containing "merge"', view_counts)
 
 # 6. Commit Frequency
 plt.figure(figsize=(12, 7))
