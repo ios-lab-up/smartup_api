@@ -1,0 +1,152 @@
+Branch,Commit SHA,Author,Date,Message
+main,88c3c0c8c597749c9376298ea94bb79ed4764338,HeinrichGomTag,2023-09-07T05:38:29Z,Added CSV and updated JSON
+main,0eedaa91d54f0a44d04044f78e7729d6c7d4b05a,HeinrichGomTag,2023-09-07T05:35:33Z,Added CSV and updated JSON
+main,cca2d925b0fcb5d956a9e7f6cb422808e233a160,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:35:02Z,Got run_commit_extractor.yml on the go
+main,38e136dd67f142848c66f525dfa3c0fb4cbf1b5e,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:34:28Z,Regresé el main.yml después de las pruebas
+main,c0fcbfeb1591e590bd8c6c94b7cb3b6ddf79e130,HeinrichGomTag,2023-09-07T05:21:10Z,Added CSV and updated JSON
+main,a4406360bb10b9a368669818ec67fdf6ac9942b2,Iñaki Sigüenza,2023-09-07T05:20:43Z,Update extract.py
+main,dbf2347b4c0488449b21147960eaefe099ab34c1,Iñaki Sigüenza,2023-09-07T05:19:47Z,Update main.yml
+main,7c76ecf29a7e28e9779089ba3e492c036b760245,Iñaki Sigüenza,2023-09-07T05:18:25Z,Add files via upload
+main,05bed112d70af212a1b7013ad34482cc706bca07,Mauricio,2023-08-30T18:02:15Z,"updated mysql and adminer version, changed adminer design"
+main,2f3f4baadedd6b1810020082de45bdd5340ef236,Mauricio,2023-08-30T02:20:59Z,Merge NewApiModel
+main,29a62af85456be67a2dd75c1fd8e70865b6278f4,Mauricio,2023-08-30T02:03:25Z,fixed missconfiguration
+main,7106a244dd51831ebce51ed9acaca2767161ff04,Bruno,2023-08-29T18:02:33Z,Se ha modificado el archivo routes de nodes
+main,6e08e24cfbb32dde279c3613bd5bb1d0585de048,Xayil,2023-08-28T19:30:03Z,Creación de endpoint para los nodos
+main,0b9987deef5b18949b6bb8a9c341c1b50cbaa60e,Mauricio,2023-08-25T08:57:38Z,"Deleted misconfigurations, changed multiple data types and default values"
+main,edfde077adba169e135a8f0c09b02869e95584d2,Mauricio,2023-08-25T07:12:58Z,Deleted misconfiguration
+main,4b241ab258f9f1b2ba558e6db07e37491d3ab69d,Mauricio,2023-08-24T23:05:41Z,Fixed scrapper endpoint (firefox was opening multiple unnecessary tabs)
+main,b643dda930667670b39520672ba452f6dd0a1b96,Mauricio,2023-08-24T17:59:54Z,changed python version
+main,3a69a9957204f707d1074f58f6ff675e8186026a,Mauricio,2023-08-24T08:08:00Z,Commented scrapper volume inside docker container
+main,a5c8ea047b22d9b9fcbae79a11eaad477b2b4daf,Mauricio,2023-08-23T19:14:22Z,"Resolved some PEP8 error.
+Fixed some function data types."
+main,586fa1b657f6eceac85fa03e6fce4692210b6890,Mauricio,2023-08-23T18:36:26Z,Fixed login endpoint
+main,71668cc7f02d08814df94f62924bd86c8b94cac8,Mauricio,2023-08-23T07:19:26Z,"Fix API driver deprecated error, web driver now working"
+main,a38f2d187576e835dcda87f97aa47d141bc19f1d,Maurch,2023-08-23T06:35:57Z,fix selenium driver
+main,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+main,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+main,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+main,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+main,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+main,f79861e85bb212e7625b666c5d92a64118becc33,Mauricio,2023-08-16T06:05:12Z,added .idea to .gitignore entries and deleted .idea
+main,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+main,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+main,7589db40a37e99aa4d3d2dc4937951726f2266b3,Mauricio,2023-08-15T16:30:07Z,updated gitignore
+main,3880fd2d54e70be3d0dd99f71e6a505b9a2553b5,Mauricio,2023-08-15T02:39:19Z,updated selenium and webdriver versions
+main,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+main,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+main,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+main,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
+main,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+nodes,f4c5d454f06985ece8783be25f3f6f09211e9cbd,Mauricio,2023-09-05T23:21:38Z,"Fixed multiple errors, moved csv_nodes to school and added malaga nodes"
+nodes,e02a95fd6c7ab12ec8ae64c869d311408679c089,Mauricio,2023-09-05T05:00:59Z,Deleted Costo trash values
+nodes,84989264d0f303e537903e45af3e5c590ecba136,Mayze2602,2023-09-05T04:26:40Z,added each building its csv file
+nodes,cb45cd941ce266cdea8437e9b24f1814a81e00ad,Mauricio,2023-09-05T03:55:42Z,"updated nodes routes.py, now, the route for the best path is dynamic, and it is called /pathfinder, it takes 2 arguments in its route, /pathfinder/<string:start>/<string:goal>"
+nodes,de6f813b29dff109a3d4b605b895e53239b0356f,Mauricio,2023-09-05T03:26:44Z,Merge remote-tracking branch 'origin/nodes' into nodes
+nodes,ee4a0a463c33020e662001994194907776f1e4c9,Mauricio,2023-09-05T03:26:21Z,Finished path algorthm v1
+nodes,288a4f4390dbb026386574ea9226c2d3f0ba16d2,Esteban Mayoral,2023-09-05T02:06:20Z,updated campana and malaga
+nodes,1487321f440798f03605ec91358a03fa3125d8d6,Mauricio,2023-09-05T01:40:52Z,Added malaga changes
+nodes,09a8fd82ca5c5ec613a43f54b2d7f43b0b0c11da,Mauricio,2023-09-05T01:37:16Z,"Merge remote-tracking branch 'origin/nodes' into nodes
+
+# Conflicts:
+#	csv-paths/Nodos iOS - FINAL.csv"
+nodes,ffeb71f8be9ca4e81e6429df73fd04d84b6feed8,Mauricio,2023-09-05T01:33:08Z,Finished Anexo nodes with their cost
+nodes,d80679e91ef5053aa9d0ecd7f73b8cb44a806064,Esteban Mayoral,2023-09-05T01:30:39Z,Updated csv with Malaga and Campana nodes
+nodes,a591ce6ad155c4d7a0e07478b2b790ebe0cee33b,JavierRangel2004,2023-09-02T21:01:52Z,scrapp clean and log
+nodes,e8689c83d5852221a806610441eec6131a57972d,Mauricio,2023-09-02T07:27:09Z,"created /nodes route: returns all nodes in the database with their respective neighbors, also added /update_nodes route, store all nodes in the csv into the database, modify database table nodes, created model for the Nodes table"
+nodes,e6cc8b739bdb242275059e1b8a6fdb89ceca5bd8,Mauricio,2023-09-02T01:03:48Z,"deleted trash files under scripts, detected multiple misconfigurations under App/schools/nodes, changes sql nodes table structure"
+nodes,48f942a4603d0cbd17dab2014289e44c548f8650,Xayil,2023-09-01T23:34:36Z,Cambio al endpoint de nodes
+nodes,923ed73ecac0117a7949dce75d7e4730eae74f3a,Esteban Mayoral,2023-08-31T20:00:02Z,created csv for paths
+nodes,8656a5663b52c4b5fafc95d6fa9c2a249eaefcf4,Esteban Mayoral,2023-08-31T19:34:01Z,"Update 012_nodes_db.sql
+
+updated nodes database"
+nodes,54ce1429e3d2ba7c17017cba5191a63b5d0eb299,Mayze2602,2023-08-31T04:57:17Z,Create 012_nodes_db.sql
+nodes,05bed112d70af212a1b7013ad34482cc706bca07,Mauricio,2023-08-30T18:02:15Z,"updated mysql and adminer version, changed adminer design"
+nodes,2f3f4baadedd6b1810020082de45bdd5340ef236,Mauricio,2023-08-30T02:20:59Z,Merge NewApiModel
+nodes,29a62af85456be67a2dd75c1fd8e70865b6278f4,Mauricio,2023-08-30T02:03:25Z,fixed missconfiguration
+nodes,7106a244dd51831ebce51ed9acaca2767161ff04,Bruno,2023-08-29T18:02:33Z,Se ha modificado el archivo routes de nodes
+nodes,6e08e24cfbb32dde279c3613bd5bb1d0585de048,Xayil,2023-08-28T19:30:03Z,Creación de endpoint para los nodos
+nodes,0b9987deef5b18949b6bb8a9c341c1b50cbaa60e,Mauricio,2023-08-25T08:57:38Z,"Deleted misconfigurations, changed multiple data types and default values"
+nodes,edfde077adba169e135a8f0c09b02869e95584d2,Mauricio,2023-08-25T07:12:58Z,Deleted misconfiguration
+nodes,4b241ab258f9f1b2ba558e6db07e37491d3ab69d,Mauricio,2023-08-24T23:05:41Z,Fixed scrapper endpoint (firefox was opening multiple unnecessary tabs)
+nodes,b643dda930667670b39520672ba452f6dd0a1b96,Mauricio,2023-08-24T17:59:54Z,changed python version
+nodes,3a69a9957204f707d1074f58f6ff675e8186026a,Mauricio,2023-08-24T08:08:00Z,Commented scrapper volume inside docker container
+nodes,a5c8ea047b22d9b9fcbae79a11eaad477b2b4daf,Mauricio,2023-08-23T19:14:22Z,"Resolved some PEP8 error.
+Fixed some function data types."
+nodes,586fa1b657f6eceac85fa03e6fce4692210b6890,Mauricio,2023-08-23T18:36:26Z,Fixed login endpoint
+nodes,71668cc7f02d08814df94f62924bd86c8b94cac8,Mauricio,2023-08-23T07:19:26Z,"Fix API driver deprecated error, web driver now working"
+nodes,a38f2d187576e835dcda87f97aa47d141bc19f1d,Maurch,2023-08-23T06:35:57Z,fix selenium driver
+nodes,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+nodes,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+nodes,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+nodes,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+nodes,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+nodes,f79861e85bb212e7625b666c5d92a64118becc33,Mauricio,2023-08-16T06:05:12Z,added .idea to .gitignore entries and deleted .idea
+nodes,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+nodes,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+nodes,7589db40a37e99aa4d3d2dc4937951726f2266b3,Mauricio,2023-08-15T16:30:07Z,updated gitignore
+nodes,3880fd2d54e70be3d0dd99f71e6a505b9a2553b5,Mauricio,2023-08-15T02:39:19Z,updated selenium and webdriver versions
+nodes,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+nodes,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+nodes,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+nodes,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
+nodes,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+registros,f6077b27983e7cd78e3457699c89be5201901b88,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:37:58Z,Updated extract.py repo name
+registros,e3c2b046f37bd7d00f556cb9b50ab1e3bf1f6512,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:35:42Z,Update main.yml
+registros,2c524f5d0f1bc0bb83b40006794575f121ad8e36,Iñaki Sigüenza,2023-09-07T05:17:16Z,Update extract.py
+registros,3d5ff736a8f1a5acffa24e483de41297bdf31a48,Iñaki Sigüenza,2023-09-07T05:15:50Z,Create main.yml
+registros,8c0bbdccd6a778dc5900734f8a4bce3c552174ed,Iñaki Sigüenza,2023-09-07T05:15:19Z,Add files via upload
+registros,9ae8edc68b2d3800adb1638fbf9a361441af9bf8,Enrique Ulises Báez Gómez Tagle,2023-09-04T04:03:14Z,"BACK ATDR.tex, me das tu opinión porfa @KelThzear"
+registros,ad952ed6403d6c09a0f07134c65d39fed860eefc,Enrique Ulises Báez Gómez Tagle,2023-09-04T03:59:58Z,"BACK ATDR.tex, me das tu opinión porfa @KelThzear"
+registros,c4bbe9efbc6043df961c1c2606b97b55cd03dc84,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:59:12Z,CSV para avances
+registros,9565385d12af5e981d5877b50658a0a903d2df05,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:47Z,Delete .postman directory
+registros,5729bf2d33a6baeb3a6d5a39fe4c8eb78fe0c706,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:40Z,Delete .vscode directory
+registros,6263cef33debbd043210dac05f0bded4501c063a,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:31Z,Delete .DS_Store
+registros,835336151054e40ff30c6fd4e1a2f6c140272e25,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:24Z,Delete .gitignore
+registros,01b158438047d59f8b2abd8f0ffd9ab29d420876,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:58:17Z,Delete app.py
+registros,685c66dd8f07392c556974b7b6584194e7e6f3f7,Enrique Ulises Báez Gómez Tagle,2023-08-25T19:57:37Z,Delete .github/workflows directory
+registros,87824eae8bd02ebd480fcdd67ee29911af6fd5f1,Mauricio,2023-08-23T14:59:17Z,changes
+registros,e84021f2613e74e4b61449a6b6ca6443f2f387d3,Maurch,2023-08-23T06:20:49Z,None
+registros,751f093c70450b9706a5e6307811ae340384f0a5,Maurch,2023-08-23T06:18:26Z,test docker for api fix
+registros,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+registros,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+registros,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+registros,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+registros,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+registros,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+registros,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+registros,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+registros,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+registros,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+scrapper/update,d5ac8802aa695a2989295cf6ac0156e6ce55dbe3,JavierRangel2004,2023-09-07T04:35:20Z,still testing solutions
+scrapper/update,602191b382aa119eefc04f497a0aea6c36ce714b,Javier Rangel,2023-09-07T01:07:41Z,"scrapper dont work, still fixing"
+scrapper/update,91f996b2c48301533c0306f69179d1c0ca867802,Javier Rangel,2023-09-02T19:15:03Z,Scrapping update start
+scrapper/update,05bed112d70af212a1b7013ad34482cc706bca07,Mauricio,2023-08-30T18:02:15Z,"updated mysql and adminer version, changed adminer design"
+scrapper/update,2f3f4baadedd6b1810020082de45bdd5340ef236,Mauricio,2023-08-30T02:20:59Z,Merge NewApiModel
+scrapper/update,29a62af85456be67a2dd75c1fd8e70865b6278f4,Mauricio,2023-08-30T02:03:25Z,fixed missconfiguration
+scrapper/update,7106a244dd51831ebce51ed9acaca2767161ff04,Bruno,2023-08-29T18:02:33Z,Se ha modificado el archivo routes de nodes
+scrapper/update,6e08e24cfbb32dde279c3613bd5bb1d0585de048,Xayil,2023-08-28T19:30:03Z,Creación de endpoint para los nodos
+scrapper/update,0b9987deef5b18949b6bb8a9c341c1b50cbaa60e,Mauricio,2023-08-25T08:57:38Z,"Deleted misconfigurations, changed multiple data types and default values"
+scrapper/update,edfde077adba169e135a8f0c09b02869e95584d2,Mauricio,2023-08-25T07:12:58Z,Deleted misconfiguration
+scrapper/update,4b241ab258f9f1b2ba558e6db07e37491d3ab69d,Mauricio,2023-08-24T23:05:41Z,Fixed scrapper endpoint (firefox was opening multiple unnecessary tabs)
+scrapper/update,b643dda930667670b39520672ba452f6dd0a1b96,Mauricio,2023-08-24T17:59:54Z,changed python version
+scrapper/update,3a69a9957204f707d1074f58f6ff675e8186026a,Mauricio,2023-08-24T08:08:00Z,Commented scrapper volume inside docker container
+scrapper/update,a5c8ea047b22d9b9fcbae79a11eaad477b2b4daf,Mauricio,2023-08-23T19:14:22Z,"Resolved some PEP8 error.
+Fixed some function data types."
+scrapper/update,586fa1b657f6eceac85fa03e6fce4692210b6890,Mauricio,2023-08-23T18:36:26Z,Fixed login endpoint
+scrapper/update,71668cc7f02d08814df94f62924bd86c8b94cac8,Mauricio,2023-08-23T07:19:26Z,"Fix API driver deprecated error, web driver now working"
+scrapper/update,a38f2d187576e835dcda87f97aa47d141bc19f1d,Maurch,2023-08-23T06:35:57Z,fix selenium driver
+scrapper/update,a3cc1fb51041ca391b9f32dff7e2c7c202a8a443,Fernando,2023-08-22T00:00:13Z,favor de no ablar del tema
+scrapper/update,eac9a619ac4a5d417b011922c371e89136c98a8f,Fernando,2023-08-21T23:58:12Z,Merge branch 'main' of github.com:iOS-Lab-UP/SmartUP-API
+scrapper/update,4d1a8cb09e2e3ad2cbb6145737fb2400c20fce74,Fernando,2023-08-21T23:57:57Z,favor de no compartir
+scrapper/update,39e8ec75f44bea80674bf526b51dd9e8c7b223b1,Enrique Ulises Báez Gómez Tagle,2023-08-21T22:24:02Z,Delete Papoi.txt
+scrapper/update,4d735551d96565e2be35b4378260b44fe71fe08d,Esteban Mayoral,2023-08-21T22:13:44Z,Papoi si vino
+scrapper/update,f79861e85bb212e7625b666c5d92a64118becc33,Mauricio,2023-08-16T06:05:12Z,added .idea to .gitignore entries and deleted .idea
+scrapper/update,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z,updated gitignore
+scrapper/update,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
+scrapper/update,7589db40a37e99aa4d3d2dc4937951726f2266b3,Mauricio,2023-08-15T16:30:07Z,updated gitignore
+scrapper/update,3880fd2d54e70be3d0dd99f71e6a505b9a2553b5,Mauricio,2023-08-15T02:39:19Z,updated selenium and webdriver versions
+scrapper/update,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
+scrapper/update,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+scrapper/update,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
+scrapper/update,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
+scrapper/update,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
