@@ -1,4 +1,8 @@
 Branch,Commit SHA,Author,Date,Message
+main,2d2570a0093f6bd2a160b2b73b6746656c94d639,HeinrichGomTag,2023-10-13T03:24:08Z,"Sample output, some problems on backtracking and alternate solutions"
+main,1d48f29f7340bc594ef105d6577436c3a2165a40,HeinrichGomTag,2023-10-13T03:13:10Z,CACTOR ANALYZED
+main,bc97466480a9ce6f90c810328f3881fb32d528c0,HeinrichGomTag,2023-10-13T02:20:52Z,CACTOR analyzed
+main,d43dc37da4721cd18eb57b732a8b5b56965aa345,HeinrichGomTag,2023-10-13T02:20:20Z,CACTOR CONFIGURED
 main,88c3c0c8c597749c9376298ea94bb79ed4764338,HeinrichGomTag,2023-09-07T05:38:29Z,Added CSV and updated JSON
 main,0eedaa91d54f0a44d04044f78e7729d6c7d4b05a,HeinrichGomTag,2023-09-07T05:35:33Z,Added CSV and updated JSON
 main,cca2d925b0fcb5d956a9e7f6cb422808e233a160,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:35:02Z,Got run_commit_extractor.yml on the go
@@ -36,7 +40,6 @@ main,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,giti
 main,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
 main,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
 main,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
-main,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
 nodes,f4c5d454f06985ece8783be25f3f6f09211e9cbd,Mauricio,2023-09-05T23:21:38Z,"Fixed multiple errors, moved csv_nodes to school and added malaga nodes"
 nodes,e02a95fd6c7ab12ec8ae64c869d311408679c089,Mauricio,2023-09-05T05:00:59Z,Deleted Costo trash values
 nodes,84989264d0f303e537903e45af3e5c590ecba136,Mayze2602,2023-09-05T04:26:40Z,added each building its csv file
@@ -89,7 +92,7 @@ nodes,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,git
 nodes,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
 nodes,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
 nodes,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
-nodes,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
+registros,ac5f653e40d7ae007748c0df650ce8b782bf9e10,Enrique Ulises Báez Gómez Tagle,2023-10-13T02:13:33Z,CACTOR
 registros,f6077b27983e7cd78e3457699c89be5201901b88,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:37:58Z,Updated extract.py repo name
 registros,e3c2b046f37bd7d00f556cb9b50ab1e3bf1f6512,Enrique Ulises Báez Gómez Tagle,2023-09-07T05:35:42Z,Update main.yml
 registros,2c524f5d0f1bc0bb83b40006794575f121ad8e36,Iñaki Sigüenza,2023-09-07T05:17:16Z,Update extract.py
@@ -116,7 +119,6 @@ registros,317b1e05af110152a0e101f665795662ae82133f,Mauricio,2023-08-16T05:27:27Z
 registros,e6a001c29c52bfec5e21e296d91467a264b59b6a,Mauricio,2023-08-16T05:25:36Z,delete .idea
 registros,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:26:18Z,gitignore
 registros,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
-registros,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
 scrapper/update,d5ac8802aa695a2989295cf6ac0156e6ce55dbe3,JavierRangel2004,2023-09-07T04:35:20Z,still testing solutions
 scrapper/update,602191b382aa119eefc04f497a0aea6c36ce714b,Javier Rangel,2023-09-07T01:07:41Z,"scrapper dont work, still fixing"
 scrapper/update,91f996b2c48301533c0306f69179d1c0ca867802,Javier Rangel,2023-09-02T19:15:03Z,Scrapping update start
@@ -149,4 +151,3 @@ scrapper/update,7b771e96cfab0886330abf123b32ad3360d551e4,Mauricio,2023-08-15T02:
 scrapper/update,2b93b2f79319b15c25a85d14fa1a869ff3569383,Mauricio,2023-08-15T02:09:17Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
 scrapper/update,339dceae1471b5f866c8d38bc28b12344ad306d2,Mauricio,2023-08-13T23:41:15Z,modify utils.py and routes.py files under dashboard and groups. Fixed unresolved reference errors
 scrapper/update,6508e4fc98d52f295cdcd323a9b4ebba42b127f5,Mauricio,2023-08-13T21:03:17Z,Fixed unresolved reference error under all child directories from school
-scrapper/update,c1c95b6ef709697d09fa70bd59007a5fa973fd93,Luis Cedillo Maldonado,2023-07-10T07:23:37Z,fixed template
