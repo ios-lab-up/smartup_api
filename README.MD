@@ -2,7 +2,7 @@
 
 # 🚀 SMARTUP-API 🚀
 
-> 💡 The Ultimate API that bridges the gap between your genius and UPSite. 💡
+> 💡 Ultimate API that bridges the gap between your genius and UPSite. 💡
 
 </div>
 
